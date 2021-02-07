@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+      <?php
+    /**
+     * \file      aPropos.php
+     * \author    Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
+     * \version   1.0
+     * \date      1 janvier 2021
+     * \brief     Affiche la page 'A propos' du site web Book'In.
+     * \details   Page présentant les fondateurs de l'application web Book'In.
+    */
+    ?>
+	<head>
+        <?php
+        include_once("ressources/include/head.php");
+        ?>
+		<title>A propos</title>
+	</head>
+	<body>
+		<?php
+	    	include("ressources/include/header.php");
+	  	?>
+        <div class="head_location">
+
+        </div>
+        <div class="container" id="aPropos">
+            <h1>Book'In</h1>
+            <div class="row">
+            <div class="col-md-12 propos">
+
+            <p>
+                Passionnés par la lecture, les étudiants Salma BENCHELKHA, Mouncif LEKMITI et Farah MANOUBI ont conçu cette application web afin de proposer 
+                à tous les grands amateurs de lecture une large sélection de livre de toutes catégories.
+                Fondé en 2021, ce concept a pour but de faciliter à tous l'accès aux livres sans sortir de chez vous.
+            </p>
+            <p>
+                "Tourner les pages d'un livre ne vous brûlera pas les doigts mais peut vous réchauffer le coeur."
+                Rien de tel qu'un livre pour vous permettre de vous évader dans d'autres contrées, en restant confortablement assis ou allongé sur votre canapé.
+                Envie d'un livre à l'histoire palpitante, ou d'un roman vous donnant froid dans le dos, avec notre large sélection vous serez satisfait qu'importe vos envies.
+            </p>
+            <p>
+                Notre ojectif est de fournir à nos clients une expérience agréable,
+                du premier clic de la souris jusqu’à la livraison de vos livres. En achetant chez nous, vous optez pour un service avenant et fiable.
+            </p>
+                <img class = "logoNoir" src="ressources/images/favicon.png" alt="Logo"/>
+            </div>
+
+            </div>
+        </div>
+		<?php
+			include("ressources/include/footer.php");
+		?>
+	</body>
+</html>
