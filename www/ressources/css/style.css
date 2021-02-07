@@ -1,0 +1,477 @@
+body{
+	font-family: 'Georgia, serif';
+}
+
+h1, h2, h3 {
+	margin-top:30px;
+}
+
+.head_index {
+	background: url( ../images/autres/fond.jpg);
+	background-size: cover;
+	min-height:800px;
+	padding-top:280px;
+	text-align: center;
+	color: white ;
+}
+
+.head_location {
+	background: url( ../images/autres/fond.jpg);
+	background-size: cover;
+	min-height:200px;
+	padding-top:280px;
+	text-align: center;
+	color: white ;
+}
+
+.logo {
+	width: 140px ;
+	height: 55px;
+  	position: absolute;
+}
+
+.logoNoir {
+	width: 150px ;
+	height: 150px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30px;
+	display: block;
+}
+
+.menu {
+	background-color: black ;
+	opacity: 90% ;
+}
+
+.titrePrincipal {
+	font-size:42px;
+	margin-bottom:6px;
+	font-family: 'Georgia, serif';
+}
+
+.sous-titre {
+	font-size : 20px ;
+	font-family: 'Georgia, serif';
+}
+
+.widget {
+	text-align: center;
+}
+
+.navbar .navbar-nav {
+	display: inline-block;
+	float: none;
+}
+
+.navbar .navbar-collapse {
+	text-align: right;
+}
+
+.form-control  {
+	margin : 5px ;
+}
+
+.foot {
+	margin-top: 50px;
+}
+
+footer {
+	background: gray ;
+	padding: 30px 0 0 0;
+	font-size: 12px;
+	color: white;
+	font-family: 'Georgia, serif';
+}
+
+footer .widget-title {
+	font-size: 18px;
+	font-weight: bold;
+	margin: 0 0 20px;
+}
+
+footer a {
+	color:white ;
+	text-decoration: none;
+}
+
+footer a:hover {
+	color:darkgray;
+	text-decoration: none;
+}
+
+.voitureAccueil {
+	width: 100%;
+	height: 100% ;
+	display: block;
+	margin-bottom: 20px ;
+	margin-top : 20px ;
+}
+
+.CLB {
+	font-family: 'Georgia, serif';
+	text-align: center ;
+	margin-top : 20px ;
+	border: solid;
+	border-width: 1px ;
+}
+
+.texteAccueil {
+	text-align: justify;
+	font-family: 'Georgia, serif';
+	font-size: 1.2em;
+}
+
+.container-connexion {
+	background: url( ../images/autres/fond.jpg);
+	background-size: cover;
+	padding-top:50px;
+	padding-bottom: 110px;
+	margin-bottom: -50px;;
+}
+
+.card-container.card {
+    max-width: 400px;
+	padding: 40px 40px;
+}
+
+.card-container-mdp.card {
+	max-width: 700px;
+	padding: 40px 40px;
+}
+
+.btn {
+    font-weight: 700;
+    height: 36px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px 25px 30px;
+    margin: 0 auto 25px;
+    margin-top: 50px;
+}
+
+.profile-img-card {
+    width: 130px;
+    height: 130px;
+    margin-bottom : 40px ;
+	margin-left: 95px ;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+	border: solid;
+	border-color: darkgrey;
+}
+
+.profile-name-card {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0 0;
+    min-height: 1em;
+}
+
+.form-signin #inputEmail,
+.form-signin #inputPassword {
+    direction: ltr;
+    height: 44px;
+    font-size: 16px;
+}
+
+.form-signin input[type=email],
+.form-signin input[type=password],
+.form-signin input[type=text],
+.form-signin button {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    z-index: 1;
+    position: relative;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin .form-control:focus {
+    border-color: rgb(104, 145, 162);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+}
+
+.btn.btn-signin {
+    background-color: rgb(73, 73, 73);
+    padding: 0px;
+    font-weight: 700;
+    font-size: 14px;
+    height: 36px;
+}
+
+.btn.modifEtDeco {
+	height: 40px ;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #333333;
+	color: white;
+	margin-top: 25px ;
+}
+
+.table.table-dark {
+	margin-top: 40px;
+}
+
+#VehiculeInfoDiv{
+	font-size : 20px ;
+	font-weight: bold;
+}
+
+.btn.modifEtDeco2 {
+	width:200px;
+	height: auto ;
+	display: inline-block;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #333333;
+	color: white;
+	margin-top: 25px ;
+	margin-bottom: 35px ;
+}
+
+.titreContacter {
+	margin-bottom: 40px;
+}
+
+.titreLocaliser {
+	margin-top: 70px;
+	margin-bottom: 30px;
+}
+
+#map{
+	height:400px;
+	border: solid;
+	border-color: #333333;
+}
+
+.locCLB {
+	font-weight: bold;
+}
+
+.locAdresse {
+	font-style: italic;
+}
+
+.propos {
+	border: solid;
+	background-color: lightgray ;
+	font-style: italic;
+	padding-top : 20px ;
+	padding-bottom: 20px;
+	padding-left :40px;
+	padding-right: 40px;
+	margin-top: 20px;
+}
+
+.condition {
+	border: solid;
+	background-color: lightgray ;
+	padding-top : 20px ;
+	padding-bottom: 20px;
+	padding-left :40px;
+	padding-right: 40px;
+	margin-top: 20px;
+}
+
+#vehiculeInfosDiv {
+	background-color: #afafaf;
+	display: block;
+	width: 100%;
+	transition-duration: 3s;
+	opacity: 0;
+}
+
+.imageVehicule {
+	background-color: #e6e6e6;
+	border-top: solid;
+	border-color: black;
+	border-width: 1px;
+	padding-top: 10px;
+}
+
+.form-control.contact {
+	background-color: #e3e3e3;
+	color: #424242;
+}
+
+.form-control.contact::placeholder {
+	color: #424242;
+}
+
+/* POUR LE CALENDRIER*/
+.table-style .today {
+	background: #2A3F54;
+	color: #b9b9b9;
+}
+
+.table-style tr:first-child th{
+	background-color:#F6F6F6;
+	text-align:center;
+	font-size: 15px;
+}
+
+.vehiculeInfosDiv1 {
+	display: inline-block;
+	margin-top: 50px ;
+	font-weight: bold;
+}
+
+.vehiculeInfosDiv2 {
+	display: inline-block;
+	margin-top: 50px ;
+	font-weight: bold;
+	text-align: right;
+}
+
+.btn.modifEtDeco3 {
+	width:400px;
+	height: auto ;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #333333;
+	color: white;
+	margin-bottom: 30px ;
+}
+
+.disponibilteVehicule {
+	background-color: #d6d6d6;
+	margin-top: 20px;
+	border: solid;
+	margin-bottom: 40px;
+}
+
+.dispo1 {
+	text-align: center;
+	margin-top: 40px ;
+}
+
+.dispo2 {
+	text-align: center;
+	margin-top: 20px ;
+
+}
+
+.dispo3 {
+	text-align: center;
+	margin-top: 40px;
+}
+
+.cal_calendrier {
+	border: solid ;
+	background-color: #d6d6d6;
+	margin-top : 30px ;
+	height: 250px;
+	font-family: 'Georgia, serif';
+	color: black;
+}
+
+.cal_calendrier td:hover {
+	background-color: #be35d6;
+}
+
+.cal_calendrier th {
+	border:1px solid black;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: black;
+	font-size: 1.2em;
+}
+
+.cal_calendrier td {
+	border:1px solid black;
+	text-align:center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.cal_aujourdhui {
+	color: white;
+	background-color: black;
+}
+
+.cal_jours_av_ap {
+	color: #5e5e5e;
+	background-color: #5e5e5e;
+}
+
+.cal_j_semaines {
+	color: black;
+}
+
+.btn.payer {
+	width:200px;
+	height: auto ;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #333333;
+	color: white;
+	margin-top: 15px ;
+}
+
+.paiementVehicule {
+	background-color: #d6d6d6;
+	margin-top: 20px;
+	border: solid;
+	margin-bottom: 40px;
+}
+
+.btn.reserve {
+	width:300px;
+	height: auto ;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #333333;
+	color: white;
+	margin-bottom: 30px ;
+}
+
+.plan {
+	border: solid;
+	background-color: lightgray ;
+	padding-top : 20px ;
+	padding-bottom: 20px;
+	padding-left :40px;
+	padding-right: 40px;
+	margin-top: 20px;
+}
+
+.plan a {
+	text-decoration: none;
+	color: black;
+	font-size: 1.2em;
+	text-align: center;
+}
+
+.plan a:hover {
+	color: #5e5e5e;
+}
+
+.dropdown-item {
+	background-color: white;
+	padding: 3px;
+	padding-left: 20px;
+}
+
+.dropdown-item:hover {
+	background-color: #f5f5f5;
+	cursor: pointer;
+}
