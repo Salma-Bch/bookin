@@ -6,13 +6,7 @@
      * \date      8 janvier 2020
      * \brief     Affiche l'espace de connexion de l'utilisateur.
      * \details   Formulaire de connexion avec une adresse mail et un mot de passe à renseignés.
-     */
-    include_once('ressources/class/Client.php');
-    session_start();
-    if(isset($_SESSION['client'])){
-        header('Location: espacePersonnel.php');
-        exit(0);
-    }
+*/
 ?>
 
 <!DOCTYPE html>
