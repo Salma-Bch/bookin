@@ -14,7 +14,6 @@
             <div class="container">
                 <div class="row">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="index.php"><img class = "logo" src="ressources/images/logos/logo_blanc.png" alt="Logo"/></a>
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#NavNav">
                             <span class="icon-bar icon-bar-perso"></span>
                             <span class="icon-bar icon-bar-perso"></span>
