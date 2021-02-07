@@ -7,7 +7,7 @@ h1, h2, h3 {
 }
 
 .head_index {
-	background: url( ../images/autres/fond.jpg);
+	background: url( ../images/fond.jpg);
 	background-size: cover;
 	min-height:800px;
 	padding-top:280px;
@@ -16,7 +16,7 @@ h1, h2, h3 {
 }
 
 .head_location {
-	background: url( ../images/autres/fond.jpg);
+	background: url( ../images/fond.jpg);
 	background-size: cover;
 	min-height:200px;
 	padding-top:280px;
@@ -41,7 +41,7 @@ h1, h2, h3 {
 
 .menu {
 	background-color: black ;
-	opacity: 90% ;
+	opacity: 80% ;
 }
 
 .titrePrincipal {
@@ -123,7 +123,7 @@ footer a:hover {
 }
 
 .container-connexion {
-	background: url( ../images/autres/fond.jpg);
+	background: url( ../images/fond.jpg);
 	background-size: cover;
 	padding-top:50px;
 	padding-bottom: 110px;
@@ -227,11 +227,6 @@ footer a:hover {
 	margin-top: 40px;
 }
 
-#VehiculeInfoDiv{
-	font-size : 20px ;
-	font-weight: bold;
-}
-
 .btn.modifEtDeco2 {
 	width:200px;
 	height: auto ;
@@ -246,25 +241,6 @@ footer a:hover {
 
 .titreContacter {
 	margin-bottom: 40px;
-}
-
-.titreLocaliser {
-	margin-top: 70px;
-	margin-bottom: 30px;
-}
-
-#map{
-	height:400px;
-	border: solid;
-	border-color: #333333;
-}
-
-.locCLB {
-	font-weight: bold;
-}
-
-.locAdresse {
-	font-style: italic;
 }
 
 .propos {
@@ -288,22 +264,6 @@ footer a:hover {
 	margin-top: 20px;
 }
 
-#vehiculeInfosDiv {
-	background-color: #afafaf;
-	display: block;
-	width: 100%;
-	transition-duration: 3s;
-	opacity: 0;
-}
-
-.imageVehicule {
-	background-color: #e6e6e6;
-	border-top: solid;
-	border-color: black;
-	border-width: 1px;
-	padding-top: 10px;
-}
-
 .form-control.contact {
 	background-color: #e3e3e3;
 	color: #424242;
@@ -311,31 +271,6 @@ footer a:hover {
 
 .form-control.contact::placeholder {
 	color: #424242;
-}
-
-/* POUR LE CALENDRIER*/
-.table-style .today {
-	background: #2A3F54;
-	color: #b9b9b9;
-}
-
-.table-style tr:first-child th{
-	background-color:#F6F6F6;
-	text-align:center;
-	font-size: 15px;
-}
-
-.vehiculeInfosDiv1 {
-	display: inline-block;
-	margin-top: 50px ;
-	font-weight: bold;
-}
-
-.vehiculeInfosDiv2 {
-	display: inline-block;
-	margin-top: 50px ;
-	font-weight: bold;
-	text-align: right;
 }
 
 .btn.modifEtDeco3 {
@@ -347,122 +282,6 @@ footer a:hover {
 	background-color: #333333;
 	color: white;
 	margin-bottom: 30px ;
-}
-
-.disponibilteVehicule {
-	background-color: #d6d6d6;
-	margin-top: 20px;
-	border: solid;
-	margin-bottom: 40px;
-}
-
-.dispo1 {
-	text-align: center;
-	margin-top: 40px ;
-}
-
-.dispo2 {
-	text-align: center;
-	margin-top: 20px ;
-
-}
-
-.dispo3 {
-	text-align: center;
-	margin-top: 40px;
-}
-
-.cal_calendrier {
-	border: solid ;
-	background-color: #d6d6d6;
-	margin-top : 30px ;
-	height: 250px;
-	font-family: 'Georgia, serif';
-	color: black;
-}
-
-.cal_calendrier td:hover {
-	background-color: #be35d6;
-}
-
-.cal_calendrier th {
-	border:1px solid black;
-	text-align: center;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	color: black;
-	font-size: 1.2em;
-}
-
-.cal_calendrier td {
-	border:1px solid black;
-	text-align:center;
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
-
-.cal_aujourdhui {
-	color: white;
-	background-color: black;
-}
-
-.cal_jours_av_ap {
-	color: #5e5e5e;
-	background-color: #5e5e5e;
-}
-
-.cal_j_semaines {
-	color: black;
-}
-
-.btn.payer {
-	width:200px;
-	height: auto ;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	background-color: #333333;
-	color: white;
-	margin-top: 15px ;
-}
-
-.paiementVehicule {
-	background-color: #d6d6d6;
-	margin-top: 20px;
-	border: solid;
-	margin-bottom: 40px;
-}
-
-.btn.reserve {
-	width:300px;
-	height: auto ;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	background-color: #333333;
-	color: white;
-	margin-bottom: 30px ;
-}
-
-.plan {
-	border: solid;
-	background-color: lightgray ;
-	padding-top : 20px ;
-	padding-bottom: 20px;
-	padding-left :40px;
-	padding-right: 40px;
-	margin-top: 20px;
-}
-
-.plan a {
-	text-decoration: none;
-	color: black;
-	font-size: 1.2em;
-	text-align: center;
-}
-
-.plan a:hover {
-	color: #5e5e5e;
 }
 
 .dropdown-item {
