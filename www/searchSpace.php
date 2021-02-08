@@ -36,17 +36,13 @@
                         <li><div class="dropdown-item" data-value="Verte"><input type="checkbox"/>&#160;Cuisine</div></li>
                         <li><div class="dropdown-item" data-value="Grise"><input type="checkbox"/>&#160;Culture</div></li>
                         <li><div class="dropdown-item" data-value="Rouge"><input type="checkbox"/>&#160;Education</div></li>
-                        <li><div class="dropdown-item" data-value="Blanche"><input type="checkbox"/>&#160;Géographie</div></li>
                         <li><div class="dropdown-item" data-value="Noire"><input type="checkbox"/>&#160;Histoire</div></li>
-                        <li><div class="dropdown-item" data-value="Orange"><input type="checkbox"/>&#160;Langue</div></li>
                         <li><div class="dropdown-item" data-value="Jaune"><input type="checkbox"/>&#160;Loisir</div></li>
-                        <li><div class="dropdown-item" data-value="Verte"><input type="checkbox"/>&#160;Manga</div></li>
                         <li><div class="dropdown-item" data-value="Grise"><input type="checkbox"/>&#160;Policier</div></li>
                         <li><div class="dropdown-item" data-value="Rouge"><input type="checkbox"/>&#160;Psychologie</div></li>
                         <li><div class="dropdown-item" data-value="Blanche"><input type="checkbox"/>&#160;Santé</div></li>
                         <li><div class="dropdown-item" data-value="Noire"><input type="checkbox"/>&#160;Science</div></li>
                         <li><div class="dropdown-item" data-value="Orange"><input type="checkbox"/>&#160;Science-fiction</div></li>
-                        <li><div class="dropdown-item" data-value="Jaune"><input type="checkbox"/>&#160;Tourisme</div></li>
                         <li><div class="dropdown-item" data-value="Verte"><input type="checkbox"/>&#160;Vie pratique</div></li>
                     </ul>
                 </div>
