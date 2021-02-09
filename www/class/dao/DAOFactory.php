@@ -23,7 +23,7 @@ class DAOFactory {
         $this->password = $password;
     }
 
-    public static function getInstance(){
+    public static function getInstance(): DAOFactory{
         $file = DAOFactory::FILE_PROPERTIES;
         //Recuperation des parametre present dans le fichier
         if (!$parametre = parse_ini_file($file, TRUE))
@@ -40,7 +40,7 @@ class DAOFactory {
         return new DAOFactory($url, $userName, $password);
     }
 
-    public function getConnection(){
+    public function getConnection(): PDO{
         return new PDO($this->url, $this->userName, $this->password);
     }
 

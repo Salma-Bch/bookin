@@ -45,7 +45,7 @@ class Client {
      * @param \DateTime
      * @return int
      */
-    public function ageCalculate($birthDate){
+    public function ageCalculate($birthDate): int{
         return ($birthDate->diff(new \DateTime()))->y;
     }
     /**
