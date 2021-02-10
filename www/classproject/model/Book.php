@@ -12,7 +12,7 @@ class Book {
     private int $numberPages;
     private float $price;
     private int $quantity;
-    private \Imagick $bookImage;
+    private $bookImage;
     private String $categoryName;
 
     /**
@@ -26,7 +26,7 @@ class Book {
      * @param int $quantity
      * @param \Imagick $bookImage
      */
-    public function __construct(int $bookId, string $title, string $author, string $ageRange, int $numberPages, float $price, int $quantity, \Imagick $bookImage, String $categoryName)
+    public function __construct(int $bookId, string $title, string $author, string $ageRange, int $numberPages, float $price, int $quantity, $bookImage, String $categoryName)
     {
         $this->bookId = $bookId;
         $this->title = $title;
@@ -37,6 +37,10 @@ class Book {
         $this->quantity = $quantity;
         $this->bookImage = $bookImage;
         $this->categoryName = $categoryName;
+    }
+
+    public function toArray(): array{
+        return array($this->bookId, $this->title, $this->author, $this->ageRange, $this->numberPages, $this->price, $this->quantity, $this->bookImage, $this->categoryName);
     }
 
 

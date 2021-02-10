@@ -45,9 +45,9 @@ class BookDaoImpl implements BookDao
         try{
             $connection = $this->daoFactory->getConnection();
             $preparedStatement = DAOUtility::initPreparedStatement($connection, self::SQL_INSERT);
-            $status = $preparedStatement->execute((array)$book);
+            $status = $preparedStatement->execute($book->toArray());
             if ($status == 0)
-                throw new DAOException("Book creation failed, no line added");
+                throw new DAOException("Book creation failed, no line added; ");
         } catch (\Exception $e){
             throw new DAOException($e);
         } finally {
@@ -61,7 +61,7 @@ class BookDaoImpl implements BookDao
         try{
             $connection = $this->daoFactory->getConnection();
             $preparedStatement = DAOUtility::initPreparedStatement($connection, self::SQL_UPDATE);
-            $status = $preparedStatement->execute((array)$book);
+            $status = $preparedStatement->execute($book->toArray());
             if ($status == 0)
                 throw new DAOException("Book update failed, no line changed");
         } catch (\Exception $e){
