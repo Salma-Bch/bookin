@@ -6,6 +6,7 @@ namespace dao\object;
 use dao\DAOFactory;
 use dao\DAOUtility;
 use dao\exception\DAOException;
+use dao\object\BookDao;
 use model\Book;
 
 class BookDaoImpl implements BookDao
@@ -16,7 +17,7 @@ class BookDaoImpl implements BookDao
 
     private DAOFactory $daoFactory;
 
-    public function __construct(DAOFactory $daoFactory) { $this->$daoFactory = $daoFactory; }
+    public function __construct(DAOFactory $daoFactory) { $this->daoFactory = $daoFactory; }
 
     public function find(String $bookId): Book
     {
