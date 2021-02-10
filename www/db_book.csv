@@ -1,0 +1,65 @@
+book_id;title;author;age_range;number_pages;price;quantity;book_image;category_name
+00000000;Toute L'actu;Célia Rosentraub;+25 ans;120;16€90;50;actualite_1.png;Actualité
+00000001;100 fiches d'actualité;Florent Vandepitte;-18 ans;220;14€90;40;actualite_2.png;Actualité
+00000002;Le Meilleur de L'actualité;Louis Gœury;-18 ans;180;16€90;30;actualite_3.png;Actualité
+00000003;Actu'Concours;Philippe Cavaillé;+25 ans;150;28€00;20;actualite_4.png;Actualité
+00000004;L'Ecume des jours;Boris Vian;+25 ans;210;6€90;50;amour_1.png;Amour
+00000005;La Duchesse;Danielle Steel;+25 ans;380;7€90;40;amour_2.png;Amour
+00000006;On ne badine pas avec l'amour;Alfred Musset;-18 ans;120;2€90;30;amour_3.png;Amour
+00000007;Le jeu de l'amour et du hasard;Jacques Marivaux;-18 ans;160;3€90;20;amour_4.png;Amour
+00000008;L'autre art contemporain;Benjamin Olivienne;+25 ans;120;8€00;50;art_1.png;Art
+00000009;Disney Princesses;Jérémy Mariez;-10 ans;220;6€90;40;art_2.png;Art
+00000010;Andalousie-Art et Civilisation;Ignacio Cuellar;+25 ans;180;7€90;30;art_3.png;Art
+00000011;La sculpture et ses remplois;Nicolas de Larquier;+25 ans;150;2€90;20;art_4.png;Art
+00000012;Le Menhir d'Or;René Goscinny;-10 ans;210;9€90;50;bd_1.png;Bande dessinée
+00000013;La grande épopée de Picsou;Don Rosa;-10 ans;380;29€90;40;bd_2.png;Bande dessinée
+00000014;Spider-Man;Delilah S.Dawson;-10 ans;120;9€90;30;bd_3.png;Bande dessinée
+00000015;Tintin;Bernard Hergé;-10 ans;160;11€50;20;bd_4.png;Bande dessinée
+00000016;L'intelligence émotionnelle;Daniel Roche;+25 ans;120;7€90;50;bien_etre_1.png;Bien-être
+00000017;Le pouvoir du moment présent;Annie Ollivier;+25 ans;220;2€90;40;bien_etre_2.png;Bien-être
+00000018;Réfléchissez et devenez riche;Thérèse Gindraux;+25 ans;180;9€90;30;bien_etre_3.png;Bien-être
+00000019;Hypersensibles mieux se comprendre;Elaine Aron;+25 ans;150;29€90;20;bien_etre_4.png;Bien-être
+00000020;L'autre art contemporain;Benjamin Olivienne;+25 ans;210;6€90;50;cuisine_1.png;Cuisine
+00000021;Disney Princesses;Jérémy Mariez;-10 ans;380;7€90;40;cuisine_2.png;Cuisine
+00000022;Andalousie-Art et Civilisation;Ignacio Henares Cuellar;+25 ans;120;2€90;30;cuisine_3.png;Cuisine
+00000023;La sculpture et ses remplois;Nicolas de Larquier;+25 ans;160;3€90;20;cuisine_4.png;Cuisine
+00000024;La crise de la culture;Hannah Arendt;-18 ans;120;11€50;50;culture_1.png;Culture
+00000025;Le petit Larousse de la culture générale;Vincent Brovicelle;-18 ans;220;7€90;40;culture_2.png;Culture
+00000026;Par-delà nature et culture;Philippe Descola;-18 ans;180;2€90;30;culture_3.png;Culture
+00000027;L'obsession Rap;L'ABCDR du son;-18 ans;150;9€90;20;culture_4.png;Culture
+00000028;Les Fleurs du mal;Charles Baudelaire;-18 ans;210;9€90;50;education_1.png;Education
+00000029;Le Cid;Pierre Corneille;-18 ans;380;29€90;40;education_2.png;Education
+00000030;Les Fourberies de Scapin;Molière;-18 ans;120;6€90;30;education_2.png;Education
+00000031;Yvain ou Le Chevalier au lion;Chrétien de Troyes;-18 ans;160;7€90;20;education_3.png;Education
+00000032;La guerre des Gaules;Jules César;-18 ans;120;15€00;50;histoire_1.png;Histoire
+00000033;L'ancien régime et la révolution;Alexis de Tocqueville;-18 ans;220;8€99;40;histoire_2.png;Histoire
+00000034;Souvenirs d'un officier de la Grande Armée;Jean-Baptiste Barrès;-18 ans;180;12€90;30;histoire_3.png;Histoire
+00000035;La République romaine;Jean-Michel David;-18 ans;150;8€90;20;histoire_4.png;Histoire
+00000036;Sudoku pour enfant;Jean Brochet;-10 ans;210;7€90;50;loisir_1.png;Loisir
+00000037;Les principes fondamentaux des échecs;José Capablanca;-25 ans;380;15€00;40;loisir_2.png;Loisir
+00000038;100 Magnifiques Mandalas;Marie Pellier;+65 ans;120;8€99;30;loisir_3.png;Loisir
+00000039;Coloriages Disney Princesses;Jérémy Mariez;-10 ans;160;12€90;20;loisir_4.png;Loisir
+00000040;Nuit sombre et sacrée;Harry Bosch;-25 ans;120;8€90;50;policier_1.png;Policier
+00000041;Crimes pour Vendetta;Eve Dallas;+18 ans;220;8€60;40;policier_2.png;Policier
+00000042;À cache-cache;Jean Arlidge;+18 ans;180;9€40;30;policier_3.png;Policier
+00000043;Le couple d'à côté;Shari Lapena;+18 ans;150;6€90;20;policier_4.png;Policier
+00000044;Je pense trop;Christel Petitcollin;-25 ans;210;17€50;50;psychologie_1.png;Psychologie
+00000045;Cinq lecons sur la psychanalyse;Sigmun Freud;-25 ans;380;5€50;40;psychologie_2.png;Psychologie
+00000046;La psychanalyse pour les nuls;Christian Godin;-25 ans;120;22€90;30;psychologie_3.png;Psychologie
+00000047;Névrose et psychose;Sigmun Freud;-25 ans;160;5€10;20;psychologie_4.png;Psychologie
+00000048;Urgences or not urgences;Jean Brochet;-25 ans;120;8€95;50;sante_1.png;Santé
+00000049;Grand Manuel de phytothérapie;Eric Lorrain;-25 ans;220;12€90;40;sante_2.png;Santé
+00000050;Ma bible des huiles essentielles;Danièle Festy;-25 ans;180;24€90;30;sante_3.png;Santé
+00000051;Bien vivre le quatrième trimestre au naturel;Julia Simon;-25 ans;150;19€90;20;sante_4.png;Santé
+00000052;Tous dans l'espace ?;Maxime Lisoir;+18 ans;210;18€90;50;science_1.png;Science
+00000053;Votre cerveau est extraordinaire;Fabien Olicard;+18 ans;380;7€30;40;science_2.png;Science
+00000054;Science et religion;Bertrand Russell;+18 ans;120;6€90;30;science_3.png;Science
+00000055;Fiches brevet;Sandrine Aussourd;+18 ans;160;5€90;20;science_4.png;Science
+00000056;Arca;Romain Benassya;+18 ans;120;7€40;50;sf_1.png;Science-fiction
+00000057;Voyage au centre de la Terre;Jules Verne;+18 ans;220;9€20;40;sf_2.png;Science-fiction
+00000058;Histoire de la Science Fiction;Xavier Dollo;+18 ans;180;6€30;30;sf_3.png;Science-fiction
+00000059;Pyramides;Romain Benassaya;+18 ans;150;8€60;20;sf_4.png;Science-fiction
+00000060;Plus égal Plus;Léna Situations;+18 ans;210;12€80;50;vie_pratique_1.png;Vie pratique
+00000061;Miracle Morning;Hal Elrod;-25 ans;380;13€20;40;vie_pratique_2.png;Vie pratique
+00000062;Hypersensibles ;Elaine Aron;-25 ans;120;8€50;30;vie_pratique_3.png;Vie pratique
+00000063;Zéro Déchet;Julie Bernier;+18 ans;160;6€90;20;vie_pratique_4.png;Vie pratique
