@@ -13,6 +13,7 @@ class Book {
     private float $price;
     private int $quantity;
     private \Imagick $bookImage;
+    private String $categoryName;
 
     /**
      * Book constructor.
@@ -25,7 +26,7 @@ class Book {
      * @param int $quantity
      * @param \Imagick $bookImage
      */
-    public function __construct(int $bookId, string $title, string $author, string $ageRange, int $numberPages, float $price, int $quantity, \Imagick $bookImage)
+    public function __construct(int $bookId, string $title, string $author, string $ageRange, int $numberPages, float $price, int $quantity, \Imagick $bookImage, String $categoryName)
     {
         $this->bookId = $bookId;
         $this->title = $title;
@@ -35,6 +36,7 @@ class Book {
         $this->price = $price;
         $this->quantity = $quantity;
         $this->bookImage = $bookImage;
+        $this->categoryName = $categoryName;
     }
 
 
@@ -165,5 +167,22 @@ class Book {
     {
         $this->bookImage = $bookImage;
     }
+
+    /**
+     * @return String
+     */
+    public function getCategoryName(): string
+    {
+        return $this->categoryName;
+    }
+
+    /**
+     * @param String $categoryName
+     */
+    public function setCategoryName(string $categoryName): void
+    {
+        $this->categoryName = $categoryName;
+    }
+
 
 }

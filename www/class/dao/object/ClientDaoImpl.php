@@ -1,8 +1,8 @@
 <?php
 
-namespace dao\impl;
+namespace dao\object;
 
-use dao\ClientDao;
+use dao\DAOFactory;
 use dao\DAOUtility;
 use dao\exception\DAOException;
 use model\Client;
@@ -11,11 +11,11 @@ class ClientDaoImpl implements ClientDao {
     private const SQL_SELECT_BY_CLIENT_ID = "SELECT client_id, last_name, first_name, mail, psd, birth_date, profession, sex, client_money FROM client WHERE client_id = ?";
     private const SQL_SELECT_BY_MAIL = "SELECT client_id, last_name, first_name, mail, psd, birth_date, profession, sex, client_money FROM client WHERE mail = ?";
     private const SQL_INSERT = "INSERT INTO client (client_id, last_name, first_name, mail, psd, birth_date, profession, sex, client_money) VALUES (?, ? ,? ,? ,? ,? ,?, ?, ?)";
-    private const SQL_UPDATE = "UPDATE clients SET last_name=?, first_name=?, mail=?, psd=?, birth_date=?, profession=?, sex=?, client_money=? WHERE client_id=?";
+    private const SQL_UPDATE = "UPDATE client SET last_name=?, first_name=?, mail=?, psd=?, birth_date=?, profession=?, sex=?, client_money=? WHERE client_id=?";
 
-    private \DAOFactory $daoFactory;
+    private DAOFactory $daoFactory;
 
-    public function __construct(\DAOFactory $daoFactory) { $this->$daoFactory = $daoFactory; }
+    public function __construct(DAOFactory $daoFactory) { $this->$daoFactory = $daoFactory; }
 
     public function find(String $mail): Client
     {
@@ -56,7 +56,18 @@ class ClientDaoImpl implements ClientDao {
 
     function update(Client $client): bool
     {
-        // TODO: Implement update() method.
+        try{
+            $connection = $this->daoFactory->getConnection();
+            $preparedStatement = DAOUtility::initPreparedStatement($connection, self::SQL_UPDATE);
+            $status = $preparedStatement->execute((array)$client);
+            if ($status == 0)
+                throw new DAOException("Client update failed, no line changed");
+        } catch (\Exception $e){
+            throw new DAOException($e);
+        } finally {
+            DAOUtility::close($preparedStatement, $connection);
+        }
+        return true;
     }
 
     private function map($cr): Client{

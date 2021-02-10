@@ -1,7 +1,15 @@
 <?php
 
+namespace dao;
 
 use dao\exception\DAOConfigurationException;
+use dao\object\AdministratorDaoImpl;
+use dao\object\ClientDaoImpl;
+use dao\object\ClientDao;
+use dao\object\BookDaoImpl;
+use dao\object\BookDao;
+use dao\object\AdministratorDao;
+use PDO;
 
 class DAOFactory {
 
@@ -44,5 +52,9 @@ class DAOFactory {
         return new PDO($this->url, $this->userName, $this->password);
     }
 
-    public function getClientDao(){ return new ClientDaoImpl(this); }
+    public function getClientDao(): ClientDao{ return new ClientDaoImpl($this); }
+
+    public function getBookDao(): BookDao{ return new BookDaoImpl($this); }
+
+    public function getAdministratorDao(): AdministratorDao{ return new AdministratorDaoImpl($this); }
 }

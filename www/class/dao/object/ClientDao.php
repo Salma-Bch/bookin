@@ -1,8 +1,6 @@
 <?php
 
-
-namespace dao;
-
+namespace dao\object;
 
 use model\Client;
 
