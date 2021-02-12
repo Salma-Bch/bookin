@@ -16,41 +16,46 @@
         ?>
         <title>Création de compte</title>
     </head>
+
     <body>
         <?php
             include("ressources/include/header.php");
         ?>
         <div class ='container-connexion'>
             <div class='card card-container-mdp'>
-                <h2>Création de votre compte Book'In</h2>
-                <p>Remplissez tout les champs.</p>
-                <form id ="infosCompte" class="form-group" method="post" onsubmit="return false">
-                    <div class="form-group" id="nom">
-                        <input type='text' name="nom" class='form-control form-control-danger' id="inputNom" placeholder='Nom' required=""/>
+                <h2 class="mb-5 mt-5" style="margin-left: 0;">Création de votre compte Book'In</h2>
+                <form id ="compteInfo" class="form-group" method="post" onsubmit="return false">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <input type='text' name="lastName" class='form-control form-control-danger' placeholder='Nom' required=""/>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type='text' name="firstName" class='form-control' placeholder='Prénom' required=""/>
+                        </div>
                     </div>
-                    <div class="form-group" id="prenom">
-                        <input type='text' name="prenom" class='form-control' id="inputPrenom" placeholder='Prénom' required=""/>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <input type='text' name="mail" class='form-control' placeholder='Adresse mail' required=""/>
+                        </div>
                     </div>
-                    <div class="form-group" id="adresse">
-                        <input type='text' name="adresse" class='form-control' placeholder='Adresse' required=""/>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <input type='password' name="psd" class='form-control' placeholder='Mot de passe' required=""/>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="psdShow">
+                                <label class="form-check-label" for="psdShow">Afficher le mot de passe</label>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type='password' name="psdConfirmation" class='form-control' placeholder='Confirmer' required=""/>
+                        </div>
                     </div>
-                    <div class="form-group" id="codePostale">
-                        <input type='text' name="cdp" id="cdp" class='form-control' onkeypress="return onlyNumberKey(event)" placeholder='Code postale' required=""/>
+                    <div class="form-group col-md-6">
+                        <button class='btn btn-lg btn-danger btn-block btn-signin' name="submit"  onclick="createCompte()">Envoyer</button>
                     </div>
-                    <div class="form-group" id="permis">
-                        <input type='text' name="no_permis" id="numeroPermis" class='form-control' onkeypress="return onlyNumberKey(event)"  placeholder='Numéro de permis' required=""/>
+                    <div class="form-group col-md-12">
+                        <p>Vous possédez déjà un compte ? <a href='clientLoginSpace.php'>Identifiez-vous</a></p>
                     </div>
-                    <div class="form-group" id="mail">
-                        <input type='text' name="mail" id='inputEmail' class='form-control' placeholder='Adresse mail' required=""/>
-                    </div>
-                    <div class="form-group" id="password">
-                        <input type='password' name="mdp" id="mdp" class='form-control' placeholder='Mot de passe' required=""/>
-                    </div>
-                    <div class="form-group" id="mdpConf">
-                        <input type='password' id="mdpConfirm" class='form-control' placeholder='Confirmation du mot de passe' required=""/>
-                    </div>
-                    <button class='btn btn-lg btn-danger btn-block btn-signin' name="submit"  onclick="createCompte()">Envoyer</button>
-                    <a href='espacePersonnel.php'>Retour</a>
                 </form>
             </div>
         </div>
@@ -58,103 +63,10 @@
         <?php
             include("ressources/include/footer.php");
         ?>
-        <script><!--
-            function displayEchecCreat(){
-                document.getElementById("infosMaj").textContent = "Votre compte n'a pas pu être crée.";
-                document.getElementById("modifFailed").setAttribute("fill", "red");
-                document.getElementById("modifChecked").setAttribute("display", "none");
-                document.getElementById("modifFailed").setAttribute("display", "inline-block");
-                $('#dialogModal').modal({
-                    show: 'true'
-                });
-            }
 
-            function displaySuccessCreat(){
-                document.getElementById("infosMaj").textContent = "Votre compte a été créé avec succès.";
-                document.getElementById("modifChecked").setAttribute("fill", "green") ;
-                document.getElementById("modifFailed").setAttribute("display", "none");
-                document.getElementById("modifChecked").setAttribute("display", "inline-block");
+        <script type="text/javascript" src="./js/script.js"></script>
 
-                $('#dialogModal').modal({
-                    show: 'true'
-                });
-            }
 
-            function validInput(){
-                var noError = true;
-                var form = document.getElementById("infosCompte");
-                var nom = document.getElementById("inputNom").value;
-                var prenom = document.getElementById("inputPrenom").value;
-                var email = document.getElementById("inputEmail").value;
-                var number =document.getElementById("numeroPermis").value;
-                var mdp = document.getElementById("mdp").value;
-                var mdpConfirm = document.getElementById("mdpConfirm").value;
-                var cdp = document.getElementById("cdp").value;
-
-                if(cdp.length < 5 || cdp.length > 5){
-                    document.getElementById("codePostale").setAttribute("class","form-group has-error");
-                    noError = false;
-                }
-                if(number.length < 12 || number.length > 15){
-                    document.getElementById("permis").setAttribute("class","form-group has-error");
-                    noError = false;
-                }
-                if (!valide(email)) {
-                    document.getElementById("mail").setAttribute("class","form-group has-error");
-                    noError = false;
-                }
-
-                if(mdp ==""){
-                    document.getElementById("mdp").setAttribute("class","form-group has-error");
-                    noError = false;
-                }
-                if(mdpConfirm ==""){
-                    document.getElementById("mdpConf").setAttribute("class","form-group has-error");
-                    noError = false;
-                }
-                if(mdp != mdpConfirm){
-                    document.getElementById("password").setAttribute("class","form-group has-error");
-                    document.getElementById("mdpConf").setAttribute("class","form-group has-error");
-                    noError = false;
-                }
-                return noError;
-            }
-
-            function valide(email) {
-                const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                return re.test(email);
-            }
-            function onlyNumberKey(evt) {
-                var ASCIICode = (evt.which) ? evt.which : evt.keyCode
-                if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
-                    return false;
-                return true;
-            }
-
-            function createCompte() {
-                if (validInput()) {
-                    var formCompte = $("#infosCompte").serialize();
-                    $.ajax({
-                        type: 'post',
-                        url: 'checkCreation.php',
-                        data: formCompte,
-                        success: function (response) {
-                            if (response.includes("creation:no")) {
-                                displayEchecCreat();
-                            } else {
-                                displaySuccessCreat();
-                            }
-                        },
-                        error: function () {
-                            displayEchecCreat();
-                        }
-                    });
-
-                }
-                else
-                    return false;
-            }
-            //--></script>
         <div class="modal fade" id="dialogModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
