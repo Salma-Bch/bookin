@@ -23,60 +23,131 @@
         ?>
 		<div class="head_location"></div>
 		<div class="container">
-	        <h1>Espaces de recherche</h1>
-            <div class="d-flex justify-content-start">
-                <div class="btn-group">
-                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catégorie</button>
-                    <ul class="dropdown-menu" id="color">
-                        <li><div class="dropdown-item" data-value="Rouge"><input type="checkbox"/>&#160;Actualité</div></li>
-                        <li><div class="dropdown-item" data-value="Blanche"><input type="checkbox"/>&#160;Amour</div></li>
-                        <li><div class="dropdown-item" data-value="Noire"><input type="checkbox"/>&#160;Art</div></li>
-                        <li><div class="dropdown-item" data-value="Orange"><input type="checkbox"/>&#160;Bande dessinée</div></li>
-                        <li><div class="dropdown-item" data-value="Jaune"><input type="checkbox"/>&#160;Bien-être</div></li>
-                        <li><div class="dropdown-item" data-value="Verte"><input type="checkbox"/>&#160;Cuisine</div></li>
-                        <li><div class="dropdown-item" data-value="Grise"><input type="checkbox"/>&#160;Culture</div></li>
-                        <li><div class="dropdown-item" data-value="Rouge"><input type="checkbox"/>&#160;Education</div></li>
-                        <li><div class="dropdown-item" data-value="Noire"><input type="checkbox"/>&#160;Histoire</div></li>
-                        <li><div class="dropdown-item" data-value="Jaune"><input type="checkbox"/>&#160;Loisir</div></li>
-                        <li><div class="dropdown-item" data-value="Grise"><input type="checkbox"/>&#160;Policier</div></li>
-                        <li><div class="dropdown-item" data-value="Rouge"><input type="checkbox"/>&#160;Psychologie</div></li>
-                        <li><div class="dropdown-item" data-value="Blanche"><input type="checkbox"/>&#160;Santé</div></li>
-                        <li><div class="dropdown-item" data-value="Noire"><input type="checkbox"/>&#160;Science</div></li>
-                        <li><div class="dropdown-item" data-value="Orange"><input type="checkbox"/>&#160;Science-fiction</div></li>
-                        <li><div class="dropdown-item" data-value="Verte"><input type="checkbox"/>&#160;Vie pratique</div></li>
-                    </ul>
-                </div>
-                <div class="btn-group">
-                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Auteur</button>
-                    <ul class="dropdown-menu" id="color">
-                        <li><div class="dropdown-item" data-value="Rouge"><input type="checkbox"/>&#160;Victor Hugo</div></li>
-                        <li><div class="dropdown-item" data-value="Blanche"><input type="checkbox"/>&#160;Emile Zola</div></li>
-                        <li><div class="dropdown-item" data-value="Noire"><input type="checkbox"/>&#160;Charles Baudelaire</div></li>
-                        <li><div class="dropdown-item" data-value="Orange"><input type="checkbox"/>&#160;George Sand</div></li>
-                    </ul>
-                </div>
-                <div class="btn-group">
-                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tranche d'âge</button>
-                    <ul class="dropdown-menu" id="color">
-                        <li><div class="dropdown-item" data-value="Rouge"><input type="checkbox"/>&#160;-10 ans</div></li>
-                        <li><div class="dropdown-item" data-value="Noire"><input type="checkbox"/>&#160;Entre 10 ans et 17 ans</div></li>
-                        <li><div class="dropdown-item" data-value="Orange"><input type="checkbox"/>&#160;+18 ans</div></li>
-                        <li><div class="dropdown-item" data-value="Jaune"><input type="checkbox"/>&#160;+65 ans</div></li>
-                    </ul>
-                </div>
-                <div class="btn-group">
-                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Prix</button>
-                    <ul class="dropdown-menu" id="place">
-                        <li><div class="dropdown-item" data-value="2"><input type="checkbox"/>&#160;Moins de 10€</div></li>
-                        <li><div class="dropdown-item" data-value="4"><input type="checkbox"/>&#160;Entre 10€ et 20€</div></li>
-                        <li><div class="dropdown-item" data-value="5"><input type="checkbox"/>&#160;Entre 20€ et 40€</div></li>
-                        <li><div class="dropdown-item" data-value="7"><input type="checkbox"/>&#160;Plus de 40€</div></li>
-                    </ul>
+	        <h1>Espace de recherche</h1>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-3 barre_de_filtre">
+                        <div class="col-md-12">
+                            <h2>Catégories :</h2>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="actualite" id="actualite"/>
+                                <label class="form-check-label" for="actualite">Actualité</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="amour" id="amour"/>
+                                <label class="form-check-label" for="amour">Amour</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="art" id="art"/>
+                                <label class="form-check-label" for="art">Art</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="bd" id="bd"/>
+                                <label class="form-check-label" for="bd">Bande dessinée</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="bien_etre" id="bien_etre"/>
+                                <label class="form-check-label" for="bien_etre">Bien-être</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="cuisine" id="cuisine"/>
+                                <label class="form-check-label" for="cuisine">Cuisine</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="culture" id="culture"/>
+                                <label class="form-check-label" for="culture">Culture</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="education" id="education"/>
+                                <label class="form-check-label" for="education">Éducation</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="histoire" id="histoire"/>
+                                <label class="form-check-label" for="histoire">Histoire</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="loisir" id="loisir"/>
+                                <label class="form-check-label" for="loisir">Loisir</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="policier" id="policier"/>
+                                <label class="form-check-label" for="policier">Policier</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="psychologie" id="psychologie"/>
+                                <label class="form-check-label" for="psychologie">Psychologie</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="sante" id="sante"/>
+                                <label class="form-check-label" for="sante">Santé</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="science" id="science"/>
+                                <label class="form-check-label" for="science">Science</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="science_fiction" id="science_fiction"/>
+                                <label class="form-check-label" for="science_fiction">Science-fiction</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="vie_pratique" id="vie_pratique"/>
+                                <label class="form-check-label" for="vie_pratique">Vie pratique</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <h2>Tranche d'âge :</h2>
+                            <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
+                        </div>
+                        <div class="col-md-12">
+                            <h2>Prix :</h2>
+                            <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
+                        </div>
+                    </div>
+                    <div class="col-md-9 partie_de_recherche">
+                        <div class="col-md-4 livres">
+                            <p>Titre</p>
+                            <img src="ressources/images/livres.png">
+                        </div>
+                        <div class="col-md-4 livres">
+                            <p>Titre</p>
+                            <img src="ressources/images/livres.png">
+                        </div>
+                        <div class="col-md-4 livres">
+                            <p>Titre</p>
+                            <img src="ressources/images/livres.png">
+                        </div>
+                        <div class="col-md-4 livres">
+                            <p>Titre</p>
+                            <img src="ressources/images/livres.png">
+                        </div>
+                        <div class="col-md-4 livres">
+                            <p>Titre</p>
+                            <img src="ressources/images/livres.png">
+                        </div>
+                        <div class="col-md-4 livres">
+                            <p>Titre</p>
+                            <img src="ressources/images/livres.png">
+                        </div>
+                        <div class="col-md-4 livres">
+                            <p>Titre</p>
+                            <img src="ressources/images/livres.png">
+                        </div>
+                        <div class="col-md-4 livres">
+                            <p>Titre</p>
+                            <img src="ressources/images/livres.png">
+                        </div>
+                        <div class="col-md-4 livres">
+                            <p>Titre</p>
+                            <img src="ressources/images/livres.png">
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
         <?php
 			include("ressources/include/footer.php");
 		?>
 	</body>
+
 </html>

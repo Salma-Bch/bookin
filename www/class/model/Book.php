@@ -12,7 +12,7 @@ class Book {
     private int $numberPages;
     private float $price;
     private int $quantity;
-    private $bookImage;
+    private String $imagePath;
     private String $categoryName;
 
     /**
@@ -24,9 +24,9 @@ class Book {
      * @param int $numberPages
      * @param float $price
      * @param int $quantity
-     * @param \Imagick $bookImage
+     * @param String $imagePath
      */
-    public function __construct(int $bookId, string $title, string $author, string $ageRange, int $numberPages, float $price, int $quantity, $bookImage, String $categoryName)
+    public function __construct(int $bookId, string $title, string $author, string $ageRange, int $numberPages, float $price, int $quantity, String $imagePath, String $categoryName)
     {
         $this->bookId = $bookId;
         $this->title = $title;
@@ -35,12 +35,12 @@ class Book {
         $this->numberPages = $numberPages;
         $this->price = $price;
         $this->quantity = $quantity;
-        $this->bookImage = $bookImage;
+        $this->imagePath = $imagePath;
         $this->categoryName = $categoryName;
     }
 
     public function toArray(): array{
-        return array($this->bookId, $this->title, $this->author, $this->ageRange, $this->numberPages, $this->price, $this->quantity, $this->bookImage, $this->categoryName);
+        return array($this->bookId, $this->title, $this->author, $this->ageRange, $this->numberPages, $this->price, $this->quantity, $this->imagePath, $this->categoryName);
     }
 
 
@@ -157,19 +157,19 @@ class Book {
     }
 
     /**
-     * @return \Imagick
+     * @return String
      */
-    public function getBookImage(): \Imagick
+    public function getImagePath(): String
     {
-        return $this->bookImage;
+        return $this->imagePath;
     }
 
     /**
-     * @param \Imagick $bookImage
+     * @param String $imagePath
      */
-    public function setBookImage(\Imagick $bookImage): void
+    public function setImagePath(String $imagePath): void
     {
-        $this->bookImage = $bookImage;
+        $this->imagePath = $imagePath;
     }
 
     /**
