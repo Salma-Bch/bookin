@@ -4,13 +4,15 @@
 namespace model;
 
 
+use DateTime;
+
 class Client {
     private int $clientId;
     private String $lastName;
     private String $firstName;
     private String $mail;
     private String $psd;
-    private \DateTime $birthDate;
+    private DateTime $birthDate;
     private String $profession;
     private String $sex;
     private float $clientMoney;
@@ -23,12 +25,13 @@ class Client {
      * @param String $firstName
      * @param String $mail
      * @param String $psd
-     * @param \DateTime $birthDate
+     * @param DateTime $birthDate
      * @param String $profession
      * @param String $sex
      * @param float $clientMoney
      */
-    public function __construct(int $clientId, string $lastName, string $firstName, string $mail, string $psd, \DateTime $birthDate, string $profession, string $sex, float $clientMoney){
+    public function __construct(int $clientId, string $lastName, string $firstName, string $mail, string $psd, DateTime $birthDate,
+                                string $profession, string $sex, float $clientMoney){
         $this->clientId = $clientId;
         $this->lastName = $lastName;
         $this->firstName = $firstName;
@@ -41,6 +44,17 @@ class Client {
         $this->age = $this->ageCalculate($birthDate);
     }
 
+    public function toArray(){
+        return array($this->clientId,
+        $this->lastName,
+        $this->firstName,
+        $this->mail,
+        $this->psd,
+        $this->birthDate->format('Y-M-D'),
+        $this->profession,
+        $this->sex,
+        $this->clientMoney,);
+    }
     /**
      * @param \DateTime
      * @return int

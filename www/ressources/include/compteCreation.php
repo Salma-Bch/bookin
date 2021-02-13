@@ -1,19 +1,32 @@
 <?php
     use dao\DAOFactory;
-    use model\Book;
+use model\Client;
+
     include_once('../../class/dao/DAOFactory.php');
-    include_once('../../class/dao/object/BookDao.php');
-    include_once('../../class/dao/object/BookDaoImpl.php');
-    include_once('../../class/model/Book.php');
+    include_once('../../class/dao/object/ClientDao.php');
+    include_once('../../class/dao/object/ClientDaoImpl.php');
+    include_once('../../class/model/Client.php');
     include_once('../../class/dao/DAOUtility.php');
     include_once('../../class/dao/exception/DAOException.php');
 
-    $addedLine = 0;
-    $daoFactory = DAOFactory::getInstance();
-    $bookDao = $daoFactory->getClientDao();
+    if(isset($_POST['lastName'], $_POST['firstName'], $_POST['mail'], $_POST['psd'], $_POST['birthDay'], $_POST['birthMonth'],
+        $_POST['birthYear'], $_POST['profession'], $_POST['sex'])){
+        try {
+            $birthDate = new DateTime($_POST['birthDay'] . "-" . $_POST['birthMonth'] . "-" .
+                $_POST['birthYear']);
+        } catch (Exception $e) {
+            echo "creation failed";
+            exit(-1);
+        }
+        $daoFactory = DAOFactory::getInstance();
+        $clientDao = $daoFactory->getClientDao();
+        $client = new Client(111, $_POST['lastName'], $_POST['firstName'], $_POST['mail'], $_POST['psd'], $birthDate,$_POST['profession'],$_POST['sex'],0);
+        if( $clientDao->create($client) ) {
+            echo "creation successfull";
+            exit(0);
+        }
+    }
+    echo "creation failed";
+    exit(-1);
 
-    if(isset($_POST['lastName']))
-    $book = new Book((int)$lineCsv[0], utf8_encode($lineCsv[1]), utf8_encode($lineCsv[2]), utf8_encode($lineCsv[3]), (int)$lineCsv[4], (float)$lineCsv[5], (int)$lineCsv[6], base64_encode($image), utf8_encode($lineCsv[8]));
-    $bookDao->create($book);
-    $addedLine++;
 

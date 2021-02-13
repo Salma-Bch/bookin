@@ -15,7 +15,7 @@ class ClientDaoImpl implements ClientDao {
 
     private DAOFactory $daoFactory;
 
-    public function __construct(DAOFactory $daoFactory) { $this->$daoFactory = $daoFactory; }
+    public function __construct(DAOFactory $daoFactory) { $this->daoFactory = $daoFactory; }
 
     public function find(String $mail): Client
     {
@@ -43,7 +43,7 @@ class ClientDaoImpl implements ClientDao {
         try{
             $connection = $this->daoFactory->getConnection();
             $preparedStatement = DAOUtility::initPreparedStatement($connection, self::SQL_INSERT);
-            $status = $preparedStatement->execute((array)$client);
+            $status = $preparedStatement->execute($client->toArray());
             if ($status == 0)
                 throw new DAOException("Client creation failed, no line added");
         } catch (\Exception $e){
