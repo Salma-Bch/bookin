@@ -79,47 +79,93 @@ function onlyNumberKey(evt) {
 
 
 function validInput(input){
+    var div = input.parentNode.getElementsByClassName("invalid-feedback");
     if(input.value === ""){
-        input.classList.add("is-invalid");
-        input.classList.remove("is-valid");
-        input.parentNode.getElementsByClassName("invalid-feedback")[0].setAttribute("style", "display : block");
+        displayInvalidInput(input);
+        return false;
     }
     else {
-        input.classList.add("is-valid");
-        input.classList.remove("is-invalid");
-        input.parentNode.getElementsByClassName("invalid-feedback")[0].setAttribute("style", "display : none");
+        displayValidInput(input);
+        return true;
     }
+}
+
+function displayInvalidInput(input){
+    var div = input.parentNode.getElementsByClassName("invalid-feedback");
+    input.classList.add("is-invalid");
+    input.classList.remove("is-valid");
+    if(div.length > 0)
+        div[0].setAttribute("style", "display : block");
+}
+function displayValidInput(input){
+    var div = input.parentNode.getElementsByClassName("invalid-feedback");
+    input.classList.add("is-valid");
+    input.classList.remove("is-invalid");
+    if(div.length > 0)
+        div[0].setAttribute("style", "display : none");
 }
 
 function validEmailInput(input){
     const emailFormat = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if(input.value === "" || !emailFormat.test(input.value)){
-        input.classList.add("is-invalid");
-        input.classList.remove("is-valid");
-        input.parentNode.getElementsByClassName("invalid-feedback")[0].setAttribute("style", "display : block");
+        displayInvalidInput(input)
+        return false;
     }
     else {
-        input.classList.add("is-valid");
-        input.classList.remove("is-invalid");
-        input.parentNode.getElementsByClassName("invalid-feedback")[0].setAttribute("style", "display : none");
+        displayValidInput(input)
+        return true;
     }
+}
+
+function validPassword(input){
+    var psd = input.value;
+    removeInvalidDisplay(document.getElementById("passwordInput2"));
+    if (psd.match( /[0-9]/g) && psd.match( /[A-Z]/g) && psd.match(/[a-z]/g) &&
+        psd.match( /[^a-zA-Z\d]/g) && psd.length >= 8){
+        displayValidInput(input);
+        return true;
+    }
+    else{
+        displayInvalidInput(input);
+        return false;
+    }
+}
+
+function matchPasswords(psd1, psd2){
+    if(psd1.value !== psd2.value && validPassword(psd1)){
+        displayInvalidInput(psd2);
+        return false;
+    }
+    else {
+        removeInvalidDisplay(psd2);
+        return true
+    }
+}
+
+function removeInvalidDisplay(input){
+    var div = input.parentNode.getElementsByClassName("invalid-feedback");
+    input.classList.remove("is-invalid");
+    if(div.length > 0)
+        div[0].setAttribute("style", "display : none");
 }
 
 function nextForm(firstPartId, secondPartId){
     var isValid = true;
+    var passwordInput = document.getElementById("passwordInput");
+    var passwordInput2 = document.getElementById("passwordInput2");
     var firstPartDiv = document.getElementById(firstPartId);
-    var inputs = firstPartDiv.getElementsByTagName("input");
+    var inputs = firstPartDiv.getElementsByClassName("change");
     for (var i = 0; i < inputs.length; i++){
-        if(inputs[i].value === "" || inputs[i] === null){
-            inputs[i].classList.add("is-invalid");
-            inputs[i].classList.remove("is-valid");
+        if( !validInput(inputs[i]) )
             isValid = false;
-        }
-        else {
-            inputs[i].classList.add("is-valid");
-            inputs[i].classList.remove("is-invalid");
-        }
     }
+    var validMail = validEmailInput(document.getElementById("mailInput"));
+    var validPsd = matchPasswords(passwordInput, passwordInput2);
+    if( !validMail || !validPsd){
+        isValid = false;
+    }
+
+
     if(isValid) {
         firstPartDiv.setAttribute("style", "display : none");
         document.getElementById(secondPartId).setAttribute("style", "display : block");
