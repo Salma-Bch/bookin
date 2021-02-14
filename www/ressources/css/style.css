@@ -298,3 +298,11 @@ footer a:hover {
 	text-align: center;
 	margin-bottom: 4%;
 }
+
+.affichage_prix_inferieur {
+	display: inline-block;
+}
+
+.range_prix {
+	display: block;
+}

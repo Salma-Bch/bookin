@@ -96,11 +96,27 @@
                         </div>
                         <div class="col-md-12">
                             <h2>Tranche d'âge :</h2>
-                            <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="vie_pratique" id="dix"/>
+                                <label class="form-check-label" for="dix">-10 ans</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="vie_pratique" id="dix_huit"/>
+                                <label class="form-check-label" for="dix_huit">-18 ans</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="vie_pratique" id="vingt_cinq"/>
+                                <label class="form-check-label" for="vingt_cinq">-25 ans</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="vie_pratique" id="soixante_cinq"/>
+                                <label class="form-check-label" for="soixante_cinq">-65 ans</label>
+                            </div>
                         </div>
                         <div class="col-md-12">
                             <h2>Prix :</h2>
-                            <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
+                            <p class="affichage_prix_inferieur">Inférieur à <output class="affichage_prix_inferieur" id="prix">0</output>€</p>
+                            <input class="range_prix" type="range" value="0" max="30" step="1" oninput="prix.value = this.value">
                         </div>
                     </div>
                     <div class="col-md-9 partie_de_recherche">
