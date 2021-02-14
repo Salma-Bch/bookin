@@ -11,9 +11,10 @@ use model\Book;
 
 class BookDaoImpl implements BookDao
 {
-    private const SQL_SELECT_BY_BOOK_ID = "SELECT book_id, title, author, age_range, number_pages, price, quantity, book_image, category_name FROM book WHERE book_id = ?";
-    private const SQL_INSERT = "INSERT INTO book (book_id, title, author, age_range, number_pages, price, quantity, book_image, category_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    private const SQL_UPDATE = "UPDATE book SET title=?, author=?, age_range=?, number_pages=?, price=?, quantity=?, book_image=?, category_name=? WHERE book_id=?";
+    private const SQL_SELECT_BY_BOOK_ID = "SELECT book_id, title, author, age_range, number_pages, price, quantity, image_path, category_name FROM book WHERE book_id = ?";
+    private const SQL_SELECT_ALL_BOOKS = "SELECT book_id, title, author, age_range, number_pages, price, quantity, image_path, category_name FROM book";
+    private const SQL_INSERT = "INSERT INTO book (book_id, title, author, age_range, number_pages, price, quantity, image_path, category_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    private const SQL_UPDATE = "UPDATE book SET title=?, author=?, age_range=?, number_pages=?, price=?, quantity=?, image_path=?, category_name=? WHERE book_id=?";
 
     private DAOFactory $daoFactory;
 
@@ -38,6 +39,28 @@ class BookDaoImpl implements BookDao
             DAOUtility::close($preparedStatement, $connection);
         }
         return $book;
+    }
+
+    public function getAll(): array
+    {
+        $books = array();
+        try{
+            $connection = $this->daoFactory->getConnection();
+            $preparedStatement = DAOUtility::initPreparedStatement($connection, self::SQL_SELECT_ALL_BOOKS);
+            $status = $preparedStatement->execute();
+            if($status) {
+                $dbBooks = $preparedStatement->fetchAll();
+                foreach ($dbBooks as $book) {
+                    array_push($books, $this->map($book,true));
+                }
+            }
+
+        } catch (\Exception $e){
+            throw new DAOException($e);
+        } finally {
+            DAOUtility::close($preparedStatement, $connection);
+        }
+        return $books;
     }
 
     function create(Book $book): bool
@@ -72,9 +95,13 @@ class BookDaoImpl implements BookDao
         return true;
     }
 
-    private function map($br): Book{
-        return new Book($br->book_id,$br->title,$br->author,$br->age_range,$br->number_pages,$br->price,$br->quantity,$br->book_image, $br->category_name); // Changer br->book_image,
-        // creer l'image puis l'inseret
+    private function map($br,$array=false): Book{
+        if($array)
+            return new Book($br['book_id'],$br['title'],$br['author'],$br['age_range'],$br['number_pages'],$br['price'],
+                $br['quantity'],$br['image_path'], $br['category_name']);
+        else
+            return new Book($br->book_id,$br->title,$br->author,$br->age_range,$br->number_pages,$br->price,
+                $br->quantity,$br->image_path, $br->category_name);
     }
 
 }

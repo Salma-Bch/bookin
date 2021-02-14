@@ -76,7 +76,7 @@
                                     </p>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="checkBoxPass" id="psdShow" onclick="showHidePassword('passwordInput', 'passwordInput2')">
+                                    <input class="form-check-input" type="checkbox" value="checkBoxPass" id="psdShow" onclick="showHidePassword('passwordInput', 'passwordInput2')" />
                                     <label class="form-check-label" for="psdShow">Afficher le mot de passe</label>
                                 </div>
                             </div>
@@ -105,23 +105,23 @@
                     <div id="secondPart" style="display: none">
                         <div class="row">
                             <div class="form-group col-md-4">
-                                <input type='text' name="birthDay" class='form-control form-control-danger' placeholder='Jour' />
+                                <?php include ("./ressources/include/dayInput.php"); ?>
                             </div>
                             <div class="form-group col-md-4">
-                                <input type='text' name="birthMonth" class='form-control' placeholder='Mois' />
+                                <?php include ("./ressources/include/monthInput.php"); ?>
                             </div>
                             <div class="form-group col-md-4">
-                                <input type='text' name="birthYear" class='form-control' placeholder='Année' />
+                                <?php include ("./ressources/include/yearInput.php"); ?>
                             </div>
-                            <div class="form-group col-md-6">
-                                <select class="form-select form-select-lg mb-3" name="sex" aria-label="Default select example" >
-                                    <option selected="" disabled="" hidden="">Sexe</option>
+                            <div class="form-group col-md-6 mb-8">
+                                <select class="form-select form-select-lg mb-3 change" name="sex" aria-label="Default select example">
+                                    <option selected="" value="" disabled="" hidden="">Sexe</option>
                                     <option value="M">Homme</option>
                                     <option value="F">Femme</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
-                                <input type='text' name="profession" class='form-control' placeholder='Profession' />
+                                <?php include ("./ressources/include/professionInput.php"); ?>
                             </div>
                             <div class="form-group col-md-6">
                                 <button class='btn btn-lg btn-danger btn-block btn-signin' name="submit"  onclick="previousForm('firstPart','secondPart')">Retour</button>

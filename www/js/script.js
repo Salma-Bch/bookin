@@ -1,5 +1,5 @@
 
-console.log("script.js file uploaded");
+console.log("./js/script.js file uploaded");
 
 function displayEchecCreat(){
     document.getElementById("infosMaj").textContent = "Votre compte n'a pas pu être crée.";
@@ -76,11 +76,13 @@ function onlyNumberKey(evt) {
     return true;
 }
 
-
+function isempty(input){
+    return input.value === ""
+}
 
 function validInput(input){
     var div = input.parentNode.getElementsByClassName("invalid-feedback");
-    if(input.value === ""){
+    if(isempty(input)){
         displayInvalidInput(input);
         return false;
     }
@@ -107,7 +109,7 @@ function displayValidInput(input){
 
 function validEmailInput(input){
     const emailFormat = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if(input.value === "" || !emailFormat.test(input.value)){
+    if(!isempty(input) || !emailFormat.test(input.value)){
         displayInvalidInput(input)
         return false;
     }
@@ -190,8 +192,34 @@ function showHidePassword(inputId1, inputId2){
     }
 }
 
+function isDateValide(dayInput, monthInput, yearInput){
+    var dateTab = [dayInput.value, monthInput.value, yearInput.value];
+
+    if(dateTab.length !== 3 || isNaN(parseInt(dateTab[0])) ||
+        isNaN(parseInt(dateTab[1])) || isNaN(parseInt(dateTab[2])))
+        return false;
+
+    var dateVerif = new Date(eval(dateTab[2]), eval(dateTab[1])-1, eval(dateTab[0]))
+
+    var year = dateVerif.getFullYear();
+    if((Math.abs(year)+"").length < 4)
+        year = year + 1900;
+
+    return ( (dateVerif.getDate() === eval(dateTab[0])) && (dateVerif.getMonth() === eval(dateTab[1])-1)
+        && (year === eval(dateTab[2])) );
+}
+
 function createCompte(idForm) {
-    if (validInput()) {
+    var div = document.getElementById("secondPart");
+    var inputs = div.getElementsByClassName("change");
+    var send = true;
+    for(var i=0; i<inputs.length; i++){
+        if(!validInput(inputs[i])){
+            alert("remplir tout les champs");
+            send = false;
+        }
+    }
+    if (send) {
         var formCompte = $("#"+idForm).serialize();
         $.ajax({
             type: 'post',
