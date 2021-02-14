@@ -123,38 +123,47 @@
                         <div class="col-md-4 livres">
                             <p>Titre</p>
                             <img src="ressources/images/livres.png">
+                            <p>Prix : 12€</p>
                         </div>
                         <div class="col-md-4 livres">
                             <p>Titre</p>
                             <img src="ressources/images/livres.png">
+                            <p>Prix : 12€</p>
                         </div>
                         <div class="col-md-4 livres">
                             <p>Titre</p>
                             <img src="ressources/images/livres.png">
+                            <p>Prix : 12€</p>
                         </div>
                         <div class="col-md-4 livres">
                             <p>Titre</p>
                             <img src="ressources/images/livres.png">
+                            <p>Prix : 12€</p>
                         </div>
                         <div class="col-md-4 livres">
                             <p>Titre</p>
                             <img src="ressources/images/livres.png">
+                            <p>Prix : 12€</p>
                         </div>
                         <div class="col-md-4 livres">
                             <p>Titre</p>
                             <img src="ressources/images/livres.png">
+                            <p>Prix : 12€</p>
                         </div>
                         <div class="col-md-4 livres">
                             <p>Titre</p>
                             <img src="ressources/images/livres.png">
+                            <p>Prix : 12€</p>
                         </div>
                         <div class="col-md-4 livres">
                             <p>Titre</p>
                             <img src="ressources/images/livres.png">
+                            <p>Prix : 12€</p>
                         </div>
                         <div class="col-md-4 livres">
                             <p>Titre</p>
                             <img src="ressources/images/livres.png">
+                            <p>Prix : 12€</p>
                         </div>
                     </div>
                 </div>

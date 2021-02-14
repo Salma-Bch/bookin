@@ -13,20 +13,25 @@
         <div class="container-fluid">
             <div class="container">
                 <div class="row">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#NavNav">
-                            <span class="icon-bar icon-bar-perso"></span>
-                            <span class="icon-bar icon-bar-perso"></span>
-                            <span class="icon-bar icon-bar-perso"></span>
-                        </button>
+                    <div class="col-md-6">
+                        <img class = "logo" src="ressources/images/logo.png" alt="Logo"/>
                     </div>
-                    <div class="collapse navbar-collapse" id="NavNav">
-                        <ul class="nav navbar-nav">
-                          <li><a href="index.php">ACCUEIL</a></li>
-                          <li><a href="searchSpace.php">NOS LIVRES</a></li>
-                          <li><a href="clientLoginSpace.php">MON ESPACE</a></li>
-                          <li><a href="informationSpace.php">À PROPOS</a></li>
-                        </ul>
+                    <div class="col-md-6">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#NavNav">
+                                <span class="icon-bar icon-bar-perso"></span>
+                                <span class="icon-bar icon-bar-perso"></span>
+                                <span class="icon-bar icon-bar-perso"></span>
+                            </button>
+                        </div>
+                        <div class="collapse navbar-collapse" id="NavNav">
+                            <ul class="nav navbar-nav">
+                              <li><a href="index.php">ACCUEIL</a></li>
+                              <li><a href="searchSpace.php">NOS LIVRES</a></li>
+                              <li><a href="clientLoginSpace.php">MON ESPACE</a></li>
+                              <li><a href="informationSpace.php">À PROPOS</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
