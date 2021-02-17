@@ -139,12 +139,4 @@
             include("ressources/include/dialogModal.php");
         ?>
     </body>
-    <script>
-        //var myModal = document.getElementById('dialogModal')
-        displaySuccessCreat();
-      /*  $("#dialogModal").on("hidden.bs.modal", function () {
-            window.locations("./clientSpace.php");
-        });*/
-
-    </script>
 </html>

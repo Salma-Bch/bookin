@@ -8,6 +8,7 @@ use model\Client;
     include_once('../../class/model/Client.php');
     include_once('../../class/dao/DAOUtility.php');
     include_once('../../class/dao/exception/DAOException.php');
+    session_start();
 
     if(isset($_POST['lastName'], $_POST['firstName'], $_POST['mail'], $_POST['psd'], $_POST['birthDay'], $_POST['birthMonth'],
         $_POST['birthYear'], $_POST['profession'], $_POST['sex'])){
@@ -23,6 +24,7 @@ use model\Client;
         $client = new Client(14, $_POST['lastName'], $_POST['firstName'], $_POST['mail'], $_POST['psd'], $birthDate,$_POST['profession'],$_POST['sex'],0);
         if( $clientDao->create($client) ) {
             echo "creation successfull";
+            $_SESSION['bookinClient'] = $client;
             exit(0);
         }
     }
