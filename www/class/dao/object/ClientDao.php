@@ -6,7 +6,7 @@ use model\Client;
 
 interface ClientDao {
     function create(Client $client): bool;
-    function find(String $clientId): Client;
+    function find(String $mail, String $password): Client;
     function update(Client $client): bool;
 
 }

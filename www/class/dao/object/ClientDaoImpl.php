@@ -10,6 +10,7 @@ use model\Client;
 class ClientDaoImpl implements ClientDao {
     private const SQL_SELECT_BY_CLIENT_ID = "SELECT client_id, last_name, first_name, mail, psd, birth_date, profession, sex, client_money FROM client WHERE client_id = ?";
     private const SQL_SELECT_BY_MAIL = "SELECT client_id, last_name, first_name, mail, psd, birth_date, profession, sex, client_money FROM client WHERE mail = ?";
+    private const SQL_SELECT_BY_MAIL_AND_PASSWORD = "SELECT client_id, last_name, first_name, mail, psd, birth_date, profession, sex, client_money FROM client WHERE mail = ? AND psd=?";
     private const SQL_INSERT = "INSERT INTO client (client_id, last_name, first_name, mail, psd, birth_date, profession, sex, client_money) VALUES (?, ? ,? ,? ,? ,? ,?, ?, ?)";
     private const SQL_UPDATE = "UPDATE client SET last_name=?, first_name=?, mail=?, psd=?, birth_date=?, profession=?, sex=?, client_money=? WHERE client_id=?";
 
@@ -17,13 +18,18 @@ class ClientDaoImpl implements ClientDao {
 
     public function __construct(DAOFactory $daoFactory) { $this->daoFactory = $daoFactory; }
 
-    public function find(String $mail): Client
+    public function find(String $mail, String $password=null): Client
     {
         $client = null;
+        $request = self::SQL_SELECT_BY_MAIL;
         $parameters = array($mail);
+        if($password != null) {
+            array_push($parameters, $password);
+            $request = self::SQL_SELECT_BY_MAIL_AND_PASSWORD;
+        }
         try{
             $connection = $this->daoFactory->getConnection();
-            $preparedStatement = DAOUtility::initPreparedStatement($connection, self::SQL_SELECT_BY_MAIL);
+            $preparedStatement = DAOUtility::initPreparedStatement($connection, $request);
             $status = $preparedStatement->execute($parameters);
 
             if($status){
@@ -71,6 +77,10 @@ class ClientDaoImpl implements ClientDao {
     }
 
     private function map($cr): Client{
-        return new Client($cr->client_id,$cr->last_name,$cr->first_name,$cr->mail,$cr->psd,$cr->birth_date,$cr->profession,$cr->sex,$cr->client_money);
+        try {
+            $birthDate = new \DateTime($cr->birth_date);
+        } catch (\Exception $e) {
+        }
+        return new Client($cr->client_id,$cr->last_name,$cr->first_name,$cr->mail,$cr->psd,$birthDate,$cr->profession,$cr->sex,$cr->client_money);
     }
 }

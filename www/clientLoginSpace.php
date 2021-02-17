@@ -7,6 +7,11 @@
      * \brief     Affiche l'espace de connexion de l'utilisateur.
      * \details   Formulaire de connexion avec une adresse mail et un mot de passe à renseignés.
 */
+    session_start();
+    if(isset($_SESSION['bookinClient'])){
+        header('Location: ./clientSpace.php');
+        exit(0);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +33,7 @@
                     <span class="sr-only">Error:</span>
                     Identifiant ou mot de passe incorrect.
                 </div>
-                <form class='form-signin' id="connectionInfosForm">
+                <form class='form-signin' id="connectionInfosForm" onsubmit="return false">
                     <input type='email' id='inputEmail' name='email' class='form-control' placeholder='mail@exemple.fr' required="" autofocus="" />
                     <input type='password' id='inputPassword' name='password' class='form-control' placeholder='Mot de passe' required="" />
                     <button class='btn btn-lg btn-danger btn-block btn-signin' id="loginButton" onclick="sendData()" type='submit'>Se connecter</button>
@@ -40,20 +45,15 @@
         include("ressources/include/footer.php");
         ?>
         <script>
-            $('#loginButton').click(function()
-            {
-                return false;
-            });
-
             function sendData() {
                 var formData = $("#connectionInfosForm").serialize();
                 $.ajax({
                     type: 'post',
-                    url: 'connect.php',
+                    url: './ressources/include/checkIdentifiers',
                     data: formData,
                     success: function (response) {
-                        if(response == "connection:OK")
-                            window.location.assign("espacePersonnel.php");
+                        if(response === "authentication successful")
+                            window.location.assign("clientSpace.php");
                         else {
                             document.getElementById("idOrMdpFalseDiv").style.display = "block";
                         }
