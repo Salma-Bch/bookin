@@ -21,7 +21,8 @@ use model\Client;
         }
         $daoFactory = DAOFactory::getInstance();
         $clientDao = $daoFactory->getClientDao();
-        $client = new Client(14, $_POST['lastName'], $_POST['firstName'], $_POST['mail'], $_POST['psd'], $birthDate,$_POST['profession'],$_POST['sex'],0);
+        $clientID = $clientDao->getMaxId()+1;
+        $client = new Client($clientID, $_POST['lastName'], $_POST['firstName'], $_POST['mail'], $_POST['psd'], $birthDate,$_POST['profession'],$_POST['sex'],0);
         if( $clientDao->create($client) ) {
             echo "creation successfull";
             $_SESSION['bookinClient'] = $client;

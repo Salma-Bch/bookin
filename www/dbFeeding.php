@@ -19,7 +19,6 @@ include_once('./class/dao/exception/DAOException.php');
         $book = new Book((int)$lineCsv[0], utf8_encode($lineCsv[1]), utf8_encode($lineCsv[2]), utf8_encode($lineCsv[3]), (int)$lineCsv[4], (float)$lineCsv[5], (int)$lineCsv[6], utf8_encode($lineCsv[7]), utf8_encode($lineCsv[8]));
         $bookDao->create($book);
         $addedLine++;
-        break;
     }
 
     echo $addedLine;

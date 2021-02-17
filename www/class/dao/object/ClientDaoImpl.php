@@ -9,6 +9,7 @@ use model\Client;
 
 class ClientDaoImpl implements ClientDao {
     private const SQL_SELECT_BY_CLIENT_ID = "SELECT client_id, last_name, first_name, mail, psd, birth_date, profession, sex, client_money FROM client WHERE client_id = ?";
+    private const SQL_SELECT_MAX_ID = "SELECT MAX(client_id) as max_id FROM client";
     private const SQL_SELECT_BY_MAIL = "SELECT client_id, last_name, first_name, mail, psd, birth_date, profession, sex, client_money FROM client WHERE mail = ?";
     private const SQL_SELECT_BY_MAIL_AND_PASSWORD = "SELECT client_id, last_name, first_name, mail, psd, birth_date, profession, sex, client_money FROM client WHERE mail = ? AND psd=?";
     private const SQL_INSERT = "INSERT INTO client (client_id, last_name, first_name, mail, psd, birth_date, profession, sex, client_money) VALUES (?, ? ,? ,? ,? ,? ,?, ?, ?)";
@@ -42,6 +43,25 @@ class ClientDaoImpl implements ClientDao {
             DAOUtility::close($preparedStatement, $connection);
         }
         return $client;
+    }
+
+    public function getMaxId(): int
+    {
+        try{
+            $connection = $this->daoFactory->getConnection();
+            $preparedStatement = DAOUtility::initPreparedStatement($connection, self::SQL_SELECT_MAX_ID);
+            $status = $preparedStatement->execute();
+
+            if($status)
+                $maxId = (int)$preparedStatement->fetchObject()->max_id;
+            else
+                throw new DAOException("getting maximum id failed ");
+        } catch (\Exception $e){
+            throw new DAOException($e);
+        } finally {
+            DAOUtility::close($preparedStatement, $connection);
+        }
+        return $maxId;
     }
 
     function create(Client $client): bool
