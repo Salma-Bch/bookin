@@ -38,7 +38,7 @@
                     <input type='password' id='inputPassword' name='password' class='form-control' placeholder='Mot de passe' required="" />
                     <button class='btn btn-lg btn-danger btn-block btn-signin' id="loginButton" onclick="sendData()" type='submit'>Se connecter</button>
                 </form>
-                <p><a href='creationCompte.php' class='forgot-password'>Vous n'avez pas de compte ?</a></p>
+                <p><a href='clientAccountCreationSpace.php' class='forgot-password'>Vous n'avez pas de compte ?</a></p>
             </div>
         </div>
         <?php

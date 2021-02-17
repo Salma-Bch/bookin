@@ -2,13 +2,16 @@
 console.log("./js/script.js file uploaded");
 
 function displayEchecCreat(){
-    document.getElementById("infosMaj").textContent = "Votre compte n'a pas pu être crée.";
-    document.getElementById("modifFailed").setAttribute("fill", "red");
-    document.getElementById("modifChecked").setAttribute("display", "none");
-    document.getElementById("modifFailed").setAttribute("display", "inline-block");
-    $('#dialogModal').modal({
-        show: 'true'
-    });
+    document.getElementById("modalTitle").textContent = "Création de compte";
+    document.getElementById("textModal").textContent = "Votre compte n'a pas pu être crée.";
+    document.getElementById("modifFailedIcon").setAttribute("fill", "red");
+    document.getElementById("modifCheckedIcon").setAttribute("display", "none");
+    document.getElementById("modifFailedIcon").setAttribute("display", "inline-block");
+    var myModal = new bootstrap.Modal(document.getElementById('dialogModal'));
+    /* myModal.addEventListener('shown.bs.modal', function (event) {
+         window.location.assign("./clientSpace.php");
+     })*/
+    myModal.show();
 }
 
 function displaySuccessCreat(){
