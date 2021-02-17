@@ -2,7 +2,7 @@
     <div class = "modal-dialog">
         <div class = "modal-content">
             <div class = "modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&#xd7;</span></button>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&#xd7;</span></button>
                 <button type="button" class="btn-close" aria-label="Close"></button>
                 <h4 class="modal-title" id="modalTitle"></h4>
             </div>
@@ -16,7 +16,7 @@
                 <p id="textModal" style="display: inline-block;"></p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                <button type="button" class="btn btn-default" data-bs-dismiss="modal">Fermer</button>
             </div>
         </div>
     </div>
