@@ -1,4 +1,4 @@
-<select class="form-select form-select-lg mb-3 change" name="birthMonth" aria-label="Default select example">
+<select class="form-select form-select-lg mb-3 change" name="profession" aria-label="Default select example">
     <option selected="" disabled="" value="" hidden="">Mois</option>
     <option value="01">Janvier</option>
     <option value="02">Fevrier</option>

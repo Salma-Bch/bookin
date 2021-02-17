@@ -12,14 +12,13 @@ function displayEchecCreat(){
 }
 
 function displaySuccessCreat(){
-    document.getElementById("infosMaj").textContent = "Votre compte a été créé avec succès.";
-    document.getElementById("modifChecked").setAttribute("fill", "green") ;
-    document.getElementById("modifFailed").setAttribute("display", "none");
-    document.getElementById("modifChecked").setAttribute("display", "inline-block");
-
-    $('#dialogModal').modal({
-        show: 'true'
-    });
+    document.getElementById("modalTitle").textContent = "Création de compte";
+    document.getElementById("textModal").textContent = "Votre compte a été créé avec succès.";
+    document.getElementById("modifFailedIcon").setAttribute("display", "none");
+    document.getElementById("modifCheckedIcon").setAttribute("fill", "green") ;
+    document.getElementById("modifCheckedIcon").setAttribute("display", "inline-block");
+    var myModal = new bootstrap.Modal(document.getElementById('dialogModal'))
+    myModal.show()
 }
 
 
@@ -109,7 +108,7 @@ function displayValidInput(input){
 
 function validEmailInput(input){
     const emailFormat = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if(!isempty(input) || !emailFormat.test(input.value)){
+    if(isempty(input) || !emailFormat.test(input.value)){
         displayInvalidInput(input)
         return false;
     }

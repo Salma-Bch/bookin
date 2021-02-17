@@ -15,12 +15,12 @@ use model\Client;
             $birthDate = new DateTime($_POST['birthDay'] . "-" . $_POST['birthMonth'] . "-" .
                 $_POST['birthYear']);
         } catch (Exception $e) {
-            echo "creation failed";
+            echo "creation failed ".$e;
             exit(-1);
         }
         $daoFactory = DAOFactory::getInstance();
         $clientDao = $daoFactory->getClientDao();
-        $client = new Client(111, $_POST['lastName'], $_POST['firstName'], $_POST['mail'], $_POST['psd'], $birthDate,$_POST['profession'],$_POST['sex'],0);
+        $client = new Client(14, $_POST['lastName'], $_POST['firstName'], $_POST['mail'], $_POST['psd'], $birthDate,$_POST['profession'],$_POST['sex'],0);
         if( $clientDao->create($client) ) {
             echo "creation successfull";
             exit(0);

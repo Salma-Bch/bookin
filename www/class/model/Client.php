@@ -50,7 +50,7 @@ class Client {
         $this->firstName,
         $this->mail,
         $this->psd,
-        $this->birthDate->format('Y-M-D'),
+        $this->birthDate->format('Y-m-d'),
         $this->profession,
         $this->sex,
         $this->clientMoney,);
