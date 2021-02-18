@@ -21,13 +21,11 @@ function displaySuccessCreat(){
     document.getElementById("modifCheckedIcon").setAttribute("fill", "green") ;
     document.getElementById("modifCheckedIcon").setAttribute("display", "inline-block");
     var myModal = new bootstrap.Modal(document.getElementById('dialogModal'));
-   /* myModal.addEventListener('shown.bs.modal', function (event) {
+    /*myModal.addEventListener('hide.bs.modal', function (event) {
         window.location.assign("./clientSpace.php");
-    })*/
+    }) */
     myModal.show();
 }
-
-
 
 function validdInput(){
    /* var noError = true;

@@ -43,7 +43,7 @@ session_start();
                     </tr>
                     <tr>
                         <td id="tabMail"><b>Adresse mail :</b> <?php echo $client->getMail();?></td>
-                        <td id="tabNumClient"><b>Mot de passe :</b> <?php echo $client->getPsd();?></td>
+                        <td id="tabNumClient"><b>Id :</b> <?php echo $client->getClientId();?></td>
                     </tr>
                     <tr>
                         <td id="tabNumClient"><b>Profession :</b> <?php echo $client->getProfession();?></td>

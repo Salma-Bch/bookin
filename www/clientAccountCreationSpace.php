@@ -138,5 +138,8 @@
             include("ressources/include/footer.php");
             include("ressources/include/dialogModal.php");
         ?>
+    <script>
+        //displaySuccessCreat();
+    </script>
     </body>
 </html>
