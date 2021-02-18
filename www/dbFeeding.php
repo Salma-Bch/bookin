@@ -16,6 +16,7 @@ include_once('./class/dao/exception/DAOException.php');
     $csvFile = fopen("./db_book.csv","r");
     $lineCsv = fgetcsv($csvFile,1024, ";");
     while ( ($lineCsv = fgetcsv($csvFile,1024, ";")) !== FALSE ) {
+        $bookId = str_pad(((int)$lineCsv[0]),8,0, STR_PAD_LEFT);
         $book = new Book((int)$lineCsv[0], utf8_encode($lineCsv[1]), utf8_encode($lineCsv[2]), utf8_encode($lineCsv[3]), (int)$lineCsv[4], (float)$lineCsv[5], (int)$lineCsv[6], utf8_encode($lineCsv[7]), utf8_encode($lineCsv[8]));
         $bookDao->create($book);
         $addedLine++;

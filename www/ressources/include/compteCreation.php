@@ -22,6 +22,7 @@ use model\Client;
         $daoFactory = DAOFactory::getInstance();
         $clientDao = $daoFactory->getClientDao();
         $clientID = $clientDao->getMaxId()+1;
+        $clientID = str_pad(($clientID),8,0, STR_PAD_LEFT);
         $client = new Client($clientID, $_POST['lastName'], $_POST['firstName'], $_POST['mail'], $_POST['psd'], $birthDate,$_POST['profession'],$_POST['sex'],0);
         if( $clientDao->create($client) ) {
             echo "creation successfull";
