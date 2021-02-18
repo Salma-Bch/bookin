@@ -40,7 +40,15 @@ class Book {
     }
 
     public function toArray(): array{
-        return array($this->bookId, $this->title, $this->author, $this->ageRange, $this->numberPages, $this->price, $this->quantity, $this->imagePath, $this->categoryName);
+        return array($this->bookId,
+            $this->title,
+            $this->author,
+            $this->ageRange,
+            $this->numberPages,
+            $this->price,
+            $this->quantity,
+            $this->imagePath,
+            $this->categoryName);
     }
 
 

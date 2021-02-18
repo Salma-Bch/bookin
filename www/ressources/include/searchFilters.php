@@ -97,7 +97,15 @@
     var agesRange = [];
 
     function filtreVehicule(categories, agesRange, input){
+        if (input.checked){
             categories.push(input.value);
+        }
+        else{
+            var index = categories.indexOf(input.value);
+            if(index > -1)
+                categories.splice(index, 1);
+        }
+
         $.ajax({
             type: 'post',
             url: './ressources/include/bookFiltering.php',
@@ -106,8 +114,7 @@
                 if (response !== "filtre:no") {
 
                     vehicules = JSON.parse(response);
-                    alert(vehicules[0]);
-                    //displayVehicules(JSON.parse(response));
+                    displayBooks(JSON.parse(response));
                 }
             },
             error: function () {
@@ -117,43 +124,45 @@
         return false;
     }
 
-    function displayVehicules(vehicules){
+
+    function displayBooks(books){
         var div = document.getElementById("bookSearched")
         if( div != null){
             while (div.firstChild){
                 div.removeChild(div.firstChild);
             }
         }
-        for (i = 0; i < vehicules.length; i++) {
-            addVehiculeToDiv(vehicules[i],i);
+        for (i = 0; i < books.length; i++) {
+            addBookToDiv(books[i],i);
         }
     }
 
-    function addVehiculeToDiv(vehicule, id){
-        var div = document.getElementById("bookSearched");
-        var vehiculeDiv = document.createElement('div');
-        vehiculeDiv.setAttribute('class', "col-md-4 livres" );
+    function addBookToDiv(book, id){
+        var displaySpaceDiv = document.getElementById("bookSearched");
+        var bookDiv = document.createElement('div');
+        bookDiv.setAttribute('class', "col-md-4 livres" );
        // vehiculeDiv.setAttribute('id', id);
       //  vehiculeDiv.setAttribute('onclick', "showVehiculeDetails(this)");
 
-        var text = document.createElement('p');
-        text.innerText = vehicule['title'];
-        text.setAttribute('class',"text-center");
-        text.setAttribute('style',"font-size: max(1vw, 16px); vmin:1");
+        var title = document.createElement('p');
+        title.innerText = book[1];
+        //title.setAttribute('class',"text-center");
+       // title.setAttribute('style',"font-size: max(1vw, 16px); vmin:1");
 
-        var text2 = document.createElement('p');
-        text2.innerText = vehicule['price'];
-        text2.setAttribute('class',"text-center");
-        text2.setAttribute('style',"font-size: max(1vw, 16px);border-top: 1px solid #afafaf; margin-right: 25%; margin-left: 25%;");
+        var textContent = document.createElement('p');
+        textContent.innerText = book[5];
+        //textContent.setAttribute('class',"text-center");
+        //textContent.setAttribute('style',"font-size: max(1vw, 16px);border-top: 1px solid #afafaf; margin-right: 25%; margin-left: 25%;");
 
-        var img = document.createElement('img');
-        img.setAttribute('src', vehicule['image_path']);
-        img.setAttribute('style','width: 140px;height: 190px;');
-        img.setAttribute('alt','Livre');
-        vehiculeDiv.appendChild(text);
-        vehiculeDiv.appendChild(img);
-        vehiculeDiv.appendChild(text2);
-        div.appendChild(vehiculeDiv);
+        var bookImage = document.createElement('img');
+        bookImage.setAttribute('src', book[7]);
+        bookImage.setAttribute('style','width: 140px;height: 190px;');
+        bookImage.setAttribute('alt','Livre');
+
+        bookDiv.appendChild(title);
+        bookDiv.appendChild(bookImage);
+        bookDiv.appendChild(textContent);
+        displaySpaceDiv.appendChild(bookDiv);
     }
 
 </script>

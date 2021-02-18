@@ -21,4 +21,8 @@
     $daoFactory = DAOFactory::getInstance();
     $bookDao = $daoFactory->getBookDao();
     $books = $bookDao->getAll($filters);
-    echo json_encode($books,JSON_INVALID_UTF8_SUBSTITUTE);
+    $booksArray = array();
+    foreach ($books as $book){
+        array_push($booksArray, $book->toArray());
+    }
+    echo json_encode($booksArray,JSON_INVALID_UTF8_SUBSTITUTE);

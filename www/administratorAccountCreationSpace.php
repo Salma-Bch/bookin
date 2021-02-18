@@ -37,9 +37,6 @@
                     <div class="form-group" id="codePostale">
                         <input type='text' name="cdp" id="cdp" class='form-control' onkeypress="return onlyNumberKey(event)" placeholder='Code postale' required=""/>
                     </div>
-                    <div class="form-group" id="permis">
-                        <input type='text' name="no_permis" id="numeroPermis" class='form-control' onkeypress="return onlyNumberKey(event)"  placeholder='Numéro de permis' required=""/>
-                    </div>
                     <div class="form-group" id="mail">
                         <input type='text' name="mail" id='inputEmail' class='form-control' placeholder='Adresse mail' required=""/>
                     </div>
