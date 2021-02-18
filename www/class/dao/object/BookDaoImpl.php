@@ -13,6 +13,7 @@ class BookDaoImpl implements BookDao
 {
     private const SQL_SELECT_BY_BOOK_ID = "SELECT book_id, title, author, age_range, number_pages, price, quantity, image_path, category_name FROM book WHERE book_id = ?";
     private const SQL_SELECT_ALL_BOOKS = "SELECT book_id, title, author, age_range, number_pages, price, quantity, image_path, category_name FROM book";
+    private const SQL_SELECT_ALL_BOOKS_BY_FILTERS = "SELECT book_id, title, author, age_range, number_pages, price, quantity, image_path, category_name FROM book WHERE";
     private const SQL_INSERT = "INSERT INTO book (book_id, title, author, age_range, number_pages, price, quantity, image_path, category_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private const SQL_UPDATE = "UPDATE book SET title=?, author=?, age_range=?, number_pages=?, price=?, quantity=?, image_path=?, category_name=? WHERE book_id=?";
 
@@ -41,12 +42,42 @@ class BookDaoImpl implements BookDao
         return $book;
     }
 
-    public function getAll(): array
+    public function getAll(array $filters=null): array
     {
         $books = array();
+        $request = self::SQL_SELECT_ALL_BOOKS;
+        if($filters != null && count($filters) != 0){
+            $request = self::SQL_SELECT_ALL_BOOKS_BY_FILTERS;
+            if( isset($filters['categories']) && $filters['categories'] != "" ){
+                $categories = $filters['categories'];
+                $request .= " category_name IN (";
+                foreach ($categories as $category){
+                    $request .= "'".$category."', ";
+                }
+                $request = substr($request, 0, -2);
+                $request .= ")";
+            }
+            else
+                $request .= " 1=1";
+
+            $request .=" AND";
+
+            if( isset($filters['agesRange']) && $filters['agesRange'] != "" ) {
+                $agesRange = $filters['agesRange'];
+                $request .= " age_range IN (";
+                foreach ($agesRange as $ageRange){
+                    $request .= "'".$ageRange."', ";
+                }
+                $request = substr($request, 0, -2);
+                $request .= ")";
+            }
+            else
+                $request .= " 1=1";
+
+        }
         try{
             $connection = $this->daoFactory->getConnection();
-            $preparedStatement = DAOUtility::initPreparedStatement($connection, self::SQL_SELECT_ALL_BOOKS);
+            $preparedStatement = DAOUtility::initPreparedStatement($connection, $request);
             $status = $preparedStatement->execute();
             if($status) {
                 $dbBooks = $preparedStatement->fetchAll();
@@ -54,7 +85,6 @@ class BookDaoImpl implements BookDao
                     array_push($books, $this->map($book,true));
                 }
             }
-
         } catch (\Exception $e){
             throw new DAOException($e);
         } finally {
