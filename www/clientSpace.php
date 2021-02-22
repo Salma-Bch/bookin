@@ -22,7 +22,7 @@ session_start();
 <html lang="fr">
     <head>
         <?php
-        include_once ("ressources/include/head.php");
+        include_once("ressources/include/head.php");
         ?>
         <title>Mon espace</title>
     </head>
@@ -55,7 +55,7 @@ session_start();
                 <input type="submit" class="btn modifEtDeco" id="modifButton" name="submit" value="Modifier mes informations" onclick="showModifInfosForm()" />
             </div>
             <div class="col-sm-6 col-xs-12">
-                <form action="ressources/include/logout.php" method="POST">
+                <form action="include/logout.php" method="POST">
                     <input type="submit" class="btn modifEtDeco" value="Déconnexion" />
                 </form>
             </div>

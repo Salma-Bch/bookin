@@ -104,13 +104,13 @@
                     <div id="secondPart" style="display: none">
                         <div class="row">
                             <div class="form-group col-md-4">
-                                <?php include ("./ressources/include/dayInput.php"); ?>
+                                <?php include("./ressources/include/dayInput.php"); ?>
                             </div>
                             <div class="form-group col-md-4">
-                                <?php include ("./ressources/include/monthInput.php"); ?>
+                                <?php include("./ressources/include/monthInput.php"); ?>
                             </div>
                             <div class="form-group col-md-4">
-                                <?php include ("./ressources/include/yearInput.php"); ?>
+                                <?php include("./ressources/include/yearInput.php"); ?>
                             </div>
                             <div class="form-group col-md-6 mb-8">
                                 <select class="form-select form-select-lg mb-3 change" name="sex" aria-label="Default select example">
@@ -120,7 +120,7 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
-                                <?php include ("./ressources/include/professionInput.php"); ?>
+                                <?php include("./ressources/include/professionInput.php"); ?>
                             </div>
                             <div class="form-group col-md-6">
                                 <button class='btn btn-lg btn-danger btn-block btn-signin' name="submit"  onclick="previousForm('firstPart','secondPart')">Retour</button>

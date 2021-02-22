@@ -1,65 +1,145 @@
-book_id;title;author;age_range;number_pages;price;quantity;image_path;category_name
-00000000;Toute L'actu;Célia Rosentraub;25;120;16,9;50;http://bookin.alwaysdata.net/ressources/images/books/actualite_1.png;Actualité
-00000001;100 fiches d'actualité;Florent Vandepitte;-18;220;14,9;40;http://bookin.alwaysdata.net/ressources/images/books/actualite_2.png;Actualité
-00000002;Le Meilleur de L'actualité;Louis Gœury;-18;180;16,9;30;http://bookin.alwaysdata.net/ressources/images/books/actualite_3.png;Actualité
-00000003;Actu'Concours;Philippe Cavaillé;25;150;28;20;http://bookin.alwaysdata.net/ressources/images/books/actualite_4.png;Actualité
-00000004;L'Ecume des jours;Boris Vian;25;210;6,9;50;http://bookin.alwaysdata.net/ressources/images/books/amour_1.png;Amour
-00000005;La Duchesse;Danielle Steel;25;380;7,9;40;http://bookin.alwaysdata.net/ressources/images/books/amour_2.png;Amour
-00000006;On ne badine pas avec l'amour;Alfred Musset;-18;120;2,9;30;http://bookin.alwaysdata.net/ressources/images/books/amour_3.png;Amour
-00000007;Le jeu de l'amour et du hasard;Jacques Marivaux;-18;160;3,9;20;http://bookin.alwaysdata.net/ressources/images/books/amour_4.png;Amour
-00000008;L'autre art contemporain;Benjamin Olivienne;25;120;8;50;http://bookin.alwaysdata.net/ressources/images/books/art_1.png;Art
-00000009;Disney Princesses;Jérémy Mariez;-10;220;6,9;40;http://bookin.alwaysdata.net/ressources/images/books/art_2.png;Art
-00000010;Andalousie-Art et Civilisation;Ignacio Cuellar;25;180;7,9;30;http://bookin.alwaysdata.net/ressources/images/books/art_3.png;Art
-00000011;La sculpture et ses remplois;Nicolas de Larquier;25;150;2,9;20;http://bookin.alwaysdata.net/ressources/images/books/art_4.png;Art
-00000012;Le Menhir d'Or;René Goscinny;-10;210;9,9;50;http://bookin.alwaysdata.net/ressources/images/books/bd_1.png;Bande dessinée
-00000013;La grande épopée de Picsou;Don Rosa;-10;380;29,9;40;http://bookin.alwaysdata.net/ressources/images/books/bd_2.png;Bande dessinée
-00000014;Spider-Man;Delilah S.Dawson;-10;120;9,9;30;http://bookin.alwaysdata.net/ressources/images/books/bd_3.png;Bande dessinée
-00000015;Tintin;Bernard Hergé;-10;160;11,5;20;http://bookin.alwaysdata.net/ressources/images/books/bd_4.png;Bande dessinée
-00000016;L'intelligence émotionnelle;Daniel Roche;25;120;7,9;50;http://bookin.alwaysdata.net/ressources/images/books/bien_etre_1.png;Bien-être
-00000017;Le pouvoir du moment présent;Annie Ollivier;25;220;2,9;40;http://bookin.alwaysdata.net/ressources/images/books/bien_etre_2.png;Bien-être
-00000018;Réfléchissez et devenez riche;Thérèse Gindraux;25;180;9,9;30;http://bookin.alwaysdata.net/ressources/images/books/bien_etre_3.png;Bien-être
-00000019;Hypersensibles mieux se comprendre;Elaine Aron;25;150;29,9;20;http://bookin.alwaysdata.net/ressources/images/books/bien_etre_4.png;Bien-être
-00000020;L'autre art contemporain;Benjamin Olivienne;25;210;6,9;50;http://bookin.alwaysdata.net/ressources/images/books/cuisine_1.png;Cuisine
-00000021;Disney Princesses;Jérémy Mariez;-10;380;7,9;40;http://bookin.alwaysdata.net/ressources/images/books/cuisine_2.png;Cuisine
-00000022;Andalousie-Art et Civilisation;Ignacio Henares Cuellar;25;120;2,9;30;http://bookin.alwaysdata.net/ressources/images/books/cuisine_3.png;Cuisine
-00000023;La sculpture et ses remplois;Nicolas de Larquier;25;160;3,9;20;http://bookin.alwaysdata.net/ressources/images/books/cuisine_4.png;Cuisine
-00000024;La crise de la culture;Hannah Arendt;-18;120;11,5;50;http://bookin.alwaysdata.net/ressources/images/books/culture_1.png;Culture
-00000025;Le petit Larousse de la culture ;Vincent Brovicelle;-18;220;7,9;40;http://bookin.alwaysdata.net/ressources/images/books/culture_2.png;Culture
-00000026;Par-delà nature et culture;Philippe Descola;-18;180;2,9;30;http://bookin.alwaysdata.net/ressources/images/books/culture_3.png;Culture
-00000027;L'obsession Rap;L'ABCDR du son;-18;150;9,9;20;http://bookin.alwaysdata.net/ressources/images/books/culture_4.png;Culture
-00000028;Les Fleurs du mal;Charles Baudelaire;-18;210;9,9;50;http://bookin.alwaysdata.net/ressources/images/books/education_1.png;Education
-00000029;Le Cid;Pierre Corneille;-18;380;29,9;40;http://bookin.alwaysdata.net/ressources/images/books/education_2.png;Education
-00000030;Les Fourberies de Scapin;Molière;-18;120;6,9;30;http://bookin.alwaysdata.net/ressources/images/books/education_2.png;Education
-00000031;Yvain ou Le Chevalier au lion;Chrétien de Troyes;-18;160;7,9;20;http://bookin.alwaysdata.net/ressources/images/books/education_3.png;Education
-00000032;La guerre des Gaules;Jules César;-18;120;15;50;http://bookin.alwaysdata.net/ressources/images/books/histoire_1.png;Histoire
-00000033;L'ancien régime et la révolution;Alexis de Tocqueville;-18;220;8,99;40;http://bookin.alwaysdata.net/ressources/images/books/histoire_2.png;Histoire
-00000034;Souvenirs d'un officier;Jean-Baptiste Barrès;-18;180;12,9;30;http://bookin.alwaysdata.net/ressources/images/books/histoire_3.png;Histoire
-00000035;La République romaine;Jean-Michel David;-18;150;8,9;20;http://bookin.alwaysdata.net/ressources/images/books/histoire_4.png;Histoire
-00000036;Sudoku pour enfant;Jean Brochet;-10;210;7,9;50;http://bookin.alwaysdata.net/ressources/images/books/loisir_1.png;Loisir
-00000037;Les principes des échecs;José Capablanca;-25;380;15;40;http://bookin.alwaysdata.net/ressources/images/books/loisir_2.png;Loisir
-00000038;100 Magnifiques Mandalas;Marie Pellier;65;120;8,99;30;http://bookin.alwaysdata.net/ressources/images/books/loisir_3.png;Loisir
-00000039;Coloriages Disney Princesses;Jérémy Mariez;-10;160;12,9;20;http://bookin.alwaysdata.net/ressources/images/books/loisir_4.png;Loisir
-00000040;Nuit sombre et sacrée;Harry Bosch;-25;120;8,9;50;http://bookin.alwaysdata.net/ressources/images/books/policier_1.png;Policier
-00000041;Crimes pour Vendetta;Eve Dallas;18;220;8,6;40;http://bookin.alwaysdata.net/ressources/images/books/policier_2.png;Policier
-00000042;À cache-cache;Jean Arlidge;18;180;9,4;30;http://bookin.alwaysdata.net/ressources/images/books/policier_3.png;Policier
-00000043;Le couple d'à côté;Shari Lapena;18;150;6,9;20;http://bookin.alwaysdata.net/ressources/images/books/policier_4.png;Policier
-00000044;Je pense trop;Christel Petitcollin;-25;210;17,5;50;http://bookin.alwaysdata.net/ressources/images/books/psychologie_1.png;Psychologie
-00000045;Cinq lecons sur la psychanalyse;Sigmun Freud;-25;380;5,5;40;http://bookin.alwaysdata.net/ressources/images/books/psychologie_2.png;Psychologie
-00000046;La psychanalyse pour les nuls;Christian Godin;-25;120;22,9;30;http://bookin.alwaysdata.net/ressources/images/books/psychologie_3.png;Psychologie
-00000047;Névrose et psychose;Sigmun Freud;-25;160;5,1;20;http://bookin.alwaysdata.net/ressources/images/books/psychologie_4.png;Psychologie
-00000048;Urgences or not urgences;Jean Brochet;-25;120;8,95;50;http://bookin.alwaysdata.net/ressources/images/books/sante_1.png;Santé
-00000049;Grand Manuel de phytothérapie;Eric Lorrain;-25;220;12,9;40;http://bookin.alwaysdata.net/ressources/images/books/sante_2.png;Santé
-00000050;Ma bible des huiles essentielles;Danièle Festy;-25;180;24,9;30;http://bookin.alwaysdata.net/ressources/images/books/sante_3.png;Santé
-00000051;Bien vivre le quatrième trimestre;Julia Simon;-25;150;19,9;20;http://bookin.alwaysdata.net/ressources/images/books/sante_4.png;Santé
-00000052;Tous d l'espace ?;Maxime Lisoir;18;210;18,9;50;http://bookin.alwaysdata.net/ressources/images/books/science_1.png;Science
-00000053;Votre cerveau est extraordinaire;Fabien Olicard;18;380;7,3;40;http://bookin.alwaysdata.net/ressources/images/books/science_2.png;Science
-00000054;Science et religion;Bertrand Russell;18;120;6,9;30;http://bookin.alwaysdata.net/ressources/images/books/science_3.png;Science
-00000055;Fiches brevet;Sandrine Aussourd;18;160;5,9;20;http://bookin.alwaysdata.net/ressources/images/books/science_4.png;Science
-00000056;Arca;Romain Benassya;18;120;7,4;50;http://bookin.alwaysdata.net/ressources/images/books/sf_1.png;Science-fiction
-00000057;Voyage au centre de la Terre;Jules Verne;18;220;9,2;40;http://bookin.alwaysdata.net/ressources/images/books/sf_2.png;Science-fiction
-00000058;Histoire de la Science Fiction;Xavier Dollo;18;180;6,3;30;http://bookin.alwaysdata.net/ressources/images/books/sf_3.png;Science-fiction
-00000059;Pyramides;Romain Benassaya;18;150;8,6;20;http://bookin.alwaysdata.net/ressources/images/books/sf_4.png;Science-fiction
-00000060;Plus égal Plus;Léna Situations;18;210;12,8;50;http://bookin.alwaysdata.net/ressources/images/books/vie_pratique_1.png;Vie pratique
-00000061;Miracle Morning;Hal Elrod;-25;380;13,2;40;http://bookin.alwaysdata.net/ressources/images/books/vie_pratique_2.png;Vie pratique
-00000062;Hypersensibles ;Elaine Aron;-25;120;8,5;30;http://bookin.alwaysdata.net/ressources/images/books/vie_pratique_3.png;Vie pratique
-00000063;Zéro Déchet;Julie Bernier;18;160;6,9;20;http://bookin.alwaysdata.net/ressources/images/books/vie_pratique_4.png;Vie pratique
+book_id;title;author;age_range;number_pages;price;quantity;book_image;category_name
+00000000;Toute L'actu;Célia Rosentraub;25;120;16,9;50;actualite_1.png;Actualité
+00000001;100 fiches d'actualité;Florent Vandepitte;18;220;14,9;40;actualite_2.png;Actualité
+00000002;Le Meilleur de L'actualité;Louis Gœury;18;180;16,9;30;actualite_3.png;Actualité
+00000003;Actu'Concours;Philippe Cavaillé;25;180;8,99;20;actualite_4.png;Actualité
+00000004;Le meilleur de l'actualité;Sarfati Olivier;18;150;12,9;40;actualite_5.png;Actualité
+00000005;Carnet de guerreCovid19;Didier Raoult;25;120;8,9;30;actualite_6.png;Actualité
+00000006;L'économie en 100 mots d'actualité;Christophe Degryse;18;220;15;20;actualite_7.png;Actualité
+00000007;Dictionnaire amoureux de la géopolitique;Plon Fayard;18;180;7,9;40;actualite_8.png;Actualité
+00000008;Franceinfo: 30 ans d'actualité;Collectif;25;150;2,9;50;actualite_9.png;Actualité
+00000009;L'Ecume des jours;Boris Vian;25;120;9,9;50;amour_1.png;Amour
+00000010;La Duchesse;Danielle Steel;65;180;7,9;40;amour_2.png;Amour
+00000011;On ne badine pas avec l'amour;Alfred Musset;18;150;2,9;30;amour_3.png;Amour
+00000012;Le jeu de l'amour et du hasard;Jacques Marivaux;18;120;8,99;20;amour_4.png;Amour
+00000013;Mon amour;Astrid Debordon;10;220;12,9;40;amour_5.png;Amour
+00000014;Ultime preuve d'amour;Canesi et Rahmani;25;180;8,9;30;amour_6.png;Amour
+00000015;Ce qui reste de nous;Jill Santopolo;10;150;15;20;amour_7.png;Amour
+00000016;KPop love story;Ae Jung;10;120;7,9;40;amour_8.png;Amour
+00000017;L'amour impossible;Jan Bauer;10;180;2,9;50;amour_9.png;Amour
+00000018;L'autre art contemporain;Benjamin Olivienne;25;150;9,9;50;art_1.png;Art
+00000019;Disney Princesses;Jérémy Mariez;65;120;6,9;40;art_2.png;Art
+00000020;AndalousieArt et Civilisation;Ignacio Cuellar;25;150;7,9;30;art_3.png;Art
+00000021;La sculpture et ses remplois;Nicolas de Larquier;25;120;8,99;20;art_4.png;Art
+00000022;Yves Saint Laurent Catwalk;Suzy Menkes;10;180;12,9;40;art_5.png;Art
+00000023;Chanel;Patrick Mauriès;25;150;8,9;30;art_6.png;Art
+00000024;Le grand livre de l'art;David G.Wilkins;10;120;15;20;art_7.png;Art
+00000025;1925, Quand l'art déco;Breon;10;220;7,9;40;art_8.png;Art
+00000026;Louis Vuitton Défilés;Jo Ellison;10;180;2,9;50;art_9.png;Art
+00000027;Le Menhir d'Or;René Goscinny;25;210;9,9;50;bd_1.png;Bande dessinée
+00000028;La grande épopée de Picsou;Don Rosa;65;380;29,9;40;bd_2.png;Bande dessinée
+00000029;SpiderMan;Delilah S.Dawson;10;150;9,9;30;bd_3.png;Bande dessinée
+00000030;Tintin;Bernard Hergé;10;120;11,5;20;bd_4.png;Bande dessinée
+00000031;Les aventures de Spirou et Fantasio;Yoann Vehlmann;10;180;8,99;40;bd_5.png;Bande dessinée
+00000032;Boule et Bill;Jean Roba;25;150;12,9;30;bd_6.png;Bande dessinée
+00000033;Clifton détective British;Raymond Macherot;10;120;8,9;20;bd_7.png;Bande dessinée
+00000034;Le nid des marsupulamis;Yoann Vehlmann;10;220;15;40;bd_8.png;Bande dessinée
+00000035;Gaston, le gang des gaffeurs;Dupuis;10;180;7,9;50;bd_9.png;Bande dessinée
+00000036;L'intelligence émotionnelle;Daniel Roche;25;120;2,9;50;bien_etre_1.png;Bien-être
+00000037;Le pouvoir du moment présent;Annie Ollivier;65;220;9,9;40;bien_etre_2.png;Bien-être
+00000038;Réfléchissez et devenez riche;Thérèse Gindraux;25;180;9,9;30;bien_etre_3.png;Bien-être
+00000039;Hypersensibles mieux se comprendre;Elaine Aron;25;150;29,9;20;bien_etre_4.png;Bien-être
+00000040;La bienveillance est une arme absolue;Didier Cauwelaert;25;120;8,99;40;bien_etre_5.png;Bien-être
+00000041;Etesvous ultra sensible;Carol Pirotte;18;180;12,9;50;bien_etre_6.png;Bien-être
+00000042;La sagesse espiègle;Alexandre Jollien;18;150;8,9;40;bien_etre_7.png;Bien-être
+00000043;Les promesses de l'âge;Perla Servan Schreiber;65;120;15;30;bien_etre_8.png;Bien-être
+00000044;Qu'est ce qui nous rend vraiment heureux ?;Sonja Lyubomirsky;65;220;7,9;20;bien_etre_9.png;Bien-être
+00000045;On va déguster l'Italie;François Régis;25;180;2,9;50;cuisine_1.png;Cuisine
+00000046;Fait maison 3;Cyril Lignac;65;380;9,9;40;cuisine_2.png;Cuisine
+00000047;On va déguster la France;François Régis;25;120;9,9;30;cuisine_3.png;Cuisine
+00000048;Le confinement d'un Chef;Simone Zanoni;25;180;29,9;20;cuisine_4.png;Cuisine
+00000049;Cuisine en moins de 10 min;Héloise Martel;18;150;6,9;40;cuisine_5.png;Cuisine
+00000050;Planches à partager;hachette;18;120;7,9;50;cuisine_6.png;Cuisine
+00000051;Fait maison 1;Cyril Lignac;18;220;8,99;40;cuisine_7.png;Cuisine
+00000052;Le grand livre marabout;Collectif;18;180;12,9;30;cuisine_8.png;Cuisine
+00000053;Les meilleures recettes de l'émission;Philippe Etchebest;18;150;8,9;20;cuisine_9.png;Cuisine
+00000054;La crise de la culture;Hannah Arendt;25;120;15;50;culture_1.png;Culture
+00000055;Le petit Larousse de la culture générale;Vincent Brovicelle;65;220;7,9;40;culture_2.png;Culture
+00000056;Pardelà nature et culture;Philippe Descola;18;180;2,9;30;culture_3.png;Culture
+00000057;L'obsession Rap;L'ABCDR du son;18;150;9,9;20;culture_4.png;Culture
+00000058;1 kilo de culture générale;Jean François Pépin;18;120;29,9;40;culture_5.png;Culture
+00000059;C'est quoi la culture;Ben;18;220;6,9;50;culture_6.png;Culture
+00000060;Le Québec un pays une culture;Françoise de Labsade;25;180;7,9;40;culture_7.png;Culture
+00000061;Le pays silencieux;Christine Cerrada;25;150;8,99;30;culture_8.png;Culture
+00000062;Le Japon;Bruno Meyere;25;120;12,9;20;culture_9.png;Culture
+00000063;Les Fleurs du mal;Charles Baudelaire;25;210;8,9;50;education_1.png;Education
+00000064;Le Cid;Pierre Corneille;65;380;15;40;education_2.png;Education
+00000065;Les Fourberies de Scapin;Molière;18;120;6,9;30;education_3.png;Education
+00000066;Yvain ou Le Chevalier au lion;Chrétien de Troyes;18;180;7,9;20;education_4.png;Education
+00000067;Devenir;Michelle obama;18;150;8,99;50;education_5.png;Education
+00000068;Les 101 règles d'or;GillesMarie Valet;25;120;12,9;50;education_6.png;Education
+00000069;La grande encyclopédie des enfants;Collectif;10;220;8,9;40;education_7.png;Education
+00000070;L'éducation sentimentale;Gustave Flaubert;18;180;15;30;education_8.png;Education
+00000071;L'éducation réinventée;Salman Khan;25;150;8,99;20;education_9.png;Education
+00000072;La guerre des Gaules;Jules César;25;120;12,9;50;histoire_1.png;Histoire
+00000073;L'ancien régime et la révolution;Alexis de Tocqueville;65;220;8,9;40;histoire_2.png;Histoire
+00000074;Souvenirs d'un officier de la GA;JeanBaptiste Barrès;18;180;12,9;30;histoire_3.png;Histoire
+00000075;La République romaine;JeanMichel David;18;150;8,9;20;histoire_4.png;Histoire
+00000076;Les Six Livres;Jean Bodin;18;120;15;50;histoire_5.png;Histoire
+00000077;Cahier d'écoliers;Christin Benevent;10;220;8,99;40;histoire_6.png;Histoire
+00000078;Femme dans l'histoire;Pontivy;25;180;12,9;30;histoire_7.png;Histoire
+00000079;Mon premier livre;Laurent Brosselette;10;150;8,9;20;histoire_8.png;Histoire
+00000080;Une histoire d'émotion;Potel et Chabot;10;120;5,1;40;histoire_9.png;Histoire
+00000081;Sudoku pour enfant;Jean Brochet;10;210;7,9;50;loisir_1.png;Loisir
+00000082;Les principes fondamentaux des échecs;José Capablanca;25;380;15;40;loisir_2.png;Loisir
+00000083;100 Magnifiques Mandalas;Marie Pellier;65;120;8,99;30;loisir_3.png;Loisir
+00000084;Le livre amoureux;Ramadier;10;160;7;20;loisir_4.png;Loisir
+00000085;Le livre en colère;Ramadier;10;160;7;20;loisir_5.png;Loisir
+00000086;Le livre qui dit non;Ramadier;10;160;7;20;loisir_6.png;Loisir
+00000087;Le livre qui dort;Ramadier;10;160;7;20;loisir_7.png;Loisir
+00000088;Le livre va à l'école;Ramadier;10;160;7;20;loisir_8.png;Loisir
+00000089;Le livre qui a peur;Ramadier;10;160;7;20;loisir_9.png;Loisir
+00000090;Nuit sombre et sacrée;Harry Bosch;10;120;12,9;30;policier_1.png;Policier
+00000091;Crimes pour Vendetta;Eve Dallas;18;220;8,6;20;policier_2.png;Policier
+00000092;À cachecache;Jean Arlidge;18;180;9,4;30;policier_3.png;Policier
+00000093;Le couple d'à côté;Shari Lapena;18;150;6,9;20;policier_4.png;Policier
+00000094;Vaste comme la nuit;Elena Piacentini;18;120;15;30;policier_4.png;Policier
+00000095;Le baiser de l'ogre;Else Roch;18;220;8,99;20;policier_4.png;Policier
+00000096;Alarme en Béarn;Thomas Aden;18;180;12,9;30;policier_4.png;Policier
+00000097;La trilogie berlinoise;Philip Kerr;18;150;8,9;20;policier_4.png;Policier
+00000098;Un, deux, trois, sommeil !;Gilles Vincent;18;130;5,1;50;policier_4.png;Policier
+00000099;Je pense trop;Christel Petitcollin;25;210;7,9;50;psychologie_1.png;Psychologie
+00000100;Cinq lecons sur la psychanalyse;Sigmun Freud;25;380;5,5;40;psychologie_2.png;Psychologie
+00000101;La psychanalyse pour les nuls;Christian Godin;25;120;22,9;30;psychologie_3.png;Psychologie
+00000102;Névrose et psychose;Sigmun Freud;25;160;5,1;20;psychologie_4.png;Psychologie
+00000103;Du bonheur;Frédéric Lenoir;18;160;8,99;50;psychologie_5.png;Psychologie
+00000104;La puissance de la joie;Frédéric Lenoir;18;120;12,9;50;psychologie_6.png;Psychologie
+00000105;La psychologie du développement;Virginie Laval;18;220;8,9;40;psychologie_7.png;Psychologie
+00000106;Pourquoi croiton ?;Thierry Ripoll;18;180;5,1;30;psychologie_8.png;Psychologie
+00000107;Artthérapie et enfance;AnneMarie Dubois;25;120;7,9;20;psychologie_9.png;Psychologie
+00000108;Urgences or not urgences;Jean Brochet;25;120;5,5;50;sante_1.png;Santé
+00000109;Grand Manuel de phytothérapie;Eric Lorrain;25;220;12,9;40;sante_2.png;Santé
+00000110;Ma bible des huiles essentielles;Danièle Festy;25;180;24,9;30;sante_3.png;Santé
+00000111;Bien vivre le quatrième trimestre;Julia Simon;25;150;19,9;20;sante_4.png;Santé
+00000112;Trois jours et une vie;Nicolas Boukhrief;18;120;9,2;40;sante_5.png;Santé
+00000113;Natura;Pascal d'Erm;18;120;6,3;30;sante_6.png;Santé
+00000114;L'église;Mark Dever;18;220;8,6;20;sante_7.png;Santé
+00000115;Livre blanc;Fnehad;25;180;12,8;50;sante_8.png;Santé
+00000116;Enfants en bonne santé;Nadia Christensen;25;150;13,2;40;sante_9.png;Santé
+00000117;Tous de l'espace ?;Maxime Lisoir;18;210;18,9;30;science_1.png;Science
+00000118;Votre cerveau est extraordinaire;Fabien Olicard;18;380;7,3;40;science_2.png;Science
+00000119;Science et religion;Bertrand Russell;18;120;6,9;30;science_3.png;Science
+00000120;Fiches brevet;Sandrine Aussourd;18;160;5,9;20;science_4.png;Science
+00000121;Science et impact social;Mélanie Marcel;18;220;6,3;50;science_5.png;Science
+00000122;Les promesses de la science;Joêl de Rosnay;18;180;8,6;40;science_6.png;Science
+00000123;Science investigations;Teacher Created;18;150;12,8;30;science_7.png;Science
+00000124;25 vraies fausses idées;Sciences pour tous;25;210;13,2;40;science_8.png;Science
+00000125;Coronavirus et maintenant ?;Science et vie;25;380;18,9;30;science_9.png;Science
+00000126;Arca;Romain Benassya;18;120;7,3;20;sf_1.png;SF
+00000127;Voyage au centre de la Terre;Jules Verne;18;220;9,2;40;sf_2.png;SF
+00000128;Histoire de la Science Fiction;Xavier Dollo;18;180;6,3;30;sf_3.png;SF
+00000129;Pyramides;Romain Benassaya;18;150;8,6;20;sf_4.png;SF
+00000130;Echange standard;Robert Sheckley;18;160;6,9;20;sf_5.png;SF
+00000131;Ombres et flammes;Kevin Anderson;18;220;5,9;50;sf_6.png;SF
+00000132;Les enfants de poséidon;Alastair Reynold;18;180;3,99;40;sf_7.png;SF
+00000133;Le vengeur;Carol Berg;18;150;8,6;30;sf_8.png;SF
+00000134;Virus L.I.V.3;Christian Grenier;18;210;12,8;40;sf_9.png;SF
+00000135;Tout savoir avant de s'abonner;Vie Pratique;25;120;6,99;30;vie_pratique_1.png;Vie pratique
+00000136;Eau stop au gaspillage;Vie Pratique;25;120;6,99;30;vie_pratique_2.png;Vie pratique
+00000137;Internet, téléphone mobile;Vie Pratique;25;120;6,99;30;vie_pratique_3.png;Vie pratique
+00000138;Généalogie;Vie Pratique;25;120;6,99;30;vie_pratique_4.png;Vie pratique
+00000139;Sauvegarder et protéger;Vie Pratique;25;120;6,99;30;vie_pratique_5png;Vie pratique
+00000140;100% MADE IN France;Vie Pratique;25;120;6,99;30;vie_pratique_6.png;Vie pratique
+00000141;Louer votre maison;Vie Pratique;25;120;6,99;30;vie_pratique_7.png;Vie pratique
+00000142;Louer votre mobilier;Vie Pratique;25;120;6,99;30;vie_pratique_8.png;Vie pratique
+00000143;Comment se protéger sur internet;Vie Pratique;25;120;6,99;30;vie_pratique_9.png;Vie pratique
