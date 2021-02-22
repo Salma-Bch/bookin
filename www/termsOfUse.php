@@ -12,13 +12,13 @@
     ?>
     <head>
         <?php
-            include_once("ressources/include/head.php");
+            include_once("include/head.php");
         ?>
         <title>Conditions d'utilisation</title>
     </head>
 	<body>
 		<?php
-	        include("ressources/include/header.php");
+	        include("include/header.php");
 	    ?>
         <div class="head_location"></div>
 		<div class="container" id="termsOfUse">
@@ -55,7 +55,7 @@
 			</div>
 		</div>
 		<?php
-			include("ressources/include/footer.php");
+			include("include/footer.php");
 		?>
 	</body>
 </html>

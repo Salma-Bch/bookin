@@ -12,22 +12,28 @@
     ?>
 	<head>
         <?php
-        include_once("ressources/include/head.php");
+        include_once("include/head.php");
         ?>
 		<title>Book'In</title>
 	</head>
 	<body>
         <?php
-            include("ressources/include/header.php");
+            include("include/header.php");
         ?>
 		<div class="head_index">
 			<div class="container">
 				<h1 class="titrePrincipal">Book'In</h1>
 				<p class="sous-titre">Librairie en ligne</p>
 			</div>
-		</div>
+        </div>
+        <div class="container"
+            <div class="col-md-12 suggestions">
+                <p>Connectez-vous pour une suggestion de livre adaptez à vos envies.</p>
+                <button class='btn btn-xs btn-warning btn-block' name="submit"  onclick='document.location.href="clientLoginSpace";' >Se connecter</button>
+            </div>
+        </div>
         <?php
-            include("ressources/include/footer.php");
+            include("include/footer.php");
         ?>
 	</body>
 </html>

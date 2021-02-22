@@ -12,13 +12,13 @@
     ?>
     <head>
         <?php
-            include_once("ressources/include/head.php");
+            include_once("include/head.php");
         ?>
         <title>Création de compte</title>
     </head>
     <body>
         <?php
-            include("ressources/include/header.php");
+            include("include/header.php");
         ?>
         <div class ='container-connexion'>
             <div class='card card-container-mdp'>
@@ -53,7 +53,7 @@
         </div>
 
         <?php
-            include("ressources/include/footer.php");
+            include("include/footer.php");
         ?>
         <script><!--
             function displayEchecCreat(){

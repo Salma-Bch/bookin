@@ -12,13 +12,13 @@
     ?>
 	<head>
         <?php
-        include_once("ressources/include/head.php");
+        include_once("include/head.php");
         ?>
 		<title>A propos</title>
 	</head>
 	<body>
 		<?php
-	    	include("ressources/include/header.php");
+	    	include("include/header.php");
 	  	?>
         <div class="head_location">
 
@@ -42,13 +42,13 @@
                 Notre ojectif est de fournir à nos clients une expérience agréable,
                 du premier clic de la souris jusqu’à la livraison de vos livres. En achetant chez nous, vous optez pour un service avenant et fiable.
             </p>
-                <img class = "logoNoir" src="ressources/images/favicon.png" alt="Logo"/>
+                <img class = "logoNoir" src="ressources/images/logo_noir.png" alt="Logo"/>
             </div>
 
             </div>
         </div>
 		<?php
-			include("ressources/include/footer.php");
+			include("include/footer.php");
 		?>
 	</body>
 </html>

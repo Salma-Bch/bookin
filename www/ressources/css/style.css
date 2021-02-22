@@ -275,3 +275,7 @@ footer a:hover {
 	height: 70px;
 	text-align: right;
 }
+
+.suggestions {
+	border: solid;
+}

@@ -18,13 +18,13 @@
 <html lang="fr">
     <head>
         <?php
-            include_once("ressources/include/head.php");
+            include_once("include/head.php");
         ?>
         <title>Espace de connexion</title>
     </head>
     <body>
         <?php
-            include_once("ressources/include/header.php");
+            include_once("include/header.php");
         ?>
         <div class='container-connexion'>
             <div class='card card-container'>
@@ -42,14 +42,14 @@
             </div>
         </div>
         <?php
-        include("ressources/include/footer.php");
+        include("include/footer.php");
         ?>
         <script>
             function sendData() {
                 var formData = $("#connectionInfosForm").serialize();
                 $.ajax({
                     type: 'post',
-                    url: './ressources/include/checkIdentifiers',
+                    url: './include/checkIdentifiers',
                     data: formData,
                     success: function (response) {
                         if(response === "authentication successful")

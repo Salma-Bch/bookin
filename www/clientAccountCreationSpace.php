@@ -12,13 +12,13 @@
     ?>
     <head>
         <?php
-            include_once("ressources/include/head.php");
+            include_once("include/head.php");
         ?>
         <title>Création de compte</title>
     </head>
     <body>
         <?php
-            include("ressources/include/header.php");
+            include("include/header.php");
         ?>
 
         <div class ='container-connexion'>
@@ -135,8 +135,8 @@
         </div>
 
         <?php
-            include("ressources/include/footer.php");
-            include("ressources/include/dialogModal.php");
+            include("include/footer.php");
+            include("include/dialogModal.php");
         ?>
     <script>
         //displaySuccessCreat();

@@ -7,7 +7,7 @@
      * \brief     Affiche l'espace de connexion de l'utilisateur.
      * \details   Formulaire de connexion avec une adresse mail et un mot de passe à renseignés.
      */
-    include_once('ressources/class/Client.php');
+    include_once('class/Client.php');
     session_start();
     if(isset($_SESSION['client'])){
         header('Location: espacePersonnel.php');
@@ -19,13 +19,13 @@
 <html lang="fr">
     <head>
         <?php
-            include_once("ressources/include/head.php");
+            include_once("include/head.php");
         ?>
         <title>Espace de connexion</title>
     </head>
     <body>
         <?php
-            include_once("ressources/include/header.php");
+            include_once("include/header.php");
         ?>
         <div class='container-connexion'>
             <div class='card card-container'>
@@ -44,7 +44,7 @@
             </div>
         </div>
         <?php
-        include("ressources/include/footer.php");
+        include("include/footer.php");
         ?>
         <script>
             $('#loginButton').click(function()

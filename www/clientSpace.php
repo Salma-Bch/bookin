@@ -22,13 +22,13 @@ session_start();
 <html lang="fr">
     <head>
         <?php
-        include_once("ressources/include/head.php");
+        include_once("include/head.php");
         ?>
         <title>Mon espace</title>
     </head>
     <body>
         <?php
-            include_once("ressources/include/header.php");
+            include_once("include/header.php");
         ?>
         <div class="container">
             <h2 id="titleName">Bonjour <?php echo $client->getFirstName()." ".$client->getLastName() ?></h2>
@@ -61,7 +61,7 @@ session_start();
             </div>
         </div>
         <?php
-        include("ressources/include/footer.php");
+        include("include/footer.php");
         ?>
     </body>
 </html>
