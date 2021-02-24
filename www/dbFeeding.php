@@ -13,11 +13,14 @@ include_once('./class/dao/exception/DAOException.php');
     $daoFactory = DAOFactory::getInstance();
     $bookDao = $daoFactory->getBookDao();
 
-    $csvFile = fopen("./db_book.csv","r");
+    $csvFile = fopen("./ressources/bd/db_book.csv","r");
     $lineCsv = fgetcsv($csvFile,1024, ";");
     while ( ($lineCsv = fgetcsv($csvFile,1024, ";")) !== FALSE ) {
         $bookId = str_pad(((int)$lineCsv[0]),8,0, STR_PAD_LEFT);
-        $book = new Book((int)$lineCsv[0], utf8_encode($lineCsv[1]), utf8_encode($lineCsv[2]), utf8_encode($lineCsv[3]), (int)$lineCsv[4], (float)$lineCsv[5], (int)$lineCsv[6], utf8_encode($lineCsv[7]), utf8_encode($lineCsv[8]));
+        $book = new Book($lineCsv[0], utf8_encode($lineCsv[1]), utf8_encode($lineCsv[2]),
+            utf8_encode($lineCsv[3]), (int)$lineCsv[4], (float)$lineCsv[5],
+            (int)$lineCsv[6], "http://bookin.alwaysdata.net/ressources/bd/bookImages/".utf8_encode($lineCsv[9])."/".utf8_encode($lineCsv[7]), utf8_encode($lineCsv[8]));
+        echo $book->getCategoryName();
         $bookDao->create($book);
         $addedLine++;
     }

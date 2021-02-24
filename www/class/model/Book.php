@@ -40,7 +40,7 @@ class Book {
     }
 
     public function toArray(): array{
-        return array($this->bookId,
+        return array(str_pad(($this->bookId),8,0, STR_PAD_LEFT),
             $this->title,
             $this->author,
             $this->ageRange,
