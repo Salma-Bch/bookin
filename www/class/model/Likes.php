@@ -5,15 +5,15 @@ namespace model;
 
 
 class Likes {
-    private String $clientId;
+    private int $clientId;
     private String $categoryName;
 
     /**
      * Book constructor.
-     * @param String $clientId
+     * @param int $clientId
      * @param String $categoryName
      */
-    public function __construct(string $clientId, string $categoryName)
+    public function __construct(int $clientId, string $categoryName)
     {
         $this->clientId = $clientId;
         $this->categoryName = $categoryName;
@@ -26,17 +26,17 @@ class Likes {
     }
 
     /**
-     * @return String
+     * @return int
      */
-    public function getClientId(): string
+    public function getClientId(): int
     {
         return $this->clientId;
     }
 
     /**
-     * @param String $clientId
+     * @param int $clientId
      */
-    public function setClientId(string $clientId): void
+    public function setClientId(int $clientId): void
     {
         $this->clientId = $clientId;
     }
