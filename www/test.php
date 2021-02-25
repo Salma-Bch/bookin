@@ -14,6 +14,7 @@ include_once('./class/dao/exception/DAOException.php');
 include_once('./class/model/Purchase.php');
 include_once('./class/dao/object/PurchaseDao.php');
 include_once('./class/dao/object/PurchaseDaoImpl.php');
+include_once('./class/utility/Format.php');
 
 
 use dao\DAOFactory;

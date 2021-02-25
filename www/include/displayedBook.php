@@ -4,6 +4,7 @@ use controller\Suggestion;
 use dao\DAOFactory;
 use model\Book;
 
+include_once('./class/utility/Format.php');
 include_once('./class/dao/DAOFactory.php');
 include_once('./class/dao/object/BookDao.php');
 include_once('./class/dao/object/BookDaoImpl.php');
@@ -15,6 +16,7 @@ include_once('./class/dao/DAOUtility.php');
 include_once('./class/dao/exception/DAOException.php');
 include_once('./class/controller/Suggestion.php');
 include_once('./class/controller/ContentTypeModelling.php');
+include_once('./class/utility/Math.php');
 
     $suggestion = new Suggestion();
     $books = $suggestion->suggest();

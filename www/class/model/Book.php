@@ -3,6 +3,8 @@
 
 namespace model;
 
+use utility\Format;
+
 
 class Book {
     private int $bookId;
@@ -40,7 +42,7 @@ class Book {
     }
 
     public function toArray(): array{
-        return array(str_pad(($this->bookId),8,0, STR_PAD_LEFT),
+        return array(Format::getFormatId(8,$this->bookId),
             $this->title,
             $this->author,
             $this->ageRange,

@@ -8,6 +8,7 @@ use dao\DAOFactory;
 use dao\DAOUtility;
 use dao\exception\DAOException;
 use model\Purchase;
+use utility\Format;
 
 class PurchaseDaoImpl implements PurchaseDao {
     private const SQL_SELECT_PURCHASES_BY_CLIENT_ID = "SELECT client_id, book_id, amount FROM buys WHERE client_id=?";
@@ -68,12 +69,9 @@ class PurchaseDaoImpl implements PurchaseDao {
         try{
             $connection = $this->daoFactory->getConnection();
             $preparedStatement = DAOUtility::initPreparedStatement($connection, self::SQL_SELECT_PURCHASES_BY_CLIENT_ID);
-            $status = $preparedStatement->execute(array($clientId));
+            $status = $preparedStatement->execute( array(Format::getFormatId(8,$clientId)) );
             if($status) {
                 $dbPurchases = $preparedStatement->fetchAll();
-                var_dump($preparedStatement->errorInfo());
-                echo "entrer";
-                var_dump($dbPurchases);
                 foreach ($dbPurchases as $purchase) {
                     array_push($purchases, $this->map($purchase,true));
                     echo"Rentrer";
