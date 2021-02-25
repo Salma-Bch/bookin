@@ -9,6 +9,8 @@ use dao\object\ClientDao;
 use dao\object\BookDaoImpl;
 use dao\object\BookDao;
 use dao\object\AdministratorDao;
+use dao\object\PurchaseDao;
+use dao\object\PurchaseDaoImpl;
 use PDO;
 
 class DAOFactory {
@@ -57,4 +59,6 @@ class DAOFactory {
     public function getBookDao(): BookDao{ return new BookDaoImpl($this); }
 
     public function getAdministratorDao(): AdministratorDao{ return new AdministratorDaoImpl($this); }
+
+    public function getPurchaseDao(): PurchaseDao{ return new PurchaseDaoImpl($this);}
 }
