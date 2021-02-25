@@ -1,10 +1,8 @@
 <?php
 
-
 namespace controller;
 
+class Suggestion {
 
-class Suggestion
-{
 
 }
