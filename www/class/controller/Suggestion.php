@@ -35,7 +35,8 @@ class Suggestion {
         $contentTypeModelling = new ContentTypeModelling($this->client);
         echo "Catégorie model : ".$contentTypeModelling->getCategoryModel();
         echo "Age model : ".$contentTypeModelling->getAgeRangeModel();
-        echo "Prix model : ".$contentTypeModelling->getPriceModel();
+        $prices = $contentTypeModelling->getPriceModel();
+        echo "Prix model : ".$prices[0].", ".$prices[1];
         return array();
     }
 
