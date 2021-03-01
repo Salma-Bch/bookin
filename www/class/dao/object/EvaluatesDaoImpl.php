@@ -11,9 +11,10 @@ use model\Evaluates;
 
 class EvaluatesDaoImpl implements EvaluatesDao
 {
-    private const SQL_SELECT_BY_CLIENT_ID = "SELECT client_id, book_id, satisfied FROM evaluates WHERE client_id = ?";
     private const SQL_SELECT_BY_BOOK_ID = "SELECT client_id, book_id, satisfied FROM evaluates WHERE book_id = ?";
-    private const SQL_SELECT_ALL_EVALUATES = "SELECT client_id, book_id, satisfied FROM evaluates";
+    private const SQL_SELECT_BY_CLIENT_ID = "SELECT client_id, book_id, satisfied FROM evaluates WHERE client_id = ?";
+    private const SQL_SELECT_BY_BOOK_ID_AND_CLIENT_ID = "SELECT client_id, book_id, satisfied FROM evaluates WHERE book_id = ? AND client_id=?";
+    private const SQL_SELECT_ALL = "SELECT client_id, book_id, satisfied FROM evaluates";
     private const SQL_INSERT = "INSERT INTO evaluates (client_id, book_id, satisfied) VALUES (?, ?, ?)";
     private const SQL_UPDATE = "UPDATE evaluates SET client_id=?, book_id=?, satisfied=? WHERE client_id=?";
 
@@ -21,68 +22,37 @@ class EvaluatesDaoImpl implements EvaluatesDao
 
     public function __construct(DAOFactory $daoFactory) { $this->daoFactory = $daoFactory; }
 
-    public function find(String $bookId): Evaluates
-    {
-        $evaluates = null;
-        $parameters = array($bookId);
-        try{
-            $connection = $this->daoFactory->getConnection();
-            $preparedStatement = DAOUtility::initPreparedStatement($connection, self::SQL_SELECT_BY_BOOK_ID);
-            $status = $preparedStatement->execute($parameters);
-
-            if($status){
-                $bookReturned = $preparedStatement->fetchObject();
-                $book = $this->map($bookReturned);
-            }
-        } catch (\Exception $e){
-            throw new DAOException($e);
-        } finally {
-            DAOUtility::close($preparedStatement, $connection);
+    public function find(String $bookId=null, String $clientId=null): array {
+        $parameters = array();
+        if($bookId != null && $clientId != null){
+            $request = self::SQL_SELECT_BY_BOOK_ID_AND_CLIENT_ID;
+            array_push($parameters, $bookId);
+            array_push($parameters, $clientId);
         }
-        return $evaluates;
-    }
-
-    public function getAll(array $filters=null): array
-    {
-        $books = array();
-        $request = self::SQL_SELECT_ALL_BOOKS;
-        if($filters != null && count($filters) != 0){
-            $request = self::SQL_SELECT_ALL_BOOKS_BY_FILTERS;
-            if( isset($filters['categories']) && $filters['categories'] != "" ){
-                $categories = $filters['categories'];
-                $request .= " category_name IN (";
-                foreach ($categories as $category){
-                    $request .= "'".$category."', ";
-                }
-                $request = substr($request, 0, -2);
-                $request .= ")";
+        else{
+            if($bookId != null){
+                $request = self::SQL_SELECT_BY_BOOK_ID;
+                array_push($parameters, $bookId);
             }
-            else
-                $request .= " 1=1";
-
-            $request .=" AND";
-
-            if( isset($filters['agesRange']) && $filters['agesRange'] != "" ) {
-                $agesRange = $filters['agesRange'];
-                $request .= " age_range IN (";
-                foreach ($agesRange as $ageRange){
-                    $request .= "'".$ageRange."', ";
-                }
-                $request = substr($request, 0, -2);
-                $request .= ")";
+            else if($clientId != null){
+                $request = self::SQL_SELECT_BY_CLIENT_ID;
+                array_push($parameters, $clientId);
             }
-            else
-                $request .= " 1=1";
-
+            else{
+                $request = self::SQL_SELECT_ALL;
+            }
         }
+
+        $evaluatesArray = array();
         try{
             $connection = $this->daoFactory->getConnection();
             $preparedStatement = DAOUtility::initPreparedStatement($connection, $request);
-            $status = $preparedStatement->execute();
-            if($status) {
-                $dbBooks = $preparedStatement->fetchAll();
-                foreach ($dbBooks as $book) {
-                    array_push($books, $this->map($book,true));
+            $status = $preparedStatement->execute($parameters);
+
+            if($status){
+                $evaluatesReturned = $preparedStatement->fetchAll();
+                foreach ($evaluatesReturned as $evaluates) {
+                    array_push($evaluatesArray, $this->map($evaluates,true));
                 }
             }
         } catch (\Exception $e){
@@ -90,7 +60,7 @@ class EvaluatesDaoImpl implements EvaluatesDao
         } finally {
             DAOUtility::close($preparedStatement, $connection);
         }
-        return $books;
+        return $evaluatesArray;
     }
 
     function create(Evaluates $evaluates): bool
@@ -129,7 +99,7 @@ class EvaluatesDaoImpl implements EvaluatesDao
         if($array)
             return new Evaluates($br['client_id'],$br['book_id'],$br['satisfied']);
         else
-            return new Evaluates($br->client_id,$br->book_id,$br->satisfied);
+            return new Evaluates($br->book_id,$br->client_id,$br->satisfied);
     }
 
 }

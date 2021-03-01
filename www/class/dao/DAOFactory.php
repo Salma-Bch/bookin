@@ -9,6 +9,8 @@ use dao\object\ClientDao;
 use dao\object\BookDaoImpl;
 use dao\object\BookDao;
 use dao\object\AdministratorDao;
+use dao\object\EvaluatesDao;
+use dao\object\EvaluatesDaoImpl;
 use dao\object\LikesDao;
 use dao\object\LikesDaoImpl;
 use dao\object\PurchaseDao;
@@ -63,6 +65,8 @@ class DAOFactory {
     public function getAdministratorDao(): AdministratorDao{ return new AdministratorDaoImpl($this); }
 
     public function getPurchaseDao(): PurchaseDao{ return new PurchaseDaoImpl($this);}
+
+    public function getEvaluatesDao(): EvaluatesDao{ return new EvaluatesDaoImpl($this);}
 
     public function getLikesDao(): LikesDao{ return new LikesDaoImpl($this);}
 

@@ -12,8 +12,11 @@ include_once('./class/model/Book.php');
 include_once('./class/dao/DAOUtility.php');
 include_once('./class/dao/exception/DAOException.php');
 include_once('./class/model/Purchase.php');
+include_once('./class/model/Evaluates.php');
 include_once('./class/dao/object/PurchaseDao.php');
 include_once('./class/dao/object/PurchaseDaoImpl.php');
+include_once('./class/dao/object/EvaluatesDao.php');
+include_once('./class/dao/object/EvaluatesDaoImpl.php');
 include_once('./class/utility/Format.php');
 
 
@@ -21,7 +24,7 @@ use dao\DAOFactory;
 use model\Purchase;
 
 $daoFactory = DAOFactory::getInstance();
-$purchaseDao = $daoFactory->getPurchaseDao();
-$purchases = $purchaseDao->getClientPurchases("00000012");
-var_dump($purchases);
+$evaluatesDao = $daoFactory->getEvaluatesDao();
+$evaluates = $evaluatesDao->find("00000000","00000012");
+var_dump($evaluates);
 
