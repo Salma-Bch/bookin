@@ -276,6 +276,31 @@ footer a:hover {
 	text-align: right;
 }
 
-.suggestions {
+.partie_suggestions {
+	text-align: center;
 	border: solid;
+}
+
+.partie_suggestions img {
+	width: 160px;
+	height: 210px;
+	margin: 30px;
+}
+
+.barre_de_recherche {
+	display: contents;
+}
+
+.carousel-control-prev, .carousel-control-next {
+	border:none;
+	background-color: white;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+	height: 50px;
+	width: 50px;
+	background-color: rgba(28, 28, 28, 0.3);
+	background-size: 100%, 100%;
+	border-radius: 50%;
+	border: 1px solid black;
 }

@@ -12,11 +12,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-4 widget">
-                    <a href="administratorAccountCreationSpace.php"><h3 class="widget-title">Espace administrateurs</h3></a>
+                    <h3 class="widget-title">Espace administrateurs</h3>
 					<div class="widget-body">
-						<a href="administratorLoginSpace.php"><p>Administrateur 1</p></a>
-                        <a href="administratorLoginSpace.php"><p>Administrateur 2</p></a>
-                        <a href="administratorLoginSpace.php"><p>Administrateur 3</p></a>
+						<a href="administratorLoginSpace.php"><p>Espace personnel</p></a>
+                        <a href="administratorLoginSpace.php"><p>Espace de connexion</p></a>
+                        <a href="administratorAccountCreationSpace.php"><p>Espace de création de compte</p></a>
                     </div>
 				</div>
 				<div class="col-sm-4 widget">

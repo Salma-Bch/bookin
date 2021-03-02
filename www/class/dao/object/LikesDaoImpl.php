@@ -12,6 +12,8 @@ use utility\Format;
 
 class LikesDaoImpl implements LikesDao {
     private const SQL_SELECT_LIKES_BY_CLIENT_ID = "SELECT client_id, category_name FROM likes WHERE client_id=?";
+    private const SQL_SELECT_LIKES_BY_CATEGORY_NAME = "SELECT client_id, category_name FROM likes WHERE category_name=?";
+    private const SQL_SELECT_ALL = "SELECT client_id, category_name FROM likes";
     private const SQL_INSERT = "INSERT INTO likes (client_id, category_name) VALUES (?, ?)";
     private const SQL_UPDATE ="UPDATE likes SET client_id=?, category_name=? WHERE client_id=?";
 
@@ -42,26 +44,42 @@ class LikesDaoImpl implements LikesDao {
         return true;
     }
 
-    public function getClientLikes(int $clientId): array
-    {
-        $likes = array();
+    public function find(String $clientId=null, String $category_name=null): array {
+        $parameters = array();
+        if($clientId != null && $category_name != null){
+            $request = self::SQL_SELECT_ALL;
+            array_push($parameters, $clientId);
+            array_push($parameters, $category_name);
+        }
+        else{
+            if($clientId != null){
+                $request = self::SQL_SELECT_LIKES_BY_CLIENT_ID;
+                array_push($parameters, $clientId);
+            }
+            else if($category_name != null){
+                $request = self::SQL_SELECT_LIKES_BY_CATEGORY_NAME;
+                array_push($parameters, $category_name);
+            }
+        }
+
+        $likesArray = array();
         try{
             $connection = $this->daoFactory->getConnection();
-            $preparedStatement = DAOUtility::initPreparedStatement($connection, self::SQL_SELECT_LIKES_BY_CLIENT_ID);
-            $status = $preparedStatement->execute( array(Format::getFormatId(8,$clientId)) );
-            if($status) {
-                $dbLikes = $preparedStatement->fetchAll();
-                foreach ($dbLikes as $like) {
-                    array_push($likes, $this->map($like,true));
+            $preparedStatement = DAOUtility::initPreparedStatement($connection, $request);
+            $status = $preparedStatement->execute($parameters);
+
+            if($status){
+                $likesArray = $preparedStatement->fetchAll();
+                foreach ($likesArray as $likes) {
+                    array_push($likesArray, $this->map($likes,true));
                 }
             }
         } catch (\Exception $e){
-            echo $e;
             throw new DAOException($e);
         } finally {
             DAOUtility::close($preparedStatement, $connection);
         }
-        return $likes;
+        return $likesArray;
     }
 
     function update(Likes $like): bool

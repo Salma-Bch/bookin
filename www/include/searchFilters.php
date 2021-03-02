@@ -1,5 +1,12 @@
 <div class="col-md-3 barre_de_filtre">
     <div class="col-md-12">
+        <h2>Recherches :</h2>
+        <form class="form-inline">
+            <input class="form-control barre_de_recherche" type="search" placeholder="Recherche" aria-label="Recherche">
+            <button class="btn barre_de_recherche" type="submit">OK</button>
+        </form>
+    </div>
+    <div class="col-md-12">
         <h2>Catégories :</h2>
         <div class="form-check">
             <input class="form-check-input category" type="checkbox" value="actualite" id="actualite" onclick="filtreVehicule(categories, agesRange, this)"/>
