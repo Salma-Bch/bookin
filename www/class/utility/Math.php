@@ -40,10 +40,12 @@ class Math
 
     public static function nearestFigure(int $figure, array $numbers, int $number=1):array{
         $nearestFigures = array();
-
+        $numbers = array_unique($numbers) ;
+        sort($numbers);
         while($number>0) {
             $nearestNumber = $numbers[0];
             $indexNearest = 0;
+            //var_dump($numbers);
             for ($i = 1; $i < count($numbers); $i++) {
                 if (abs($numbers[$i] - $figure) < abs($nearestNumber - $figure)) {
                     $nearestNumber = $numbers[$i];

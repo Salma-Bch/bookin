@@ -74,7 +74,6 @@ class PurchaseDaoImpl implements PurchaseDao {
                 $dbPurchases = $preparedStatement->fetchAll();
                 foreach ($dbPurchases as $purchase) {
                     array_push($purchases, $this->map($purchase,true));
-                    echo"Rentrer";
                 }
             }
         } catch (\Exception $e){

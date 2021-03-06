@@ -29,7 +29,6 @@ class BookDaoImpl implements BookDao
             $connection = $this->daoFactory->getConnection();
             $preparedStatement = DAOUtility::initPreparedStatement($connection, self::SQL_SELECT_BY_BOOK_ID);
             $status = $preparedStatement->execute($parameters);
-
             if($status){
                 $bookReturned = $preparedStatement->fetchObject();
                 $book = $this->map($bookReturned);
