@@ -99,7 +99,6 @@ class BookDaoImpl implements BookDao
             $connection = $this->daoFactory->getConnection();
             $preparedStatement = DAOUtility::initPreparedStatement($connection, self::SQL_INSERT);
             $status = $preparedStatement->execute($book->toArray());
-            //var_dump($preparedStatement->errorInfo());
             if ($status == 0)
                 throw new DAOException("Book creation failed, no line added; ");
         } catch (\Exception $e){
@@ -115,7 +114,8 @@ class BookDaoImpl implements BookDao
         try{
             $connection = $this->daoFactory->getConnection();
             $preparedStatement = DAOUtility::initPreparedStatement($connection, self::SQL_UPDATE);
-            $status = $preparedStatement->execute($book->toArray());
+            $status = $preparedStatement->execute($book->toArray(true));
+            var_dump($preparedStatement->errorInfo());
             if ($status == 0)
                 throw new DAOException("Book update failed, no line changed");
         } catch (\Exception $e){
@@ -129,10 +129,10 @@ class BookDaoImpl implements BookDao
     private function map($br,$array=false): Book{
         if($array)
             return new Book($br['book_id'],$br['title'],$br['author'],$br['age_range'],$br['number_pages'],$br['price'],
-                $br['quantity'],$br['image_path'], $br['tags'], $br['category_name']);
+                $br['quantity'],$br['image_path'], explode(",",$br['tags']), $br['category_name']);
         else
             return new Book($br->book_id,$br->title,$br->author,$br->age_range,$br->number_pages,$br->price,
-                $br->quantity,$br->image_path, $br->tags, $br->category_name);
+                $br->quantity,$br->image_path, explode(",",$br->tags), $br->category_name);
     }
 
 }

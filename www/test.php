@@ -29,8 +29,8 @@ use model\Purchase;
 
 $daoFactory = DAOFactory::getInstance();
 $bookDao = $daoFactory->getBookDao();
-$book = new Book(00000211, "Title", "auteur", 18, 100, 16, 25, "http://bookin.alwaysdata.net/ressources/bd/bookImages/actualite/actualite_1.png",
+$book = new Book(222, "Title", "auteur", 18, 100, 22, 25, "http://bookin.alwaysdata.net/ressources/bd/bookImages/actualite/actualite_1.png",
     array("actualite,information"), "Actualité");
-$books = $bookDao->getAll();
+$books = $bookDao->update($book);
 var_dump($books);
 

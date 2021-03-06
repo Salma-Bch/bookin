@@ -45,17 +45,31 @@ class Book {
         $this->categoryName = $categoryName;
     }
 
-    public function toArray(): array{
-        return array(Format::getFormatId(8,$this->bookId),
-            $this->title,
-            $this->author,
-            $this->ageRange,
-            $this->numberPages,
-            $this->price,
-            $this->quantity,
-            $this->imagePath,
-            implode("",$this->tags),
-            $this->categoryName);
+    public function toArray(bool $bookIdLast=false): array{
+        if($bookIdLast)
+            $bookArray = array(
+                $this->title,
+                $this->author,
+                $this->ageRange,
+                $this->numberPages,
+                $this->price,
+                $this->quantity,
+                $this->imagePath,
+                implode(",",$this->tags),
+                $this->categoryName,
+                Format::getFormatId(8,$this->bookId));
+        else
+            $bookArray = array(Format::getFormatId(8,$this->bookId),
+                $this->title,
+                $this->author,
+                $this->ageRange,
+                $this->numberPages,
+                $this->price,
+                $this->quantity,
+                $this->imagePath,
+                implode(",",$this->tags),
+                $this->categoryName);
+        return $bookArray;
     }
 
     /**
