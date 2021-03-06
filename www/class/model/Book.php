@@ -28,6 +28,8 @@ class Book {
      * @param float $price
      * @param int $quantity
      * @param String $imagePath
+     * @param array $tags
+     * @param String $categoryName
      */
     public function __construct(int $bookId, string $title, string $author, string $ageRange, int $numberPages, float $price, int $quantity, String $imagePath, array $tags, String $categoryName)
     {
@@ -39,8 +41,8 @@ class Book {
         $this->price = $price;
         $this->quantity = $quantity;
         $this->imagePath = $imagePath;
-        $this->categoryName = $categoryName;
         $this->tags = $tags;
+        $this->categoryName = $categoryName;
     }
 
     public function toArray(): array{

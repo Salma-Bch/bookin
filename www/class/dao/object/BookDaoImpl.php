@@ -99,6 +99,7 @@ class BookDaoImpl implements BookDao
             $connection = $this->daoFactory->getConnection();
             $preparedStatement = DAOUtility::initPreparedStatement($connection, self::SQL_INSERT);
             $status = $preparedStatement->execute($book->toArray());
+            //var_dump($preparedStatement->errorInfo());
             if ($status == 0)
                 throw new DAOException("Book creation failed, no line added; ");
         } catch (\Exception $e){

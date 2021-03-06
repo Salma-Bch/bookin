@@ -24,10 +24,13 @@ include_once('./class/utility/Format.php');
 
 
 use dao\DAOFactory;
+use model\Book;
 use model\Purchase;
 
 $daoFactory = DAOFactory::getInstance();
-$likesDao = $daoFactory->getLikesDao();
-$likes = $likesDao->find(null,"Actualité");
-var_dump($likes);
+$bookDao = $daoFactory->getBookDao();
+$book = new Book(00000211, "Title", "auteur", 18, 100, 16, 25, "http://bookin.alwaysdata.net/ressources/bd/bookImages/actualite/actualite_1.png",
+    array("actualite,information"), "Actualité");
+$books = $bookDao->getAll();
+var_dump($books);
 
