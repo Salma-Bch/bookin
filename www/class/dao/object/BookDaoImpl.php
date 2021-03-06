@@ -11,11 +11,11 @@ use model\Book;
 
 class BookDaoImpl implements BookDao
 {
-    private const SQL_SELECT_BY_BOOK_ID = "SELECT book_id, title, author, age_range, number_pages, price, quantity, image_path, category_name FROM book WHERE book_id = ?";
-    private const SQL_SELECT_ALL_BOOKS = "SELECT book_id, title, author, age_range, number_pages, price, quantity, image_path, category_name FROM book";
-    private const SQL_SELECT_ALL_BOOKS_BY_FILTERS = "SELECT book_id, title, author, age_range, number_pages, price, quantity, image_path, category_name FROM book WHERE";
-    private const SQL_INSERT = "INSERT INTO book (book_id, title, author, age_range, number_pages, price, quantity, image_path, category_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    private const SQL_UPDATE = "UPDATE book SET title=?, author=?, age_range=?, number_pages=?, price=?, quantity=?, image_path=?, category_name=? WHERE book_id=?";
+    private const SQL_SELECT_BY_BOOK_ID = "SELECT book_id, title, author, age_range, number_pages, price, quantity, image_path, tags, category_name FROM book WHERE book_id = ?";
+    private const SQL_SELECT_ALL_BOOKS = "SELECT book_id, title, author, age_range, number_pages, price, quantity, image_path, tags, category_name FROM book";
+    private const SQL_SELECT_ALL_BOOKS_BY_FILTERS = "SELECT book_id, title, author, age_range, number_pages, price, quantity, image_path, tags, category_name FROM book WHERE";
+    private const SQL_INSERT = "INSERT INTO book (book_id, title, author, age_range, number_pages, price, quantity, image_path, tags, category_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    private const SQL_UPDATE = "UPDATE book SET title=?, author=?, age_range=?, number_pages=?, price=?, quantity=?, image_path=?, tags=?, category_name=? WHERE book_id=?";
 
     private DAOFactory $daoFactory;
 
@@ -128,10 +128,10 @@ class BookDaoImpl implements BookDao
     private function map($br,$array=false): Book{
         if($array)
             return new Book($br['book_id'],$br['title'],$br['author'],$br['age_range'],$br['number_pages'],$br['price'],
-                $br['quantity'],$br['image_path'], $br['category_name']);
+                $br['quantity'],$br['image_path'], $br['tags'], $br['category_name']);
         else
             return new Book($br->book_id,$br->title,$br->author,$br->age_range,$br->number_pages,$br->price,
-                $br->quantity,$br->image_path, $br->category_name);
+                $br->quantity,$br->image_path, $br->tags, $br->category_name);
     }
 
 }

@@ -14,6 +14,7 @@
 	<head>
         <?php
             include_once("include/head.php");
+            include("./class/utility/Math.php")
         ?>
 		<title>Espace de recherche</title>
 	</head>
@@ -26,9 +27,13 @@
 	        <h1>Espace de recherche</h1>
             <div class="col-md-12">
                 <div class="row">
-                    <?php include("./include/searchFilters.php");?>
-                    <?php include("./include/displayedBook.php");?>
+                    <?php //include("./include/searchFilters.php");?>
+                    <?php //include("./include/displayedBook.php");?>
                 </div>
+                <?php
+                    $numbers = \utility\Math::nearestFigure(8,array(9,11,5,7,5,19,-3),3);
+                    var_dump($numbers);
+                ?>
             </div>
         </div>
         <?php

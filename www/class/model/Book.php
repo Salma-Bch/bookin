@@ -15,6 +15,7 @@ class Book {
     private float $price;
     private int $quantity;
     private String $imagePath;
+    private array $tags;
     private String $categoryName;
 
     /**
@@ -28,7 +29,7 @@ class Book {
      * @param int $quantity
      * @param String $imagePath
      */
-    public function __construct(int $bookId, string $title, string $author, string $ageRange, int $numberPages, float $price, int $quantity, String $imagePath, String $categoryName)
+    public function __construct(int $bookId, string $title, string $author, string $ageRange, int $numberPages, float $price, int $quantity, String $imagePath, array $tags, String $categoryName)
     {
         $this->bookId = $bookId;
         $this->title = $title;
@@ -39,6 +40,7 @@ class Book {
         $this->quantity = $quantity;
         $this->imagePath = $imagePath;
         $this->categoryName = $categoryName;
+        $this->tags = $tags;
     }
 
     public function toArray(): array{
@@ -50,7 +52,24 @@ class Book {
             $this->price,
             $this->quantity,
             $this->imagePath,
+            implode("",$this->tags),
             $this->categoryName);
+    }
+
+    /**
+     * @return array
+     */
+    public function getTags(): array
+    {
+        return $this->tags;
+    }
+
+    /**
+     * @param array $tags
+     */
+    public function setTags(array $tags): void
+    {
+        $this->tags = $tags;
     }
 
 

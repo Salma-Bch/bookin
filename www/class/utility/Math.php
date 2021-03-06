@@ -37,4 +37,25 @@ class Math
         }
         return $sum/count($numbers);
     }
+
+    public static function nearestFigure(int $figure, array $numbers, int $number=1):array{
+        $nearestFigures = array();
+
+        while($number>0) {
+            $nearestNumber = $numbers[0];
+            $indexNearest = 0;
+            for ($i = 1; $i < count($numbers); $i++) {
+                if (abs($numbers[$i] - $figure) < abs($nearestNumber - $figure)) {
+                    $nearestNumber = $numbers[$i];
+                    $indexNearest = $i;
+                }
+            }
+            array_push($nearestFigures,$nearestNumber);
+            unset($numbers[$indexNearest]);
+            sort($numbers);
+            $number--;
+        }
+        return $nearestFigures;
+    }
+
 }
