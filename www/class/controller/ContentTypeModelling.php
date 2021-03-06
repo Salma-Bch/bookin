@@ -30,11 +30,12 @@ class ContentTypeModelling
         return "riiiiennn";
     }
 
-    public function getPriceModel():array{
-        $numbers = array(50,56,61,68,51,53,69,68);
-        $average = Math::getAverage($numbers);
-        $absoluteDifference = Math::getAbsoluteDifference($numbers);
-        return array($average - $absoluteDifference, $average + $absoluteDifference);
+    public function getPriceModel(array $prices):float{
+        if(count($prices)>=6 && Math::getStandardDeviation($prices)<30) {
+            return Math::getAverage($prices);
+        }
+        else
+            return -1;
     }
 
 

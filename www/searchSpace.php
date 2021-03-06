@@ -27,7 +27,7 @@
 	        <h1>Espace de recherche</h1>
             <div class="col-md-12">
                 <div class="row">
-                    <?php //include("./include/searchFilters.php");?>
+                    <?php include("./include/searchFilters.php");?>
                     <?php //include("./include/displayedBook.php");?>
                 </div>
                 <?php
