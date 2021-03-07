@@ -25,24 +25,36 @@ class ContentTypeModelling
     }
 
     public function getCategoryModel():array{
-        //Récuperer depuis la BD likes du client
-
-        //Récuperer depuis la BD les catégorie des livres acheté
+        //Récuperer depuis la BD category liked du client
 
         //Récuperer depuis la BD les catégorie des livres aimés
+        $categoriesBooksLiked = $this->getLikedBooksCategories();
 
         //Faire un modèle de catégorie a partir des LIKES, des livres acheté et des livre aimés
+
+
     }
 
-    public function getLikesBook():array{
+    public function getLikedBooksCategories():array{
+        $categories = array();
+        $booksLiked = $this->getLikedBooks();
+        foreach ($booksLiked as $book){
+            array_push($categories, $book->getCategory());
+        }
+        return $categories;
+    }
+
+    public function getLikedBooks():array{
         $daoFactory = DAOFactory::getInstance();
-        $likesDao = $daoFactory->getLikesDao();
-        $likes = $likesDao->find($this->client->getClientId(),null);
+        $evaluatesDao = $daoFactory->getEvaluatesDao();
+        $evaluates = $evaluatesDao->find(null, $this->client->getClientId());
         $booksReturned = array();
         $bookDao = $daoFactory->getBookDao();
-        foreach ($likes as $like){
-            $book = $bookDao->find(Format::getFormatId(8,$like->getBookId()));
-            array_push($booksReturned,$book);
+        foreach ($evaluates as $evaluation){
+            if($evaluation->getSatisfied()) {
+                $book = $bookDao->find(Format::getFormatId(8, $evaluation->getBookId()));
+                array_push($booksReturned, $book);
+            }
         }
         return $booksReturned;
     }
