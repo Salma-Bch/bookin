@@ -59,10 +59,16 @@ class ContentTypeModelling
         return $booksReturned;
     }
 
-    public function getAgeRangeModel():String{
+    public function getAgeRangeModel(){
         //Récuperer depuis la BD les tranches d'ages des livres achetés
-
+        $books = $this->getBuysBooks();
+        $ageRanges = array();
+        foreach ($books as $book){
+            array_push($ageRanges, $book->getAgeRange());
+        }
+        $ageRanges = array_unique($ageRanges) ;
         //Faire un modèle de tranche d'age à partir des livre achetés
+        var_dump($ageRanges);
     }
 
     public function getBuysBooks():array{

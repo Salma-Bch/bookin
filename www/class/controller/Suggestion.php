@@ -41,7 +41,7 @@ class Suggestion {
         if($priceModel != -1) {
             $booksToDisplay = $this->priceBased($priceModel, $this->books, 5);
         }
-
+        $contentTypeModelling->getAgeRangeModel();
         return $booksToDisplay;
     }
 
