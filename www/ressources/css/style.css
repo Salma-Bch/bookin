@@ -304,3 +304,12 @@ footer a:hover {
 	border-radius: 50%;
 	border: 1px solid black;
 }
+
+.choix_categorie label {
+	width : 200px ;
+	text-align: center;
+}
+
+.partButton {
+	margin-top: 20px;
+}
