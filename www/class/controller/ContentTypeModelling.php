@@ -24,12 +24,20 @@ class ContentTypeModelling
         $this->client = $client;
     }
 
-    public function getCategoryModel():String{
-        return "riiiiennn";
+    public function getCategoryModel():array{
+        //Récuperer depuis la BD likes du client
+
+        //Récuperer depuis la BD les catégorie des livres acheté
+
+        //Récuperer depuis la BD les catégorie des livres aimés
+
+        //Faire un modèle de catégorie a partir des LIKES, des livres acheté et des livre aimés
     }
 
     public function getAgeRangeModel():String{
-        return "riiiiennn";
+        //Récuperer depuis la BD les tranches d'ages des livres achetés
+
+        //Faire un modèle de tranche d'age à partir des livre achetés
     }
 
     public function getBuysBooks():array{
