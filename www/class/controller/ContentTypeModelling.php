@@ -34,6 +34,19 @@ class ContentTypeModelling
         //Faire un modèle de catégorie a partir des LIKES, des livres acheté et des livre aimés
     }
 
+    public function getLikesBook():array{
+        $daoFactory = DAOFactory::getInstance();
+        $likesDao = $daoFactory->getLikesDao();
+        $likes = $likesDao->find($this->client->getClientId(),null);
+        $booksReturned = array();
+        $bookDao = $daoFactory->getBookDao();
+        foreach ($likes as $like){
+            $book = $bookDao->find(Format::getFormatId(8,$like->getBookId()));
+            array_push($booksReturned,$book);
+        }
+        return $booksReturned;
+    }
+
     public function getAgeRangeModel():String{
         //Récuperer depuis la BD les tranches d'ages des livres achetés
 

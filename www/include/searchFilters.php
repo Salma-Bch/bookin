@@ -77,19 +77,19 @@
         <h2>Tranche d'âge :</h2>
         <div class="form-check">
             <input class="form-check-input ageRange" type="checkbox" value="vie_pratique" id="dix"/>
-            <label class="form-check-label" for="dix">-10 ans</label>
+            <label class="form-check-label" for="dix">Enfants : 0 à 14 ans</label>
         </div>
         <div class="form-check">
             <input class="form-check-input ageRange" type="checkbox" value="vie_pratique" id="dix_huit"/>
-            <label class="form-check-label" for="dix_huit">-18 ans</label>
+            <label class="form-check-label" for="dix_huit">Adolescents : 15 à 24 ans</label>
         </div>
         <div class="form-check">
             <input class="form-check-input ageRange" type="checkbox" value="vie_pratique" id="vingt_cinq"/>
-            <label class="form-check-label" for="vingt_cinq">-25 ans</label>
+            <label class="form-check-label" for="vingt_cinq">Adultes : 25 à 64 ans</label>
         </div>
         <div class="form-check">
             <input class="form-check-input ageRange" type="checkbox" value="vie_pratique" id="soixante_cinq"/>
-            <label class="form-check-label" for="soixante_cinq">-65 ans</label>
+            <label class="form-check-label" for="soixante_cinq">Ainés : 65 ans et plus</label>
         </div>
     </div>
     <div class="col-md-12">

@@ -1,145 +1,145 @@
 book_id;title;author;age_range;number_pages;price;quantity;book_image;category_name;fichier;tags
-0;Toute L'actu;Célia Rosentraub;25;120;16,9;50;actualite_1.png;Actualité;actualite;actualite,information
-1;100 fiches d'actualité;Florent Vandepitte;18;220;14,9;40;actualite_2.png;Actualité;actualite;actualite,information
-2;Le Meilleur de L'actualité;Louis Gœury;18;180;16,9;30;actualite_3.png;Actualité;actualite;actualite,information
-3;Actu'Concours;Philippe Cavaillé;25;180;8,99;20;actualite_4.png;Actualité;actualite;actualite,information,concours
-4;Le meilleur de l'actualité;Sarfati Olivier;18;150;12,9;40;actualite_5.png;Actualité;actualite;actualite,information
-5;Carnet de guerreCovid19;Didier Raoult;25;120;8,9;30;actualite_6.png;Actualité;actualite;actualite,information,guerre,covid,pandemie
-6;L'économie en 100 mots d'actualité;Christophe Degryse;18;220;15;20;actualite_7.png;Actualité;actualite;actualite,information,economie
-7;Dictionnaire amoureux de la géopolitique;Plon Fayard;18;180;7,9;40;actualite_8.png;Actualité;actualite;mot,amour,politique
-8;Franceinfo: 30 ans d'actualité;Collectif;25;150;2,9;50;actualite_9.png;Actualité;actualite;actualite,information,France
-9;L'Ecume des jours;Boris Vian;25;120;9,9;50;amour_1.png;Amour;amour;amour,relation,sentiment
-10;La Duchesse;Danielle Steel;65;180;7,9;40;amour_2.png;Amour;amour;amour,roi,reine,royal
-11;On ne badine pas avec l'amour;Alfred Musset;18;150;2,9;30;amour_3.png;Amour;amour;amour,relation,sentiment
-12;Le jeu de l'amour et du hasard;Jacques Marivaux;18;120;8,99;20;amour_4.png;Amour;amour;amour,relation,sentiment
-13;Mon amour;Astrid Debordon;10;220;12,9;40;amour_5.png;Amour;amour;amour,relation,sentiment
-14;Ultime preuve d'amour;Canesi et Rahmani;25;180;8,9;30;amour_6.png;Amour;amour;amour,relation,sentiment
-15;Ce qui reste de nous;Jill Santopolo;10;150;15;20;amour_7.png;Amour;amour;amour,relation,sentiment,trahison
-16;KPop love story;Ae Jung;10;120;7,9;40;amour_8.png;Amour;amour;amour,relation,sentiment,kpop
-17;L'amour impossible;Jan Bauer;10;180;2,9;50;amour_9.png;Amour;amour;amour,relation,sentiment
-18;L'autre art contemporain;Benjamin Olivienne;25;150;9,9;50;art_1.png;Art;art;art,peinture,œuvre
-19;Disney Princesses;Jérémy Mariez;65;120;6,9;40;art_2.png;Art;art;dessin,disney,princesse
-20;AndalousieArt et Civilisation;Ignacio Cuellar;25;150;7,9;30;art_3.png;Art;art;art,peinture,œuvre
-21;La sculpture et ses remplois;Nicolas de Larquier;25;120;8,99;20;art_4.png;Art;art;art,sculpture,œuvre
-22;Yves Saint Laurent Catwalk;Suzy Menkes;10;180;12,9;40;art_5.png;Art;art;art,mode,defile
-23;Chanel;Patrick Mauriès;25;150;8,9;30;art_6.png;Art;art;art,peinture,œuvre
-24;Le grand livre de l'art;David G.Wilkins;10;120;15;20;art_7.png;Art;art;art,oeuvre,decoration
-25;1925, Quand l'art déco;Breon;10;220;7,9;40;art_8.png;Art;art;art,mode,defile
-26;Louis Vuitton Défilés;Jo Ellison;10;180;2,9;50;art_9.png;Art;art;art,mode,defile
-27;Le Menhir d'Or;René Goscinny;25;210;9,9;50;bd_1.png;Bande dessinée;bande_dessinee;asterix,bd,jeunesse
-28;La grande épopée de Picsou;Don Rosa;65;380;29,9;40;bd_2.png;Bande dessinée;bande_dessinee;picsou,bd,jeunesse
-29;SpiderMan;Delilah S.Dawson;10;150;9,9;30;bd_3.png;Bande dessinée;bande_dessinee;spiderman,bd,jeunesse
-30;Tintin;Bernard Hergé;10;120;11,5;20;bd_4.png;Bande dessinée;bande_dessinee;tintin,bd,jeunesse
-31;Les aventures de Spirou et Fantasio;Yoann Vehlmann;10;180;8,99;40;bd_5.png;Bande dessinée;bande_dessinee;spirou,bd,jeunesse
-32;Boule et Bill;Jean Roba;25;150;12,9;30;bd_6.png;Bande dessinée;bande_dessinee;boule,bill,bd,chien,jeunes
-33;Clifton détective British;Raymond Macherot;10;120;8,9;20;bd_7.png;Bande dessinée;bande_dessinee;clifton,bd,jeunesse
-34;Le nid des marsupulamis;Yoann Vehlmann;10;220;15;40;bd_8.png;Bande dessinée;bande_dessinee;marsupilami,bd,jeunesse
-35;Gaston, le gang des gaffeurs;Dupuis;10;180;7,9;50;bd_9.png;Bande dessinée;bande_dessinee;gaston,bd,jeunesse
-36;L'intelligence émotionnelle;Daniel Roche;25;120;2,9;50;bien_etre_1.png;Bien-être;bien_etre;bien,sante,mental
-37;Le pouvoir du moment présent;Annie Ollivier;65;220;9,9;40;bien_etre_2.png;Bien-être;bien_etre;bien,sante,mental
-38;Réfléchissez et devenez riche;Thérèse Gindraux;25;180;9,9;30;bien_etre_3.png;Bien-être;bien_etre;bien,sante,mental
-39;Hypersensibles mieux se comprendre;Elaine Aron;25;150;29,9;20;bien_etre_4.png;Bien-être;bien_etre;bien,sante,mental
-40;La bienveillance est une arme absolue;Didier Cauwelaert;25;120;8,99;40;bien_etre_5.png;Bien-être;bien_etre;bien,sante,mental
-41;Etesvous ultra sensible;Carol Pirotte;18;180;12,9;50;bien_etre_6.png;Bien-être;bien_etre;bien,sante,mental
-42;La sagesse espiègle;Alexandre Jollien;18;150;8,9;40;bien_etre_7.png;Bien-être;bien_etre;bien,sante,mental
-43;Les promesses de l'âge;Perla Servan Schreiber;65;120;15;30;bien_etre_8.png;Bien-être;bien_etre;bien,sante,mental
-44;Qu'est ce qui nous rend vraiment heureux ?;Sonja Lyubomirsky;65;220;7,9;20;bien_etre_9.png;Bien-être;bien_etre;bien,sante,mental
-45;On va déguster l'Italie;François Régis;25;180;2,9;50;cuisine_1.png;Cuisine;cuisine;cuisine,italie,degustation
-46;Fait maison 3;Cyril Lignac;65;380;9,9;40;cuisine_2.png;Cuisine;cuisine;cuisine,recette
-47;On va déguster la France;François Régis;25;120;9,9;30;cuisine_3.png;Cuisine;cuisine;cuisine,recette,France
-48;Le confinement d'un Chef;Simone Zanoni;25;180;29,9;20;cuisine_4.png;Cuisine;cuisine;cuisine,recette,chef
-49;Cuisine en moins de 10 min;Héloise Martel;18;150;6,9;40;cuisine_5.png;Cuisine;cuisine;cuisine,recette,rapide
-50;Planches à partager;hachette;18;120;7,9;50;cuisine_6.png;Cuisine;cuisine;cuisine,recette
-51;Fait maison 1;Cyril Lignac;18;220;8,99;40;cuisine_7.png;Cuisine;cuisine;cuisine,recette
-52;Le grand livre marabout;Collectif;18;180;12,9;30;cuisine_8.png;Cuisine;cuisine;cuisine,recette
-53;Les meilleures recettes de l'émission;Philippe Etchebest;18;150;8,9;20;cuisine_9.png;Cuisine;cuisine;cuisine,recette,emission
-54;La crise de la culture;Hannah Arendt;25;120;15;50;culture_1.png;Culture;culture;culture,crise
-55;Le petit Larousse de la culture générale;Vincent Brovicelle;65;220;7,9;40;culture_2.png;Culture;culture;culture,general
-56;Pardelà nature et culture;Philippe Descola;18;180;2,9;30;culture_3.png;Culture;culture;culture,nature
-57;L'obsession Rap;L'ABCDR du son;18;150;9,9;20;culture_4.png;Culture;culture;culture,rap
-58;1 kilo de culture générale;Jean François Pépin;18;120;29,9;40;culture_5.png;Culture;culture;culture,general
-59;C'est quoi la culture;Ben;18;220;6,9;50;culture_6.png;Culture;culture;culture
-60;Le Québec un pays une culture;Françoise de Labsade;25;180;7,9;40;culture_7.png;Culture;culture;culture,quebec
-61;Le pays silencieux;Christine Cerrada;25;150;8,99;30;culture_8.png;Culture;culture;culture,pays
-62;Le Japon;Bruno Meyere;25;120;12,9;20;culture_9.png;Culture;culture;culture,japon
-63;Les Fleurs du mal;Charles Baudelaire;25;210;8,9;50;education_1.png;Education;education;education,amour,scolaire
-64;Le Cid;Pierre Corneille;65;380;15;40;education_2.png;Education;education;education,amour,scolaire
-65;Les Fourberies de Scapin;Molière;18;120;6,9;30;education_3.png;Education;education;education,amour,scolaire
-66;Yvain ou Le Chevalier au lion;Chrétien de Troyes;18;180;7,9;20;education_4.png;Education;education;education,amour,scolaire
-67;Devenir;Michelle obama;18;150;8,99;50;education_5.png;Education;education;education,amour,scolaire
-68;Les 101 règles d'or;GillesMarie Valet;25;120;12,9;50;education_6.png;Education;education;education,scolaire
-69;La grande encyclopédie des enfants;Collectif;10;220;8,9;40;education_7.png;Education;education;education,enfant
-70;L'éducation sentimentale;Gustave Flaubert;18;180;15;30;education_8.png;Education;education;education,amour,sentiment
-71;L'éducation réinventée;Salman Khan;25;150;8,99;20;education_9.png;Education;education;education
-72;La guerre des Gaules;Jules César;25;120;12,9;50;histoire_1.png;Histoire;histoire;histoire,guerre,france
-73;L'ancien régime et la révolution;Alexis de Tocqueville;65;220;8,9;40;histoire_2.png;Histoire;histoire;histoire,guerre,france
-74;Souvenirs d'un officier de la GA;JeanBaptiste Barrès;18;180;12,9;30;histoire_3.png;Histoire;histoire;histoire,guerre,france
-75;La République romaine;JeanMichel David;18;150;8,9;20;histoire_4.png;Histoire;histoire;histoire,guerre,france
-76;Les Six Livres;Jean Bodin;18;120;15;50;histoire_5.png;Histoire;histoire;histoire,guerre,france
-77;Cahier d'écoliers;Christin Benevent;10;220;8,99;40;histoire_6.png;Histoire;histoire;histoire,guerre,france
-78;Femme dans l'histoire;Pontivy;25;180;12,9;30;histoire_7.png;Histoire;histoire;histoire,femme,france
-79;Mon premier livre;Laurent Brosselette;10;150;8,9;20;histoire_8.png;Histoire;histoire;histoire
-80;Une histoire d'émotion;Potel et Chabot;10;120;5,1;40;histoire_9.png;Histoire;histoire;histoire,emotion
-81;Sudoku pour enfant;Jean Brochet;10;210;7,9;50;loisir_1.png;Loisir;loisir;loisir,sudoku,enfant
-82;Les principes fondamentaux des échecs;José Capablanca;25;380;15;40;loisir_2.png;Loisir;loisir;loisir,echec
-83;100 Magnifiques Mandalas;Marie Pellier;65;120;8,99;30;loisir_3.png;Loisir;loisir;loisir,dessin,mandala
-84;Le livre amoureux;Ramadier;10;160;7;20;loisir_4.png;Loisir;loisir;loisir,enfant,amour
-85;Le livre en colère;Ramadier;10;160;7;20;loisir_5.png;Loisir;loisir;loisir,enfant,emotion
-86;Le livre qui dit non;Ramadier;10;160;7;20;loisir_6.png;Loisir;loisir;loisir,enfant,decision
-87;Le livre qui dort;Ramadier;10;160;7;20;loisir_7.png;Loisir;loisir;loisir,enfant,emotion
-88;Le livre va à l'école;Ramadier;10;160;7;20;loisir_8.png;Loisir;loisir;loisir,enfant,ecole
-89;Le livre qui a peur;Ramadier;10;160;7;20;loisir_9.png;Loisir;loisir;loisir,enfant,emotion
-90;Nuit sombre et sacrée;Harry Bosch;10;120;12,9;30;policier_1.png;Policier;policier;policier,roman,sombre,nuit
-91;Crimes pour Vendetta;Eve Dallas;18;220;8,6;20;policier_2.png;Policier;policier;policier,roman,crime
-92;À cache-cache;Jean Arlidge;18;180;9,4;30;policier_3.png;Policier;policier;policier,roman
-93;Le couple d'à côté;Shari Lapena;18;150;6,9;20;policier_4.png;Policier;policier;policier,roman,amour
-94;Vaste comme la nuit;Elena Piacentini;18;120;15;30;policier_5.png;Policier;policier;policier,roman,nuit
-95;Le baiser de l'ogre;Else Roch;18;220;8,99;20;policier_6.png;Policier;policier;policier,roman,amour
-96;Alarme en Béarn;Thomas Aden;18;180;12,9;30;policier_7.png;Policier;policier;policier,roman
-97;La trilogie berlinoise;Philip Kerr;18;150;8,9;20;policier_8.png;Policier;policier;policier,roman
-98;Un, deux, trois, sommeil !;Gilles Vincent;18;130;5,1;50;policier_9.png;Policier;policier;policier,roman
-99;Je pense trop;Christel Petitcollin;25;210;7,9;50;psychologie_1.png;Psychologie;psychologie;psychologie,mental
-100;Cinq lecons sur la psychanalyse;Sigmun Freud;25;380;5,5;40;psychologie_2.png;Psychologie;psychologie;psychologie,mental
-101;La psychanalyse pour les nuls;Christian Godin;25;120;22,9;30;psychologie_3.png;Psychologie;psychologie;psychologie,mental
-102;Névrose et psychose;Sigmun Freud;25;160;5,1;20;psychologie_4.png;Psychologie;psychologie;psychologie,mental
-103;Du bonheur;Frédéric Lenoir;18;160;8,99;50;psychologie_5.png;Psychologie;psychologie;psychologie,mental
-104;La puissance de la joie;Frédéric Lenoir;18;120;12,9;50;psychologie_6.png;Psychologie;psychologie;psychologie,mental
-105;La psychologie du développement;Virginie Laval;18;220;8,9;40;psychologie_7.png;Psychologie;psychologie;psychologie,mental
-106;Pourquoi croiton ?;Thierry Ripoll;18;180;5,1;30;psychologie_8.png;Psychologie;psychologie;psychologie,mental
-107;Artthérapie et enfance;AnneMarie Dubois;25;120;7,9;20;psychologie_9.png;Psychologie;psychologie;psychologie,mental
-108;Urgences or not urgences;Jean Brochet;25;120;5,5;50;sante_1.png;Santé;sante;sante,urgence
-109;Grand Manuel de phytothérapie;Eric Lorrain;25;220;12,9;40;sante_2.png;Santé;sante;sante,urgence
-110;Ma bible des huiles essentielles;Danièle Festy;25;180;24,9;30;sante_3.png;Santé;sante;sante,huile
-111;Bien vivre le quatrième trimestre;Julia Simon;25;150;19,9;20;sante_4.png;Santé;sante;sante,accouchement
-112;Trois jours et une vie;Nicolas Boukhrief;18;120;9,2;40;sante_5.png;Santé;sante;sante
-113;Natura;Pascal d'Erm;18;120;6,3;30;sante_6.png;Santé;sante;sante,nature
-114;L'église;Mark Dever;18;220;8,6;20;sante_7.png;Santé;sante;sante,eglise
-115;Livre blanc;Fnehad;25;180;12,8;50;sante_8.png;Santé;sante;sante
-116;Enfants en bonne santé;Nadia Christensen;25;150;13,2;40;sante_9.png;Santé;sante;sante,enfant
-117;Tous de l'espace ?;Maxime Lisoir;18;210;18,9;30;science_1.png;Science;science;science,espace
-118;Votre cerveau est extraordinaire;Fabien Olicard;18;380;7,3;40;science_2.png;Science;science;science,cerveau
-119;Science et religion;Bertrand Russell;18;120;6,9;30;science_3.png;Science;science;science,religion
-120;Fiches brevet;Sandrine Aussourd;18;160;5,9;20;science_4.png;Science;science;science,brevet,fiche,revision
-121;Science et impact social;Mélanie Marcel;18;220;6,3;50;science_5.png;Science;science;science,social
-122;Les promesses de la science;Joêl de Rosnay;18;180;8,6;40;science_6.png;Science;science;science
-123;Science investigations;Teacher Created;18;150;12,8;30;science_7.png;Science;science;science
-124;25 vraies fausses idées;Sciences pour tous;25;210;13,2;40;science_8.png;Science;science;science
-125;Coronavirus et maintenant ?;Science et vie;25;380;18,9;30;science_9.png;Science;science;science,coronavirus,pandemie
-126;Arca;Romain Benassya;18;120;7,3;20;sf_1.png;Science-fiction;science_fiction;science,fiction
-127;Voyage au centre de la Terre;Jules Verne;18;220;9,2;40;sf_2.png;Science-fiction;science_fiction;science,fiction
-128;Histoire de la Science Fiction;Xavier Dollo;18;180;6,3;30;sf_3.png;Science-fiction;science_fiction;science,fiction
-129;Pyramides;Romain Benassaya;18;150;8,6;20;sf_4.png;Science-fiction;science_fiction;science,fiction
-130;Echange standard;Robert Sheckley;18;160;6,9;20;sf_5.png;Science-fiction;science_fiction;science,fiction
-131;Ombres et flammes;Kevin Anderson;18;220;5,9;50;sf_6.png;Science-fiction;science_fiction;science,fiction
-132;Les enfants de poséidon;Alastair Reynold;18;180;3,99;40;sf_7.png;Science-fiction;science_fiction;science,fiction
-133;Le vengeur;Carol Berg;18;150;8,6;30;sf_8.png;Science-fiction;science_fiction;science,fiction
-134;Virus L.I.V.3;Christian Grenier;18;210;12,8;40;sf_9.png;Science-fiction;science_fiction;science,fiction,livre
-135;Tout savoir avant de s'abonner;Vie Pratique;25;120;6,99;30;vie_pratique_1.png;Vie pratique;vie_pratique;vie,pratique
-136;Eau stop au gaspillage;Vie Pratique;25;120;6,99;30;vie_pratique_2.png;Vie pratique;vie_pratique;vie,pratique,eau,gaspillage
-137;Internet, téléphone mobile;Vie Pratique;25;120;6,99;30;vie_pratique_3.png;Vie pratique;vie_pratique;vie,pratique,internet,telephone
-138;Généalogie;Vie Pratique;25;120;6,99;30;vie_pratique_4.png;Vie pratique;vie_pratique;vie,pratique,genealogie
-139;Sauvegarder et protéger;Vie Pratique;25;120;6,99;30;vie_pratique_5.png;Vie pratique;vie_pratique;vie,pratique,sauvegarde,protection
-140;100% MADE IN France;Vie Pratique;25;120;6,99;30;vie_pratique_6.png;Vie pratique;vie_pratique;vie,pratqiue,France
-141;Louer votre maison;Vie Pratique;25;120;6,99;30;vie_pratique_7.png;Vie pratique;vie_pratique;vie,pratique,location,maison
-142;Louer votre mobilier;Vie Pratique;25;120;6,99;30;vie_pratique_8.png;Vie pratique;vie_pratique;vie,pratqiue,location,mobilier
-143;Comment se protéger sur internet;Vie Pratique;25;120;6,99;30;vie_pratique_9.png;Vie pratique;vie_pratique;vie,pratique,protection,internet
+00000000;Toute L'actu;Célia Rosentraub;Adultes;120;16,9;50;actualite_1.png;Actualité;actualite;actualite,information
+00000001;Enfants0 fiches d'actualité;Florent Vandepitte;Adolescents;220;14,9;40;actualite_2.png;Actualité;actualite;actualite,information
+00000002;Le Meilleur de L'actualité;Louis Gœury;Adolescents;150;16,9;30;actualite_3.png;Actualité;actualite;actualite,information
+00000003;Actu'Concours;Philippe Cavaillé;Adultes;120;8,99;20;actualite_4.png;Actualité;actualite;actualite,information,concours
+00000004;Le meilleur de l'actualité;Sarfati Olivier;Adolescents;220;12,9;40;actualite_5.png;Actualité;actualite;actualite,information
+00000005;Carnet de guerreCovid19;Didier Raoult;Adultes;120;8,9;30;actualite_6.png;Actualité;actualite;actualite,information,guerre,covid,pandemie
+00000006;L'économie en Enfants0 mots d'actualité;Christophe Degryse;Adolescents;220;15;20;actualite_7.png;Actualité;actualite;actualite,information,economie
+00000007;Dictionnaire amoureux de la géopolitique;Plon Fayard;Adolescents;150;7,9;40;actualite_8.png;Actualité;actualite;mot,amour,politique
+00000008;Franceinfo: 30 ans d'actualité;Collectif;Adultes;120;2,9;50;actualite_9.png;Actualité;actualite;actualite,information,France
+00000009;L'Ecume des jours;Boris Vian;Adultes;220;9,9;50;amour_1.png;Amour;amour;amour,relation,sentiment
+00000010;La Duchesse;Danielle Steel;Ainés;150;7,9;40;amour_2.png;Amour;amour;amour,roi,reine,royal
+00000011;On ne badine pas avec l'amour;Alfred Musset;Adolescents;120;2,9;30;amour_3.png;Amour;amour;amour,relation,sentiment
+00000012;Le jeu de l'amour et du hasard;Jacques Marivaux;Adolescents;220;8,99;20;amour_4.png;Amour;amour;amour,relation,sentiment
+00000013;Mon amour;Astrid Debordon;Enfants;220;12,9;40;amour_5.png;Amour;amour;amour,relation,sentiment
+00000014;Ultime preuve d'amour;Canesi et Rahmani;Adultes;120;8,9;30;amour_6.png;Amour;amour;amour,relation,sentiment
+00000015;Ce qui reste de nous;Jill Santopolo;Enfants;220;15;20;amour_7.png;Amour;amour;amour,relation,sentiment,trahison
+00000016;KPop love story;Ae Jung;Enfants;120;7,9;40;amour_8.png;Amour;amour;amour,relation,sentiment,kpop
+00000017;L'amour impossible;Jan Bauer;Enfants;220;2,9;50;amour_9.png;Amour;amour;amour,relation,sentiment
+00000018;L'autre art contemporain;Benjamin Olivienne;Adultes;150;9,9;50;art_1.png;Art;art;art,peinture,œuvre
+00000019;Disney Princesses;Jérémy Mariez;Ainés;120;6,9;40;art_2.png;Art;art;dessin,disney,princesse
+00000020;AndalousieArt et Civilisation;Ignacio Cuellar;Adultes;220;7,9;30;art_3.png;Art;art;art,peinture,œuvre
+00000021;La sculpture et ses remplois;Nicolas de Larquier;Adultes;150;8,99;20;art_4.png;Art;art;art,sculpture,œuvre
+00000022;Yves Saint Laurent Catwalk;Suzy Menkes;Enfants;120;12,9;40;art_5.png;Art;art;art,mode,defile
+00000023;Chanel;Patrick Mauriès;Adultes;220;8,9;30;art_6.png;Art;art;art,peinture,œuvre
+00000024;Le grand livre de l'art;David G.Wilkins;Enfants;220;15;20;art_7.png;Art;art;art,oeuvre,decoration
+00000025;19Adultes, Quand l'art déco;Breon;Enfants;220;7,9;40;art_8.png;Art;art;art,mode,defile
+00000026;Louis Vuitton Défilés;Jo Ellison;Enfants;380;2,9;50;art_9.png;Art;art;art,mode,defile
+00000027;Le Menhir d'Or;René Goscinny;Adultes;150;9,9;50;bd_1.png;Bande dessinée;bande_dessinee;asterix,bd,jeunesse
+00000028;La grande épopée de Picsou;Don Rosa;Ainés;120;29,9;40;bd_2.png;Bande dessinée;bande_dessinee;picsou,bd,jeunesse
+00000029;SpiderMan;Delilah S.Dawson;Enfants;150;9,9;30;bd_3.png;Bande dessinée;bande_dessinee;spiderman,bd,jeunesse
+00000030;Tintin;Bernard Hergé;Enfants;120;11,5;20;bd_4.png;Bande dessinée;bande_dessinee;tintin,bd,jeunesse
+00000031;Les aventures de Spirou et Fantasio;Yoann Vehlmann;Enfants;220;8,99;40;bd_5.png;Bande dessinée;bande_dessinee;spirou,bd,jeunesse
+00000032;Boule et Bill;Jean Roba;Adultes;150;12,9;30;bd_6.png;Bande dessinée;bande_dessinee;boule,bill,bd,chien,jeunes
+00000033;Clifton détective British;Raymond Macherot;Enfants;120;8,9;20;bd_7.png;Bande dessinée;bande_dessinee;clifton,bd,jeunesse
+00000034;Le nid des marsupulamis;Yoann Vehlmann;Enfants;220;15;40;bd_8.png;Bande dessinée;bande_dessinee;marsupilami,bd,jeunesse
+00000035;Gaston, le gang des gaffeurs;Dupuis;Enfants;150;7,9;50;bd_9.png;Bande dessinée;bande_dessinee;gaston,bd,jeunesse
+00000036;L'intelligence émotionnelle;Daniel Roche;Adultes;120;2,9;50;bien_etre_1.png;Bien-être;bien_etre;bien,sante,mental
+00000037;Le pouvoir du moment présent;Annie Ollivier;Ainés;220;9,9;40;bien_etre_2.png;Bien-être;bien_etre;bien,sante,mental
+00000038;Réfléchissez et devenez riche;Thérèse Gindraux;Adultes;220;9,9;30;bien_etre_3.png;Bien-être;bien_etre;bien,sante,mental
+00000039;Hypersensibles mieux se comprendre;Elaine Aron;Adultes;220;29,9;20;bien_etre_4.png;Bien-être;bien_etre;bien,sante,mental
+00000040;La bienveillance est une arme absolue;Didier Cauwelaert;Adultes;380;8,99;40;bien_etre_5.png;Bien-être;bien_etre;bien,sante,mental
+00000041;Etesvous ultra sensible;Carol Pirotte;Adolescents;150;12,9;50;bien_etre_6.png;Bien-être;bien_etre;bien,sante,mental
+00000042;La sagesse espiègle;Alexandre Jollien;Adolescents;120;8,9;40;bien_etre_7.png;Bien-être;bien_etre;bien,sante,mental
+00000043;Les promesses de l'âge;Perla Servan Schreiber;Ainés;150;15;30;bien_etre_8.png;Bien-être;bien_etre;bien,sante,mental
+00000044;Qu'est ce qui nous rend vraiment heureux ?;Sonja Lyubomirsky;Ainés;120;7,9;20;bien_etre_9.png;Bien-être;bien_etre;bien,sante,mental
+00000045;On va déguster l'Italie;François Régis;Adultes;220;2,9;50;cuisine_1.png;Cuisine;cuisine;cuisine,italie,degustation
+00000046;Fait maison 3;Cyril Lignac;Ainés;150;9,9;40;cuisine_2.png;Cuisine;cuisine;cuisine,recette
+00000047;On va déguster la France;François Régis;Adultes;120;9,9;30;cuisine_3.png;Cuisine;cuisine;cuisine,recette,France
+00000048;Le confinement d'un Chef;Simone Zanoni;Adultes;220;29,9;20;cuisine_4.png;Cuisine;cuisine;cuisine,recette,chef
+00000049;Cuisine en moins de Enfants min;Héloise Martel;Adolescents;150;6,9;40;cuisine_5.png;Cuisine;cuisine;cuisine,recette,rapide
+00000050;Planches à partager;hachette;Adolescents;120;7,9;50;cuisine_6.png;Cuisine;cuisine;cuisine,recette
+00000051;Fait maison 1;Cyril Lignac;Adolescents;220;8,99;40;cuisine_7.png;Cuisine;cuisine;cuisine,recette
+00000052;Le grand livre marabout;Collectif;Adolescents;220;12,9;30;cuisine_8.png;Cuisine;cuisine;cuisine,recette
+00000053;Les meilleures recettes de l'émission;Philippe Etchebest;Adolescents;220;8,9;20;cuisine_9.png;Cuisine;cuisine;cuisine,recette,emission
+00000054;La crise de la culture;Hannah Arendt;Adultes;380;15;50;culture_1.png;Culture;culture;culture,crise
+00000055;Le petit Larousse de la culture générale;Vincent Brovicelle;Ainés;150;7,9;40;culture_2.png;Culture;culture;culture,general
+00000056;Pardelà nature et culture;Philippe Descola;Adolescents;120;2,9;30;culture_3.png;Culture;culture;culture,nature
+00000057;L'obsession Rap;L'ABCDR du son;Adolescents;150;9,9;20;culture_4.png;Culture;culture;culture,rap
+00000058;1 kilo de culture générale;Jean François Pépin;Adolescents;120;29,9;40;culture_5.png;Culture;culture;culture,general
+00000059;C'est quoi la culture;Ben;Adolescents;220;6,9;50;culture_6.png;Culture;culture;culture
+00000060;Le Québec un pays une culture;Françoise de Labsade;Adultes;150;7,9;40;culture_7.png;Culture;culture;culture,quebec
+00000061;Le pays silencieux;Christine Cerrada;Adultes;120;8,99;30;culture_8.png;Culture;culture;culture,pays
+00000062;Le Japon;Bruno Meyere;Adultes;220;12,9;20;culture_9.png;Culture;culture;culture,japon
+00000063;Les Fleurs du mal;Charles Baudelaire;Adultes;150;8,9;50;education_1.png;Education;education;education,amour,scolaire
+00000064;Le Cid;Pierre Corneille;Ainés;120;15;40;education_2.png;Education;education;education,amour,scolaire
+00000065;Les Fourberies de Scapin;Molière;Adolescents;220;6,9;30;education_3.png;Education;education;education,amour,scolaire
+00000066;Yvain ou Le Chevalier au lion;Chrétien de Troyes;Adolescents;220;7,9;20;education_4.png;Education;education;education,amour,scolaire
+00000067;Devenir;Michelle obama;Adolescents;220;8,99;50;education_5.png;Education;education;education,amour,scolaire
+00000068;Les Enfants1 règles d'or;GillesMarie Valet;Adultes;380;12,9;50;education_6.png;Education;education;education,scolaire
+00000069;La grande encyclopédie des enfants;Collectif;Enfants;150;8,9;40;education_7.png;Education;education;education,enfant
+00000070;L'éducation sentimentale;Gustave Flaubert;Adolescents;120;15;30;education_8.png;Education;education;education,amour,sentiment
+00000071;L'éducation réinventée;Salman Khan;Adultes;150;8,99;20;education_9.png;Education;education;education
+00000072;La guerre des Gaules;Jules César;Adultes;120;12,9;50;histoire_1.png;Histoire;histoire;histoire,guerre,france
+00000073;L'ancien régime et la révolution;Alexis de Tocqueville;Ainés;220;8,9;40;histoire_2.png;Histoire;histoire;histoire,guerre,france
+00000074;Souvenirs d'un officier de la GA;JeanBaptiste Barrès;Adolescents;150;12,9;30;histoire_3.png;Histoire;histoire;histoire,guerre,france
+00000075;La République romaine;JeanMichel David;Adolescents;120;8,9;20;histoire_4.png;Histoire;histoire;histoire,guerre,france
+00000076;Les Six Livres;Jean Bodin;Adolescents;220;15;50;histoire_5.png;Histoire;histoire;histoire,guerre,france
+00000077;Cahier d'écoliers;Christin Benevent;Enfants;150;8,99;40;histoire_6.png;Histoire;histoire;histoire,guerre,france
+00000078;Femme dans l'histoire;Pontivy;Adultes;120;12,9;30;histoire_7.png;Histoire;histoire;histoire,femme,france
+00000079;Mon premier livre;Laurent Brosselette;Enfants;220;8,9;20;histoire_8.png;Histoire;histoire;histoire
+00000080;Une histoire d'émotion;Potel et Chabot;Enfants;220;5,1;40;histoire_9.png;Histoire;histoire;histoire,emotion
+00000081;Sudoku pour enfant;Jean Brochet;Enfants;220;7,9;50;loisir_1.png;Loisir;loisir;loisir,sudoku,enfant
+00000082;Les principes fondamentaux des échecs;José Capablanca;Adultes;380;15;40;loisir_2.png;Loisir;loisir;loisir,echec
+00000083;Enfants0 Magnifiques Mandalas;Marie Pellier;Ainés;150;8,99;30;loisir_3.png;Loisir;loisir;loisir,dessin,mandala
+00000084;Le livre amoureux;Ramadier;Enfants;120;7;20;loisir_4.png;Loisir;loisir;loisir,enfant,amour
+00000085;Le livre en colère;Ramadier;Enfants;150;7;20;loisir_5.png;Loisir;loisir;loisir,enfant,emotion
+00000086;Le livre qui dit non;Ramadier;Enfants;120;7;20;loisir_6.png;Loisir;loisir;loisir,enfant,decision
+00000087;Le livre qui dort;Ramadier;Enfants;160;7;20;loisir_7.png;Loisir;loisir;loisir,enfant,emotion
+00000088;Le livre va à l'école;Ramadier;Enfants;160;7;20;loisir_8.png;Loisir;loisir;loisir,enfant,ecole
+00000089;Le livre qui a peur;Ramadier;Enfants;160;7;20;loisir_9.png;Loisir;loisir;loisir,enfant,emotion
+00000090;Nuit sombre et sacrée;Harry Bosch;Enfants;120;12,9;30;policier_1.png;Policier;policier;policier,roman,sombre,nuit
+00000091;Crimes pour Vendetta;Eve Dallas;Adolescents;220;8,6;20;policier_2.png;Policier;policier;policier,roman,crime
+00000092;À cache-cache;Jean Arlidge;Adolescents;220;9,4;30;policier_3.png;Policier;policier;policier,roman
+00000093;Le couple d'à côté;Shari Lapena;Adolescents;150;6,9;20;policier_4.png;Policier;policier;policier,roman,amour
+00000094;Vaste comme la nuit;Elena Piacentini;Adolescents;120;15;30;policier_5.png;Policier;policier;policier,roman,nuit
+00000095;Le baiser de l'ogre;Else Roch;Adolescents;220;8,99;20;policier_6.png;Policier;policier;policier,roman,amour
+00000096;Alarme en Béarn;Thomas Aden;Adolescents;150;12,9;30;policier_7.png;Policier;policier;policier,roman
+00000097;La trilogie berlinoise;Philip Kerr;Adolescents;120;8,9;20;policier_8.png;Policier;policier;policier,roman
+00000098;Un, deux, trois, sommeil !;Gilles Vincent;Adolescents;220;5,1;50;policier_9.png;Policier;policier;policier,roman
+00000099;Je pense trop;Christel Petitcollin;Adultes;220;7,9;50;psychologie_1.png;Psychologie;psychologie;psychologie,mental
+00000100;Cinq lecons sur la psychanalyse;Sigmun Freud;Adultes;220;5,5;40;psychologie_2.png;Psychologie;psychologie;psychologie,mental
+00000101;La psychanalyse pour les nuls;Christian Godin;Adultes;380;22,9;30;psychologie_3.png;Psychologie;psychologie;psychologie,mental
+00000102;Névrose et psychose;Sigmun Freud;Adultes;150;5,1;20;psychologie_4.png;Psychologie;psychologie;psychologie,mental
+00000103;Du bonheur;Frédéric Lenoir;Adolescents;120;8,99;50;psychologie_5.png;Psychologie;psychologie;psychologie,mental
+00000104;La puissance de la joie;Frédéric Lenoir;Adolescents;150;12,9;50;psychologie_6.png;Psychologie;psychologie;psychologie,mental
+00000105;La psychologie du développement;Virginie Laval;Adolescents;120;8,9;40;psychologie_7.png;Psychologie;psychologie;psychologie,mental
+00000106;Pourquoi croiton ?;Thierry Ripoll;Adolescents;220;5,1;30;psychologie_8.png;Psychologie;psychologie;psychologie,mental
+00000107;Artthérapie et enfance;AnneMarie Dubois;Adultes;150;7,9;20;psychologie_9.png;Psychologie;psychologie;psychologie,mental
+00000108;Urgences or not urgences;Jean Brochet;Adultes;120;5,5;50;sante_1.png;Santé;sante;sante,urgence
+00000109;Grand Manuel de phytothérapie;Eric Lorrain;Adultes;220;12,9;40;sante_2.png;Santé;sante;sante,urgence
+00000110;Ma bible des huiles essentielles;Danièle Festy;Adultes;150;24,9;30;sante_3.png;Santé;sante;sante,huile
+00000111;Bien vivre le quatrième trimestre;Julia Simon;Adultes;120;19,9;20;sante_4.png;Santé;sante;sante,accouchement
+00000112;Trois jours et une vie;Nicolas Boukhrief;Adolescents;220;9,2;40;sante_5.png;Santé;sante;sante
+00000113;Natura;Pascal d'Erm;Adolescents;220;6,3;30;sante_6.png;Santé;sante;sante,nature
+00000114;L'église;Mark Dever;Adolescents;220;8,6;20;sante_7.png;Santé;sante;sante,eglise
+00000115;Livre blanc;Fnehad;Adultes;380;12,8;50;sante_8.png;Santé;sante;sante
+00000116;Enfants en bonne santé;Nadia Christensen;Adultes;150;13,2;40;sante_9.png;Santé;sante;sante,enfant
+00000117;Tous de l'espace ?;Maxime Lisoir;Adolescents;120;Adolescents,9;30;science_1.png;Science;science;science,espace
+00000118;Votre cerveau est extraordinaire;Fabien Olicard;Adolescents;150;7,3;40;science_2.png;Science;science;science,cerveau
+00000119;Science et religion;Bertrand Russell;Adolescents;120;6,9;30;science_3.png;Science;science;science,religion
+00000120;Fiches brevet;Sandrine Aussourd;Adolescents;160;5,9;20;science_4.png;Science;science;science,brevet,fiche,revision
+00000121;Science et impact social;Mélanie Marcel;Adolescents;220;6,3;50;science_5.png;Science;science;science,social
+00000122;Les promesses de la science;Joêl de Rosnay;Adolescents;220;8,6;40;science_6.png;Science;science;science
+00000123;Science investigations;Teacher Created;Adolescents;380;12,8;30;science_7.png;Science;science;science
+00000124;Adultes vraies fausses idées;Sciences pour tous;Adultes;150;13,2;40;science_8.png;Science;science;science
+00000125;Coronavirus et maintenant ?;Science et vie;Adultes;120;Adolescents,9;30;science_9.png;Science;science;science,coronavirus,pandemie
+00000126;Arca;Romain Benassya;Adolescents;150;7,3;20;sf_1.png;Science-fiction;science_fiction;science,fiction
+00000127;Voyage au centre de la Terre;Jules Verne;Adolescents;120;9,2;40;sf_2.png;Science-fiction;science_fiction;science,fiction
+00000128;Histoire de la Science Fiction;Xavier Dollo;Adolescents;160;6,3;30;sf_3.png;Science-fiction;science_fiction;science,fiction
+00000129;Pyramides;Romain Benassaya;Adolescents;150;8,6;20;sf_4.png;Science-fiction;science_fiction;science,fiction
+00000130;Echange standard;Robert Sheckley;Adolescents;160;6,9;20;sf_5.png;Science-fiction;science_fiction;science,fiction
+00000131;Ombres et flammes;Kevin Anderson;Adolescents;220;5,9;50;sf_6.png;Science-fiction;science_fiction;science,fiction
+00000132;Les enfants de poséidon;Alastair Reynold;Adolescents;220;3,99;40;sf_7.png;Science-fiction;science_fiction;science,fiction
+00000133;Le vengeur;Carol Berg;Adolescents;380;8,6;30;sf_8.png;Science-fiction;science_fiction;science,fiction
+00000134;Virus L.I.V.3;Christian Grenier;Adolescents;150;12,8;40;sf_9.png;Science-fiction;science_fiction;science,fiction,livre
+00000135;Tout savoir avant de s'abonner;Vie Pratique;Adultes;120;6,99;30;vie_pratique_1.png;Vie pratique;vie_pratique;vie,pratique
+00000136;Eau stop au gaspillage;Vie Pratique;Adultes;150;6,99;30;vie_pratique_2.png;Vie pratique;vie_pratique;vie,pratique,eau,gaspillage
+00000137;Internet, téléphone mobile;Vie Pratique;Adultes;120;6,99;30;vie_pratique_3.png;Vie pratique;vie_pratique;vie,pratique,internet,telephone
+00000138;Généalogie;Vie Pratique;Adultes;160;6,99;30;vie_pratique_4.png;Vie pratique;vie_pratique;vie,pratique,genealogie
+00000139;Sauvegarder et protéger;Vie Pratique;Adultes;120;6,99;30;vie_pratique_5.png;Vie pratique;vie_pratique;vie,pratique,sauvegarde,protection
+00000140;Enfants0% MADE IN France;Vie Pratique;Adultes;120;6,99;30;vie_pratique_6.png;Vie pratique;vie_pratique;vie,pratqiue,France
+00000141;Louer votre maison;Vie Pratique;Adultes;120;6,99;30;vie_pratique_7.png;Vie pratique;vie_pratique;vie,pratique,location,maison
+00000142;Louer votre mobilier;Vie Pratique;Adultes;120;6,99;30;vie_pratique_8.png;Vie pratique;vie_pratique;vie,pratqiue,location,mobilier
+00000143;Comment se protéger sur internet;Vie Pratique;Adultes;120;6,99;30;vie_pratique_9.png;Vie pratique;vie_pratique;vie,pratique,protection,internet
