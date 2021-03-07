@@ -55,6 +55,18 @@ class Client {
         $this->sex,
         $this->clientMoney,);
     }
+
+    public function getAgeRange():String{
+        $age = $this->getAge();
+        if($age <15)
+            return "Enfants";
+        else if($age<25)
+            return "Adolescents";
+        else if($age <65)
+            return "Adultes";
+        else
+            return "Ainés";
+    }
     /**
      * @param \DateTime
      * @return int

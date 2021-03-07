@@ -62,12 +62,24 @@ class ContentTypeModelling
     public function getAgeRangeModel(){
         //Récuperer depuis la BD les tranches d'ages des livres achetés
         $books = $this->getBuysBooks();
-        $ageRanges = array();
+        $somme = 0;
+        $ageRanges = array("Ainés"=>0,"Adultes"=>0,"Adolescents"=>0,"Enfants"=>0);
+
         foreach ($books as $book){
-            array_push($ageRanges, $book->getAgeRange());
+            $ageRanges[$book->getAgeRange()]++;
+            $somme++;
         }
-        $ageRanges = array_unique($ageRanges) ;
-        //Faire un modèle de tranche d'age à partir des livre achetés
+
+        //Ajout de 2 points en fonction de l'age du client
+        $ageRanges[$this->client->getAgeRange()] += 2;
+        $somme+=2;
+
+        //Transformé contenu du tableau en %
+        $ageRanges['Ainés'] /=$somme;
+        $ageRanges['Adultes'] /=$somme;
+        $ageRanges['Adolescents'] /=$somme;
+        $ageRanges['Enfants'] /=$somme;
+
         var_dump($ageRanges);
     }
 
