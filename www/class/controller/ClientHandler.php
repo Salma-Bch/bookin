@@ -33,25 +33,7 @@ class ClientHandler
         foreach ($likes as $like){
             array_push($categoriesReturned, $like->getCategoryName());
         }
-        //var_dump($categoriesReturned);
         return $categoriesReturned;
-    }
-
-    ///////////////// TAGS /////////////////
-
-    /**
-     * Retourne le nombre de page des livres ayant une évaluation positive du client.
-     *
-     * @return array
-     */
-    // JE FAIS CELLE-CI !!!
-    public function getLikedTags():array{
-        $booksSizes = array();
-        $booksLiked = $this->getLikedBooks();
-        foreach ($booksLiked as $book){
-            array_push($booksSizes, $book->getNumberPages());
-        }
-        return $booksSizes;
     }
 
     ///////////////// LIKED BOOKS /////////////////
@@ -104,6 +86,20 @@ class ClientHandler
         return $booksSizes;
     }
 
+    /**
+     * Retourne les tags des livres aimés par le client.
+     *
+     * @return array
+     */
+    public function getLikedBookTags():array{
+        $tags = array();
+        $booksLiked = $this->getLikedBooks();
+        foreach ($booksLiked as $book){
+            array_push($tags, $book->getTags());
+        }
+        return $tags;
+    }
+
     ///////////////// BUYS BOOKS /////////////////
 
     /**
@@ -150,6 +146,20 @@ class ClientHandler
             array_push($booksSizes, $book->getBookSize());
         }
         return $booksSizes;
+    }
+
+    /**
+     * Retourne les tags des livres achetés par le client.
+     *
+     * @return array
+     */
+    public function getBuysBookTags():array{
+        $tags = array();
+        $buysBooks = $this->getBuysBooks();
+        foreach ($buysBooks as $book) {
+            array_push($tags, $book->getTags());
+        }
+        return $tags;
     }
 
 }

@@ -137,4 +137,13 @@ class ContentTypeModelling
         return $booksSizes;
     }
 
+    /**
+     * Retourne le tag modèle d'un client.
+     *
+     * @return array
+     */
+    public function getTagModel():array{
+
+    }
+
 }

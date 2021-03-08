@@ -27,14 +27,14 @@ book_id;title;author;age_range;number_pages;price;quantity;book_image;tags;categ
 25;19Adultes, Quand l'art déco;Breon;Enfants;40;7,9;40;art_8.png;art,mode,defile;Art;art
 26;Louis Vuitton Défilés;Jo Ellison;Enfants;60;2,9;50;art_9.png;art,mode,defile;Art;art
 27;Le Menhir d'Or;René Goscinny;Adultes;150;9,9;50;bd_1.png;asterix,bd,jeunesse;Bande dessinée;bande_dessinee
-28;La grande épopée de Picsou;Don Rosa;Ainés;120;29,9;40;bd_2.png;picsou,bd,jeunesse;Bande dessinée;bande_dessinee
-29;SpiderMan;Delilah S.Dawson;Enfants;80;9,9;30;bd_3.png;spiderman,bd,jeunesse;Bande dessinée;bande_dessinee
-30;Tintin;Bernard Hergé;Enfants;60;11,5;20;bd_4.png;tintin,bd,jeunesse;Bande dessinée;bande_dessinee
-31;Les aventures de Spirou et Fantasio;Yoann Vehlmann;Enfants;40;8,99;40;bd_5.png;spirou,bd,jeunesse;Bande dessinée;bande_dessinee
+28;La grande épopée de Picsou;Don Rosa;Ainés;120;29,9;40;bd_2.png;bd,jeunesse;Bande dessinée;bande_dessinee
+29;SpiderMan;Delilah S.Dawson;Enfants;80;9,9;30;bd_3.png;bd,jeunesse;Bande dessinée;bande_dessinee
+30;Tintin;Bernard Hergé;Enfants;60;11,5;20;bd_4.png;bd,jeunesse;Bande dessinée;bande_dessinee
+31;Les aventures de Spirou et Fantasio;Yoann Vehlmann;Enfants;40;8,99;40;bd_5.png;bd,jeunesse;Bande dessinée;bande_dessinee
 32;Boule et Bill;Jean Roba;Adultes;150;12,9;30;bd_6.png;bd,chien,jeunesse;Bande dessinée;bande_dessinee
-33;Clifton détective British;Raymond Macherot;Enfants;20;8,9;20;bd_7.png;clifton,bd,jeunesse;Bande dessinée;bande_dessinee
-34;Le nid des marsupulamis;Yoann Vehlmann;Enfants;40;15;40;bd_8.png;marsupilami,bd,jeunesse;Bande dessinée;bande_dessinee
-35;Gaston, le gang des gaffeurs;Dupuis;Enfants;20;7,9;50;bd_9.png;gaston,bd,jeunesse;Bande dessinée;bande_dessinee
+33;Clifton détective British;Raymond Macherot;Enfants;20;8,9;20;bd_7.png;bd,jeunesse;Bande dessinée;bande_dessinee
+34;Le nid des marsupulamis;Yoann Vehlmann;Enfants;40;15;40;bd_8.png;bd,jeunesse;Bande dessinée;bande_dessinee
+35;Gaston, le gang des gaffeurs;Dupuis;Enfants;20;7,9;50;bd_9.png;bd,jeunesse;Bande dessinée;bande_dessinee
 36;L'intelligence émotionnelle;Daniel Roche;Adultes;120;2,9;50;bien_etre_1.png;bien,sante,mental;Bien-être;bien_etre
 37;Le pouvoir du moment présent;Annie Ollivier;Ainés;220;9,9;40;bien_etre_2.png;bien,sante,mental;Bien-être;bien_etre
 38;Réfléchissez et devenez riche;Thérèse Gindraux;Adultes;220;9,9;30;bien_etre_3.png;bien,sante,mental;Bien-être;bien_etre
@@ -139,7 +139,7 @@ book_id;title;author;age_range;number_pages;price;quantity;book_image;tags;categ
 137;Internet, téléphone mobile;Vie Pratique;Adultes;120;6,99;30;vie_pratique_3.png;vie,pratique,internet,telephone;Vie pratique;vie_pratique
 138;Généalogie;Vie Pratique;Adultes;160;6,99;30;vie_pratique_4.png;vie,pratique,genealogie;Vie pratique;vie_pratique
 139;Sauvegarder et protéger;Vie Pratique;Adultes;120;6,99;30;vie_pratique_5.png;vie,pratique,sauvegarde,protection;Vie pratique;vie_pratique
-140;Enfants0% MADE IN France;Vie Pratique;Adultes;120;6,99;30;vie_pratique_6.png;vie,pratqiue,France;Vie pratique;vie_pratique
+140;Enfants0% MADE IN France;Vie Pratique;Adultes;120;6,99;30;vie_pratique_6.png;vie,pratique,France;Vie pratique;vie_pratique
 141;Louer votre maison;Vie Pratique;Adultes;120;6,99;30;vie_pratique_7.png;vie,pratique,location,maison;Vie pratique;vie_pratique
 142;Louer votre mobilier;Vie Pratique;Adultes;120;6,99;30;vie_pratique_8.png;vie,pratqiue,location,mobilier;Vie pratique;vie_pratique
 143;Comment se protéger sur internet;Vie Pratique;Adultes;120;6,99;30;vie_pratique_9.png;vie,pratique,protection,internet;Vie pratique;vie_pratique
