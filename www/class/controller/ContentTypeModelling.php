@@ -8,12 +8,14 @@ use utility\Math;
 class ContentTypeModelling
 {
     private ClientHandler $clientHandler;
+    private Client $client;
 
     /**
      * ContentTypeModelling constructor.
      * @param Client $client
      */
     public function __construct(Client $client) {
+        $this->client = $client;
         $this->clientHandler = new ClientHandler($client);
     }
 
@@ -43,6 +45,7 @@ class ContentTypeModelling
             $somme++;
         }
 
+        if($somme == 0) $somme = 1;
         // Fait un pourcentage avec le contenu du tableau.
         $categories['Actualité'] /=$somme;
         $categories['Amour'] /=$somme;
@@ -75,11 +78,11 @@ class ContentTypeModelling
         $ageRanges = array("Enfants"=>0,"Adolescents"=>0,"Adultes"=>0,"Ainés"=>0);
 
         foreach ($books as $book){
-            $ageRanges[$book->clientHandler->getAgeRange()]++;
+            $ageRanges[$book->getAgeRange()]++;
             $somme++;
         }
 
-        $ageRanges[$this->clientHandler->getAgeRange()] += 2; // Compte pour deux
+        $ageRanges[$this->client->getAgeRange()] += 2; // Compte pour deux
         $somme+=2;
 
         // Fait un pourcentage avec le contenu du tableau.
@@ -87,6 +90,8 @@ class ContentTypeModelling
         $ageRanges['Adolescents'] /=$somme;
         $ageRanges['Adultes'] /=$somme;
         $ageRanges['Ainés'] /=$somme;
+
+        return $ageRanges;
     }
 
     /**
@@ -110,23 +115,26 @@ class ContentTypeModelling
      * @return array
      */
     public function getNumberOfPagesModel():array{
+        $somme = 0;
         $buysBooksSizes = $this->clientHandler->getBuysBooksSizes(); // Compte pour un
         $likedBooksSizes = $this->clientHandler->getLikedBooksSizes(); // Compte pour un
-        $booksSizes = array();
+        $booksSizes = array("court"=>0,"moyen"=>0,"long"=>0);
 
-        foreach($buysBooksSizes as $buysBooksSize)
-            array_push($booksSizes, $buysBooksSize);
-        foreach($likedBooksSizes as $likedBooksSize)
-            array_push($booksSizes, $likedBooksSize);
+        foreach($buysBooksSizes as $buysBooksSize) {
+            $booksSizes[$buysBooksSize]++;
+            $somme++;
+        }
+        foreach($likedBooksSizes as $likedBooksSize) {
+            $booksSizes[$likedBooksSize]++;
+            $somme++;
+        }
 
-        // A refaire
-        foreach($booksSizes as $numberOfPage)
-            if(count($numberOfPage)>=1 && Math::getStandardDeviation($numberOfPage)<30) {
-                echo "Moyenne : ".Math::getAverage($numberOfPage);
-                return Math::getAverage($numberOfPage);
-            }
-            else
-                return -1;
+        // Fait un pourcentage avec le contenu du tableau.
+        $booksSizes['court'] /=$somme;
+        $booksSizes['moyen'] /=$somme;
+        $booksSizes['long'] /=$somme;
+
+        return $booksSizes;
     }
 
 }

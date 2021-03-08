@@ -24,6 +24,7 @@ include_once('./class/utility/Format.php');
 include_once('./class/controller/Suggestion.php');
 include_once('./class/controller/ContentTypeModelling.php');
 include_once('./class/Utility/Math.php');
+include_once('./class/controller/ClientHandler.php');
 
 
 use controller\Suggestion;
@@ -35,7 +36,7 @@ $daoFactory = DAOFactory::getInstance();
 $suggestion = new Suggestion();
 $books = $suggestion->suggest();
 
-echo '<div class="col-md-9" id="bookSearched" style="background-color: #d6d6d6">';
+/*echo '<div class="col-md-9" id="bookSearched" style="background-color: #d6d6d6">';
 foreach ($books as $book) {
     echo '<div class="col-md-4 livres">' .
         '<p>Titre : '.$book->getTitle().'</p>' .
@@ -43,5 +44,6 @@ foreach ($books as $book) {
         '<p>'.$book->getPrice().'€</p>' .
         '</div>';
 }
-echo '</div>';
+echo '</div>';*/
+
 

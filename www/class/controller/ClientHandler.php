@@ -1,11 +1,10 @@
 <?php
 
-
 namespace controller;
-
 
 use dao\DAOFactory;
 use model\Client;
+use utility\Format;
 
 class ClientHandler
 {
@@ -28,11 +27,12 @@ class ClientHandler
     public function getLikedCategories():array{
         $daoFactory = DAOFactory::getInstance();
         $likesDao = $daoFactory->getLikesDao();
-        $likes = $likesDao->find($this->client->getClientId(),null);
+        $likes = $likesDao->find(Format::getFormatId(8,$this->client->getClientId()),null);
         $categoriesReturned = array();
         foreach ($likes as $like){
-            array_push($categoriesReturned, $like);
+            array_push($categoriesReturned, $like->getCategoryName());
         }
+        //var_dump($categoriesReturned);
         return $categoriesReturned;
     }
 
@@ -44,7 +44,7 @@ class ClientHandler
     public function getLikedBooks():array{
         $daoFactory = DAOFactory::getInstance();
         $evaluatesDao = $daoFactory->getEvaluatesDao();
-        $evaluates = $evaluatesDao->find(null, $this->client->getClientId());
+        $evaluates = $evaluatesDao->find(null, Format::getFormatId(8,$this->client->getClientId()));
         $booksReturned = array();
         $bookDao = $daoFactory->getBookDao();
         foreach ($evaluates as $evaluation){
@@ -65,7 +65,7 @@ class ClientHandler
         $categories = array();
         $booksLiked = $this->getLikedBooks();
         foreach ($booksLiked as $book){
-            array_push($categories, $book->getCategory());
+            array_push($categories, $book->getCategoryName());
         }
         return $categories;
     }

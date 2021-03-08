@@ -6,26 +6,26 @@ namespace model;
 
 class Evaluates {
     private int $clientId;
-    private String $categoryName;
+    private int $bookId;
     private bool $satisfied;
 
     /**
      * Book constructor.
      * @param int $clientId
-     * @param String $categoryName
+     * @param string $bookId
      * @param bool $satisfied
      */
-    public function __construct(int $clientId, string $categoryName, bool $satisfied)
+    public function __construct(int $clientId, int $bookId, bool $satisfied)
     {
         $this->clientId = $clientId;
-        $this->categoryName = $categoryName;
+        $this->bookId = $bookId;
         $this->satisfied = $satisfied;
     }
 
     public function toArray(): array{
         return array(str_pad(($this->bookId),3,0, STR_PAD_LEFT),
             $this->clientId,
-            $this->categoryName,
+            $this->bookId,
             $this->satisfied);
     }
 
@@ -48,17 +48,17 @@ class Evaluates {
     /**
      * @return String
      */
-    public function getCategoryName(): string
+    public function getBookId(): int
     {
-        return $this->categoryName;
+        return $this->bookId;
     }
 
     /**
-     * @param String $categoryName
+     * @param string $bookId
      */
-    public function setCategoryName(string $categoryName): void
+    public function setBookId(int $bookId): void
     {
-        $this->categoryName = $categoryName;
+        $this->bookId = $bookId;
     }
 
     /**

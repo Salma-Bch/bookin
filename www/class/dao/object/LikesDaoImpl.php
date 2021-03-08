@@ -69,8 +69,8 @@ class LikesDaoImpl implements LikesDao {
             $status = $preparedStatement->execute($parameters);
 
             if($status){
-                $likesArray = $preparedStatement->fetchAll();
-                foreach ($likesArray as $likes) {
+                $likesReturned = $preparedStatement->fetchAll();
+                foreach ($likesReturned as $likes) {
                     array_push($likesArray, $this->map($likes,true));
                 }
             }

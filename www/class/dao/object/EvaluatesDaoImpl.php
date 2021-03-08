@@ -99,7 +99,7 @@ class EvaluatesDaoImpl implements EvaluatesDao
         if($array)
             return new Evaluates($br['client_id'],$br['book_id'],$br['satisfied']);
         else
-            return new Evaluates($br->book_id,$br->client_id,$br->satisfied);
+            return new Evaluates($br->client_id,$br->book_id,$br->satisfied);
     }
 
 }

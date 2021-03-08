@@ -37,6 +37,8 @@ class Suggestion {
     public function suggest():array{
         $contentTypeModelling = new ContentTypeModelling($this->client);
 
+        $categoryModel = $contentTypeModelling->getCategoryModel();
+        var_dump($categoryModel);
         $priceModel = $contentTypeModelling->getPriceModel();
         if($priceModel != -1) {
             $booksToDisplay = $this->priceBased($priceModel, $this->books, 5);
