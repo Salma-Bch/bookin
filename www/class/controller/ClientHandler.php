@@ -14,10 +14,11 @@ class ClientHandler
      * ClientHandler constructor.
      * @param Client $client
      */
-    public function __construct(Client $client)
-    {
+    public function __construct(Client $client) {
         $this->client = $client;
     }
+
+    ///////////////// CATEGORIES /////////////////
 
     /**
      * Retourne les catégories aimées par le client.
@@ -35,6 +36,25 @@ class ClientHandler
         //var_dump($categoriesReturned);
         return $categoriesReturned;
     }
+
+    ///////////////// TAGS /////////////////
+
+    /**
+     * Retourne le nombre de page des livres ayant une évaluation positive du client.
+     *
+     * @return array
+     */
+    // JE FAIS CELLE-CI !!!
+    public function getLikedTags():array{
+        $booksSizes = array();
+        $booksLiked = $this->getLikedBooks();
+        foreach ($booksLiked as $book){
+            array_push($booksSizes, $book->getNumberPages());
+        }
+        return $booksSizes;
+    }
+
+    ///////////////// LIKED BOOKS /////////////////
 
     /**
      * Retourne les livres avec une évaluation positive du client.
@@ -69,6 +89,22 @@ class ClientHandler
         }
         return $categories;
     }
+
+    /**
+     * Retourne le nombre de page des livres ayant une évaluation positive du client.
+     *
+     * @return array
+     */
+    public function getLikedBooksSizes():array{
+        $booksSizes = array();
+        $booksLiked = $this->getLikedBooks();
+        foreach ($booksLiked as $book){
+            array_push($booksSizes, $book->getBookSize());
+        }
+        return $booksSizes;
+    }
+
+    ///////////////// BUYS BOOKS /////////////////
 
     /**
      * Retourne les livres achetés d'un client.
@@ -112,20 +148,6 @@ class ClientHandler
         $buysBooks = $this->getBuysBooks();
         foreach ($buysBooks as $book) {
             array_push($booksSizes, $book->getBookSize());
-        }
-        return $booksSizes;
-    }
-
-    /**
-     * Retourne le nombre de page des livres ayant une évaluation positive du client.
-     *
-     * @return array
-     */
-    public function getLikedBooksSizes():array{
-        $booksSizes = array();
-        $booksLiked = $this->getLikedBooks();
-        foreach ($booksLiked as $book){
-            array_push($booksSizes, $book->getNumberPages());
         }
         return $booksSizes;
     }

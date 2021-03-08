@@ -174,7 +174,7 @@ class Book {
     }
 
     public function getBookSize():String{
-        $numberOfPage = $this->getNumberOfPages();
+        $numberOfPage = $this->getNumberPages();
         if($numberOfPage <= self::COURT)
             return "court";
         else if($numberOfPage <= self::MOYEN)

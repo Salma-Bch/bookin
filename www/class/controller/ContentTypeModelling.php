@@ -114,7 +114,7 @@ class ContentTypeModelling
      *
      * @return array
      */
-    public function getNumberOfPagesModel():array{
+    public function getBookSizeModel():array{
         $somme = 0;
         $buysBooksSizes = $this->clientHandler->getBuysBooksSizes(); // Compte pour un
         $likedBooksSizes = $this->clientHandler->getLikedBooksSizes(); // Compte pour un
