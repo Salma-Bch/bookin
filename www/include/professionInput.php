@@ -16,4 +16,5 @@
     <option value="Rédacteur">Rédacteur</option>
     <option value="Scientifique ">Scientifique</option>
     <option value="Sculpteur">Sculpteur</option>
+    <option value="Sculpteur">Autres</option>
 </select>

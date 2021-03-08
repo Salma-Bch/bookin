@@ -1,118 +1,132 @@
 <?php
 
-
 namespace controller;
 
-
-use dao\DAOFactory;
 use model\Client;
-use utility\Format;
 use utility\Math;
 
 class ContentTypeModelling
 {
-    private Client $client;
-    private array $likedBooks;
-    private array $purchase;
+    private ClientHandler $clientHandler;
 
     /**
      * ContentTypeModelling constructor.
      * @param Client $client
      */
-    public function __construct(Client $client)
-    {
-        $this->client = $client;
+    public function __construct(Client $client) {
+        $this->clientHandler = new ClientHandler($client);
     }
 
+    /**
+     * Retourne la catégorie modèle d'un client.
+     *
+     * @return array
+     */
     public function getCategoryModel():array{
-        //Récuperer depuis la BD category liked du client
+        // Se base sur les catégories aimées (LIKES) et les livré aimés par le client (EVALUATES).
 
-        //Récuperer depuis la BD les catégorie des livres aimés
-        $categoriesBooksLiked = $this->getLikedBooksCategories();
-
-        //Faire un modèle de catégorie a partir des LIKES, des livres acheté et des livre aimés
-
-
-    }
-
-    public function getLikedBooksCategories():array{
-        $categories = array();
-        $booksLiked = $this->getLikedBooks();
-        foreach ($booksLiked as $book){
-            array_push($categories, $book->getCategory());
-        }
-        return $categories;
-    }
-
-    public function getLikedBooks():array{
-        $daoFactory = DAOFactory::getInstance();
-        $evaluatesDao = $daoFactory->getEvaluatesDao();
-        $evaluates = $evaluatesDao->find(null, $this->client->getClientId());
-        $booksReturned = array();
-        $bookDao = $daoFactory->getBookDao();
-        foreach ($evaluates as $evaluation){
-            if($evaluation->getSatisfied()) {
-                $book = $bookDao->find(Format::getFormatId(8, $evaluation->getBookId()));
-                array_push($booksReturned, $book);
-            }
-        }
-        return $booksReturned;
-    }
-
-    public function getAgeRangeModel(){
-        //Récuperer depuis la BD les tranches d'ages des livres achetés
-        $books = $this->getBuysBooks();
         $somme = 0;
-        $ageRanges = array("Ainés"=>0,"Adultes"=>0,"Adolescents"=>0,"Enfants"=>0);
 
-        foreach ($books as $book){
-            $ageRanges[$book->getAgeRange()]++;
+        $likedCategories = $this->clientHandler->getLikedCategories(); // Compte pour deux
+        $likedBookCategories = $this->clientHandler->getLikedBooksCategories(); // Compte pour un
+
+        $categories = array("Actualité"=>0,"Amour"=>0,"Art"=>0,"Bande dessinée"=>0,"Bien-être"=>0,"Cuisine"=>0,
+                                "Culture"=>0,"Éducation"=>0,"Histoire"=>0,"Loisir"=>0,"Policier"=>0,"Psychologie"=>0,
+                                    "Santé"=>0,"Science"=>0,"Science-fiction"=>0,"Vie pratique"=>0);
+
+        foreach ($likedCategories as $likedCategory){
+            $categories[$likedCategory] += 2 ;
+            $somme+=2;
+        }
+        foreach ($likedBookCategories as $likedBookCategory){
+            $categories[$likedBookCategory]++ ;
             $somme++;
         }
 
-        //Ajout de 2 points en fonction de l'age du client
-        $ageRanges[$this->client->getAgeRange()] += 2;
+        // Fait un pourcentage avec le contenu du tableau.
+        $categories['Actualité'] /=$somme;
+        $categories['Amour'] /=$somme;
+        $categories['Art'] /=$somme;
+        $categories['Bande dessinée'] /=$somme;
+        $categories['Bien-être'] /=$somme;
+        $categories['Cuisine'] /=$somme;
+        $categories['Culture'] /=$somme;
+        $categories['Éducation'] /=$somme;
+        $categories['Histoire'] /=$somme;
+        $categories['Loisir'] /=$somme;
+        $categories['Policier'] /=$somme;
+        $categories['Psychologie'] /=$somme;
+        $categories['Santé'] /=$somme;
+        $categories['Science'] /=$somme;
+        $categories['Science-fiction'] /=$somme;
+        $categories['Vie pratique'] /=$somme;
+
+        return $categories;
+    }
+
+    /**
+     * Retourne la tranche d'âge modèle d'un client.
+     *
+     * @return array
+     */
+    public function getAgeRangeModel(){
+        $books = $this->clientHandler->getBuysBooks();
+        $somme = 0;
+        $ageRanges = array("Enfants"=>0,"Adolescents"=>0,"Adultes"=>0,"Ainés"=>0);
+
+        foreach ($books as $book){
+            $ageRanges[$book->clientHandler->getAgeRange()]++;
+            $somme++;
+        }
+
+        $ageRanges[$this->clientHandler->getAgeRange()] += 2; // Compte pour deux
         $somme+=2;
 
-        //Transformé contenu du tableau en %
-        $ageRanges['Ainés'] /=$somme;
-        $ageRanges['Adultes'] /=$somme;
-        $ageRanges['Adolescents'] /=$somme;
+        // Fait un pourcentage avec le contenu du tableau.
         $ageRanges['Enfants'] /=$somme;
-
-        var_dump($ageRanges);
+        $ageRanges['Adolescents'] /=$somme;
+        $ageRanges['Adultes'] /=$somme;
+        $ageRanges['Ainés'] /=$somme;
     }
 
-    public function getBuysBooks():array{
-        $daoFactory = DAOFactory::getInstance();
-        $purchaseDao = $daoFactory->getPurchaseDao();
-        $purchases = $purchaseDao->getClientPurchases(Format::getFormatId(8,$this->client->getClientId()));
-        $booksReturned = array();
-        $bookDao = $daoFactory->getBookDao();
-        foreach ($purchases as $purchase){
-            $book = $bookDao->find(Format::getFormatId(8,$purchase->getBookId()));
-            array_push($booksReturned,$book);
-        }
-        return $booksReturned;
-    }
-
-    public function getBuysBooksPrices():array{
-        $prices = array();
-        $buysBooks = $this->getBuysBooks();
-        foreach ($buysBooks as $book) {
-            array_push($prices, $book->getPrice());
-        }
-        return $prices;
-    }
-
+    /**
+     * Retourne le prix modèle d'un client.
+     *
+     * @return array
+     */
     public function getPriceModel():float{
-        $prices = $this->getBuysBooksPrices();
+        $prices = $this->clientHandler->getBuysBooksPrices();
         if(count($prices)>=1 && Math::getStandardDeviation($prices)<30) {
             echo "Moyenne : ".Math::getAverage($prices);
             return Math::getAverage($prices);
         }
         else
             return -1;
+    }
+
+    /**
+     * Retourne le nombre de page modèle d'un client.
+     *
+     * @return array
+     */
+    public function getNumberOfPagesModel():array{
+        $buysBooksSizes = $this->clientHandler->getBuysBooksSizes(); // Compte pour un
+        $likedBooksSizes = $this->clientHandler->getLikedBooksSizes(); // Compte pour un
+        $booksSizes = array();
+
+        foreach($buysBooksSizes as $buysBooksSize)
+            array_push($booksSizes, $buysBooksSize);
+        foreach($likedBooksSizes as $likedBooksSize)
+            array_push($booksSizes, $likedBooksSize);
+
+        // A refaire
+        foreach($booksSizes as $numberOfPage)
+            if(count($numberOfPage)>=1 && Math::getStandardDeviation($numberOfPage)<30) {
+                echo "Moyenne : ".Math::getAverage($numberOfPage);
+                return Math::getAverage($numberOfPage);
+            }
+            else
+                return -1;
     }
 
 }

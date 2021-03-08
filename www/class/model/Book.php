@@ -18,6 +18,10 @@ class Book {
     private array $tags;
     private String $categoryName;
 
+    private const COURT = 100;
+    private const MOYEN = 200;
+    private const LONG = 300;
+
     /**
      * Book constructor.
      * @param int $bookId
@@ -167,6 +171,16 @@ class Book {
     public function setNumberPages(int $numberPages): void
     {
         $this->numberPages = $numberPages;
+    }
+
+    public function getBookSize():String{
+        $numberOfPage = $this->getNumberOfPages();
+        if($numberOfPage <= self::COURT)
+            return "court";
+        else if($numberOfPage <= self::MOYEN)
+            return "moyen";
+        else
+            return "long";
     }
 
     /**
