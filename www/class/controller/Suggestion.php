@@ -9,8 +9,6 @@ use utility\Math;
 class Suggestion {
     private Client $client;
     private array $books;
-    private array $likedBooks;
-    private array $purchase;
 
     /**
      * Suggestion constructor.
@@ -32,18 +30,14 @@ class Suggestion {
     public function suggest():array{
         $booksToDisplay = array();
         $contentTypeModelling = new ContentTypeModelling($this->client);
-        $categoryModel = $contentTypeModelling->getCategoryModel(); //Tableau de % pour chaque catégorie
-
+        $categoryModel = $contentTypeModelling->getCategoryModel();
 
        /* if($priceModel != -1) {
             $booksToDisplay = $this->priceBased($priceModel, $this->books, 5);
         }*/
 
-       $books = $this->categoryBased($categoryModel, $this->books, $contentTypeModelling);
-
-       //var_dump($bookSizeModel);
-       var_dump($books);
-
+        $books = $this->categoryBased($categoryModel, $this->books, $contentTypeModelling);
+        var_dump($books);
         return $booksToDisplay;
     }
 
