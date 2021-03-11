@@ -5,8 +5,7 @@ namespace controller;
 use model\Client;
 use utility\Math;
 
-class ContentTypeModelling
-{
+class ContentTypeModelling {
     private ClientHandler $clientHandler;
     private Client $client;
 
@@ -25,27 +24,26 @@ class ContentTypeModelling
      * @return array
      */
     public function getCategoryModel():array{
-        // Se base sur les catégories aimées (LIKES) et les livré aimés par le client (EVALUATES).
-
         $somme = 0;
-
-        $likedCategories = $this->clientHandler->getLikedCategories(); // Compte pour deux
-        $likedBookCategories = $this->clientHandler->getLikedBooksCategories(); // Compte pour un
+        $buysBookCategories = $this->clientHandler->getBuysBooksCategories(); // Buys books
+        $likedBookCategories = $this->clientHandler->getLikedBooksCategories(); // Liked books
 
         $categories = array("Actualité"=>0,"Amour"=>0,"Art"=>0,"Bande dessinée"=>0,"Bien-être"=>0,"Cuisine"=>0,
                                 "Culture"=>0,"Éducation"=>0,"Histoire"=>0,"Loisir"=>0,"Policier"=>0,"Psychologie"=>0,
                                     "Santé"=>0,"Science"=>0,"Science-fiction"=>0,"Vie pratique"=>0);
 
-        foreach ($likedCategories as $likedCategory){
-            $categories[$likedCategory] += 2 ;
-            $somme+=2;
+        foreach ($buysBookCategories as $buysBookCategory){
+            $categories[$buysBookCategory]++ ;
+            $somme++;
         }
+
         foreach ($likedBookCategories as $likedBookCategory){
             $categories[$likedBookCategory]++ ;
             $somme++;
         }
 
         if($somme == 0) $somme = 1;
+
         // Fait un pourcentage avec le contenu du tableau.
         $categories['Actualité'] /=$somme;
         $categories['Amour'] /=$somme;
@@ -73,17 +71,20 @@ class ContentTypeModelling
      * @return array
      */
     public function getAgeRangeModel(){
-        $books = $this->clientHandler->getBuysBooks();
+        $buysBooks = $this->clientHandler->getBuysBooks(); // Buys books
+        $likedBooks = $this->clientHandler->getLikedBooks(); // Liked books
         $somme = 0;
         $ageRanges = array("Enfants"=>0,"Adolescents"=>0,"Adultes"=>0,"Ainés"=>0);
 
-        foreach ($books as $book){
-            $ageRanges[$book->getAgeRange()]++;
+        foreach ($buysBooks as $buysBook){
+            $ageRanges[$buysBook->getAgeRange()]++;
             $somme++;
         }
 
-        $ageRanges[$this->client->getAgeRange()] += 2; // Compte pour deux
-        $somme+=2;
+        foreach ($likedBooks as $likedBook){
+            $ageRanges[$likedBook->getAgeRange()]++;
+            $somme++;
+        }
 
         // Fait un pourcentage avec le contenu du tableau.
         $ageRanges['Enfants'] /=$somme;
@@ -100,10 +101,21 @@ class ContentTypeModelling
      * @return array
      */
     public function getPriceModel():float{
-        $prices = $this->clientHandler->getBuysBooksPrices();
-        if(count($prices)>=1 && Math::getStandardDeviation($prices)<30) {
-            echo "Moyenne : ".Math::getAverage($prices);
-            return Math::getAverage($prices);
+        $buysBooksPrices = $this->clientHandler->getBuysBooksPrices(); // Buys books
+        $likedBooksPrices = $this->clientHandler->getLikedBooksPrices(); // Liked books
+        $books = array();
+
+        foreach ($buysBooksPrices as $buysBooksPrice){
+            array_push($books, $buysBooksPrice);
+        }
+
+        foreach ($likedBooksPrices as $likedBooksPrice){
+            array_push($books, $likedBooksPrice);
+        }
+
+        if(count($books)>=1 && Math::getStandardDeviation($books)<30) {
+            echo "Moyenne : ".Math::getAverage($books);
+            return Math::getAverage($books);
         }
         else
             return -1;
@@ -116,14 +128,15 @@ class ContentTypeModelling
      */
     public function getBookSizeModel():array{
         $somme = 0;
-        $buysBooksSizes = $this->clientHandler->getBuysBooksSizes(); // Compte pour un
-        $likedBooksSizes = $this->clientHandler->getLikedBooksSizes(); // Compte pour un
+        $buysBooksSizes = $this->clientHandler->getBuysBooksSizes(); // Buys books
+        $likedBooksSizes = $this->clientHandler->getLikedBooksSizes(); // Liked books
         $booksSizes = array("court"=>0,"moyen"=>0,"long"=>0);
 
         foreach($buysBooksSizes as $buysBooksSize) {
             $booksSizes[$buysBooksSize]++;
             $somme++;
         }
+
         foreach($likedBooksSizes as $likedBooksSize) {
             $booksSizes[$likedBooksSize]++;
             $somme++;
@@ -138,12 +151,25 @@ class ContentTypeModelling
     }
 
     /**
-     * Retourne le tag modèle d'un client.
+     * Retourne le nombre de page modèle d'un client.
      *
      * @return array
      */
-    public function getTagModel():array{
+    public function getTagsModel():array{
+        $buysBooksTags = $this->clientHandler->getBuysBooksTags(); // Buys books
+        $likedBooksTags = $this->clientHandler->getLikedBooksTags(); // Liked books
+        $tags = array();
 
+        foreach($buysBooksTags as $buysBooksTag) {
+            array_push($tags, $buysBooksTag);
+        }
+
+        foreach($likedBooksTags as $likedBooksTag) {
+            array_push($tags, $likedBooksTag);
+        }
+
+        //////////// A FINIIIIIIIIIIIIIIIIIIIIR ////////////
+        return $tags;
     }
 
 }

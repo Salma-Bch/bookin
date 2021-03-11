@@ -73,6 +73,20 @@ class ClientHandler
     }
 
     /**
+     * Retourne les prix des livres aimés par un client.
+     *
+     * @return array
+     */
+    public function getLikedBooksPrices():array{
+        $prices = array();
+        $likedBooks = $this->getLikedBooks();
+        foreach ($likedBooks as $likedBook) {
+            array_push($prices, $likedBook->getPrice());
+        }
+        return $prices;
+    }
+
+    /**
      * Retourne le nombre de page des livres ayant une évaluation positive du client.
      *
      * @return array
@@ -91,7 +105,7 @@ class ClientHandler
      *
      * @return array
      */
-    public function getLikedBookTags():array{
+    public function getLikedBooksTags():array{
         $tags = array();
         $booksLiked = $this->getLikedBooks();
         foreach ($booksLiked as $book){
@@ -118,6 +132,20 @@ class ClientHandler
             array_push($booksReturned,$book);
         }
         return $booksReturned;
+    }
+
+    /**
+     * Retourne les catégories des livres aimés par le client.
+     *
+     * @return array
+     */
+    public function getBuysBooksCategories():array{
+        $categories = array();
+        $buysBooks = $this->getBuysBooks();
+        foreach ($buysBooks as $book){
+            array_push($categories, $book->getCategoryName());
+        }
+        return $categories;
     }
 
     /**
@@ -153,7 +181,7 @@ class ClientHandler
      *
      * @return array
      */
-    public function getBuysBookTags():array{
+    public function getBuysBooksTags():array{
         $tags = array();
         $buysBooks = $this->getBuysBooks();
         foreach ($buysBooks as $book) {

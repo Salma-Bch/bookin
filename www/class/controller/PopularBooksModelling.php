@@ -5,7 +5,7 @@ namespace controller;
 use model\Client;
 use utility\Math;
 
-class RandomTypeModelling
+class PopularBooksModelling
 {
 
 }

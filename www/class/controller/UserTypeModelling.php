@@ -24,10 +24,8 @@ class UserTypeModelling
      * @return array
      */
     public function getUserCategoryModel():array{
-        // Se base sur les catégories aimées (LIKES)
-
         $somme = 0;
-        $likedCategories = $this->clientHandler->getLikedCategories(); // Compte pour deux
+        $likedCategories = $this->clientHandler->getLikedCategories(); // Liked categories
 
         $categories = array("Actualité"=>0,"Amour"=>0,"Art"=>0,"Bande dessinée"=>0,"Bien-être"=>0,"Cuisine"=>0,
             "Culture"=>0,"Éducation"=>0,"Histoire"=>0,"Loisir"=>0,"Policier"=>0,"Psychologie"=>0,
@@ -39,6 +37,7 @@ class UserTypeModelling
         }
 
         if($somme == 0) $somme = 1;
+
         // Fait un pourcentage avec le contenu du tableau.
         $categories['Actualité'] /=$somme;
         $categories['Amour'] /=$somme;
@@ -66,7 +65,8 @@ class UserTypeModelling
      * @return array
      */
     public function getUserTagModel():array{
-
+        $tags = $this->client->getTags();
+        return $tags;
     }
 
     /**
@@ -74,7 +74,7 @@ class UserTypeModelling
      *
      * @return array
      */
-    public function getUserProfessionModel():array{
+    public function getUserProfessionModel():String{
         $profession = $this->client->getProfession();
         return $profession;
     }

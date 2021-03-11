@@ -17,6 +17,7 @@ class Client {
     private String $sex;
     private float $clientMoney;
     private int $age;
+    private array $tags ;
 
     /**
      * Client constructor.
@@ -29,9 +30,10 @@ class Client {
      * @param String $profession
      * @param String $sex
      * @param float $clientMoney
+     * @param array $tags
      */
     public function __construct(int $clientId, string $lastName, string $firstName, string $mail, string $psd, DateTime $birthDate,
-                                string $profession, string $sex, float $clientMoney){
+                                string $profession, string $sex, float $clientMoney, array $tags){
         $this->clientId = $clientId;
         $this->lastName = $lastName;
         $this->firstName = $firstName;
@@ -42,6 +44,7 @@ class Client {
         $this->sex = $sex;
         $this->clientMoney = $clientMoney;
         $this->age = $this->ageCalculate($birthDate);
+        $this->tags = $tags;
     }
 
     public function toArray(){
@@ -53,7 +56,8 @@ class Client {
         $this->birthDate->format('Y-m-d'),
         $this->profession,
         $this->sex,
-        $this->clientMoney,);
+        $this->clientMoney,
+        $this->tags,);
     }
 
     public function getAgeRange():String{
@@ -234,6 +238,20 @@ class Client {
         $this->age = $age;
     }
 
+    /**
+     * @return array
+     */
+    public function getTags(): array
+    {
+        return $this->tags;
+    }
 
+    /**
+     * @param array $tags
+     */
+    public function setTags(array $tags): void
+    {
+        $this->tags = $tags;
+    }
 
 }
