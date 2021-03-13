@@ -4,10 +4,10 @@ namespace controller;
 
 use dao\DAOFactory;
 
-class RandomBooksModelling {
+class RandomBooksSuggest {
 
     /**
-     * RandomBooksModelling constructor.
+     * RandomBooksSuggest constructor.
      */
     public function __construct() {
     }

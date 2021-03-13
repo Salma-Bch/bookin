@@ -6,7 +6,7 @@ use model\Client;
 use utility\Math;
 
 class ContentTypeModelling {
-    private SuggestionHandler $suggestionHandler;
+    private ClientHandler $suggestionHandler;
     private Client $client;
 
     /**
@@ -15,7 +15,7 @@ class ContentTypeModelling {
      */
     public function __construct(Client $client) {
         $this->client = $client;
-        $this->suggestionHandler = new SuggestionHandler($client);
+        $this->suggestionHandler = new ClientHandler($client);
     }
 
     /**

@@ -4,17 +4,17 @@ namespace controller;
 
 use model\Client;
 
-class PopularBooksModelling {
-    private SuggestionHandler $suggestionHandler;
+class PopularBooksSuggest {
+    private ClientHandler $suggestionHandler;
     private Client $client;
 
     /**
-     * PopularBooksModelling constructor.
+     * PopularBooksSuggest constructor.
      * @param Client $client
      */
     public function __construct(Client $client) {
         $this->client = $client;
-        $this->suggestionHandler = new SuggestionHandler($client);
+        $this->suggestionHandler = new ClientHandler($client);
     }
 
     /**
