@@ -5,12 +5,12 @@ namespace controller;
 use model\Client;
 use utility\Math;
 
-class ContentTypeModelling {
+class ContentModel {
     private ClientHandler $suggestionHandler;
     private Client $client;
 
     /**
-     * ContentTypeModelling constructor.
+     * ContentModel constructor.
      * @param Client $client
      */
     public function __construct(Client $client) {

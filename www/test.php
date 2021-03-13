@@ -22,7 +22,7 @@ include_once('./class/dao/object/LikesDao.php');
 include_once('./class/dao/object/LikesDaoImpl.php');
 include_once('./class/utility/Format.php');
 include_once('./class/controller/Suggestion.php');
-include_once('./class/controller/ContentTypeModelling.php');
+include_once('./class/controller/ContentModel.php');
 include_once('./class/Utility/Math.php');
 include_once('./class/controller/ClientHandler.php');
 

@@ -4,18 +4,18 @@ namespace controller;
 
 use model\Client;
 
-class UserTypeModelling
+class UserModel
 {
-    private ClientHandler $suggestionHandler;
+    private ClientHandler $clientHandler;
     private Client $client;
 
     /**
-     * ContentTypeModelling constructor.
+     * ContentModel constructor.
      * @param Client $client
      */
     public function __construct(Client $client) {
         $this->client = $client;
-        $this->suggestionHandler = new ClientHandler($client);
+        $this->clientHandler = new ClientHandler($client);
     }
 
     /**
@@ -25,7 +25,7 @@ class UserTypeModelling
      */
     public function getUserCategoryModel():array{
         $somme = 0;
-        $likedCategories = $this->suggestionHandler->getLikedCategories(); // Liked categories
+        $likedCategories = $this->clientHandler->getLikedCategories(); // Liked categories
 
         $categories = array("Actualité"=>0,"Amour"=>0,"Art"=>0,"Bande dessinée"=>0,"Bien-être"=>0,"Cuisine"=>0,
             "Culture"=>0,"Éducation"=>0,"Histoire"=>0,"Loisir"=>0,"Policier"=>0,"Psychologie"=>0,

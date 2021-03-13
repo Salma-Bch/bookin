@@ -3,11 +3,15 @@
 namespace controller;
 
 use dao\DAOFactory;
+use model\Client;
 
-class RandomBooksSuggest {
+class RandomAlgorithm {
+
+    private Client $client;
+    private array $books;
 
     /**
-     * RandomBooksSuggest constructor.
+     * RandomAlgorithm constructor.
      */
     public function __construct() {
     }
@@ -18,12 +22,18 @@ class RandomBooksSuggest {
      * @return array
      */
     public function getAllBooks():array{
+        //Récupere la liste de tous les livres
         $daoFactory = DAOFactory::getInstance();
         $booksDao = $daoFactory->getBookDao();
         $books = $booksDao->getAll();
+
+        //Faire un tableau de nombre aleatoire de nbQuonVeut allant de 0 à count($books)-1
+
+
+        //Récuperer les livres a retourner dans un array et les retourner
         $booksReturned = array();
-        foreach ($books as $book){
-            array_push($booksReturned, $book);
+        foor(){
+
         }
         return $booksReturned;
     }

@@ -27,7 +27,7 @@ class Suggestion {
 
     public function suggest():array{
         $booksToDisplay = array();
-        $contentTypeModelling = new ContentTypeModelling($this->client);
+        $contentTypeModelling = new ContentModel($this->client);
         $categoryModel = $contentTypeModelling->getCategoryModel();
 
        /* if($priceModel != -1) {
@@ -39,7 +39,7 @@ class Suggestion {
         return $booksToDisplay;
     }
 
-    public function categoryBased(array $categoryModel, array $books, ContentTypeModelling $contentTypeModelling){
+    public function categoryBased(array $categoryModel, array $books, ContentModel $contentTypeModelling){
         $booksReturned = array();
         // Si la categorie est a 0% je ne met aucun livre de cette dernière
 
@@ -57,7 +57,7 @@ class Suggestion {
         return $booksReturned;
     }
 
-    public function ageRangeBased(array $ageRangeModel, array $books, ContentTypeModelling $contentTypeModelling){
+    public function ageRangeBased(array $ageRangeModel, array $books, ContentModel $contentTypeModelling){
         $booksReturned = array();
         // Si la tranche d'age est a 0% je ne met aucun livre de cette dernière
 
@@ -75,7 +75,7 @@ class Suggestion {
         return $booksReturned;
     }
 
-    public function bookSizeBased(array $bookSizeModel, array $books, ContentTypeModelling $contentTypeModelling){
+    public function bookSizeBased(array $bookSizeModel, array $books, ContentModel $contentTypeModelling){
         $booksReturned = array();
         // Si la tranche d'age est a 0% je ne met aucun livre de cette dernière
 

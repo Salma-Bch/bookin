@@ -15,7 +15,7 @@ include_once('./class/model/Book.php');
 include_once('./class/dao/DAOUtility.php');
 include_once('./class/dao/exception/DAOException.php');
 include_once('./class/controller/Suggestion.php');
-include_once('./class/controller/ContentTypeModelling.php');
+include_once('./class/controller/ContentModel.php');
 include_once('./class/utility/Math.php');
 
     $suggestion = new Suggestion();
