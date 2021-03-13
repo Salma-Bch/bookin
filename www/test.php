@@ -24,7 +24,7 @@ include_once('./class/utility/Format.php');
 include_once('./class/controller/Suggestion.php');
 include_once('./class/controller/ContentTypeModelling.php');
 include_once('./class/Utility/Math.php');
-include_once('./class/controller/ClientHandler.php');
+include_once('./class/controller/SuggestionHandler.php');
 
 
 use controller\Suggestion;

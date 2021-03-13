@@ -16,9 +16,7 @@ class Suggestion {
      * @param array $likedBooks
      * @param array $purchase
      */
-    //public function __construct(array $books, array $likedBooks, array $purchase)
-    public function __construct()
-    {
+    public function __construct() {
         $daoFactory = DAOFactory::getInstance();
         $bookDao = $daoFactory->getBookDao();
         $this->books = $bookDao->getAll();

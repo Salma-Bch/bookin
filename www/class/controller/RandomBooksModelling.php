@@ -2,10 +2,30 @@
 
 namespace controller;
 
-use model\Client;
-use utility\Math;
+use dao\DAOFactory;
 
-class RandomBooksModelling
-{
+class RandomBooksModelling {
+
+    /**
+     * RandomBooksModelling constructor.
+     */
+    public function __construct() {
+    }
+
+    /**
+     * Retourne tout les livres de la base de données.
+     *
+     * @return array
+     */
+    public function getAllBooks():array{
+        $daoFactory = DAOFactory::getInstance();
+        $booksDao = $daoFactory->getBookDao();
+        $books = $booksDao->getAll();
+        $booksReturned = array();
+        foreach ($books as $book){
+            array_push($booksReturned, $book);
+        }
+        return $booksReturned;
+    }
 
 }

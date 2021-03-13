@@ -6,12 +6,11 @@ use dao\DAOFactory;
 use model\Client;
 use utility\Format;
 
-class ClientHandler
-{
+class SuggestionHandler {
     private Client $client;
 
     /**
-     * ClientHandler constructor.
+     * SuggestionHandler constructor.
      * @param Client $client
      */
     public function __construct(Client $client) {

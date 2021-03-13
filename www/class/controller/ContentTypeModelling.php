@@ -6,7 +6,7 @@ use model\Client;
 use utility\Math;
 
 class ContentTypeModelling {
-    private ClientHandler $clientHandler;
+    private SuggestionHandler $suggestionHandler;
     private Client $client;
 
     /**
@@ -15,7 +15,7 @@ class ContentTypeModelling {
      */
     public function __construct(Client $client) {
         $this->client = $client;
-        $this->clientHandler = new ClientHandler($client);
+        $this->suggestionHandler = new SuggestionHandler($client);
     }
 
     /**
@@ -25,8 +25,8 @@ class ContentTypeModelling {
      */
     public function getCategoryModel():array{
         $somme = 0;
-        $buysBookCategories = $this->clientHandler->getBuysBooksCategories(); // Buys books
-        $likedBookCategories = $this->clientHandler->getLikedBooksCategories(); // Liked books
+        $buysBookCategories = $this->suggestionHandler->getBuysBooksCategories(); // Buys books
+        $likedBookCategories = $this->suggestionHandler->getLikedBooksCategories(); // Liked books
 
         $categories = array("Actualité"=>0,"Amour"=>0,"Art"=>0,"Bande dessinée"=>0,"Bien-être"=>0,"Cuisine"=>0,
                                 "Culture"=>0,"Éducation"=>0,"Histoire"=>0,"Loisir"=>0,"Policier"=>0,"Psychologie"=>0,
@@ -71,8 +71,8 @@ class ContentTypeModelling {
      * @return array
      */
     public function getAgeRangeModel(){
-        $buysBooks = $this->clientHandler->getBuysBooks(); // Buys books
-        $likedBooks = $this->clientHandler->getLikedBooks(); // Liked books
+        $buysBooks = $this->suggestionHandler->getBuysBooks(); // Buys books
+        $likedBooks = $this->suggestionHandler->getLikedBooks(); // Liked books
         $somme = 0;
         $ageRanges = array("Enfants"=>0,"Adolescents"=>0,"Adultes"=>0,"Ainés"=>0);
 
@@ -101,8 +101,8 @@ class ContentTypeModelling {
      * @return array
      */
     public function getPriceModel():float{
-        $buysBooksPrices = $this->clientHandler->getBuysBooksPrices(); // Buys books
-        $likedBooksPrices = $this->clientHandler->getLikedBooksPrices(); // Liked books
+        $buysBooksPrices = $this->suggestionHandler->getBuysBooksPrices(); // Buys books
+        $likedBooksPrices = $this->suggestionHandler->getLikedBooksPrices(); // Liked books
         $books = array();
 
         foreach ($buysBooksPrices as $buysBooksPrice){
@@ -128,8 +128,8 @@ class ContentTypeModelling {
      */
     public function getBookSizeModel():array{
         $somme = 0;
-        $buysBooksSizes = $this->clientHandler->getBuysBooksSizes(); // Buys books
-        $likedBooksSizes = $this->clientHandler->getLikedBooksSizes(); // Liked books
+        $buysBooksSizes = $this->suggestionHandler->getBuysBooksSizes(); // Buys books
+        $likedBooksSizes = $this->suggestionHandler->getLikedBooksSizes(); // Liked books
         $booksSizes = array("court"=>0,"moyen"=>0,"long"=>0);
 
         foreach($buysBooksSizes as $buysBooksSize) {
@@ -156,8 +156,8 @@ class ContentTypeModelling {
      * @return array
      */
     public function getTagsModel():array{
-        $buysBooksTags = $this->clientHandler->getBuysBooksTags(); // Buys books
-        $likedBooksTags = $this->clientHandler->getLikedBooksTags(); // Liked books
+        $buysBooksTags = $this->suggestionHandler->getBuysBooksTags(); // Buys books
+        $likedBooksTags = $this->suggestionHandler->getLikedBooksTags(); // Liked books
         $tags = array();
 
         foreach($buysBooksTags as $buysBooksTag) {

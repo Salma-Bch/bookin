@@ -6,7 +6,7 @@ use model\Client;
 
 class UserTypeModelling
 {
-    private ClientHandler $clientHandler;
+    private SuggestionHandler $suggestionHandler;
     private Client $client;
 
     /**
@@ -15,7 +15,7 @@ class UserTypeModelling
      */
     public function __construct(Client $client) {
         $this->client = $client;
-        $this->clientHandler = new ClientHandler($client);
+        $this->suggestionHandler = new SuggestionHandler($client);
     }
 
     /**
@@ -25,7 +25,7 @@ class UserTypeModelling
      */
     public function getUserCategoryModel():array{
         $somme = 0;
-        $likedCategories = $this->clientHandler->getLikedCategories(); // Liked categories
+        $likedCategories = $this->suggestionHandler->getLikedCategories(); // Liked categories
 
         $categories = array("Actualité"=>0,"Amour"=>0,"Art"=>0,"Bande dessinée"=>0,"Bien-être"=>0,"Cuisine"=>0,
             "Culture"=>0,"Éducation"=>0,"Histoire"=>0,"Loisir"=>0,"Policier"=>0,"Psychologie"=>0,
