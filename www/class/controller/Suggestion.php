@@ -21,15 +21,15 @@ class Suggestion {
     }
 
     public function suggest():array{
-        $booksToDisplay = array();
         // $userAlgorithm = new UserAlgorithm($this->books, $this->client);
         $contentAlgorithm = new ContentAlgorithm($this->books, $this->client);
         $popularAlgorithm = new PopularAlgorithm();
         $randomAlgorithm = new RandomAlgorithm($this->books);
 
         $booksToDisplay = $popularAlgorithm->suggest(2);
-        $booksToDisplay = $randomAlgorithm->suggest(2);
-        $booksToDisplay = $contentAlgorithm->suggest();
+        $booksToDisplay = array_merge($booksToDisplay, $randomAlgorithm->suggest(2));
+        $booksToDisplay = array_merge($booksToDisplay, $contentAlgorithm->suggest());
+
         var_dump($booksToDisplay);
         return $booksToDisplay;
     }

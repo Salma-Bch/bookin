@@ -2,12 +2,12 @@
 use dao\DAOFactory;
 use model\Client;
 
-include_once('../../class/dao/DAOFactory.php');
-include_once('../../class/dao/object/ClientDao.php');
-include_once('../../class/dao/object/ClientDaoImpl.php');
-include_once('../../class/model/Client.php');
-include_once('../../class/dao/DAOUtility.php');
-include_once('../../class/dao/exception/DAOException.php');
+include_once('../class/dao/DAOFactory.php');
+include_once('../class/dao/object/ClientDao.php');
+include_once('../class/dao/object/ClientDaoImpl.php');
+include_once('../class/model/Client.php');
+include_once('../class/dao/DAOUtility.php');
+include_once('../class/dao/exception/DAOException.php');
 session_start();
 
 if(isset($_POST['email'], $_POST['password'])){

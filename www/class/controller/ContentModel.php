@@ -113,8 +113,8 @@ class ContentModel {
             array_push($books, $likedBooksPrice);
         }
 
+        //Si le client a acheté au moin 1 livre
         if(count($books)>=1 && Math::getStandardDeviation($books)<30) {
-            echo "Moyenne : ".Math::getAverage($books);
             return Math::getAverage($books);
         }
         else
