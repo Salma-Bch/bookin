@@ -25,6 +25,10 @@ include_once('./class/controller/Suggestion.php');
 include_once('./class/controller/ContentModel.php');
 include_once('./class/Utility/Math.php');
 include_once('./class/controller/ClientHandler.php');
+include_once('./class/controller/algorithm/PopularAlgorithm.php');
+include_once('./class/controller/algorithm/RandomAlgorithm.php');
+include_once('./class/controller/algorithm/UserAlgorithm.php');
+include_once('./class/controller/algorithm/ContentAlgorithm.php');
 
 
 use controller\Suggestion;

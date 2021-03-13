@@ -43,6 +43,8 @@ class Math
         $numbers = array_unique($numbers) ;
         sort($numbers);
         while($number>0) {
+            if(empty($numbers))
+                break;
             $nearestNumber = $numbers[0];
             $indexNearest = 0;
             //var_dump($numbers);

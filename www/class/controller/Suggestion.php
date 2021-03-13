@@ -4,7 +4,6 @@ namespace controller;
 
 use dao\DAOFactory;
 use model\Client;
-use utility\Math;
 
 class Suggestion {
     private Client $client;
@@ -12,30 +11,26 @@ class Suggestion {
 
     /**
      * Suggestion constructor.
-     * @param array $books
-     * @param array $likedBooks
-     * @param array $purchase
      */
     public function __construct() {
         $daoFactory = DAOFactory::getInstance();
         $bookDao = $daoFactory->getBookDao();
         $this->books = $bookDao->getAll();
-
         $clientDao = $daoFactory->getClientDao();
         $this->client = $clientDao->find("m.lekmiti@hotmail.com", "1234");
     }
 
     public function suggest():array{
         $booksToDisplay = array();
-
+        // $userAlgorithm = new UserAlgorithm($this->books, $this->client);
         $contentAlgorithm = new ContentAlgorithm($this->books, $this->client);
+        $popularAlgorithm = new PopularAlgorithm();
+        $randomAlgorithm = new RandomAlgorithm($this->books);
 
-       /* if($priceModel != -1) {
-            $booksToDisplay = $this->priceBased($priceModel, $this->books, 5);
-        }*/
-
-        $books = $contentAlgorithm->suggest();
-        var_dump($books);
+        $booksToDisplay = $popularAlgorithm->suggest(2);
+        $booksToDisplay = $randomAlgorithm->suggest(2);
+        $booksToDisplay = $contentAlgorithm->suggest();
+        var_dump($booksToDisplay);
         return $booksToDisplay;
     }
 

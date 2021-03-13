@@ -8,12 +8,12 @@ use dao\exception\DAOException;
 use model\Client;
 
 class ClientDaoImpl implements ClientDao {
-    private const SQL_SELECT_BY_CLIENT_ID = "SELECT client_id, last_name, first_name, mail, psd, birth_date, profession, sex, client_money FROM client WHERE client_id = ?";
+    private const SQL_SELECT_BY_CLIENT_ID = "SELECT client_id, last_name, first_name, mail, psd, birth_date, profession, sex, client_money, tags FROM client WHERE client_id = ?";
     private const SQL_SELECT_MAX_ID = "SELECT MAX(client_id) as max_id FROM client";
-    private const SQL_SELECT_BY_MAIL = "SELECT client_id, last_name, first_name, mail, psd, birth_date, profession, sex, client_money FROM client WHERE mail = ?";
-    private const SQL_SELECT_BY_MAIL_AND_PASSWORD = "SELECT client_id, last_name, first_name, mail, psd, birth_date, profession, sex, client_money FROM client WHERE mail = ? AND psd=?";
-    private const SQL_INSERT = "INSERT INTO client (client_id, last_name, first_name, mail, psd, birth_date, profession, sex, client_money) VALUES (?, ? ,? ,? ,? ,? ,?, ?, ?)";
-    private const SQL_UPDATE = "UPDATE client SET last_name=?, first_name=?, mail=?, psd=?, birth_date=?, profession=?, sex=?, client_money=? WHERE client_id=?";
+    private const SQL_SELECT_BY_MAIL = "SELECT client_id, last_name, first_name, mail, psd, birth_date, profession, sex, client_money, tags FROM client WHERE mail = ?";
+    private const SQL_SELECT_BY_MAIL_AND_PASSWORD = "SELECT client_id, last_name, first_name, mail, psd, birth_date, profession, sex, client_money, tags FROM client WHERE mail = ? AND psd=?";
+    private const SQL_INSERT = "INSERT INTO client (client_id, last_name, first_name, mail, psd, birth_date, profession, sex, client_money, tags) VALUES (?, ? ,? ,? ,? ,? ,?, ?, ?, ?)";
+    private const SQL_UPDATE = "UPDATE client SET last_name=?, first_name=?, mail=?, psd=?, birth_date=?, profession=?, sex=?, client_money=?, tags=? WHERE client_id=?";
 
     private DAOFactory $daoFactory;
 
@@ -100,7 +100,8 @@ class ClientDaoImpl implements ClientDao {
         try {
             $birthDate = new \DateTime($cr->birth_date);
         } catch (\Exception $e) {
+            echo($e);
         }
-        return new Client($cr->client_id,$cr->last_name,$cr->first_name,$cr->mail,$cr->psd,$birthDate,$cr->profession,$cr->sex,$cr->client_money);
+        return new Client($cr->client_id,$cr->last_name,$cr->first_name,$cr->mail,$cr->psd,$birthDate,$cr->profession,$cr->sex,$cr->client_money,explode(",", $cr->tags));
     }
 }

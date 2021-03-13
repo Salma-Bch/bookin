@@ -12,9 +12,10 @@ use utility\Format;
 
 class PurchaseDaoImpl implements PurchaseDao {
     private const SQL_SELECT_PURCHASES_BY_CLIENT_ID = "SELECT client_id, book_id, amount FROM buys WHERE client_id=?";
+    //private const SQL_SELECT_MOST_PURCHASED_BOOK_LIMIT = "SELECT * FROM buys GROUP BY book_id DESC LIMIT ?";
+    private const SQL_SELECT_MOST_PURCHASED_BOOK = "SELECT * FROM buys GROUP BY book_id ORDER BY COUNT(*) DESC";
     private const SQL_INSERT = "INSERT INTO buys (client_id, book_id, amount) VALUES (?, ?, ?)";
     private const SQL_UPDATE ="UPDATE buys SET client_id=?, book_id=?, amount=? WHERE client_id=?";
-
     private DAOFactory $daoFactory;
 
     /**
@@ -25,27 +26,6 @@ class PurchaseDaoImpl implements PurchaseDao {
     {
         $this->daoFactory = $daoFactory;
     }
-
-    /*public function find(int $clientId, int $bookId): Purchase
-    {
-        $purchase = null;
-        $parameters = array($clientId);
-        try{
-            $connection = $this->daoFactory->getConnection();
-            $preparedStatement = DAOUtility::initPreparedStatement($connection, self::SQL_SELECT_BY_CLIENT_ID);
-            $status = $preparedStatement->execute($parameters);
-
-            if($status){
-                $purchaseReturned = $preparedStatement->fetchObject();
-                $purchase = $this->map($purchaseReturned);
-            }
-        } catch (\Exception $e){
-            throw new DAOException($e);
-        } finally {
-            DAOUtility::close($preparedStatement, $connection);
-        }
-        return $purchase;
-    }*/
 
     function create(Purchase $purchase): bool
     {
@@ -70,6 +50,31 @@ class PurchaseDaoImpl implements PurchaseDao {
             $connection = $this->daoFactory->getConnection();
             $preparedStatement = DAOUtility::initPreparedStatement($connection, self::SQL_SELECT_PURCHASES_BY_CLIENT_ID);
             $status = $preparedStatement->execute( array(Format::getFormatId(8,$clientId)) );
+            if($status) {
+                $dbPurchases = $preparedStatement->fetchAll();
+                foreach ($dbPurchases as $purchase) {
+                    array_push($purchases, $this->map($purchase,true));
+                }
+            }
+        } catch (\Exception $e){
+            echo $e;
+            throw new DAOException($e);
+        } finally {
+            DAOUtility::close($preparedStatement, $connection);
+        }
+        return $purchases;
+    }
+
+    public function getMostPurchasedBooks(int $nbrOfBooks=null): array{
+        $request = self::SQL_SELECT_MOST_PURCHASED_BOOK;
+        if(isset($nbrOfBooks))
+            $request .= " LIMIT ".$nbrOfBooks;
+
+        $purchases = array();
+        try{
+            $connection = $this->daoFactory->getConnection();
+            $preparedStatement = DAOUtility::initPreparedStatement($connection, $request);
+            $status = $preparedStatement->execute();
             if($status) {
                 $dbPurchases = $preparedStatement->fetchAll();
                 foreach ($dbPurchases as $purchase) {

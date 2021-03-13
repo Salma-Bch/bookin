@@ -2,19 +2,14 @@
 
 namespace controller;
 
-use model\Client;
+use dao\DAOFactory;
 
 class PopularAlgorithm {
 
-    private $books;
-
     /**
      * PopularAlgorithm constructor.
-     * @param Client $client
      */
-    public function __construct(Client $client) {
-        $this->client = $client;
-        $this->suggestionHandler = new ClientHandler($client);
+    public function __construct() {
     }
 
     /**
@@ -22,19 +17,13 @@ class PopularAlgorithm {
      *
      * @return array
      */
-    public function getMostPurchasedBooks():array{
-        /////// A REVOIR //////
-        $somme = 0;
-        $buysBooks = $this->suggestionHandler->getBuysBooks(); // Buys books
-
-        foreach ($buysBooks as $buysBook){
-            $buysBooks[$buysBook]++;
-            $somme++;
-        }
-        foreach ($buysBooks as $buysBook){
-            $buysBooks[$buysBook] /=$somme;
-        }
-        return $buysBooks;
+    public function suggest(int $nbrofBooks=null):array {
+        $daoFactory = DAOFactory::getInstance();
+        $purchasesDao = $daoFactory->getPurchaseDao();
+        if(isset($nbrofBooks))
+            $mostPurchasedBooks = $purchasesDao->getMostPurchasedBooks($nbrofBooks);
+        else
+            $mostPurchasedBooks = $purchasesDao->getMostPurchasedBooks();
+        return $mostPurchasedBooks;
     }
-
 }

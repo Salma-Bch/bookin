@@ -9,14 +9,12 @@ use model\Client;
 use utility\Math;
 
 class ContentAlgorithm {
-    private Client $client;
     private array $books;
     private ContentModel $contentModel;
 
     public function __construct(array $books, Client $client) {
         $this->books = $books;
-        $this->client = $client;
-
+        $this->contentModel = new ContentModel($client);
     }
 
     public function suggest():array{
@@ -38,7 +36,7 @@ class ContentAlgorithm {
                 next($categoryModel);
             }
         }
-        $booksReturned = $this->ageRangeBased($booksReturned, $contentModel);
+        array_merge($booksReturned, $this->ageRangeBased($booksReturned, $contentModel));
         return $booksReturned;
     }
 
@@ -56,8 +54,7 @@ class ContentAlgorithm {
                 next($ageRangeModel);
             }
         }
-        $bookSizeModel = $contentModel->getBookSizeModel();
-        $booksReturned = $this->bookSizeBased($booksReturned, $contentModel);
+        array_merge($booksReturned, $this->bookSizeBased($booksReturned, $contentModel));
         return $booksReturned;
     }
 
@@ -75,8 +72,7 @@ class ContentAlgorithm {
                 next($bookSizeModel);
             }
         }
-        $priceModel = $contentModel->getPriceModel();
-        $booksReturned = $this->priceBased($booksReturned, 5, $contentModel);
+        array_merge($booksReturned, $this->priceBased($booksReturned, 5, $contentModel));
         return $booksReturned;
     }
 
