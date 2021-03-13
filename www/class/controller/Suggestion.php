@@ -26,11 +26,11 @@ class Suggestion {
         $popularAlgorithm = new PopularAlgorithm();
         $randomAlgorithm = new RandomAlgorithm($this->books);
 
-        $booksToDisplay = $popularAlgorithm->suggest(2);
+        //$booksToDisplay = $popularAlgorithm->suggest(2);
+        $booksToDisplay = array();
         $booksToDisplay = array_merge($booksToDisplay, $randomAlgorithm->suggest(2));
         $booksToDisplay = array_merge($booksToDisplay, $contentAlgorithm->suggest());
 
-        var_dump($booksToDisplay);
         return $booksToDisplay;
     }
 

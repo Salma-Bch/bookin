@@ -1,7 +1,4 @@
 <?php
-
-
-
 include_once('./class/dao/DAOFactory.php');
 include_once('./class/dao/object/BookDao.php');
 include_once('./class/dao/object/BookDaoImpl.php');
@@ -29,23 +26,3 @@ include_once('./class/controller/algorithm/PopularAlgorithm.php');
 include_once('./class/controller/algorithm/RandomAlgorithm.php');
 include_once('./class/controller/algorithm/UserAlgorithm.php');
 include_once('./class/controller/algorithm/ContentAlgorithm.php');
-
-
-use controller\Suggestion;
-use dao\DAOFactory;
-
-$daoFactory = DAOFactory::getInstance();
-$suggestion = new Suggestion();
-$books = $suggestion->suggest();
-
-/*echo '<div class="col-md-9" id="bookSearched" style="background-color: #d6d6d6">';
-foreach ($books as $book) {
-    echo '<div class="col-md-4 livres">' .
-        '<p>Titre : '.$book->getTitle().'</p>' .
-        '<img src="'.$book->getImagePath().'"  style="width: 140px;height: 190px;">' .
-        '<p>'.$book->getPrice().'€</p>' .
-        '</div>';
-}
-echo '</div>';*/
-
-
