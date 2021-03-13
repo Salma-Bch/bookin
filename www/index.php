@@ -36,16 +36,18 @@ include_once("include/includeFiles.php");
 
         <div class="container">
             <div class="col-md-12">
-                <h2>Sélectionnés pour vous !</h2>
                 <?php
                     if(isset($_SESSION['bookinClient']))
                         include_once ("./include/displayedBook.php");
+                    else
+                        echo '
+                        <div class="col-md-12">
+                            <h2>Connectez-vous !</h2>
+                            <p>Connectez-vous pour une suggestion de livre adaptez à vos envies.</p>
+                        </div>';
                 ?>
             </div>
-            <div class="col-md-12">
-                <h2>Connectez-vous !</h2>
-                <p>Connectez-vous pour une suggestion de livre adaptez à vos envies.</p>
-            </div>
+
         </div>
         <?php
             include("include/footer.php");

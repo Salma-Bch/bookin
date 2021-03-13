@@ -284,7 +284,10 @@ footer a:hover {
 .partie_suggestions img {
 	width: 160px;
 	height: 210px;
-	margin: 30px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: 30px;
+	margin-right: 30px;
 }
 
 .barre_de_recherche {
