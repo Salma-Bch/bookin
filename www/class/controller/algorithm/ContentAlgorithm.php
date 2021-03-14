@@ -35,7 +35,7 @@ class ContentAlgorithm {
                 next($categoryModel);
             }
         }
-        array_merge($booksReturned, $this->ageRangeBased($booksReturned, $contentModel));
+        $booksReturned = array_merge($booksReturned, $this->ageRangeBased($booksReturned, $contentModel));
         return $booksReturned;
     }
 
@@ -53,7 +53,7 @@ class ContentAlgorithm {
                 next($ageRangeModel);
             }
         }
-        array_merge($booksReturned, $this->bookSizeBased($booksReturned, $contentModel));
+        $booksReturned = array_merge($booksReturned, $this->bookSizeBased($booksReturned, $contentModel));
         return $booksReturned;
     }
 
@@ -71,7 +71,7 @@ class ContentAlgorithm {
                 next($bookSizeModel);
             }
         }
-        array_merge($booksReturned, $this->priceBased($booksReturned, 5, $contentModel));
+        $booksReturned = array_merge($booksReturned, $this->priceBased($booksReturned, 5, $contentModel));
         return $booksReturned;
     }
 
@@ -88,5 +88,10 @@ class ContentAlgorithm {
                 array_push($booksReturned, $book);
         }
         return $booksReturned;
+    }
+
+    public function tagBased(array $books, ContentModel $contentModel){
+        $tags = array();
+        $tagsModel = $contentModel->getTagsModel();
     }
 }

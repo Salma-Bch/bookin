@@ -30,6 +30,8 @@ class Suggestion {
         $booksToDisplay = array_merge($booksToDisplay, $randomAlgorithm->suggest(2));
         $booksToDisplay = array_merge($booksToDisplay, $contentAlgorithm->suggest());
 
+        //$booksToDisplay = array_unique($booksToDisplay);
+        //var_dump($booksToDisplay);
         return $booksToDisplay;
     }
 
