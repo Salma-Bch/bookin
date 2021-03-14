@@ -1,0 +1,6 @@
+
+        foreach ($buysBooks as $book){
+            $daoFactory = DAOFactory::getInstance();
+            $bookDao = $daoFactory->getBookDao();
+            $books = $bookDao->find($book);
+            array_push($prices, $book->getPrice())
