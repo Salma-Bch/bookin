@@ -226,7 +226,7 @@ function createCompte(idForm) {
         var formCompte = $("#"+idForm).serialize();
         $.ajax({
             type: 'post',
-            url: './ressources/include/compteCreation.php',
+            url: './include/compteCreation.php',
             data: formCompte,
             success: function (response) {
                 if (response.includes("failed")) {

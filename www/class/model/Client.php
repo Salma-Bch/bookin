@@ -53,7 +53,7 @@ class Client {
         $this->birthDate->format('Y-m-d'),
         $this->profession,
         $this->sex,
-        $this->tags,);
+        implode(",",$this->tags));
     }
 
     public function getAgeRange():String{
