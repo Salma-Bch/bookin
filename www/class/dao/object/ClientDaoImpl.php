@@ -12,7 +12,7 @@ class ClientDaoImpl implements ClientDao {
     private const SQL_SELECT_MAX_ID = "SELECT MAX(client_id) as max_id FROM client";
     private const SQL_SELECT_BY_MAIL = "SELECT client_id, last_name, first_name, mail, psd, birth_date, profession, sex, tags FROM client WHERE mail = ?";
     private const SQL_SELECT_BY_MAIL_AND_PASSWORD = "SELECT client_id, last_name, first_name, mail, psd, birth_date, profession, sex, tags FROM client WHERE mail = ? AND psd=?";
-    private const SQL_INSERT = "INSERT INTO client (client_id, last_name, first_name, mail, psd, birth_date, profession, sex, tags) VALUES (?, ? ,? ,? ,? ,? ,?, ?, ?, ?)";
+    private const SQL_INSERT = "INSERT INTO client (client_id, last_name, first_name, mail, psd, birth_date, profession, sex, tags) VALUES (?, ? ,? ,? ,? ,? ,?, ?, ?)";
     private const SQL_UPDATE = "UPDATE client SET last_name=?, first_name=?, mail=?, psd=?, birth_date=?, profession=?, sex=?, tags=? WHERE client_id=?";
 
     private DAOFactory $daoFactory;
@@ -66,18 +66,21 @@ class ClientDaoImpl implements ClientDao {
 
     function create(Client $client): bool
     {
+        $success = true;
         try{
             $connection = $this->daoFactory->getConnection();
             $preparedStatement = DAOUtility::initPreparedStatement($connection, self::SQL_INSERT);
             $status = $preparedStatement->execute($client->toArray());
-            if ($status == 0)
+            if ($status == 0) {
+                $success = false;
                 throw new DAOException("Client creation failed, no line added");
+            }
         } catch (\Exception $e){
             throw new DAOException($e);
         } finally {
             DAOUtility::close($preparedStatement, $connection);
         }
-        return true;
+        return $success;
     }
 
     function update(Client $client): bool

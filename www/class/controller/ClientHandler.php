@@ -108,7 +108,7 @@ class ClientHandler {
         $tags = array();
         $booksLiked = $this->getLikedBooks();
         foreach ($booksLiked as $book){
-            array_push($tags, $book->getTags());
+            $tags = array_merge($tags, $book->getTags());
         }
         return $tags;
     }
@@ -184,7 +184,7 @@ class ClientHandler {
         $tags = array();
         $buysBooks = $this->getBuysBooks();
         foreach ($buysBooks as $book) {
-            array_push($tags, $book->getTags());
+            $tags = array_merge($tags, $book->getTags());
         }
         return $tags;
     }

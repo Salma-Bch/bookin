@@ -247,5 +247,21 @@ class Book {
         $this->categoryName = $categoryName;
     }
 
+ /*   public function __toString():String{
+        return "Book{ id : ".$this->bookId."; ".
+        "title : ".$this->title."; ".
+        "author : ".$this->author."; ".
+        "ageRange : ".$this->ageRange."; ".
+        "numberOfPage : ".$this->numberPages."; ".
+        "price : ".$this->price."; ".
+        "quantity : ".$this->quantity."; ".
+        "imagePath : ".$this->imagePath."; ".
+        "tags : ".implode(",",$this->tags)."; ".
+        "category : ".$this->categoryName." } ";
+    }
+*/
+    public function __toString():String{
+        return "Book{ id : ".$this->bookId." }";
+    }
 
 }

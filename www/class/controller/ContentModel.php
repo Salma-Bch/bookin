@@ -154,23 +154,29 @@ class ContentModel {
         $likedBooksTags = $this->suggestionHandler->getLikedBooksTags(); // Liked books
         $tags = array_merge($buysBooksTags, $likedBooksTags);
         $somme = 0;
+        $tagsToReturn = array();
 
         $tagsName = array();
-        $csvFile = fopen("./ressources/bd/db_tags.csv","r");
+        $csvFile = fopen("./ressources/bd/db_tag.csv","r");
         while ( ($lineCsv = fgetcsv($csvFile,1024, ";")) !== FALSE ) {
             array_push($tagsName, utf8_encode($lineCsv[0]));
         }
 
+        foreach ($tagsName as $tagName){
+            $tagsToReturn[$tagName] = 0;
+        }
+
+        //
         foreach($tags as $tag) {
-            $tagsName[$tag]++;
+            $tagsToReturn[$tag]++;
             $somme++ ;
         }
 
-        foreach($tags as $tag) {
-            $tagsName[$tag] /= $somme;
+        foreach ($tagsName as $tagName){
+            $tagsToReturn[$tagName] /= $somme;
         }
-
-        return $tagsName;
+        var_dump($tagsToReturn);
+        return $tagsToReturn;
     }
 
 }
