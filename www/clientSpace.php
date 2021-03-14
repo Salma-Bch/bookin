@@ -51,6 +51,14 @@ session_start();
                     </tr>
                 </tbody>
             </table>
+            <table class="table table-dark" id="a">
+                <tbody id='tableauInfo'>
+                <tr>
+                    <td id="tabNom"><b>Catégories aimés :</b></td>
+                    <td id="Tabprenom"><b>Tags aimés :</b></td>
+                </tr>
+                </tbody>
+            </table>
             <div class="col-sm-6 col-xs-12">
                 <input type="submit" class="btn modifEtDeco" id="modifButton" name="submit" value="Modifier mes informations" onclick="showModifInfosForm()" />
             </div>

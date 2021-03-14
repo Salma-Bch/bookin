@@ -36,7 +36,7 @@ echo '<div class="carousel-inner partie_suggestions">';
                     break;
                 echo '<div style="display:inline-block;border:solid;border-size:1em;padding-top:10px">';
                 echo '<p style="font-weight: bold;font-size:20px">'.$books[$i]->getCategoryName().'</p>';
-                echo '<img src="'.$books[$i]->getImagePath().'"  alt="...">';
+                echo '<a href="./shoppingSpace.php?bookId='.$books[$i]->getBookId().'"><img src="'.$books[$i]->getImagePath().'"  alt="..."></a>';
                 echo '<p>'.$books[$i]->getTitle().'</p>';
                 echo '<p>'.$books[$i]->getPrice().'€</p>';
                 echo '</div>';

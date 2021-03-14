@@ -15,9 +15,8 @@ class Client {
     private DateTime $birthDate;
     private String $profession;
     private String $sex;
-    private float $clientMoney;
     private int $age;
-    private array $tags ;
+    private array $tags;
 
     /**
      * Client constructor.
@@ -29,11 +28,10 @@ class Client {
      * @param DateTime $birthDate
      * @param String $profession
      * @param String $sex
-     * @param float $clientMoney
      * @param array $tags
      */
     public function __construct(int $clientId, string $lastName, string $firstName, string $mail, string $psd, DateTime $birthDate,
-                                string $profession, string $sex, float $clientMoney, array $tags){
+                                string $profession, string $sex, array $tags){
         $this->clientId = $clientId;
         $this->lastName = $lastName;
         $this->firstName = $firstName;
@@ -42,7 +40,6 @@ class Client {
         $this->birthDate = $birthDate;
         $this->profession = $profession;
         $this->sex = $sex;
-        $this->clientMoney = $clientMoney;
         $this->age = $this->ageCalculate($birthDate);
         $this->tags = $tags;
     }
@@ -56,7 +53,6 @@ class Client {
         $this->birthDate->format('Y-m-d'),
         $this->profession,
         $this->sex,
-        $this->clientMoney,
         $this->tags,);
     }
 
@@ -204,22 +200,6 @@ class Client {
     public function setSex(string $sex): void
     {
         $this->sex = $sex;
-    }
-
-    /**
-     * @return float
-     */
-    public function getClientMoney(): float
-    {
-        return $this->clientMoney;
-    }
-
-    /**
-     * @param float $clientMoney
-     */
-    public function setClientMoney(float $clientMoney): void
-    {
-        $this->clientMoney = $clientMoney;
     }
 
     /**
