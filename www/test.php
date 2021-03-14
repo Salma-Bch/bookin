@@ -35,8 +35,12 @@ use controller\Suggestion;
 use dao\DAOFactory;
 
 $daoFactory = DAOFactory::getInstance();
-$suggestion = new Suggestion();
-$books = $suggestion->suggest();
+$popularAlgorithm = new \controller\PopularAlgorithm();
+$books = $popularAlgorithm->suggest(2);
+
+var_dump($books);
+//$suggestion = new Suggestion();
+//$books = $suggestion->suggest();
 
 /*echo '<div class="col-md-9" id="bookSearched" style="background-color: #d6d6d6">';
 foreach ($books as $book) {

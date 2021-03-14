@@ -26,8 +26,7 @@ class Suggestion {
         $popularAlgorithm = new PopularAlgorithm();
         $randomAlgorithm = new RandomAlgorithm($this->books);
 
-        //$booksToDisplay = $popularAlgorithm->suggest(2);
-        $booksToDisplay = array();
+        $booksToDisplay = $popularAlgorithm->suggest(2);
         $booksToDisplay = array_merge($booksToDisplay, $randomAlgorithm->suggest(2));
         $booksToDisplay = array_merge($booksToDisplay, $contentAlgorithm->suggest());
 
