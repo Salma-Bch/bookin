@@ -1,29 +1,29 @@
 <?php
-/**
- * \file      shoppingSpace.php
- * \author    Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
- * \version   1.0
- * \date      8 janvier 2020
- * \brief     Affiche l'espace d'achat de l'application web Book'In.
- * \details   L'utilisateur peut effectuer des achats de livre.
- */
+    /**
+     * \file      shoppingSpace.php
+     * \author    Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
+     * \version   1.0
+     * \date      8 janvier 2020
+     * \brief     Affiche l'espace d'achat de l'application web Book'In.
+     * \details   L'utilisateur peut effectuer des achats de livre.
+     */
 
-use dao\DAOFactory;
-use utility\Format;
+    use dao\DAOFactory;
+    use utility\Format;
 
-include_once("./include/includeFiles.php");
+    include_once("./include/includeFiles.php");
 
-session_start();
+    session_start();
 
-if(!isset($_SESSION['bookinClient'])){
-    header('Location: ./clientLoginSpace.php');
-    exit(0);
-}
-$client = $_SESSION['bookinClient'];
-$bookId = $_GET['bookId'];
-$daoFactory = DAOFactory::getInstance();
-$bookDao = $daoFactory->getBookDao();
-$book = $bookDao->find(Format::getFormatId(8,$bookId));
+    if(!isset($_SESSION['bookinClient'])){
+        header('Location: ./clientLoginSpace.php');
+        exit(0);
+    }
+    $client = $_SESSION['bookinClient'];
+    $bookId = $_GET['bookId'];
+    $daoFactory = DAOFactory::getInstance();
+    $bookDao = $daoFactory->getBookDao();
+    $book = $bookDao->find(Format::getFormatId(8,$bookId));
 ?>
 
 <!DOCTYPE html>
@@ -48,15 +48,15 @@ $book = $bookDao->find(Format::getFormatId(8,$bookId));
                 <img src="<?php echo $book->getImagePath(); ?>"  style="width: 140px;height: 190px;">
             </div>
             <div class="col-md-6 livres">
-                <p><b>Catégorie : <?php echo $book->getCategoryName(); ?></b></p>
                 <p><b>Titre : <?php echo $book->getTitle(); ?></b></p>
                 <p><b>Auteur : <?php echo $book->getAuthor(); ?></b></p>
+                <p><b>Catégorie : <?php echo $book->getCategoryName(); ?></b></p>
                 <p><b>Tranche d'âge : <?php echo $book->getAgeRange(); ?></b></p>
                 <p><b>Nombre de page : <?php echo $book->getNumberPages(); ?></b></p>
-                <p><b>Prix : <?php echo $book->getPrice(); ?></b></p>
+                <p><b>Prix : <?php echo $book->getPrice(); ?>€</b></p>
             </div>
             <div class="col-md-6">
-                    <input type="submit" class="btn modifEtDeco" id="modifButton" name="submit" value="Retour" onclick="searchSpace.php" />
+                <input type="submit" class="btn modifEtDeco" id="modifButton" name="submit" value="Retour" onclick="searchSpace.php" />
             </div>
             <div class="col-md-6">
                 <input type="submit" class="btn modifEtDeco" value="Acheter" />
@@ -64,7 +64,7 @@ $book = $bookDao->find(Format::getFormatId(8,$bookId));
         </div>
     </div>
     <?php
-    include("include/footer.php");
+        include("include/footer.php");
     ?>
     </body>
 </html>

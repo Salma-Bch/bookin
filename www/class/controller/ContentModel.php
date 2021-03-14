@@ -159,6 +159,7 @@ class ContentModel {
         $buysBooksTags = $this->suggestionHandler->getBuysBooksTags(); // Buys books
         $likedBooksTags = $this->suggestionHandler->getLikedBooksTags(); // Liked books
         $tags = array();
+        $somme = 0;
 
         foreach($buysBooksTags as $buysBooksTag) {
             array_push($tags, $buysBooksTag);
@@ -168,6 +169,10 @@ class ContentModel {
             array_push($tags, $likedBooksTag);
         }
 
+        foreach($tags as $tag) {
+            $tags[$tag]++;
+            $somme++;
+        }
         //////////// A FINIIIIIIIIIIIIIIIIIIIIR ////////////
         return $tags;
     }
