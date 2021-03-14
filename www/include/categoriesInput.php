@@ -1,7 +1,6 @@
 <div class="btn-group choix_categorie" role="group" aria-label="Basic checkbox toggle button group">
     <?php
     $csvFile = fopen("./ressources/bd/db_category.csv","r");
-    $lineCsv = fgetcsv($csvFile,1024, ";");
     $i = 0;
     while ( ($lineCsv = fgetcsv($csvFile,1024, ";")) !== FALSE ) {
         $bookId = str_pad(((int)$lineCsv[0]),8,0, STR_PAD_LEFT);

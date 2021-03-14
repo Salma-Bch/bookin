@@ -4,3 +4,28 @@
             $bookDao = $daoFactory->getBookDao();
             $books = $bookDao->find($book);
             array_push($prices, $book->getPrice())
+
+
+            $categories['Actualité'] /=$somme;
+                    $categories['Amour'] /=$somme;
+                    $categories['Art'] /=$somme;
+                    $categories['Bande dessinée'] /=$somme;
+                    $categories['Bien-être'] /=$somme;
+                    $categories['Cuisine'] /=$somme;
+                    $categories['Culture'] /=$somme;
+                    $categories['Éducation'] /=$somme;
+                    $categories['Histoire'] /=$somme;
+                    $categories['Loisir'] /=$somme;
+                    $categoriesµ['Policier'] /=$somme;
+                    $categories['Psychologie'] /=$somme;
+                    $categories['Santé'] /=$somme;
+                    $categories['Science'] /=$somme;
+                    $categories['Science-fiction'] /=$somme;
+                    $categories['Vie pratique'] /=$somme;
+
+                    $categories = array("Actualité"=>0,"Amour"=>0,"Art"=>0,"Bande dessinée"=>0,"Bien-être"=>0,"Cuisine"=>0,
+                                                    "Culture"=>0,"Éducation"=>0,"Histoire"=>0,"Loisir"=>0,"Policier"=>0,"Psychologie"=>0,
+                                                        "Santé"=>0,"Science"=>0,"Science-fiction"=>0,"Vie pratique"=>0);
+
+
+java;0001,0004,009,008

@@ -5,8 +5,8 @@ book_id;title;author;age_range;number_pages;price;quantity;book_image;tags;categ
 3;Actu'Concours;Philippe Cavaillé;Adultes;120;8,99;20;actualite_4.png;actualite,information,concours;Actualité;actualite
 4;Le meilleur de l'actualité;Sarfati Olivier;Adolescents;220;12,9;40;actualite_5.png;actualite,information;Actualité;actualite
 5;Carnet de guerre Covid 19;Didier Raoult;Adultes;120;8,9;30;actualite_6.png;actualite,information,guerre,covid,pandemie;Actualité;actualite
-6;L'économie en Enfants0 mots d'actualité;Christophe Degryse;Adolescents;220;15;20;actualite_7.png;actualite,information,economie;Actualité;actualite
-7;Dictionnaire amoureux de la géopolitique;Plon Fayard;Adolescents;150;7,9;40;actualite_8.png;mot,amour,politique;Actualité;actualite
+6;L'économie en Enfants;Christophe Degryse;Adolescents;220;15;20;actualite_7.png;actualite,information,economie;Actualité;actualite
+7;Dictionnaire amoureux ;Plon Fayard;Adolescents;150;7,9;40;actualite_8.png;mot,amour,politique;Actualité;actualite
 8;Franceinfo: 30 ans d'actualité;Collectif;Adultes;120;2,9;50;actualite_9.png;actualite,information,France;Actualité;actualite
 9;L'Ecume des jours;Boris Vian;Adultes;220;9,9;50;amour_1.png;amour,relation,sentiment;Amour;amour
 10;La Duchesse;Danielle Steel;Ainés;150;7,9;40;amour_2.png;amour,roi,reine,royal;Amour;amour
@@ -30,7 +30,7 @@ book_id;title;author;age_range;number_pages;price;quantity;book_image;tags;categ
 28;La grande épopée de Picsou;Don Rosa;Ainés;120;29,9;40;bd_2.png;bd,jeunesse;Bande dessinée;bande_dessinee
 29;SpiderMan;Delilah S.Dawson;Enfants;80;9,9;30;bd_3.png;bd,jeunesse;Bande dessinée;bande_dessinee
 30;Tintin;Bernard Hergé;Enfants;60;11,5;20;bd_4.png;bd,jeunesse;Bande dessinée;bande_dessinee
-31;Les aventures de Spirou et Fantasio;Yoann Vehlmann;Enfants;40;8,99;40;bd_5.png;bd,jeunesse;Bande dessinée;bande_dessinee
+31;Les aventures de Spirou ;Yoann Vehlmann;Enfants;40;8,99;40;bd_5.png;bd,jeunesse;Bande dessinée;bande_dessinee
 32;Boule et Bill;Jean Roba;Adultes;150;12,9;30;bd_6.png;bd,chien,jeunesse;Bande dessinée;bande_dessinee
 33;Clifton détective British;Raymond Macherot;Enfants;20;8,9;20;bd_7.png;bd,jeunesse;Bande dessinée;bande_dessinee
 34;Le nid des marsupulamis;Yoann Vehlmann;Enfants;40;15;40;bd_8.png;bd,jeunesse;Bande dessinée;bande_dessinee
@@ -43,7 +43,7 @@ book_id;title;author;age_range;number_pages;price;quantity;book_image;tags;categ
 41;Etesvous ultra sensible;Carol Pirotte;Adolescents;150;12,9;50;bien_etre_6.png;bien,sante,mental;Bien-être;bien_etre
 42;La sagesse espiègle;Alexandre Jollien;Adolescents;120;8,9;40;bien_etre_7.png;bien,sante,mental;Bien-être;bien_etre
 43;Les promesses de l'âge;Perla Servan Schreiber;Ainés;150;15;30;bien_etre_8.png;bien,sante,mental;Bien-être;bien_etre
-44;Qu'est ce qui nous rend vraiment heureux ?;Sonja Lyubomirsky;Ainés;120;7,9;20;bien_etre_9.png;bien,sante,mental;Bien-être;bien_etre
+44;Qu'est ce qui nous rend heureux ?;Sonja Lyubomirsky;Ainés;120;7,9;20;bien_etre_9.png;bien,sante,mental;Bien-être;bien_etre
 45;On va déguster l'Italie;François Régis;Adultes;220;2,9;50;cuisine_1.png;cuisine,italie,degustation;Cuisine;cuisine
 46;Fait maison 3;Cyril Lignac;Ainés;150;9,9;40;cuisine_2.png;cuisine,recette;Cuisine;cuisine
 47;On va déguster la France;François Régis;Adultes;120;9,9;30;cuisine_3.png;cuisine,recette,France;Cuisine;cuisine
@@ -54,7 +54,7 @@ book_id;title;author;age_range;number_pages;price;quantity;book_image;tags;categ
 52;Le grand livre marabout;Collectif;Adolescents;220;12,9;30;cuisine_8.png;cuisine,recette;Cuisine;cuisine
 53;Les meilleures recettes de l'émission;Philippe Etchebest;Adolescents;220;8,9;20;cuisine_9.png;cuisine,recette,emission;Cuisine;cuisine
 54;La crise de la culture;Hannah Arendt;Adultes;380;15;50;culture_1.png;culture,crise;Culture;culture
-55;Le petit Larousse de la culture générale;Vincent Brovicelle;Ainés;150;7,9;40;culture_2.png;culture,general;Culture;culture
+55;Le petit Larousse de la culture;Vincent Brovicelle;Ainés;150;7,9;40;culture_2.png;culture,general;Culture;culture
 56;Pardelà nature et culture;Philippe Descola;Adolescents;120;2,9;30;culture_3.png;culture,nature;Culture;culture
 57;L'obsession Rap;L'ABCDR du son;Adolescents;150;9,9;20;culture_4.png;culture,rap;Culture;culture
 58;1 kilo de culture générale;Jean François Pépin;Adolescents;120;29,9;40;culture_5.png;culture,general;Culture;culture
@@ -81,7 +81,7 @@ book_id;title;author;age_range;number_pages;price;quantity;book_image;tags;categ
 79;Mon premier livre;Laurent Brosselette;Enfants;140;8,9;20;histoire_8.png;histoire;Histoire;histoire
 80;Une histoire d'émotion;Potel et Chabot;Enfants;160;5,1;40;histoire_9.png;histoire,emotion;Histoire;histoire
 81;Sudoku pour enfant;Jean Brochet;Enfants;180;7,9;50;loisir_1.png;loisir,sudoku,enfant;Loisir;loisir
-82;Les principes fondamentaux des échecs;José Capablanca;Adultes;380;15;40;loisir_2.png;loisir,echec;Loisir;loisir
+82;Les principes fondamentaux;José Capablanca;Adultes;380;15;40;loisir_2.png;loisir,echec;Loisir;loisir
 83;Enfants0 Magnifiques Mandalas;Marie Pellier;Ainés;150;8,99;30;loisir_3.png;loisir,dessin,mandala;Loisir;loisir
 84;Le livre amoureux;Ramadier;Enfants;200;7;20;loisir_4.png;loisir,enfant,amour;Loisir;loisir
 85;Le livre en colère;Ramadier;Enfants;180;7;20;loisir_5.png;loisir,enfant,emotion;Loisir;loisir
@@ -116,7 +116,7 @@ book_id;title;author;age_range;number_pages;price;quantity;book_image;tags;categ
 114;L'église;Mark Dever;Adolescents;220;8,6;20;sante_7.png;sante,eglise;Santé;sante
 115;Livre blanc;Fnehad;Adultes;380;12,8;50;sante_8.png;sante;Santé;sante
 116;Enfants en bonne santé;Nadia Christensen;Adultes;150;13,2;40;sante_9.png;sante,enfant;Santé;sante
-117;Tous de l'espace ?;Maxime Lisoir;Adolescents;120;Adolescents,9;30;science_1.png;science,espace;Science;science
+117;Tous de l'espace ?;Maxime Lisoir;Adolescents;120;18,9;30;science_1.png;science,espace;Science;science
 118;Votre cerveau est extraordinaire;Fabien Olicard;Adolescents;150;7,3;40;science_2.png;science,cerveau;Science;science
 119;Science et religion;Bertrand Russell;Adolescents;120;6,9;30;science_3.png;science,religion;Science;science
 120;Fiches brevet;Sandrine Aussourd;Adolescents;160;5,9;20;science_4.png;science,brevet,fiche,revision;Science;science
@@ -124,7 +124,7 @@ book_id;title;author;age_range;number_pages;price;quantity;book_image;tags;categ
 122;Les promesses de la science;Joêl de Rosnay;Adolescents;220;8,6;40;science_6.png;science;Science;science
 123;Science investigations;Teacher Created;Adolescents;380;12,8;30;science_7.png;science;Science;science
 124;Adultes vraies fausses idées;Sciences pour tous;Adultes;150;13,2;40;science_8.png;science;Science;science
-125;Coronavirus et maintenant ?;Science et vie;Adultes;120;Adolescents,9;30;science_9.png;science,coronavirus,pandemie;Science;science
+125;Coronavirus et maintenant ?;Science et vie;Adultes;120;18,9;30;science_9.png;science,coronavirus,pandemie;Science;science
 126;Arca;Romain Benassya;Adolescents;150;7,3;20;sf_1.png;science,fiction;Science-fiction;science_fiction
 127;Voyage au centre de la Terre;Jules Verne;Adolescents;120;9,2;40;sf_2.png;science,fiction;Science-fiction;science_fiction
 128;Histoire de la Science Fiction;Xavier Dollo;Adolescents;160;6,3;30;sf_3.png;science,fiction;Science-fiction;science_fiction
