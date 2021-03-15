@@ -10,7 +10,8 @@ class ClientHandler {
     private Client $client;
 
     /**
-     * ClientHandler constructor.
+     * Constructeur de la classe ClientHandler.php
+     *
      * @param Client $client
      */
     public function __construct(Client $client) {
@@ -38,7 +39,7 @@ class ClientHandler {
     ///////////////// LIKED BOOKS /////////////////
 
     /**
-     * Retourne les livres avec une évaluation positive du client.
+     * Retourne les livres aimé par le client.
      *
      * @return array
      */
@@ -72,7 +73,7 @@ class ClientHandler {
     }
 
     /**
-     * Retourne les prix des livres aimés par un client.
+     * Retourne les prix des livres aimés par le client.
      *
      * @return array
      */
@@ -86,7 +87,7 @@ class ClientHandler {
     }
 
     /**
-     * Retourne le nombre de page des livres ayant une évaluation positive du client.
+     * Retourne le nombre de page des livres aimés par le client.
      *
      * @return array
      */
@@ -116,7 +117,7 @@ class ClientHandler {
     ///////////////// BUYS BOOKS /////////////////
 
     /**
-     * Retourne les livres achetés d'un client.
+     * Retourne les livres achetés par le client.
      *
      * @return array
      */
@@ -148,7 +149,7 @@ class ClientHandler {
     }
 
     /**
-     * Retourne les prix des livres achetés par un client.
+     * Retourne les prix des livres achetés par le client.
      *
      * @return array
      */
@@ -162,7 +163,7 @@ class ClientHandler {
     }
 
     /**
-     * Retourne le nombre de page des livres achetés par un client.
+     * Retourne le nombre de page des livres achetés par le client.
      *
      * @return array
      */

@@ -315,3 +315,28 @@ footer a:hover {
 .partButton {
 	margin-top: 20px;
 }
+
+.buysBooksDipslayedClientSpace {
+	width: 90px;
+	height: 130px;
+	margin-bottom: 15px;
+}
+
+.likeAndDislike {
+	width: 30px;
+	height: 30px;
+	margin-top: 25px;
+	margin-bottom: 10px;
+}
+
+.firstBooksDiv {
+	border-right:solid;
+	padding-right: 20px;
+}
+
+.secondBooksDiv {
+	border-bottom: solid;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	padding-bottom: 10px;
+}
