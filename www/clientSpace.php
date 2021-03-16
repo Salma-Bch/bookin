@@ -146,8 +146,7 @@
                                 echo '<img class="buysBooksDipslayedClientSpace" src="'.$bookDisplayed->getImagePath().'"  alt="...">';
                                 echo '</div>';
                                 echo '<div class="col-md-1">';
-                                echo '<a href="index.php"><img class="likeAndDislike" src="ressources/images/like.png"  alt="..."></a>';
-                                echo '<a href="index.php"><img class="likeAndDislike" src="ressources/images/dislike.png"  alt="..."></a>';
+                                echo '<a href="index.php"><img class="likeAndDislike" src="ressources/images/croix.png"  alt="..."></a>';
                                 echo '</div>';
                                 $i++;
                                 echo '</div>';
