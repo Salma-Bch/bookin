@@ -1,11 +1,11 @@
 book_id;title;author;age_range;number_pages;price;quantity;book_image;tags;category_name;fichier
 0;Toute L'actu;Célia Rosentraub;Adultes;350;16,9;50;actualite_1.png;actualite,information;Actualité;actualite
-1;Enfants0 fiches d'actualité;Florent Vandepitte;Adolescents;220;14,9;40;actualite_2.png;actualite,information;Actualité;actualite
+1;100 fiches d'actualité;Florent Vandepitte;Adolescents;220;14,9;40;actualite_2.png;actualite,information;Actualité;actualite
 2;Le Meilleur de L'actualité;Louis Gœury;Adolescents;150;16,9;30;actualite_3.png;actualite,information;Actualité;actualite
 3;Actu'Concours;Philippe Cavaillé;Adultes;120;8,99;20;actualite_4.png;actualite,information,concours;Actualité;actualite
 4;Le meilleur de l'actualité;Sarfati Olivier;Adolescents;220;12,9;40;actualite_5.png;actualite,information;Actualité;actualite
 5;Carnet de guerre Covid 19;Didier Raoult;Adultes;120;8,9;30;actualite_6.png;actualite,information,guerre,covid,pandemie;Actualité;actualite
-6;L'économie en Enfants;Christophe Degryse;Adolescents;220;15;20;actualite_7.png;actualite,information,economie;Actualité;actualite
+6;L'économie ;Christophe Degryse;Adolescents;220;15;20;actualite_7.png;actualite,information,economie;Actualité;actualite
 7;Dictionnaire amoureux ;Plon Fayard;Adolescents;150;7,9;40;actualite_8.png;mot,amour,politique;Actualité;actualite
 8;Franceinfo: 30 ans d'actualité;Collectif;Adultes;120;2,9;50;actualite_9.png;actualite,information,France;Actualité;actualite
 9;L'Ecume des jours;Boris Vian;Adultes;220;9,9;50;amour_1.png;amour,relation,sentiment;Amour;amour
@@ -42,7 +42,7 @@ book_id;title;author;age_range;number_pages;price;quantity;book_image;tags;categ
 40;La bienveillance est une arme absolue;Didier Cauwelaert;Adultes;380;8,99;40;bien_etre_5.png;bien,sante,mental;Bien-être;bien_etre
 41;Etesvous ultra sensible;Carol Pirotte;Adolescents;150;12,9;50;bien_etre_6.png;bien,sante,mental;Bien-être;bien_etre
 42;La sagesse espiègle;Alexandre Jollien;Adolescents;120;8,9;40;bien_etre_7.png;bien,sante,mental;Bien-être;bien_etre
-43;Les promesses de l'âge;Perla Servan Schreiber;Ainés;150;15;30;bien_etre_8.png;bien,sante,mental;Bien-être;bien_etre
+43;Les promesses de l'âge;Perla Schreiber;Ainés;150;15;30;bien_etre_8.png;bien,sante,mental;Bien-être;bien_etre
 44;Qu'est ce qui nous rend heureux ?;Sonja Lyubomirsky;Ainés;120;7,9;20;bien_etre_9.png;bien,sante,mental;Bien-être;bien_etre
 45;On va déguster l'Italie;François Régis;Adultes;220;2,9;50;cuisine_1.png;cuisine,italie,degustation;Cuisine;cuisine
 46;Fait maison 3;Cyril Lignac;Ainés;150;9,9;40;cuisine_2.png;cuisine,recette;Cuisine;cuisine
@@ -67,14 +67,14 @@ book_id;title;author;age_range;number_pages;price;quantity;book_image;tags;categ
 65;Les Fourberies de Scapin;Molière;Adolescents;220;6,9;30;education_3.png;education,amour,scolaire;Education;education
 66;Yvain ou Le Chevalier au lion;Chrétien de Troyes;Adolescents;220;7,9;20;education_4.png;education,amour,scolaire;Education;education
 67;Devenir;Michelle obama;Adolescents;220;8,99;50;education_5.png;education,amour,scolaire;Education;education
-68;Les Enfants1 règles d'or;GillesMarie Valet;Adultes;380;12,9;50;education_6.png;education,scolaire;Education;education
+68;Les 101 règles d'or;Gilles Valet;Adultes;380;12,9;50;education_6.png;education,scolaire;Education;education
 69;La grande encyclopédie des enfants;Collectif;Enfants;100;8,9;40;education_7.png;education,enfant;Education;education
 70;L'éducation sentimentale;Gustave Flaubert;Adolescents;120;15;30;education_8.png;education,amour,sentiment;Education;education
 71;L'éducation réinventée;Salman Khan;Adultes;140;8,99;20;education_9.png;education;Education;education
 72;La guerre des Gaules;Jules César;Adultes;160;12,9;50;histoire_1.png;histoire,guerre,france;Histoire;histoire
 73;L'ancien régime et la révolution;Alexis de Tocqueville;Ainés;180;8,9;40;histoire_2.png;histoire,guerre,france;Histoire;histoire
-74;Souvenirs d'un officier de la GA;JeanBaptiste Barrès;Adolescents;200;12,9;30;histoire_3.png;histoire,guerre,france;Histoire;histoire
-75;La République romaine;JeanMichel David;Adolescents;40;8,9;20;histoire_4.png;histoire,guerre,france;Histoire;histoire
+74;Souvenirs d'un officier de la GA;Jean-Baptiste Barrès;Adolescents;200;12,9;30;histoire_3.png;histoire,guerre,france;Histoire;histoire
+75;La République romaine;Jean-Michel David;Adolescents;40;8,9;20;histoire_4.png;histoire,guerre,france;Histoire;histoire
 76;Les Six Livres;Jean Bodin;Adolescents;60;15;50;histoire_5.png;histoire,guerre,france;Histoire;histoire
 77;Cahier d'écoliers;Christin Benevent;Enfants;120;8,99;40;histoire_6.png;histoire,guerre,france;Histoire;histoire
 78;Femme dans l'histoire;Pontivy;Adultes;120;12,9;30;histoire_7.png;histoire,femme,france;Histoire;histoire
@@ -82,7 +82,7 @@ book_id;title;author;age_range;number_pages;price;quantity;book_image;tags;categ
 80;Une histoire d'émotion;Potel et Chabot;Enfants;160;5,1;40;histoire_9.png;histoire,emotion;Histoire;histoire
 81;Sudoku pour enfant;Jean Brochet;Enfants;180;7,9;50;loisir_1.png;loisir,sudoku,enfant;Loisir;loisir
 82;Les principes fondamentaux;José Capablanca;Adultes;380;15;40;loisir_2.png;loisir,echec;Loisir;loisir
-83;Enfants0 Magnifiques Mandalas;Marie Pellier;Ainés;150;8,99;30;loisir_3.png;loisir,dessin,mandala;Loisir;loisir
+83;100 Magnifiques Mandalas;Marie Pellier;Ainés;150;8,99;30;loisir_3.png;loisir,dessin,mandala;Loisir;loisir
 84;Le livre amoureux;Ramadier;Enfants;200;7;20;loisir_4.png;loisir,enfant,amour;Loisir;loisir
 85;Le livre en colère;Ramadier;Enfants;180;7;20;loisir_5.png;loisir,enfant,emotion;Loisir;loisir
 86;Le livre qui dit non;Ramadier;Enfants;160;7;20;loisir_6.png;loisir,enfant,decision;Loisir;loisir
@@ -139,7 +139,7 @@ book_id;title;author;age_range;number_pages;price;quantity;book_image;tags;categ
 137;Internet, téléphone mobile;Vie Pratique;Adultes;120;6,99;30;vie_pratique_3.png;vie,pratique,internet,telephone;Vie pratique;vie_pratique
 138;Généalogie;Vie Pratique;Adultes;160;6,99;30;vie_pratique_4.png;vie,pratique,genealogie;Vie pratique;vie_pratique
 139;Sauvegarder et protéger;Vie Pratique;Adultes;120;6,99;30;vie_pratique_5.png;vie,pratique,sauvegarde,protection;Vie pratique;vie_pratique
-140;Enfants0% MADE IN France;Vie Pratique;Adultes;120;6,99;30;vie_pratique_6.png;vie,pratique,France;Vie pratique;vie_pratique
+140;100% MADE IN France;Vie Pratique;Adultes;120;6,99;30;vie_pratique_6.png;vie,pratique,France;Vie pratique;vie_pratique
 141;Louer votre maison;Vie Pratique;Adultes;120;6,99;30;vie_pratique_7.png;vie,pratique,location,maison;Vie pratique;vie_pratique
 142;Louer votre mobilier;Vie Pratique;Adultes;120;6,99;30;vie_pratique_8.png;vie,pratqiue,location,mobilier;Vie pratique;vie_pratique
 143;Comment se protéger sur internet;Vie Pratique;Adultes;120;6,99;30;vie_pratique_9.png;vie,pratique,protection,internet;Vie pratique;vie_pratique
