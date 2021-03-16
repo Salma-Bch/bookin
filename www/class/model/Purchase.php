@@ -16,7 +16,7 @@ class Purchase {
      * @param int $bookId
      * @param float $amount
      */
-    public function __construct($clientId, $bookId, $amount)
+    public function __construct(int $clientId, int $bookId, float $amount)
     {
         $this->clientId = $clientId;
         $this->bookId = $bookId;

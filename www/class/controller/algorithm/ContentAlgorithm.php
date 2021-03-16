@@ -5,6 +5,8 @@ namespace controller;
 
 use dao\DAOFactory;
 use model\Client;
+use model\Tag;
+use utility\Format;
 use utility\Math;
 
 class ContentAlgorithm {
@@ -90,8 +92,34 @@ class ContentAlgorithm {
         return $booksReturned;
     }
 
-    public function tagBased(array $books, ContentModel $contentModel){
-        $tags = array();
+    public function tagBased(ContentModel $contentModel){
+        $daoFactory = DAOFactory::getInstance();
+        $tagDao = $daoFactory->getTagDao();
+        $bookDao = $daoFactory->getBookDao();
+        $booksToReturn = array();
         $tagsModel = $contentModel->getTagsModel();
+
+        $booksId = "";
+
+        foreach ($tagsModel as $tag){
+            if($tag != 0){
+                $tagFound = $tagDao->find(key($tagsModel),null);
+                //var_dump($tagFound);
+                if($tagFound != null)
+                    $booksId.= ",".$tagFound[0]->getBooksId();
+            }
+            next($tagsModel);
+        }
+
+        $booksId = substr($booksId,1);
+        $booksId = explode(",", $booksId);
+        //var_dump($booksId);
+        if($booksId[0] != "") {
+            foreach ($booksId as $bookId) {
+                array_push($booksToReturn, $bookDao->find(Format::getFormatId(8, $bookId)));
+            }
+        }
+        return $booksToReturn;
     }
+
 }

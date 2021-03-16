@@ -166,7 +166,7 @@ class ContentModel {
             $tagsToReturn[$tagName] = 0;
         }
 
-        //
+
         foreach($tags as $tag) {
             $tagsToReturn[$tag]++;
             $somme++ ;

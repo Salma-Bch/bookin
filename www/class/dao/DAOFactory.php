@@ -15,6 +15,9 @@ use dao\object\LikesDao;
 use dao\object\LikesDaoImpl;
 use dao\object\PurchaseDao;
 use dao\object\PurchaseDaoImpl;
+use dao\object\TagDao;
+use dao\object\TagDaoImpl;
+use model\Tag;
 use PDO;
 
 class DAOFactory {
@@ -69,6 +72,8 @@ class DAOFactory {
     public function getEvaluatesDao(): EvaluatesDao{ return new EvaluatesDaoImpl($this);}
 
     public function getLikesDao(): LikesDao{ return new LikesDaoImpl($this);}
+
+    public function getTagDao(): TagDao{ return new TagDaoImpl($this); }
 
 
 }
