@@ -9,6 +9,7 @@ class Purchase {
     private int $clientId;
     private int $bookId;
     private float $amount;
+    private int $quantity;
 
     /**
      * Purchase constructor.
@@ -16,12 +17,31 @@ class Purchase {
      * @param int $bookId
      * @param float $amount
      */
-    public function __construct(int $clientId, int $bookId, float $amount)
+    public function __construct(int $clientId, int $bookId, float $amount, int $quantity)
     {
         $this->clientId = $clientId;
         $this->bookId = $bookId;
         $this->amount = $amount;
+        $this->quantity = $quantity;
     }
+
+    /**
+     * @return int
+     */
+    public function getQuantity(): int
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * @param int $quantity
+     */
+    public function setQuantity(int $quantity): void
+    {
+        $this->quantity = $quantity;
+    }
+
+
 
     /**
      * @return int
