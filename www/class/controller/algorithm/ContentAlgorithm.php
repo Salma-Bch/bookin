@@ -58,10 +58,11 @@ class ContentAlgorithm {
 
     /**
      * @param       ContentModel $contentModel
+     * @Brief       Retourne un tableau de livres en fonction de tags.
+     * @Details     Cette méthode récupère le modèle de tag du client pour créer un tableau de livres.
+     *              La méthode categoryBased est ensuite appelé avec le tableau créé et un nouveau tableau de livres est retourné.
+     *              Le tableau de livres est remplis à partir des livres présent dans la base de donnée.
      * @return      array
-     * @Brief       Retourne un tableau de livres en fonction des tags
-     * @Details     Cette méthode creer un tableau de livres en fonction du modele de tag du client,
-     *              appelle la méthode categoryBased avec le tableau creer puis retourne
      */
     public function tagBased(ContentModel $contentModel){
         $daoFactory = DAOFactory::getInstance();
