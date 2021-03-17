@@ -32,13 +32,13 @@ class ClientHandler {
         $this->client = $client;
     }
 
-    ///////////////// CATEGORIES /////////////////
+    ///////////////// METHOD FOR LIKED CATEGORIES /////////////////
 
      /**
      * @Brief       Retourne les catégories aimées par le client.
-     * @Details     La méthode getLikesDao() permet de récupérer les catégories aimées par le client à partir de la base de données.
+     * @Details     La méthode find() de likesDao permet de récupérer les catégories aimées par le client à partir de la base de données.
      *              Les noms de celle-ci sont ensuite récupérés puis placer dans un tableau.
-     *              Ce tableau est ensuite renvoyé.
+     *              Ce tableau est ensuite retourné.
      * @return      array
      */
     public function getLikedCategories():array{
@@ -52,14 +52,14 @@ class ClientHandler {
         return $categoriesReturned;
     }
 
-    ///////////////// LIKED BOOKS /////////////////
+    ///////////////// METHODS FOR LIKED BOOKS /////////////////
 
      /**
      * @Brief       Retourne les livres aimé par le client.
-     * @Details     La méthode getEvaluatesDao() permet de récupérer les évaluation du client à partir de la base de données.
-     *              La méthode getSatisfied() permet enquite de récupérer uniquement les évaluations positives.
-     *              Enfin, la méthode find() permet de trouver les livres correspondant puis les place dans un tableau.
-     *              Ce tableau est ensuite renvoyé.
+     * @Details     La méthode find() de evaluatesDao permet de récupérer les évaluation du client à partir de la base de données.
+     *              La méthode getSatisfied() permet ensuite de récupérer l'avis du client sur le livre.
+     *              Si son avis est positif, celle-ci utilise la méthode find() de booksDao afin de trouver les livres correspondant.
+     *              Ces livres sont placé dans un tableau qui sera retourné.
      * @return      array
      */
     public function getLikedBooks():array{
@@ -79,9 +79,9 @@ class ClientHandler {
 
     /**
      * @Brief       Retourne les catégories des livres aimés par le client.
-     * @Details     La méthode getLikedBooks() permet de récupérer les livres avec un évaluation positives du client.
+     * @Details     La méthode getLikedBooks() permet de récupérer les livres avec une évaluation positives du client.
      *              Le nom de la catégorie de chacun de ses livres est placé dans un tableau.
-     *              Ce tableau est ensuite renvoyé.
+     *              Ce tableau est ensuite retourné.
      * @return      array
      */
     public function getLikedBooksCategories():array{
@@ -95,9 +95,9 @@ class ClientHandler {
 
     /**
      * @Brief       Retourne les prix des livres aimés par le client.
-     * @Details     La méthode getLikedBooks() permet de récupérer les livres avec un évaluation positives du client.
+     * @Details     La méthode getLikedBooks() permet de récupérer les livres avec une évaluation positives du client.
      *              Le prix de chacun de ses livres est placé dans un tableau.
-     *              Ce tableau est ensuite renvoyé.
+     *              Ce tableau est ensuite retourné.
      * @return      array
      */
     public function getLikedBooksPrices():array{
@@ -111,9 +111,9 @@ class ClientHandler {
 
     /**
      * @Brief       Retourne le nombre de page des livres aimés par le client.
-     * @Details     La méthode getLikedBooks() permet de récupérer les livres avec un évaluation positives du client.
+     * @Details     La méthode getLikedBooks() permet de récupérer les livres avec une évaluation positives du client.
      *              Le nombre de page de chacun de ses livres est placé dans un tableau.
-     *              Ce tableau est ensuite renvoyé.
+     *              Ce tableau est ensuite retourné.
      * @return      array
      */
     public function getLikedBooksSizes():array{
@@ -129,7 +129,7 @@ class ClientHandler {
      * @Brief       Retourne les tags des livres aimés par le client.
      * @Details     La méthode getLikedBooks() permet de récupérer les livres avec un évaluation positives du client.
      *              Les tags de chacun de ses livres sont placés dans un tableau.
-     *              Ce tableau est ensuite renvoyé.
+     *              Ce tableau est ensuite retourné.
      * @return      array
      */
     public function getLikedBooksTags():array{
@@ -141,13 +141,13 @@ class ClientHandler {
         return $tags;
     }
 
-    ///////////////// BUYS BOOKS /////////////////
+    ///////////////// METHODS FOR BUYS BOOKS /////////////////
 
     /**
      * @Brief       Retourne les livres achetés par le client.
-     * @Details     La méthode getPurchaseDao() permet de récupérer les achats du client à partir de la base de données.
-     *              La méthode find() permet ensuite de trouver les livres correspondant puis les place dans un tableau.
-     *              Ce tableau est ensuite renvoyé.
+     * @Details     La méthode find() de purchaseDao permet de récupérer les achats du client à partir de la base de données.
+     *              La méthode find() de bookDao permet ensuite de trouver les livres correspondant puis les place dans un tableau.
+     *              Ce tableau est ensuite retourné.
      * @return      array
      */
     public function getBuysBooks():array{
@@ -167,7 +167,7 @@ class ClientHandler {
      * @Brief       Retourne les catégories des livres aimés par le client.
      * @Details     La méthode getBuysBooks() permet de récupérer les livres achetés par le client.
      *              Le nom de la catégorie de chacun de ses livres est placé dans un tableau.
-     *              Ce tableau est ensuite renvoyé.
+     *              Ce tableau est ensuite retourné.
      * @return      array
      */
     public function getBuysBooksCategories():array{
@@ -183,7 +183,7 @@ class ClientHandler {
      * @Brief       Retourne les prix des livres achetés par le client.
      * @Details     La méthode getBuysBooks() permet de récupérer les livres achetés par le client.
      *              Le prix de chacun de ses livres est placé dans un tableau.
-     *              Ce tableau est ensuite renvoyé.
+     *              Ce tableau est ensuite retourné.
      * @return      array
      */
     public function getBuysBooksPrices():array{
@@ -199,7 +199,7 @@ class ClientHandler {
      * @Brief       Retourne le nombre de page des livres achetés par le client.
      * @Details     La méthode getBuysBooks() permet de récupérer les livres achetés par le client.
      *              Le nombre de page de chacun de ses livres est placé dans un tableau.
-     *              Ce tableau est ensuite renvoyé.
+     *              Ce tableau est ensuite retourné.
      * @return      array
      */
     public function getBuysBooksSizes():array {
@@ -215,7 +215,7 @@ class ClientHandler {
      * @Brief       Retourne les tags des livres achetés par le client.
      * @Details     La méthode getBuysBooks() permet de récupérer les livres achetés par le client.
      *              Les tags de chacun de ses livres sont placés dans un tableau.
-     *              Ce tableau est ensuite renvoyé.
+     *              Ce tableau est ensuite retourné.
      * @return      array
      */
     public function getBuysBooksTags():array{

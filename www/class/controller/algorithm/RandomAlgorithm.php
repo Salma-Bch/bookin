@@ -1,7 +1,6 @@
 <?php
 
 /**
-
  * Class        RandomAlgorithm
  * @File        RandomAlgorithm.php
  * @package     controller
@@ -13,11 +12,6 @@
  */
 namespace controller;
 
-use dao\DAOFactory;
-use model\Client;
-use utility\Math;
-
-
 
 class RandomAlgorithm {
 
@@ -25,6 +19,7 @@ class RandomAlgorithm {
 
     /**
      * RandomAlgorithm constructor.
+     * @param       array $books
      */
     public function __construct(array $books) {
         $this->books = $books;
@@ -32,8 +27,9 @@ class RandomAlgorithm {
 
     /**
      * @param       int $nbrOfBook
-     * @Brief       Retourne un tableau de livres aléatoirement
-     * @Details     Cette méthode récupère l'ensemble des livres contenus dans la base de données puis renvoie des livres sélectionnés aléatoirement
+     * @Brief       Retourne un tableau de livres de manière aléatoire.
+     * @Details     Cette méthode récupère l'ensemble des livres contenus dans la base de données puis renvoie des livres sélectionnés aléatoirement.
+     *              Le nombre retourné est passé en paramètre.
      * @return      array
      */
     public function suggest(int $nbrOfBook):array{

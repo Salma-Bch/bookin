@@ -25,19 +25,19 @@ class PopularAlgorithm {
     }
 
     /**
-     * @param       int $nbrOfBooks
-     * @Brief       Retourne un tableau de livres en fonction des livres populaire.
+     * @param       int|null $nbrOfBooks
+     * @return      array
+     * @Brief       Retourne un tableau des livres les plus populaire.
      * @Details     Cette méthode récupère les livres les plus achetés à l'aide de la méthode getMostPurchasedBooks().
      *              Les id de chaque livre sont ensuite récupérés afin de trouver le livre correspondant avec la méthode find().
-     *              Ces livres sont ensuite placer dans un tableau qui sera renvoyé.
-     * @return      array
+     *              Ces livres sont ensuite placer dans un tableau qui sera retourné.
      */
     public function suggest(int $nbrOfBooks=null):array {
         $daoFactory = DAOFactory::getInstance();
         $purchasesDao = $daoFactory->getPurchaseDao();
         $bookDao = $daoFactory->getBookDao();
-        if(isset($nbrofBooks))
-            $mostPurchasedBooks = $purchasesDao->getMostPurchasedBooks($nbrofBooks);
+        if(isset($nbrOfBooks))
+            $mostPurchasedBooks = $purchasesDao->getMostPurchasedBooks($nbrOfBooks);
         else
             $mostPurchasedBooks = $purchasesDao->getMostPurchasedBooks();
 
