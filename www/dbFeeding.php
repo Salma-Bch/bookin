@@ -2,9 +2,14 @@
 
 use dao\DAOFactory;
 use model\Book;
+use model\Tag;
+
 include_once('./class/dao/DAOFactory.php');
 include_once('./class/dao/object/BookDao.php');
 include_once('./class/dao/object/BookDaoImpl.php');
+include_once('./class/model/Book.php');
+include_once('./class/dao/object/TagDao.php');
+include_once('./class/dao/object/TagDaoImpl.php');
 include_once('./class/model/Book.php');
 include_once('./class/dao/DAOUtility.php');
 include_once('./class/dao/exception/DAOException.php');
@@ -15,8 +20,10 @@ include_once('./class/utility/Format.php');
     $addedLine = 0;
     $daoFactory = DAOFactory::getInstance();
     $bookDao = $daoFactory->getBookDao();
+    $tagDao = $daoFactory->getTagDao();
 
-    $csvFile = fopen("./ressources/bd/db_book.csv","r");
+    //Pour insertion de livres
+  /*  $csvFile = fopen("./ressources/bd/db_book.csv","r");
     $lineCsv = fgetcsv($csvFile,1024, ";");
     while ( ($lineCsv = fgetcsv($csvFile,1024, ";")) !== FALSE ) {
         $bookId = str_pad(((int)$lineCsv[0]),8,0, STR_PAD_LEFT);
@@ -25,6 +32,14 @@ include_once('./class/utility/Format.php');
             "http://bookin.alwaysdata.net/ressources/bd/bookImages/".utf8_encode($lineCsv[10])."/".utf8_encode($lineCsv[7]),
             explode(",",utf8_encode($lineCsv[8])),utf8_encode($lineCsv[9]));
         $bookDao->create($book);
+        $addedLine++;
+    }*/
+
+    //Pour l'insertion des tags
+    $csvFile = fopen("./ressources/bd/db_tag.csv","r");
+    while ( ($lineCsv = fgetcsv($csvFile,1024, ";")) !== FALSE ) {
+        $tag = new Tag($lineCsv[0],$lineCsv[1]);
+        $tagDao->create($tag);
         $addedLine++;
     }
 
