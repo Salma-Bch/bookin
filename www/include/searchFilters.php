@@ -2,7 +2,7 @@
     <div class="col-md-12">
         <h2>Recherches :</h2>
         <form class="form-inline">
-            <input class="form-control barre_de_recherche" type="search" placeholder="Recherche" aria-label="Recherche">
+            <input class="form-control barre_de_recherche" type="search" placeholder="Recherche" aria-label="Recherche"/>
             <button class="btn barre_de_recherche" type="submit">OK</button>
         </form>
     </div>
@@ -95,11 +95,11 @@
     <div class="col-md-12">
         <h2>Prix :</h2>
         <p class="affichage_prix_inferieur">Inférieur à <output class="affichage_prix_inferieur" id="prix">0</output>€</p>
-        <input class="range_prix" type="range" value="0" max="30" step="1" oninput="prix.value = this.value">
+        <input class="range_prix" type="range" value="0" max="30" step="1" oninput="prix.value = this.value"/>
     </div>
 </div>
 
-<script>
+<script><!--
     var categories = [];
     var agesRange = [];
 
@@ -139,7 +139,7 @@
                 div.removeChild(div.firstChild);
             }
         }
-        for (i = 0; i < books.length; i++) {
+        for (var i = 0; i < books.length; i++) {
             addBookToDiv(books[i],i);
         }
     }
@@ -172,4 +172,4 @@
         displaySpaceDiv.appendChild(bookDiv);
     }
 
-</script>
+//--></script>

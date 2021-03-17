@@ -32,7 +32,7 @@
                 </div>
                 <?php
                     $numbers = \utility\Math::nearestFigure(8,array(9,11,5,7,5,19,-3),3);
-                    var_dump($numbers);
+                   // var_dump($numbers);
                 ?>
             </div>
         </div>

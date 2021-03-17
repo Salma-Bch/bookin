@@ -65,7 +65,7 @@
                         </div>
                         <div class="row">
                             <div class="form-group col-md-6">
-                                <input type='password' name="psd" id="passwordInput" class='form-control' id="passwordInput" placeholder='Mot de passe' onblur="validPassword(this)" />
+                                <input type='password' name="psd" id="passwordInput" class='form-control' placeholder='Mot de passe' onblur="validPassword(this)" />
                                 <div class="invalid-feedback" style="display: none">
                                     <p>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
@@ -92,7 +92,7 @@
                                 </div>
                             </div>
                         </div>
-                        <script type="text/javascript" src="./js/script.js" ></script>
+                        <script src="./js/script.js" ></script>
                         <div class="form-group col-md-6">
                             <button class='btn btn-lg btn-danger btn-block btn-signin' name="submit"  onclick="nextForm('firstPart','secondPart')">Suivant</button>
                         </div>
@@ -168,8 +168,5 @@
             include("include/footer.php");
             include("include/dialogModal.php");
         ?>
-    <script>
-        //displaySuccessCreat();
-    </script>
     </body>
 </html>

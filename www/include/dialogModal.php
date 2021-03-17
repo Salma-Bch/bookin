@@ -1,9 +1,9 @@
-<div class = "modal" id="dialogModal" tabindex = "- 1">
+<div class = "modal" id="dialogModal" tabindex = "-1">
     <div class = "modal-dialog">
         <div class = "modal-content">
             <div class = "modal-header">
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&#xd7;</span></button>
-                <h4 class="modal-title" id="modalTitle"></h4>
+                <h4 class="modal-title" id="modalTitle">Title</h4>
             </div>
             <div class =" modal-body ">
                 <svg style="vertical-align: middle; margin-right: 10px" id="modifCheckedIcon" width="30" height="30" class="bi bi-check-circle-fill" viewBox="0 0 16 16">

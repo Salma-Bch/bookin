@@ -52,26 +52,26 @@
             <p>Bienvenue dans ton espace personnel. Tu trouvera ici toute les informations te concernant. </p>
         </div>
         <div class="container">
-            <table class="table table-dark" id="a">
-                <tbody id='tableauInfo'>
+            <table class="table table-dark">
+                <tbody>
                     <tr>
-                        <td id="tabNom"><b>Nom :</b> <?php echo $client->getLastName() ?></td>
-                        <td id="Tabprenom"><b>Prénom :</b> <?php echo $client->getFirstName() ?></td>
+                        <td><b>Nom :</b> <?php echo $client->getLastName() ?></td>
+                        <td><b>Prénom :</b> <?php echo $client->getFirstName() ?></td>
                     </tr>
                     <tr>
-                        <td id="tabMail"><b>Adresse mail :</b> <?php echo $client->getMail();?></td>
-                        <td id="tabNumClient"><b>Id :</b> <?php echo Format::getFormatId(8,$client->getClientId())?></td>
+                        <td><b>Adresse mail :</b> <?php echo $client->getMail();?></td>
+                        <td><b>Id :</b> <?php echo Format::getFormatId(8,$client->getClientId())?></td>
                     </tr>
                     <tr>
-                        <td id="tabNumClient"><b>Profession : </b><?php echo $client->getProfession();?></td>
-                        <td id="tabMail"><b>Sexe :</b> <?php echo $client->getSex();?></td>
+                        <td><b>Profession : </b><?php echo $client->getProfession();?></td>
+                        <td><b>Sexe :</b> <?php echo $client->getSex();?></td>
                     </tr>
                 </tbody>
             </table>
-            <table class="table table-dark" id="a">
-                <tbody id='tableauInfo'>
+            <table class="table table-dark">
+                <tbody>
                     <tr>
-                        <td id="tabNom"><b>Catégories aimés :</b>
+                        <td><b>Catégories aimés :</b>
                             <?php
                                 $i=0;
                                 while($i < count($likes)) {
@@ -80,7 +80,7 @@
                                 }
                            ?>
                         </td>
-                        <td id="Tabprenom"><b>Tags aimés :</b>
+                        <td><b>Tags aimés :</b>
                             <?php
                             $tags = $client->getTags();
                             $i=0;
@@ -93,11 +93,11 @@
                     </tr>
                 </tbody>
             </table>
-            <table class="table table-dark" id="a">
-                <tbody id='tableauInfo'>
+            <table class="table table-dark">
+                <tbody>
                     <tr>
-                        <th id="tabNom"><b>Livres achetés :</b></th>
-                        <th id="Tabprenom"><b>Livres aimés :</b></th>
+                        <th><b>Livres achetés :</b></th>
+                        <th><b>Livres aimés :</b></th>
                     </tr>
                     <tr>
                         <td>
@@ -115,11 +115,11 @@
                                     echo '<p>Prix : '.$bookDisplayed->getPrice().'€</p>';
                                 echo '</div>';
                                 echo '<div class="col-md-3">';
-                                    echo '<img class="buysBooksDipslayedClientSpace" src="'.$bookDisplayed->getImagePath().'"  alt="...">';
+                                    echo '<img class="buysBooksDipslayedClientSpace" src="'.$bookDisplayed->getImagePath().'"  alt="..."/>';
                                 echo '</div>';
                                 echo '<div class="col-md-1">';
-                                    echo '<a href="index.php"><img class="likeAndDislike" src="ressources/images/like.png"  alt="..."></a>';
-                                    echo '<a href="index.php"><img class="likeAndDislike" src="ressources/images/dislike.png"  alt="..."></a>';
+                                    echo '<a href="index.php"><img class="likeAndDislike" src="ressources/images/like.png"  alt="..."/></a>';
+                                    echo '<a href="index.php"><img class="likeAndDislike" src="ressources/images/dislike.png"  alt="..."/></a>';
                                 echo '</div>';
                                 $i++;
                                 echo '</div>';
@@ -143,10 +143,10 @@
                                     echo '<p>Prix : '.$bookDisplayed->getPrice().'€</p>';
                                     echo '</div>';
                                     echo '<div class="col-md-3">';
-                                    echo '<img class="buysBooksDipslayedClientSpace" src="'.$bookDisplayed->getImagePath().'"  alt="...">';
+                                    echo '<img class="buysBooksDipslayedClientSpace" src="'.$bookDisplayed->getImagePath().'"  alt="..."/>';
                                     echo '</div>';
                                     echo '<div class="col-md-1">';
-                                    echo '<a href="index.php"><img class="likeAndDislike" src="ressources/images/croix.png"  alt="..."></a>';
+                                    echo '<a href="index.php"><img class="likeAndDislike" src="ressources/images/croix.png"  alt="..."/></a>';
                                     echo '</div>';
                                     $i++;
                                     echo '</div>';

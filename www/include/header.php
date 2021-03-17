@@ -14,7 +14,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <a href="index.php"></a><img class = "logo" src="ressources/images/logo_couleur.png" alt="Logo"/></a>
+                        <a href="index.php"><img class = "logo" src="ressources/images/logo_couleur.png" alt="Logo"/></a>
                     </div>
                     <div class="col-md-6">
                         <div class="navbar-header">

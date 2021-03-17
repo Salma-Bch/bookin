@@ -32,7 +32,7 @@
         <?php
             include_once("include/head.php");
         ?>
-        <title>Mon espace</title>
+        <title>Espace achat</title>
     </head>
     <body>
         <?php
@@ -45,7 +45,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 livres">
-                    <img src="<?php echo $book->getImagePath(); ?>"  style="width: 140px;height: 190px;">
+                    <img src="<?php echo $book->getImagePath(); ?>"  alt="image du livre <?php echo $book->getBookId(); ?>"  style="width: 140px;height: 190px;"/>
                 </div>
                 <div class="col-md-6 livres">
                     <p><b>Titre : <?php echo $book->getTitle(); ?></b></p>
@@ -59,7 +59,7 @@
                     <input type="submit" class="btn modifEtDeco" id="modifButton" name="submit" value="Retour" onclick="searchSpace.php" />
                 </div>
                 <div class="col-md-6">
-                    <input type="submit" class="btn modifEtDeco" id="modifButton" name="submit" value="Acheter" />
+                    <input type="submit" class="btn modifEtDeco" name="submit" value="Acheter" />
                 </div>
             </div>
         </div>
