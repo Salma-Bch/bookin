@@ -11,11 +11,10 @@ use model\Purchase;
 use utility\Format;
 
 class PurchaseDaoImpl implements PurchaseDao {
-    private const SQL_SELECT_PURCHASES_BY_CLIENT_ID = "SELECT client_id, book_id, amount FROM buys WHERE client_id=?";
-    //private const SQL_SELECT_MOST_PURCHASED_BOOK_LIMIT = "SELECT * FROM buys GROUP BY book_id DESC LIMIT ?";
+    private const SQL_SELECT_PURCHASES_BY_CLIENT_ID = "SELECT client_id, book_id, amount, quantity FROM buys WHERE client_id=?";
     private const SQL_SELECT_MOST_PURCHASED_BOOK = "SELECT * FROM buys GROUP BY book_id ORDER BY COUNT(*) DESC";
-    private const SQL_INSERT = "INSERT INTO buys (client_id, book_id, amount) VALUES (?, ?, ?)";
-    private const SQL_UPDATE ="UPDATE buys SET client_id=?, book_id=?, amount=? WHERE client_id=?";
+    private const SQL_INSERT = "INSERT INTO buys (client_id, book_id, amount, quantity) VALUES (?, ?, ?)";
+    private const SQL_UPDATE ="UPDATE buys SET client_id=?, book_id=?, amount=?, quantity=? WHERE client_id=?";
     private DAOFactory $daoFactory;
 
     /**
@@ -108,8 +107,8 @@ class PurchaseDaoImpl implements PurchaseDao {
 
     private function map($pr,$array=false): Purchase{
         if($array)
-            return new Purchase($pr['client_id'],$pr['book_id'],$pr['amount']);
+            return new Purchase($pr['client_id'],$pr['book_id'],$pr['amount'],$pr['quantity']);
         else
-            return new Purchase($pr->client_id,$pr->book_id,$pr->amount);
+            return new Purchase($pr->client_id,$pr->book_id,$pr->amount,$pr->quantity);
     }
 }

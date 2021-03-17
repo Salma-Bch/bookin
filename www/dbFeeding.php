@@ -22,7 +22,7 @@ include_once('./class/utility/Format.php');
         $bookId = str_pad(((int)$lineCsv[0]),8,0, STR_PAD_LEFT);
         $book = new Book($lineCsv[0], utf8_encode($lineCsv[1]), utf8_encode($lineCsv[2]),
             utf8_encode($lineCsv[3]), (int)$lineCsv[4], (float)$lineCsv[5],
-            (int)$lineCsv[6], "http://bookin.alwaysdata.net/ressources/bd/bookImages/".utf8_encode($lineCsv[10])."/".utf8_encode($lineCsv[7]),
+            "http://bookin.alwaysdata.net/ressources/bd/bookImages/".utf8_encode($lineCsv[10])."/".utf8_encode($lineCsv[7]),
             explode(",",utf8_encode($lineCsv[8])),utf8_encode($lineCsv[9]));
         $bookDao->create($book);
         $addedLine++;

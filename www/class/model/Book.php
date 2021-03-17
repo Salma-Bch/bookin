@@ -13,7 +13,6 @@ class Book {
     private String $ageRange;
     private int $numberPages;
     private float $price;
-    private int $quantity;
     private String $imagePath;
     private array $tags;
     private String $categoryName;
@@ -30,12 +29,11 @@ class Book {
      * @param String $ageRange
      * @param int $numberPages
      * @param float $price
-     * @param int $quantity
      * @param String $imagePath
      * @param array $tags
      * @param String $categoryName
      */
-    public function __construct(int $bookId, string $title, string $author, string $ageRange, int $numberPages, float $price, int $quantity, String $imagePath, array $tags, String $categoryName)
+    public function __construct(int $bookId, string $title, string $author, string $ageRange, int $numberPages, float $price, String $imagePath, array $tags, String $categoryName)
     {
         $this->bookId = $bookId;
         $this->title = $title;
@@ -43,7 +41,6 @@ class Book {
         $this->ageRange = $ageRange;
         $this->numberPages = $numberPages;
         $this->price = $price;
-        $this->quantity = $quantity;
         $this->imagePath = $imagePath;
         $this->tags = $tags;
         $this->categoryName = $categoryName;
@@ -57,7 +54,6 @@ class Book {
                 $this->ageRange,
                 $this->numberPages,
                 $this->price,
-                $this->quantity,
                 $this->imagePath,
                 implode(",",$this->tags),
                 $this->categoryName,
@@ -69,7 +65,6 @@ class Book {
                 $this->ageRange,
                 $this->numberPages,
                 $this->price,
-                $this->quantity,
                 $this->imagePath,
                 implode(",",$this->tags),
                 $this->categoryName);
@@ -197,22 +192,6 @@ class Book {
     public function setPrice(float $price): void
     {
         $this->price = $price;
-    }
-
-    /**
-     * @return int
-     */
-    public function getQuantity(): int
-    {
-        return $this->quantity;
-    }
-
-    /**
-     * @param int $quantity
-     */
-    public function setQuantity(int $quantity): void
-    {
-        $this->quantity = $quantity;
     }
 
     /**

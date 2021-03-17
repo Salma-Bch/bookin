@@ -16,6 +16,7 @@ class Purchase {
      * @param int $clientId
      * @param int $bookId
      * @param float $amount
+     * @param int $quantity
      */
     public function __construct(int $clientId, int $bookId, float $amount, int $quantity)
     {
@@ -40,8 +41,6 @@ class Purchase {
     {
         $this->quantity = $quantity;
     }
-
-
 
     /**
      * @return int
