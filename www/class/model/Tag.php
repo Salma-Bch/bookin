@@ -16,10 +16,10 @@ class Tag {
      * @param $tagName
      * @param int $bookId
      */
-    public function __construct(String $tagName, String $bookId)
+    public function __construct(String $tagName, String $booksId)
     {
         $this->tagName = $tagName;
-        $this->booksId = $bookId;
+        $this->booksId = $booksId;
     }
 
     public function toArray(){

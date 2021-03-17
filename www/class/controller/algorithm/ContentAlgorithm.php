@@ -104,7 +104,6 @@ class ContentAlgorithm {
         foreach ($tagsModel as $tag){
             if($tag != 0){
                 $tagFound = $tagDao->find(key($tagsModel),null);
-                //var_dump($tagFound);
                 if($tagFound != null)
                     $booksId.= ",".$tagFound[0]->getBooksId();
             }
@@ -113,7 +112,6 @@ class ContentAlgorithm {
 
         $booksId = substr($booksId,1);
         $booksId = explode(",", $booksId);
-        //var_dump($booksId);
         if($booksId[0] != "") {
             foreach ($booksId as $bookId) {
                 array_push($booksToReturn, $bookDao->find(Format::getFormatId(8, $bookId)));
