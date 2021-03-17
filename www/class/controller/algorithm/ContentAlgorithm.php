@@ -1,11 +1,14 @@
 <?php
+
 /**
- * \file      espacePaiement.php
- * \author    Salma BENCHELKHA - Mouncif LEKMITI - Enzo CERINI
- * \version   1.0
- * \date      8 janvier 2020
- * \brief     Affiche l'espace de paiement du site.
- * \details   Récapitulatif de la location (prix par jour, prix tatal, véhicule loué...).
+ * Class        ContentAlgorithm
+ * @File        ContentAlgorithm.php
+ * @package     controller
+ * @Author      Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
+ * @Version     3.0
+ * @Date        17/03/2021
+ * @Brief       Algorithme de suggestion de livres.
+ * @Details     Suggestion en fonction du contenu des livres achetés et aimés par l'utilisateur.
  */
 
 namespace controller;
@@ -16,17 +19,6 @@ use model\Tag;
 use utility\Format;
 use utility\Math;
 
-/**
-
- * Class        ContentAlgorithm
- * @File        ContentAlgorithm.php
- * @package     controller
- * @Author      Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
- * @Version     3.0
- * @Date        17/03/2021
- * @Brief       Algorithme de suggestion de livres
- * @Details     Suggestion en fonction du contenu des livres achetés et aimés par l'utilisateur
- */
 class ContentAlgorithm {
     /**
      * @var array
@@ -37,7 +29,7 @@ class ContentAlgorithm {
      */
     private ContentModel $contentModel;
 
-    /**
+     /**
      * ContentAlgorithm constructor.
      * @param array $books
      * @param Client $client
@@ -47,7 +39,7 @@ class ContentAlgorithm {
         $this->contentModel = new ContentModel($client);
     }
 
-    /**
+     /**
      * @return      array
      * @Brief       Retourne un tableau de livres
      * @Details     Retourne le tableau de livres obtenu par l'appel de la méthode tagBased
@@ -56,7 +48,7 @@ class ContentAlgorithm {
         return $this->tagBased($this->contentModel);
     }
 
-    /**
+     /**
      * @param       ContentModel $contentModel
      * @Brief       Retourne un tableau de livres en fonction de tags.
      * @Details     Cette méthode récupère le modèle de tag du client pour créer un tableau de livres.

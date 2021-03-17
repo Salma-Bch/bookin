@@ -40,8 +40,10 @@ use dao\DAOFactory;
 $daoFactory = DAOFactory::getInstance();
 $bookDao = $daoFactory->getBookDao();
 $books = $bookDao->getAll();
+
 $clientDao = $daoFactory->getClientDao();
 $client = $clientDao->find("m.lekmiti@hotmail.com", "1234");
+
 $contentAlgorithm = new \controller\ContentAlgorithm($books, $client);
 $contentModel = new \controller\ContentModel($client);
 $books = $contentAlgorithm->tagBased($contentModel);

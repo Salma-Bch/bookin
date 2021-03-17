@@ -1,12 +1,33 @@
 <?php
 
+/**
+
+ * Class        Suggestion
+ * @File        Suggestion.php
+ * @package     controller
+ * @Author      Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
+ * @Version     3.0
+ * @Date        17/03/2021
+ * @Brief       Algorithme de suggestion de livres
+ * @Details     Rassemble les 4 sous-algorithmes de suggestion dans un algorithme principal
+ */
 namespace controller;
 
 use dao\DAOFactory;
 use model\Client;
 
+/**
+ * Class Suggestion
+ * @package controller
+ */
 class Suggestion {
+    /**
+     * @var Client
+     */
     private Client $client;
+    /**
+     * @var array
+     */
     private array $books;
 
     /**
@@ -20,6 +41,11 @@ class Suggestion {
         $this->client = $clientDao->find("m.lekmiti@hotmail.com", "1234");
     }
 
+    /**
+     * @Brief       Récupère les livres retounés par les sous-algorithme.
+     * @Details     Cette méthode appelle les différents sous-algorithmes et retourne un tableau des livres sélectionnés.
+     * @return      array
+     */
     public function suggest():array{
         // $userAlgorithm = new UserAlgorithm($this->books, $this->client);
         $contentAlgorithm = new ContentAlgorithm($this->books, $this->client);
