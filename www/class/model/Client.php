@@ -5,6 +5,7 @@ namespace model;
 
 
 use DateTime;
+use utility\Format;
 
 class Client {
     private int $clientId;
@@ -45,7 +46,7 @@ class Client {
     }
 
     public function toArray(){
-        return array($this->clientId,
+        return array(Format::getFormatId(8,$this->clientId),
         $this->lastName,
         $this->firstName,
         $this->mail,

@@ -20,8 +20,7 @@ class Likes {
     }
 
     public function toArray(): array{
-        return array(str_pad(($this->bookId),2,0, STR_PAD_LEFT),
-            $this->clientId,
+        return array(str_pad(($this->clientId),8,0, STR_PAD_LEFT),
             $this->categoryName);
     }
 
