@@ -1,7 +1,6 @@
 <?php
 
 /**
-
  * Class        Suggestion
  * @File        Suggestion.php
  * @package     controller
@@ -37,8 +36,8 @@ class Suggestion {
     }
 
     /**
-     * @Brief       Récupère les livres retounés par les sous-algorithme.
-     * @Details     Cette méthode appelle les différents sous-algorithmes et retourne un tableau des livres sélectionnés.
+     * @Brief       Récupère les livres retounés par les sous-algorithmes.
+     * @Details     Cette méthode appelle les différents sous-algorithmes et retourne un tableau des livres suggérés.
      * @return      array
      */
     public function suggest():array{

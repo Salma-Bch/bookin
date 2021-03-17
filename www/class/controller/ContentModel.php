@@ -7,8 +7,8 @@
  * @Author      Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
  * @Version     3.0
  * @Date        17/03/2021
- * @Brief       Création d'un modèle de contenu du client
- * @Details     Cette classe créee des modèles pour la catégorie, la tranche d'âge, le prix, le nombre de pages, et les tags des livres aimés et achetés
+ * @Brief       Création d'un modèle de contenu du client.
+ * @Details     Cette classe créee des modèles pour la catégorie, la tranche d'âge, le prix, le nombre de pages, et les tags des livres aimés et achetés.
  */
 
 namespace controller;
@@ -31,8 +31,9 @@ class ContentModel {
 
     /**
      * @Brief       Retourne le modèle de catégorie d'un client.
-     * @Details     Cette méthode récupère la catégorie des livres achetés et aimés par un client et les rassemble dans un tableau.
-     *              Elle effectue un pourcentage avec le contenu du tableau et le retourne.
+     * @Details     Cette méthode récupère les catégories des livres achetés et aimés par un client et les rassemble dans un tableau.
+     *              Elle effectue un pourcentage pour chacune d'entre-elles puis retourne un tableau de
+     *              pourcentage avec pour clé le nom de la catégorie.
      * @return      array
      */
     public function getCategoryModel():array{
@@ -73,8 +74,9 @@ class ContentModel {
 
     /**
      * @Brief       Retourne le modèle de tranche d'âge d'un client.
-     * @Details     Cette méthode récupère la tranche d'âge des différents livres achetés et aimés, puis les rassemble dans un tableau.
-     *              Elle effectue un pourcentage avec le contenu du tableau et le retourne.
+     * @Details     Cette méthode récupère les tranches d'âge des livres achetés et aimés, puis les rassemble dans un tableau.
+     *              Elle effectue un pourcentage pour chacune d'entre-elles puis retourne un tableau de
+     *              pourcentage avec pour clé la tranche d'âge.
      * @return      array
      */
     public function getAgeRangeModel(){
@@ -92,7 +94,7 @@ class ContentModel {
             $ageRanges[$likedBook->getAgeRange()]++;
             $somme++;
         }
-
+        if($somme==0) $somme=1;
         // Fait un pourcentage avec le contenu du tableau.
         $ageRanges['Enfants'] /=$somme;
         $ageRanges['Adolescents'] /=$somme;
@@ -104,9 +106,8 @@ class ContentModel {
 
     /**
      * @Brief       Retourne le modèle de prix d'un client.
-     * @Details     Cette méthode récupère le prix des différents livres achetés et aimés, puis les rassemble dans un tableau.
-     *              Elle effectue la moyenne des prix de l'ensemble des livres sélectionnés et retourne dans le tableau les livres se rapprochant le plus des préférences
-     *              du client.
+     * @Details     Cette méthode récupère le prix des différents livres achetés et aimés par le client, puis les rassemble dans un tableau.
+     *              Elle effectue ensuite la moyenne de ses prix puis la retourne.
      * @return      float
      */
     public function getPriceModel():float{
@@ -131,9 +132,13 @@ class ContentModel {
     }
 
     /**
-     * @Brief       Retourne le modèle de nombre de pages d'un livre pour un client.
+     * @Brief       Retourne le modèle du nombre de pages des livres d'un client.
      * @Details     Cette méthode récupère le nombre de pages des différents livres achetés et aimés, puis les rassemble dans un tableau.
-     *              Elle effectue un pourcentage avec le contenu du tableau et retourne les livres ayant un nombre de pages similaires au préférence du client.
+     *              Elle effectue un pourcentage pour chacun d'entre-eux puis retourne un tableau de
+     *              pourcentage avec pour clé la taille d'un livre.
+     *              Court : Infèrieur ou égal à 100
+     *              Moyen : Compris entre 101 et 200
+     *              Long : Supérieur à 200
      * @return      array
      */
     public function getBookSizeModel():array{
@@ -151,6 +156,7 @@ class ContentModel {
             $booksSizes[$likedBooksSize]++;
             $somme++;
         }
+        if($somme==0) $somme=1;
 
         // Fait un pourcentage avec le contenu du tableau.
         $booksSizes['court'] /=$somme;
@@ -163,7 +169,8 @@ class ContentModel {
     /**
      * @Brief       Retourne le modèle de tag d'un client.
      * @Details     Cette méthode récupère les tags des différents livres achetés et aimés, puis les rassemble dans un tableau.
-     *              Elle effectue un pourcentage avec le contenu du tableau et le retourne.
+     *              Elle effectue un pourcentage pour chacun d'entre-eux puis retourne un tableau de
+     *              pourcentage avec pour clé le nom du tag.
      * @return      array
      */
     public function getTagsModel():array{
@@ -183,16 +190,15 @@ class ContentModel {
             $tagsToReturn[$tagName] = 0;
         }
 
-
         foreach($tags as $tag) {
             $tagsToReturn[$tag]++;
             $somme++ ;
         }
+        if($somme==0) $somme=1;
 
         foreach ($tagsName as $tagName){
             $tagsToReturn[$tagName] /= $somme;
         }
-        //var_dump($tagsToReturn);
         return $tagsToReturn;
     }
 

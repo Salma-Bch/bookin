@@ -1,7 +1,6 @@
 <?php
 
 /**
-
  * Class        UserModel
  * @File        UserModel.php
  * @package     controller

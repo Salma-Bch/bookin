@@ -37,7 +37,7 @@ class ContentAlgorithm {
      /**
      * @return      array
      * @Brief       Retourne un tableau de livres.
-     * @Details     Retourne le tableau de livres obtenu par l'appel de la méthode tagBased.
+     * @Details     Retourne le tableau de livres obtenu par l'appel de la méthode tagBased().
      */
     public function suggest():array{
         return $this->tagBased($this->contentModel);
@@ -47,7 +47,7 @@ class ContentAlgorithm {
      * @param       ContentModel $contentModel
      * @Brief       Retourne un tableau de livres en fonction des tags.
      * @Details     Cette méthode récupère le modèle de tag du client grâçe à la méthode getTagsModel().
-     *              Un tableau de livre est ensuite crée puis la méthode categoryBased() est appelé avec ce tableau.
+     *              Un tableau de livre est ensuite crée en fonction du modèle de tag puis la méthode categoryBased() est appelé avec celui-ci.
      *              Le tableau de livres est remplis à partir des livres présent dans la base de donnée.
      * @return      array
      */
@@ -85,7 +85,10 @@ class ContentAlgorithm {
      * @param       ContentModel $contentModel
      * @Brief       Retourne un tableau de livres en fonction des catégories.
      * @Details     Cette méthode récupère le modèle de catégories du client grâçe à la méthode getCategoryModel().
-     *              Un tableau de livre est ensuite crée puis la méthode ageRangeBased() est appelé avec ce tableau.
+     *              Le tableau de livre passé en paramètre est ensuite filtré en ne gardant que les livres dont la
+     *              catégorie respecte le model de catégorie.
+     *              La méthode ageRangeBased() est ensuite appelé avec ce nouveau tableau.
+     *              Puis, un tableau de livre récupéré à partir de la méthode précédente est retourné.
      * @return array
      */
     public function categoryBased(array $books, ContentModel $contentModel){
@@ -111,7 +114,10 @@ class ContentAlgorithm {
      * @param       ContentModel $contentModel
      * @Brief       Retourne un tableau de livres en fonction des tranches d'âge.
      * @Details     Cette méthode récupère le modèle de tranche d'âge du client grâçe à la méthode getAgeRangeModel().
-     *              Un tableau de livre est ensuite crée puis la méthode bookSizeBased() est appelé avec ce tableau.
+     *              Le tableau de livre passé en paramètre est ensuite filtré en ne gardant que les livres dont la
+     *              tranche d'âge respecte le model de tranche d'âge.
+     *              La méthode bookSizeBased() est ensuite appelé avec ce nouveau tableau.
+     *              Puis, un tableau de livre récupéré à partir de la méthode précédente est retourné.
      * @return array
      */
     public function ageRangeBased(array $books, ContentModel $contentModel){
@@ -135,9 +141,12 @@ class ContentAlgorithm {
     /**
      * @param       array $books
      * @param       ContentModel $contentModel
-     * @Brief       Retourne un tableau de livres en fonction du nombre de page des livres.
-     * @Details     Cette méthode récupère le modèle du nombre de pages des livres grâçe à la méthode getBookSizeModel().
-     *              Un tableau de livre est ensuite crée puis la méthode priceBased() est appelé avec ce tableau.
+     * @Brief       Retourne un tableau de livres en fonction du nombre de page des livres du client.
+     * @Details     Cette méthode récupère le modèle du nombre de page des livres grâçe à la méthode getBookSizeModel().
+     *              Le tableau de livre passé en paramètre est ensuite filtré en ne gardant que les livres dont le
+     *              nombre de page respecte le model du nombre de page.
+     *              La méthode priceBased() est ensuite appelé avec ce nouveau tableau.
+     *              Puis, un tableau de livre récupéré à partir de la méthode précédente est retourné.
      * @return array
      */
     public function bookSizeBased(array $books, ContentModel $contentModel){
@@ -162,9 +171,11 @@ class ContentAlgorithm {
      * @param       array $books
      * @param       int $selected
      * @param       ContentModel $contentModel
-     * @Brief       Retourne un tableau de livres en fonction du prix des livres.
+     * @Brief       Retourne un tableau de livres en fonction du prix des livres du client.
      * @Details     Cette méthode récupère le modèle de prix des livres grâçe à la méthode getPriceModel().
-     *              Un tableau de livre est ensuite crée puis retourné.
+     *              Le tableau de livre passé en paramètre est ensuite filtré en ne gardant que les livres dont le
+     *              prix respecte le model de prix.
+     *              Enfin, le tableau de livre filtré est retourné.
      * @return array
      */
     public function priceBased(array $books, int $selected, ContentModel $contentModel):array{
