@@ -175,7 +175,7 @@ class ContentModel {
         foreach ($tagsName as $tagName){
             $tagsToReturn[$tagName] /= $somme;
         }
-        var_dump($tagsToReturn);
+        //var_dump($tagsToReturn);
         return $tagsToReturn;
     }
 

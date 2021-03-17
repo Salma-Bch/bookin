@@ -4,6 +4,8 @@
 namespace model;
 
 
+use utility\Format;
+
 class Evaluates {
     private int $clientId;
     private int $bookId;
@@ -23,9 +25,9 @@ class Evaluates {
     }
 
     public function toArray(): array{
-        return array(str_pad(($this->bookId),3,0, STR_PAD_LEFT),
-            $this->clientId,
-            $this->bookId,
+        return array(
+            Format::getFormatId(8,$this->clientId),
+            Format::getFormatId(8,$this->bookId),
             $this->satisfied);
     }
 

@@ -1,5 +1,12 @@
 <?php
-
+/**
+ * \file      espacePaiement.php
+ * \author    Salma BENCHELKHA - Mouncif LEKMITI - Enzo CERINI
+ * \version   1.0
+ * \date      8 janvier 2020
+ * \brief     Affiche l'espace de paiement du site.
+ * \details   Récapitulatif de la location (prix par jour, prix tatal, véhicule loué...).
+ */
 
 namespace controller;
 
@@ -9,89 +16,53 @@ use model\Tag;
 use utility\Format;
 use utility\Math;
 
+/**
+
+ * Class        ContentAlgorithm
+ * @File        ContentAlgorithm.php
+ * @package     controller
+ * @Author      Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
+ * @Version     3.0
+ * @Date        17/03/2021
+ * @Brief       Algorithme de suggestion de livres
+ * @Details     Suggestion en fonction du contenu des livres achetés et aimés par l'utilisateur
+ */
 class ContentAlgorithm {
+    /**
+     * @var array
+     */
     private array $books;
+    /**
+     * @var ContentModel
+     */
     private ContentModel $contentModel;
 
+    /**
+     * ContentAlgorithm constructor.
+     * @param array $books
+     * @param Client $client
+     */
     public function __construct(array $books, Client $client) {
         $this->books = $books;
         $this->contentModel = new ContentModel($client);
     }
 
+    /**
+     * @return      array
+     * @Brief       Retourne un tableau de livres
+     * @Details     Retourne le tableau de livres obtenu par l'appel de la méthode tagBased
+     */
     public function suggest():array{
-        $books = $this->categoryBased($this->books, $this->contentModel);
-        return $books;
+        return $this->tagBased($this->contentModel);
     }
 
-    public function categoryBased(array $books, ContentModel $contentModel){
-        $booksReturned = array();
-        // Si la categorie est a 0% je ne met aucun livre de cette dernière
-        $categoryModel = $contentModel->getCategoryModel();
-
-        foreach ($categoryModel as $category){
-            if($category != 0){
-                foreach ($books as $book){
-                    if($book->getCategoryName() == key($categoryModel))
-                        array_push($booksReturned, $book);
-                }
-                next($categoryModel);
-            }
-        }
-        $booksReturned = array_merge($booksReturned, $this->ageRangeBased($booksReturned, $contentModel));
-        return $booksReturned;
-    }
-
-    public function ageRangeBased(array $books, ContentModel $contentModel){
-        $booksReturned = array();
-        // Si la tranche d'age est a 0% je ne met aucun livre de cette dernière
-        $ageRangeModel = $contentModel->getAgeRangeModel();
-
-        foreach ($ageRangeModel as $ageRange){
-            if($ageRange != 0){
-                foreach ($books as $book){
-                    if($book->getAgeRange() == key($ageRangeModel))
-                        array_push($booksReturned, $book);
-                }
-                next($ageRangeModel);
-            }
-        }
-        $booksReturned = array_merge($booksReturned, $this->bookSizeBased($booksReturned, $contentModel));
-        return $booksReturned;
-    }
-
-    public function bookSizeBased(array $books, ContentModel $contentModel){
-        $booksReturned = array();
-        // Si la tranche d'age est a 0% je ne met aucun livre de cette dernière
-        $bookSizeModel = $contentModel->getBookSizeModel();
-
-        foreach ($bookSizeModel as $bookSize){
-            if($bookSize != 0){
-                foreach ($books as $book){
-                    if($book->getBookSize() == key($bookSizeModel))
-                        array_push($booksReturned, $book);
-                }
-                next($bookSizeModel);
-            }
-        }
-        $booksReturned = array_merge($booksReturned, $this->priceBased($booksReturned, 5, $contentModel));
-        return $booksReturned;
-    }
-
-    public function priceBased(array $books,int $selected, ContentModel $contentModel):array{
-        $prices=array();
-        $booksReturned = array();
-        $priceModel = $contentModel->getPriceModel();
-        foreach ($books as $book){
-            array_push($prices, $book->getPrice());
-        }
-        $nearestPrices = Math::nearestFigure($priceModel, $prices, $selected);
-        foreach ($books as $book){
-            if(in_array($book->getPrice(), $nearestPrices))
-                array_push($booksReturned, $book);
-        }
-        return $booksReturned;
-    }
-
+    /**
+     * @param       ContentModel $contentModel
+     * @return      array
+     * @Brief       Retourne un tableau de livres en fonction des tags
+     * @Details     Cette méthode creer un tableau de livres en fonction du modele de tag du client,
+     *              appelle la méthode categoryBased avec le tableau creer puis retourne
+     */
     public function tagBased(ContentModel $contentModel){
         $daoFactory = DAOFactory::getInstance();
         $tagDao = $daoFactory->getTagDao();
@@ -117,7 +88,98 @@ class ContentAlgorithm {
                 array_push($booksToReturn, $bookDao->find(Format::getFormatId(8, $bookId)));
             }
         }
+        $booksToReturn = $this->categoryBased($this->books, $contentModel);
         return $booksToReturn;
+    }
+
+    /**
+     * @param array $books
+     * @param ContentModel $contentModel
+     * @return array
+     */
+    public function categoryBased(array $books, ContentModel $contentModel){
+        $booksReturned = array();
+        // Si la categorie est a 0% je ne met aucun livre de cette dernière
+        $categoryModel = $contentModel->getCategoryModel();
+
+        foreach ($categoryModel as $category){
+            if($category != 0){
+                foreach ($books as $book){
+                    if($book->getCategoryName() == key($categoryModel))
+                        array_push($booksReturned, $book);
+                }
+                next($categoryModel);
+            }
+        }
+        $booksReturned = $this->ageRangeBased($booksReturned, $contentModel);
+        return $booksReturned;
+    }
+
+    /**
+     * @param array $books
+     * @param ContentModel $contentModel
+     * @return array
+     */
+    public function ageRangeBased(array $books, ContentModel $contentModel){
+        $booksReturned = array();
+        // Si la tranche d'age est a 0% je ne met aucun livre de cette dernière
+        $ageRangeModel = $contentModel->getAgeRangeModel();
+
+        foreach ($ageRangeModel as $ageRange){
+            if($ageRange != 0){
+                foreach ($books as $book){
+                    if($book->getAgeRange() == key($ageRangeModel))
+                        array_push($booksReturned, $book);
+                }
+                next($ageRangeModel);
+            }
+        }
+        $booksReturned =  $this->bookSizeBased($booksReturned, $contentModel);
+        return $booksReturned;
+    }
+
+    /**
+     * @param array $books
+     * @param ContentModel $contentModel
+     * @return array
+     */
+    public function bookSizeBased(array $books, ContentModel $contentModel){
+        $booksReturned = array();
+        // Si la tranche d'age est a 0% je ne met aucun livre de cette dernière
+        $bookSizeModel = $contentModel->getBookSizeModel();
+
+        foreach ($bookSizeModel as $bookSize){
+            if($bookSize != 0){
+                foreach ($books as $book){
+                    if($book->getBookSize() == key($bookSizeModel))
+                        array_push($booksReturned, $book);
+                }
+                next($bookSizeModel);
+            }
+        }
+        $booksReturned =  $this->priceBased($booksReturned, 5, $contentModel);
+        return $booksReturned;
+    }
+
+    /**
+     * @param array $books
+     * @param int $selected
+     * @param ContentModel $contentModel
+     * @return array
+     */
+    public function priceBased(array $books, int $selected, ContentModel $contentModel):array{
+        $prices=array();
+        $booksReturned = array();
+        $priceModel = $contentModel->getPriceModel();
+        foreach ($books as $book){
+            array_push($prices, $book->getPrice());
+        }
+        $nearestPrices = Math::nearestFigure($priceModel, $prices, $selected);
+        foreach ($books as $book){
+            if(in_array($book->getPrice(), $nearestPrices))
+                array_push($booksReturned, $book);
+        }
+        return $booksReturned;
     }
 
 }

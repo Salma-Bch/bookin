@@ -4,6 +4,8 @@
 namespace model;
 
 
+use utility\Format;
+
 class Purchase {
 
     private int $clientId;
@@ -24,6 +26,15 @@ class Purchase {
         $this->bookId = $bookId;
         $this->amount = $amount;
         $this->quantity = $quantity;
+    }
+
+    public function toArray(){
+        return array(
+            Format::getFormatId(8,$this->clientId),
+            Format::getFormatId(8,$this->bookId),
+            $this->amount,
+            $this->quantity,
+        );
     }
 
     /**
