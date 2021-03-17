@@ -21,13 +21,8 @@ use model\Client;
  * @package controller
  */
 class Suggestion {
-    /**
-     * @var Client
-     */
+
     private Client $client;
-    /**
-     * @var array
-     */
     private array $books;
 
     /**
@@ -56,8 +51,6 @@ class Suggestion {
         $booksToDisplay = array_merge($booksToDisplay, $randomAlgorithm->suggest(2));
         $booksToDisplay = array_merge($booksToDisplay, $contentAlgorithm->suggest());
 
-        //$booksToDisplay = array_unique($booksToDisplay);
-        //var_dump($booksToDisplay);
         return $booksToDisplay;
     }
 

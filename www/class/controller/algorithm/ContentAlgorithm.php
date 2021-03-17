@@ -20,13 +20,8 @@ use utility\Format;
 use utility\Math;
 
 class ContentAlgorithm {
-    /**
-     * @var array
-     */
+
     private array $books;
-    /**
-     * @var ContentModel
-     */
     private ContentModel $contentModel;
 
      /**
@@ -41,8 +36,8 @@ class ContentAlgorithm {
 
      /**
      * @return      array
-     * @Brief       Retourne un tableau de livres
-     * @Details     Retourne le tableau de livres obtenu par l'appel de la méthode tagBased
+     * @Brief       Retourne un tableau de livres.
+     * @Details     Retourne le tableau de livres obtenu par l'appel de la méthode tagBased.
      */
     public function suggest():array{
         return $this->tagBased($this->contentModel);
@@ -50,9 +45,9 @@ class ContentAlgorithm {
 
      /**
      * @param       ContentModel $contentModel
-     * @Brief       Retourne un tableau de livres en fonction de tags.
-     * @Details     Cette méthode récupère le modèle de tag du client pour créer un tableau de livres.
-     *              La méthode categoryBased est ensuite appelé avec le tableau créé et un nouveau tableau de livres est retourné.
+     * @Brief       Retourne un tableau de livres en fonction des tags.
+     * @Details     Cette méthode récupère le modèle de tag du client grâçe à la méthode getTagsModel().
+     *              Un tableau de livre est ensuite crée puis la méthode categoryBased() est appelé avec ce tableau.
      *              Le tableau de livres est remplis à partir des livres présent dans la base de donnée.
      * @return      array
      */
@@ -86,8 +81,11 @@ class ContentAlgorithm {
     }
 
     /**
-     * @param array $books
-     * @param ContentModel $contentModel
+     * @param       array $books
+     * @param       ContentModel $contentModel
+     * @Brief       Retourne un tableau de livres en fonction des catégories.
+     * @Details     Cette méthode récupère le modèle de catégories du client grâçe à la méthode getCategoryModel().
+     *              Un tableau de livre est ensuite crée puis la méthode ageRangeBased() est appelé avec ce tableau.
      * @return array
      */
     public function categoryBased(array $books, ContentModel $contentModel){
@@ -109,8 +107,11 @@ class ContentAlgorithm {
     }
 
     /**
-     * @param array $books
-     * @param ContentModel $contentModel
+     * @param       array $books
+     * @param       ContentModel $contentModel
+     * @Brief       Retourne un tableau de livres en fonction des tranches d'âge.
+     * @Details     Cette méthode récupère le modèle de tranche d'âge du client grâçe à la méthode getAgeRangeModel().
+     *              Un tableau de livre est ensuite crée puis la méthode bookSizeBased() est appelé avec ce tableau.
      * @return array
      */
     public function ageRangeBased(array $books, ContentModel $contentModel){
@@ -132,8 +133,11 @@ class ContentAlgorithm {
     }
 
     /**
-     * @param array $books
-     * @param ContentModel $contentModel
+     * @param       array $books
+     * @param       ContentModel $contentModel
+     * @Brief       Retourne un tableau de livres en fonction du nombre de page des livres.
+     * @Details     Cette méthode récupère le modèle du nombre de pages des livres grâçe à la méthode getBookSizeModel().
+     *              Un tableau de livre est ensuite crée puis la méthode priceBased() est appelé avec ce tableau.
      * @return array
      */
     public function bookSizeBased(array $books, ContentModel $contentModel){
@@ -155,9 +159,12 @@ class ContentAlgorithm {
     }
 
     /**
-     * @param array $books
-     * @param int $selected
-     * @param ContentModel $contentModel
+     * @param       array $books
+     * @param       int $selected
+     * @param       ContentModel $contentModel
+     * @Brief       Retourne un tableau de livres en fonction du prix des livres.
+     * @Details     Cette méthode récupère le modèle de prix des livres grâçe à la méthode getPriceModel().
+     *              Un tableau de livre est ensuite crée puis retourné.
      * @return array
      */
     public function priceBased(array $books, int $selected, ContentModel $contentModel):array{
