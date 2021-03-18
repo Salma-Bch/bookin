@@ -28,12 +28,8 @@
             <div class="col-md-12">
                 <div class="row">
                     <?php include("./include/searchFilters.php");?>
-                    <?php //include("./include/displayedBook.php");?>
+                    <?php include ("./include/displayAllBooks.php");?>
                 </div>
-                <?php
-                    $numbers = \utility\Math::nearestFigure(8,array(9,11,5,7,5,19,-3),3);
-                   // var_dump($numbers);
-                ?>
             </div>
         </div>
         <?php

@@ -40,11 +40,13 @@ include_once("include/includeFiles.php");
                     if(isset($_SESSION['bookinClient']))
                         include_once ("./include/displayedBook.php");
                     else
+                        include_once ("./include/displayBooksTendance.php");
                         echo '
                         <div class="col-md-12">
                             <h2>Connectez-vous !</h2>
                             <p>Connectez-vous pour une suggestion de livre adaptez à vos envies.</p>
                         </div>';
+
                 ?>
             </div>
 
