@@ -52,111 +52,18 @@
             <p>Bienvenue dans ton espace personnel. Tu trouvera ici toute les informations te concernant. </p>
         </div>
         <div class="container">
-            <table class="table table-dark">
-                <tbody>
-                    <tr>
-                        <td><b>Nom :</b> <?php echo $client->getLastName() ?></td>
-                        <td><b>Prénom :</b> <?php echo $client->getFirstName() ?></td>
-                    </tr>
-                    <tr>
-                        <td><b>Adresse mail :</b> <?php echo $client->getMail();?></td>
-                        <td><b>Id :</b> <?php echo Format::getFormatId(8,$client->getClientId())?></td>
-                    </tr>
-                    <tr>
-                        <td><b>Profession : </b><?php echo $client->getProfession();?></td>
-                        <td><b>Sexe :</b> <?php echo $client->getSex();?></td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table table-dark">
-                <tbody>
-                    <tr>
-                        <td><b>Catégories aimés :</b>
-                            <?php
-                                $i=0;
-                                while($i < count($likes)) {
-                                    echo $likes[$i]->getCategoryName().' ';
-                                    $i++;
-                                }
-                           ?>
-                        </td>
-                        <td><b>Tags aimés :</b>
-                            <?php
-                            $tags = $client->getTags();
-                            $i=0;
-                            while($i < count($tags)) {
-                                echo $tags[$i].' ';
-                                $i++;
-                            }
-                            ?>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table table-dark">
-                <tbody>
-                    <tr>
-                        <th><b>Livres achetés :</b></th>
-                        <th><b>Livres aimés :</b></th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <?php
-                            $i=0;
-                            echo '<div class="col-md-11 firstBooksDiv">';
-                            while($i < count($buys)) {
-                                $bookDisplayed = $booksDao->find(Format::getFormatId(8,$buys[$i]->getBookId()));
-                                echo '<div class="col-md-12 secondBooksDiv">';
-
-                                echo '<div class="col-md-8">';
-                                    echo '<p style="font-weight: bold;font-size:20px">'.$bookDisplayed->getCategoryName().'</p>';
-                                    echo '<p>'.$bookDisplayed->getTitle().'</p>';
-                                    echo '<p>'.$bookDisplayed->getAuthor().'</p>';
-                                    echo '<p>Prix : '.$bookDisplayed->getPrice().'€</p>';
-                                echo '</div>';
-                                echo '<div class="col-md-3">';
-                                    echo '<img class="buysBooksDipslayedClientSpace" src="'.$bookDisplayed->getImagePath().'"  alt="..."/>';
-                                echo '</div>';
-                                echo '<div class="col-md-1">';
-                                    echo '<a href="index.php"><img class="likeAndDislike" src="ressources/images/like.png"  alt="..."/></a>';
-                                    echo '<a href="index.php"><img class="likeAndDislike" src="ressources/images/dislike.png"  alt="..."/></a>';
-                                echo '</div>';
-                                $i++;
-                                echo '</div>';
-                            }
-                            echo '</div>';
-                            ?>
-                        </td>
-                        <td>
-                            <?php
-                                $i=0;
-                                echo '<div class="col-md-12" style="border-left:solid">';
-
-                                while($i < count($evaluates)) {
-                                    $bookDisplayed = $booksDao->find(Format::getFormatId(8,$evaluates[$i]->getBookId()));
-                                    echo '<div class="col-md-12 secondBooksDiv">';
-
-                                    echo '<div class="col-md-8">';
-                                    echo '<p style="font-weight: bold;font-size:20px">'.$bookDisplayed->getCategoryName().'</p>';
-                                    echo '<p>'.$bookDisplayed->getTitle().'</p>';
-                                    echo '<p>'.$bookDisplayed->getAuthor().'</p>';
-                                    echo '<p>Prix : '.$bookDisplayed->getPrice().'€</p>';
-                                    echo '</div>';
-                                    echo '<div class="col-md-3">';
-                                    echo '<img class="buysBooksDipslayedClientSpace" src="'.$bookDisplayed->getImagePath().'"  alt="..."/>';
-                                    echo '</div>';
-                                    echo '<div class="col-md-1">';
-                                    echo '<a href="index.php"><img class="likeAndDislike" src="ressources/images/croix.png"  alt="..."/></a>';
-                                    echo '</div>';
-                                    $i++;
-                                    echo '</div>';
-                                }
-                                echo '</div>';
-                            ?>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <?php
+                include("./include/clientInformationsTable.php");
+            ?>
+            <?php
+                include("./include/likedCategoriesAndTagsTable.php");
+            ?>
+            <?php
+                include("./include/buysBooksTable.php");
+            ?>
+            <?php
+                include ("./include/likedBooksTable.php");
+            ?>
             <div class="col-sm-6 col-xs-12">
                 <input type="submit" class="btn modifEtDeco" id="modifButton" name="submit" value="Modifier mes informations" onclick="showModifInfosForm()" />
             </div>
