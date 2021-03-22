@@ -16,7 +16,7 @@ include_once('./class/dao/exception/DAOException.php');
     echo '<div class="col-md-9" id="bookSearched" style="background-color: #d6d6d6">';
     foreach ($books as $book) {
         echo '<div class="col-md-4 livres">' .
-            '<p>Titre : '.$book->getTitle().'</p>' .
+            '<p><b>'.$book->getTitle().'</b></p>' .
             '<img src="'.$book->getImagePath().'"  style="width: 140px;height: 190px;">' .
             '<p>'.$book->getPrice().'€</p>' .
             '</div>';
