@@ -51,7 +51,7 @@
             <h2 id="titleName">Bonjour <?php echo $client->getFirstName()." ".$client->getLastName() ?></h2>
             <p>Bienvenue dans ton espace personnel. Tu trouvera ici toute les informations te concernant. </p>
         </div>
-        <div class="container">
+        <div class="container clientSpaceTable">
             <?php
                 include("./include/clientInformationsTable.php");
             ?>

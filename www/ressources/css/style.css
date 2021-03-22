@@ -334,7 +334,6 @@ footer a:hover {
 	margin-top: 10px;
 	margin-bottom: 20px;
 	padding-bottom: 10px;
-	border-right: solid;
 }
 
 .booksDiv2 {
@@ -344,7 +343,13 @@ footer a:hover {
 	padding-bottom: 10px;
 	border-left: solid;
 }
+
 .categoryAndTagButton {
 	width: 85px ;
 	margin: 15px ;
+}
+
+.clientSpaceTable table {
+	color: white;
+	background-color: #333333;
 }

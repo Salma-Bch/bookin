@@ -1,7 +1,7 @@
 <?php
     use utility\Format;
 ?>
-<table class="table table-dark">
+<table class="table">
     <tbody>
     <tr>
         <td><b>Nom :</b> <?php echo $client->getLastName() ?></td>

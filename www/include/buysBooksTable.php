@@ -1,7 +1,7 @@
 <?php
     use utility\Format;
 ?>
-<table class="table table-dark">
+<table class="table">
     <tbody>
     <tr><th><b>Livres achetés :</b></th></tr>
     <tr><td>

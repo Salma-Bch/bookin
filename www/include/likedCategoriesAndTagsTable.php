@@ -1,4 +1,4 @@
-<table class="table table-dark">
+<table class="table">
     <tbody>
     <tr>
         <th><b>Catégories aimés :</b></th>
