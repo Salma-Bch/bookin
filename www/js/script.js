@@ -21,9 +21,16 @@ function displaySuccessCreat(){
     document.getElementById("modifCheckedIcon").setAttribute("fill", "green") ;
     document.getElementById("modifCheckedIcon").setAttribute("display", "inline-block");
     var myModal = new bootstrap.Modal(document.getElementById('dialogModal'));
-    /*myModal.addEventListener('hide.bs.modal', function (event) {
-        window.location.assign("./clientSpace.php");
-    }) */
+    myModal.show();
+}
+
+function addCategory() {
+    var myModal = new bootstrap.Modal(document.getElementById('dialogModal'));
+    myModal.show();
+}
+
+function addTag() {
+    var myModal = new bootstrap.Modal(document.getElementById('dialogModal'));
     myModal.show();
 }
 
@@ -218,7 +225,6 @@ function createCompte(idForm) {
     var send = true;
     for(var i=0; i<inputs.length; i++){
         if(!validInput(inputs[i])){
-            alert("remplir tout les champs");
             send = false;
         }
     }

@@ -344,9 +344,10 @@ footer a:hover {
 	border-left: solid;
 }
 
-.categoryAndTagButton {
-	width: 85px ;
-	margin: 15px ;
+.categoryAndTag {
+	text-align: center;
+	margin-bottom: 10px;
+	margin-top: 8px;
 }
 
 .clientSpaceTable table {
