@@ -133,10 +133,12 @@
 
                     <div id="thirdPart" style="display: none">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div>
                                 <h3>Quelles catégories aimez-vous ?</h3>
                                 <?php include("./include/categoriesInput.php"); ?>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="form-group col-md-6 partButton">
                                 <button class='btn btn-lg btn-danger btn-block btn-signin' name="submit"  onclick="previousForm('secondPart','thirdPart')">Retour</button>
                             </div>
@@ -148,14 +150,17 @@
 
                     <div id="fourthPart" style="display: none">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div>
                                 <h3>Apprenons à vous connaître !</h3>
+                                <p>Choisissez les mots-clefs qui vous intéressent.</p>
                                 <?php include("./include/tagsInput.php"); ?>
                             </div>
-                            <div class="form-group col-md-6 partButton">
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-6 col-xs-6 partButton">
                                 <button class='btn btn-lg btn-danger btn-block btn-signin' name="submit"  onclick="previousForm('thirdPart','fourthPart')">Retour</button>
                             </div>
-                            <div class="form-group col-md-6 partButton">
+                            <div class="form-group col-sm-6 col-xs-6 partButton">
                                 <button class='btn btn-lg btn-danger btn-block btn-signin' name="submit"  onclick="createCompte('compteInfo')">Creer mon compte</button>
                             </div>
                         </div>
