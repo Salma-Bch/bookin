@@ -24,7 +24,7 @@
                         $i++;
                     }
                 ?>
-                <button class="col-md-12 categoryAndTagButton" onclick="addCategory()"><b>+</b></button>
+                <button class="col-md-12 categoryAndTagButton" onclick="addTag()"><b>+</b></button>
             </td>
         </tr>
     </tbody>

@@ -1,11 +1,11 @@
-<div class="modal" id="dialogModal" tabindex = "-1">
+<div class="modal" id="dialogCategoryModal" tabindex = "-1">
     <div class = "modal-dialog">
         <div class = "modal-content">
             <div class = "modal-header">
                 <h3 class="modal-title">Ajouter des catégories.</h3>
             </div>
             <div class ="modal-body">
-                <div class="btn-group choix_categorie" role="group" aria-label="Basic checkbox toggle button group">
+                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
                     <?php
                         use dao\DAOFactory;
                         use utility\Format;
@@ -26,12 +26,12 @@
 
                                 if(in_array(utf8_encode($lineCsv[0]), $likedCategoriesName)) {
                                     echo "<input type='checkbox' class='btn-check category_input' value ='" . utf8_encode($lineCsv[0]) . "' name='category[" . $i . "]' id='" . str_replace(' ', '-', strtolower(utf8_encode($lineCsv[0]))) . "' checked />";
-                                    echo "<label class='btn btn-outline-secondary' for='" . str_replace(' ', '-', strtolower(utf8_encode($lineCsv[0]))) . "'>" . utf8_encode($lineCsv[0]) . "</label>";
+                                    echo "<label class='btn btn-outline-secondary col-md-6' for='" . str_replace(' ', '-', strtolower(utf8_encode($lineCsv[0]))) . "'>" . utf8_encode($lineCsv[0]) . "</label>";
                                     $i++;
                                 }
                                 else {
                                     echo "<input type='checkbox' class='btn-check category_input' value ='" . utf8_encode($lineCsv[0]) . "' name='category[" . $i . "]' id='" . str_replace(' ', '-', strtolower(utf8_encode($lineCsv[0]))) . "' />";
-                                    echo "<label class='btn btn-outline-secondary' for='" . str_replace(' ', '-', strtolower(utf8_encode($lineCsv[0]))) . "'>" . utf8_encode($lineCsv[0]) . "</label>";
+                                    echo "<label class='btn btn-outline-secondary col-md-6' for='" . str_replace(' ', '-', strtolower(utf8_encode($lineCsv[0]))) . "'>" . utf8_encode($lineCsv[0]) . "</label>";
                                     $i++;
                                 }
 

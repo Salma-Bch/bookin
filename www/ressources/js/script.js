@@ -25,12 +25,12 @@ function displaySuccessCreat(){
 }
 
 function addCategory() {
-    var myModal = new bootstrap.Modal(document.getElementById('dialogModal'));
+    var myModal = new bootstrap.Modal(document.getElementById('dialogCategoryModal'));
     myModal.show();
 }
 
 function addTag() {
-    var myModal = new bootstrap.Modal(document.getElementById('dialogModal'));
+    var myModal = new bootstrap.Modal(document.getElementById('dialogTagModal'));
     myModal.show();
 }
 

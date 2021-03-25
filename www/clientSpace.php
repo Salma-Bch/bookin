@@ -76,6 +76,7 @@
         <?php
             include("include/footer.php");
             include("include/categoryModal.php");
+            include("include/tagModal.php");
         ?>
     </body>
 </html>
