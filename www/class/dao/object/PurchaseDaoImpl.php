@@ -12,6 +12,7 @@ use utility\Format;
 
 class PurchaseDaoImpl implements PurchaseDao {
     private const SQL_SELECT_PURCHASES_BY_CLIENT_ID = "SELECT client_id, book_id, amount, quantity FROM buys WHERE client_id=?";
+    private const SQL_SELECT_PURCHASES_BY_CLIENT_ID_AND_BOOK_ID = "SELECT client_id, book_id, amount, quantity FROM buys WHERE client_id=? AND book_id=?";
     private const SQL_SELECT_MOST_PURCHASED_BOOK = "SELECT * FROM buys GROUP BY book_id ORDER BY COUNT(*) DESC";
     private const SQL_INSERT = "INSERT INTO buys (client_id, book_id, amount, quantity) VALUES (?, ?, ?,?)";
     private const SQL_UPDATE ="UPDATE buys SET client_id=?, book_id=?, amount=?, quantity=? WHERE client_id=?";
@@ -24,6 +25,25 @@ class PurchaseDaoImpl implements PurchaseDao {
     public function __construct(DAOFactory $daoFactory)
     {
         $this->daoFactory = $daoFactory;
+    }
+
+    public function find($clientId, $bookId){
+        $purchase = null;
+        try{
+            $connection = $this->daoFactory->getConnection();
+            $preparedStatement = DAOUtility::initPreparedStatement($connection, self::SQL_SELECT_PURCHASES_BY_CLIENT_ID_AND_BOOK_ID);
+            $status = $preparedStatement->execute( array(Format::getFormatId(8,$clientId), Format::getFormatId(8,$bookId)) );
+            if($status) {
+                $dbPurchase = $preparedStatement->fetchAll();
+                $purchase = $this->map($dbPurchase,true);
+            }
+        } catch (\Exception $e){
+            echo $e;
+            throw new DAOException($e);
+        } finally {
+            DAOUtility::close($preparedStatement, $connection);
+        }
+        return $purchase;
     }
 
     function create(Purchase $purchase): bool

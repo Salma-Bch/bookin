@@ -8,8 +8,9 @@
      * \details   L'utilisateur peut effectuer des achats de livre.
      */
 
-    use dao\DAOFactory;
-    use utility\Format;
+use dao\DAOFactory;
+use model\Purchase;
+use utility\Format;
 
     include_once("./include/includeFiles.php");
 
@@ -55,6 +56,22 @@
                     <p><b>Tranche d'âge : <?php echo $book->getAgeRange(); ?></b></p>
                     <p><b>Prix : <?php echo $book->getPrice(); ?>€</b></p>
                 </div>
+                <?php
+                    //Regarde si ya deja un livre acheter pour CE client
+                    $purchaseDao = $daoFactory->getPurchaseDao();
+                    $purchase = $purchaseDao->find($client->getClientId(), $book->getBookId());
+
+                    //Si deja acheté, incrémenté quantité et incrémenté le montant du prix du livre (update)
+                    if(isset($purchase)){
+                        $purchase->setQuantity($purchase->getQuantity()+1);
+                        $purchase->setAmount($purchase->getAmount() + $book->getPrice());
+                        $purchaseDao->update($purchase);
+                    }
+
+                    //Si jamais acheté, créée un achat avec le montant = prix du livre et quantité = 1 (CREATE)
+                    $purchase = new Purchase($client->getClientId(),$book->getBookId(), $book->getPrice(),1);
+
+                ?>
                 <div class="col-md-6">
                     <input type="submit" class="btn modifEtDeco" id="modifButton" name="submit" value="Retour" onclick="searchSpace.php" />
                 </div>
