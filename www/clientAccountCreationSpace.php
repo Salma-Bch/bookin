@@ -92,7 +92,6 @@
                                 </div>
                             </div>
                         </div>
-                        <script src="./js/script.js" ></script>
                         <div class="form-group col-md-6">
                             <button class='btn btn-lg btn-danger btn-block btn-signin' name="submit"  onclick="nextForm('firstPart','secondPart')">Suivant</button>
                         </div>

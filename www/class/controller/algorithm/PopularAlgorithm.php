@@ -29,21 +29,31 @@ class PopularAlgorithm {
      * @return      array
      * @Brief       Retourne un tableau des livres les plus populaire.
      * @Details     Cette méthode récupère les livres les plus achetés à l'aide de la méthode getMostPurchasedBooks().
-     *              Les id de chaque livre sont ensuite récupérés afin de trouver le livre correspondant avec la méthode find().
+     *              Les id de chaque livre sont ensuite récupérés afin de trouver le livre correspondant grâce à la méthode find().
      *              Ces livres sont ensuite placer dans un tableau qui sera retourné.
      */
     public function suggest(int $nbrOfBooks=null):array {
         $daoFactory = DAOFactory::getInstance();
         $purchasesDao = $daoFactory->getPurchaseDao();
+        $evaluatesDao = $daoFactory->getEvaluatesDao();
         $bookDao = $daoFactory->getBookDao();
-        if(isset($nbrOfBooks))
-            $mostPurchasedBooks = $purchasesDao->getMostPurchasedBooks($nbrOfBooks);
-        else
-            $mostPurchasedBooks = $purchasesDao->getMostPurchasedBooks();
+        $nbrOfBestRatedBooks = intdiv($nbrOfBooks, 2);
+        if(isset($nbrOfBooks)) {
+            $mostPurchasedBooksId = $purchasesDao->getMostPurchasedBooks($nbrOfBooks - $nbrOfBestRatedBooks);
+            $bestRatedBooksId = $evaluatesDao->getBestRated($nbrOfBestRatedBooks, $mostPurchasedBooksId);
+        }
+        else {
+            $mostPurchasedBooksId = $purchasesDao->getMostPurchasedBooks();
+            $bestRatedBooksId = $evaluatesDao->getBestRated(3);
+        }
 
         $books = array();
-        foreach ($mostPurchasedBooks as $purchasedBook){
-            $book = $bookDao->find(Format::getFormatId(8,$purchasedBook->getBookId()));
+        foreach ($mostPurchasedBooksId as $purchasedBook){
+            $book = $bookDao->find(Format::getFormatId(8,$purchasedBook));
+            array_push($books, $book);
+        }
+        foreach ($bestRatedBooksId as $ratedBook){
+            $book = $bookDao->find(Format::getFormatId(8,$ratedBook));
             array_push($books, $book);
         }
         return $books;

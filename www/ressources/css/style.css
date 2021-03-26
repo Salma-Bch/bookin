@@ -308,10 +308,6 @@ footer a:hover {
 	border: 1px solid black;
 }
 
-.choix_categorie label {
-	width : 200px ;
-}
-
 .partButton {
 	margin-top: 20px;
 }
@@ -344,12 +340,18 @@ footer a:hover {
 	border-left: solid;
 }
 
-.categoryAndTagButton {
-	width: 85px ;
-	margin: 15px ;
+.categoryAndTag {
+	text-align: center;
+	margin-bottom: 10px;
+	margin-top: 8px;
 }
 
 .clientSpaceTable table {
 	color: white;
 	background-color: #333333;
+}
+
+.modal-xl {
+	width: 90%;
+	max-width:1200px;
 }

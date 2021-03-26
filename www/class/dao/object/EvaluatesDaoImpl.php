@@ -15,12 +15,44 @@ class EvaluatesDaoImpl implements EvaluatesDao
     private const SQL_SELECT_BY_CLIENT_ID = "SELECT client_id, book_id, satisfied FROM evaluates WHERE client_id = ?";
     private const SQL_SELECT_BY_BOOK_ID_AND_CLIENT_ID = "SELECT client_id, book_id, satisfied FROM evaluates WHERE book_id = ? AND client_id=?";
     private const SQL_SELECT_ALL = "SELECT client_id, book_id, satisfied FROM evaluates";
+    private const SQL_SELECT_ALL_LIMIT = "SELECT book_id, satisfied, COUNT(*) FROM evaluates WHERE satisfied=1 GROUP BY book_id, satisfied ORDER BY COUNT(*) DESC";
+    private const SQL_SELECT_EXCEPT_LIMIT = "SELECT book_id, satisfied, COUNT(*) FROM evaluates WHERE satisfied=1 AND book_id NOT IN (arrayIn) GROUP BY book_id, satisfied ORDER BY COUNT(*) DESC";
     private const SQL_INSERT = "INSERT INTO evaluates (client_id, book_id, satisfied) VALUES (?, ?, ?)";
     private const SQL_UPDATE = "UPDATE evaluates SET client_id=?, book_id=?, satisfied=? WHERE client_id=?";
+
 
     private DAOFactory $daoFactory;
 
     public function __construct(DAOFactory $daoFactory) { $this->daoFactory = $daoFactory; }
+
+    public function getBestRated(int $nbrOfBooks, array $except=null){
+        $parameters = $except;
+        $request = self::SQL_SELECT_ALL_LIMIT;
+        if(isset($except)){
+            $request = self::SQL_SELECT_EXCEPT_LIMIT;
+            $in = str_repeat("?,",count($except)-1)."?";
+            $request = str_replace("arrayIn",$in,$request);
+        }
+        $request .=" LIMIT ".$nbrOfBooks;
+
+        $booksId = array();
+        try{
+            $connection = $this->daoFactory->getConnection();
+            $preparedStatement = DAOUtility::initPreparedStatement($connection, $request);
+            $status = $preparedStatement->execute($parameters);
+            if($status){
+                $evaluatesReturned = $preparedStatement->fetchAll();
+                foreach ($evaluatesReturned as $evaluates) {
+                    array_push($booksId, $evaluates['book_id']);
+                }
+            }
+        } catch (\Exception $e){
+            throw new DAOException($e);
+        } finally {
+            DAOUtility::close($preparedStatement, $connection);
+        }
+        return $booksId;
+    }
 
     public function find(String $bookId=null, String $clientId=null): array {
         $parameters = array();

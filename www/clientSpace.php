@@ -65,7 +65,7 @@
                 include ("./include/likedBooksTable.php");
             ?>
             <div class="col-sm-6 col-xs-12">
-                <input type="submit" class="btn modifEtDeco" id="modifButton" name="submit" value="Modifier mes informations" onclick="showModifInfosForm()" />
+                <input type="submit" class="btn modifEtDeco" id="modifButton" name="submit" value="Modifier mes informations" />
             </div>
             <div class="col-sm-6 col-xs-12">
                 <form action="include/logout.php" method="POST">
@@ -75,7 +75,8 @@
         </div>
         <?php
             include("include/footer.php");
+            include("include/categoryModal.php");
+            include("include/tagModal.php");
         ?>
-
     </body>
 </html>
