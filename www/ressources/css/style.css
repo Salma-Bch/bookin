@@ -260,6 +260,12 @@ footer a:hover {
 	padding-bottom: 3%;
 	padding-top: 3%;
 	border-bottom: 0.1em solid;
+	text-decoration: none;
+}
+
+.livres hover{
+	text-decoration: none;
+
 }
 
 .affichage_prix_inferieur {

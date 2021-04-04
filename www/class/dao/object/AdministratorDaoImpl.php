@@ -7,51 +7,60 @@ use dao\DAOUtility;
 use dao\exception\DAOException;
 use model\Administrator;
 
-class AdministratorDaoImpl implements AdministratorDao
-{
-    private const SQL_SELECT_BY_ADMIN_ID = "SELECT book_id, title, author, age_range, number_pages, price, quantity, book_image, category_name FROM book WHERE book_id = ?";
-    private const SQL_INSERT = "INSERT INTO book (book_id, title, author, age_range, number_pages, price, quantity, book_image, category_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    private const SQL_UPDATE = "UPDATE book SET title=?, author=?, age_range=?, number_pages=?, price=?, quantity=?, book_image=?, category_name=? WHERE book_id=?";
+class AdministratorDaoImpl implements AdministratorDao {
+    private const SQL_SELECT_BY_ADMIN_ID = "SELECT admin_id, last_name, first_name, mail, psd FROM administrator WHERE admin_id = ?";
+    private const SQL_SELECT_BY_MAIL = "SELECT admin_id, last_name, first_name, mail, psd FROM administrator WHERE mail = ?";
+    private const SQL_SELECT_BY_MAIL_AND_PASSWORD = "SELECT admin_id, last_name, first_name, mail FROM administrator WHERE mail = ? AND psd=?";
+    private const SQL_INSERT = "INSERT INTO administrator (admin_id, last_name, first_name, mail, psd) VALUES (?, ? ,? ,? ,?)";
+    private const SQL_UPDATE = "UPDATE administrator SET last_name=?, first_name=?, mail=?, psd=? WHERE admin_id=?";
 
     private DAOFactory $daoFactory;
 
-    public function __construct(DAOFactory $daoFactory) { $this->$daoFactory = $daoFactory; }
+    public function __construct(DAOFactory $daoFactory) { $this->daoFactory = $daoFactory; }
 
-    function create(Administrator $administrator): bool
+    public function find(String $mail, String $password=null): Administrator
     {
-        try{
-            $connection = $this->daoFactory->getConnection();
-            $preparedStatement = DAOUtility::initPreparedStatement($connection, self::SQL_INSERT);
-            $status = $preparedStatement->execute((array)$administrator);
-            if ($status == 0)
-                throw new DAOException("Administrator creation failed, no line added");
-        } catch (\Exception $e){
-            throw new DAOException($e);
-        } finally {
-            DAOUtility::close($preparedStatement, $connection);
+        $administrator = null;
+        $request = self::SQL_SELECT_BY_MAIL;
+        $parameters = array($mail);
+        if($password != null) {
+            array_push($parameters, $password);
+            $request = self::SQL_SELECT_BY_MAIL_AND_PASSWORD;
         }
-        return true;
-    }
-
-    function find(string $adminId): Administrator
-    {
-        $admin = null;
-        $parameters = array($adminId);
         try{
             $connection = $this->daoFactory->getConnection();
-            $preparedStatement = DAOUtility::initPreparedStatement($connection, self::SQL_SELECT_BY_ADMIN_ID);
+            $preparedStatement = DAOUtility::initPreparedStatement($connection, $request);
             $status = $preparedStatement->execute($parameters);
 
             if($status){
-                $adminReturned = $preparedStatement->fetchObject();
-                $admin = $this->map($adminReturned);
+                $administratorReturned = $preparedStatement->fetchObject();
+                $administrator = $this->map($administratorReturned);
             }
         } catch (\Exception $e){
             throw new DAOException($e);
         } finally {
             DAOUtility::close($preparedStatement, $connection);
         }
-        return $admin;
+        return $administrator;
+    }
+
+    function create(Administrator $administrator): bool
+    {
+        $success = true;
+        try{
+            $connection = $this->daoFactory->getConnection();
+            $preparedStatement = DAOUtility::initPreparedStatement($connection, self::SQL_INSERT);
+            $status = $preparedStatement->execute($administrator->toArray());
+            if ($status == 0) {
+                $success = false;
+                throw new DAOException("Administrator creation failed, no line added");
+            }
+        } catch (\Exception $e){
+            throw new DAOException($e);
+        } finally {
+            DAOUtility::close($preparedStatement, $connection);
+        }
+        return $success;
     }
 
     function update(Administrator $administrator): bool
@@ -70,7 +79,7 @@ class AdministratorDaoImpl implements AdministratorDao
         return true;
     }
 
-    private function map($br): Administrator{
-        return new Administrator($br->admin_id,$br->last_name,$br->first_name,$br->mail,$br->psd);
+    private function map($cr): Client{
+        return new Client($cr->admin_id,$cr->last_name,$cr->first_name,$cr->mail,$cr->psds);
     }
 }

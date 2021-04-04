@@ -11,6 +11,10 @@ include_once('./class/dao/object/ClientDao.php');
 include_once('./class/dao/object/ClientDaoImpl.php');
 include_once('./class/model/Client.php');
 
+include_once('./class/dao/object/AdministratorDao.php');
+include_once('./class/dao/object/AdministratorDaoImpl.php');
+include_once('./class/model/Administrator.php');
+
 include_once('./class/dao/object/PurchaseDao.php');
 include_once('./class/dao/object/PurchaseDaoImpl.php');
 include_once('./class/model/Purchase.php');

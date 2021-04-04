@@ -33,10 +33,10 @@
                     <span class="sr-only">Error:</span>
                     Identifiant ou mot de passe incorrect.
                 </div>
-                <form class='form-signin' id="connectionInfosForm" onsubmit="return false">
+                <form class='form-signin' id="connectionClientInfosForm" onsubmit="return false">
                     <input type='email' id='inputEmail' name='email' class='form-control' placeholder='mail@exemple.fr' required="" autofocus="" />
                     <input type='password' id='inputPassword' name='password' class='form-control' placeholder='Mot de passe' required="" />
-                    <button class='btn btn-lg btn-danger btn-block btn-signin' id="loginButton" onclick="sendData()" type='submit'>Se connecter</button>
+                    <button class='btn btn-lg btn-danger btn-block btn-signin' id="loginButton" onclick="sendClientData()" type='submit'>Se connecter</button>
                 </form>
                 <p><a href='clientAccountCreationSpace.php' class='forgot-password'>Vous n'avez pas de compte ?</a></p>
             </div>
@@ -45,8 +45,8 @@
         include("include/footer.php");
         ?>
         <script>
-            function sendData() {
-                var formData = $("#connectionInfosForm").serialize();
+            function sendClientData() {
+                var formData = $("#connectionClientInfosForm").serialize();
                 $.ajax({
                     type: 'post',
                     url: './include/checkIdentifiers',

@@ -34,6 +34,11 @@ function addTag() {
     myModal.show();
 }
 
+function addCategoryToBd() {
+    var formChildren = document.getElementById("categoryForm").children;
+    alert(formChildren) ;
+}
+
 function validdInput(){
    /* var noError = true;
     var form = document.getElementById("infosCompte");
