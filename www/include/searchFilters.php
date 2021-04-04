@@ -85,18 +85,105 @@
             <label class="form-check-label" for="soixante_cinq">Ainés : 65 ans et plus</label>
         </div>
     </div>
+    <?php
+
+        $bookDao = \dao\DAOFactory::getInstance()->getBookDao();
+        $maxPrice = $bookDao->getMaxPrice();
+    ?>
     <div class="col-md-12">
         <h2>Prix :</h2>
-        <p class="affichage_prix_inferieur">Inférieur à <output class="affichage_prix_inferieur" id="prix">0</output>€</p>
-        <input class="range_prix" type="range" value="0" max="30" step="1" oninput="prix.value = this.value"/>
+        <p class="affichage_prix_inferieur" style="width: 40%"><output class="affichage_prix_inferieur" id="prixInf">0</output>€</p>
+        <p class="affichage_prix_inferieur" style="width: 40%; text-align: right"><output class="affichage_prix_inferieur" id="prixSup"><?php echo $maxPrice; ?></output>€</p>
+        <div class="middle">
+            <div class="multi-range-slider">
+                <input type="range" id="input-left" min="0" max="<?php echo $maxPrice; ?>" value="0" oninput="prixInf.value = this.value"/>
+                <input type="range" id="input-right" min="0" max="<?php echo $maxPrice; ?>" value="<?php echo $maxPrice; ?>" oninput="prixSup.value = this.value"/>
+
+                <div class="slider">
+                    <div class="track"></div>
+                    <div class="range"></div>
+                    <div class="thumb left"></div>
+                    <div class="thumb right"></div>
+                </div>
+            </div>
+        </div>
+        <button onclick="filtreBooks(categories, agesRange,this)" >Valider</button>
     </div>
 </div>
 
 <script><!--
     var categories = [];
     var agesRange = [];
+    var prices = [];
+
+    var inputLeft = document.getElementById("input-left");
+    var inputRight = document.getElementById("input-right");
+
+    var thumbLeft = document.querySelector(".slider > .thumb.left");
+    var thumbRight = document.querySelector(".slider > .thumb.right");
+    var range = document.querySelector(".slider > .range");
+
+    function setLeftValue() {
+        var _this = inputLeft,
+            min = parseInt(_this.min),
+            max = parseInt(_this.max);
+
+        _this.value = Math.min(parseInt(_this.value), parseInt(inputRight.value) - 1);
+
+        var percent = ((_this.value - min) / (max - min)) * 100;
+
+        thumbLeft.style.left = percent + "%";
+        range.style.left = percent + "%";
+    }
+    setLeftValue();
+
+    function setRightValue() {
+        var _this = inputRight,
+            min = parseInt(_this.min),
+            max = parseInt(_this.max);
+
+        _this.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value) + 1);
+
+        var percent = ((_this.value - min) / (max - min)) * 100;
+
+        thumbRight.style.right = (100 - percent) + "%";
+        range.style.right = (100 - percent) + "%";
+    }
+    setRightValue();
+
+    inputLeft.addEventListener("input", setLeftValue);
+    inputRight.addEventListener("input", setRightValue);
+
+    inputLeft.addEventListener("mouseover", function() {
+        thumbLeft.classList.add("hover");
+    });
+    inputLeft.addEventListener("mouseout", function() {
+        thumbLeft.classList.remove("hover");
+    });
+    inputLeft.addEventListener("mousedown", function() {
+        thumbLeft.classList.add("active");
+    });
+    inputLeft.addEventListener("mouseup", function() {
+        thumbLeft.classList.remove("active");
+    });
+
+    inputRight.addEventListener("mouseover", function() {
+        thumbRight.classList.add("hover");
+    });
+    inputRight.addEventListener("mouseout", function() {
+        thumbRight.classList.remove("hover");
+    });
+    inputRight.addEventListener("mousedown", function() {
+        thumbRight.classList.add("active");
+    });
+    inputRight.addEventListener("mouseup", function() {
+        thumbRight.classList.remove("active");
+    });
 
     function filtreBooks(categories, agesRange, input){
+        prices.push(document.getElementById("prixInf").value);
+        prices.push(document.getElementById("prixSup").value);
+        //alert(prices['prixSup']);
         if (input.checked){
             //alert(input.className);
             if(input.className.includes("category"))
@@ -123,7 +210,7 @@
         $.ajax({
             type: 'post',
             url: './include/bookFiltering.php',
-            data: {categories : categories, agesRange : agesRange},
+            data: {categories : categories, agesRange : agesRange, prices : prices },
             success: function (response) {
                 if (response !== "filtre:no") {
                     books = JSON.parse(response);

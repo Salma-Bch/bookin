@@ -13,6 +13,7 @@ class BookDaoImpl implements BookDao
 {
     private const SQL_SELECT_BY_BOOK_ID = "SELECT book_id, title, author, age_range, number_pages, price, image_path, tags, category_name FROM book WHERE book_id = ?";
     private const SQL_SELECT_ALL_BOOKS = "SELECT book_id, title, author, age_range, number_pages, price, image_path, tags, category_name FROM book";
+    private const SQL_SELECT_MAX_PRICE = "SELECT price FROM book ORDER BY price DESC LIMIT 1";
     private const SQL_SELECT_ALL_BOOKS_BY_FILTERS = "SELECT book_id, title, author, age_range, number_pages, price, image_path, tags, category_name FROM book WHERE";
     private const SQL_INSERT = "INSERT INTO book (book_id, title, author, age_range, number_pages, price, image_path, tags, category_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private const SQL_UPDATE = "UPDATE book SET title=?, author=?, age_range=?, number_pages=?, price=?, image_path=?, tags=?, category_name=? WHERE book_id=?";
@@ -41,6 +42,23 @@ class BookDaoImpl implements BookDao
         return $book;
     }
 
+    public function getMaxPrice(){
+        $price = null;
+        try{
+            $connection = $this->daoFactory->getConnection();
+            $preparedStatement = DAOUtility::initPreparedStatement($connection, self::SQL_SELECT_MAX_PRICE);
+            $status = $preparedStatement->execute();
+            if($status){
+                $priceReturned = $preparedStatement->fetchObject();
+                $price = $priceReturned->price;
+            }
+        } catch (\Exception $e){
+            throw new DAOException($e);
+        } finally {
+            DAOUtility::close($preparedStatement, $connection);
+        }
+        return $price;
+    }
     public function getAll(array $filters=null): array
     {
         $books = array();
@@ -69,6 +87,17 @@ class BookDaoImpl implements BookDao
                 }
                 $request = substr($request, 0, -2);
                 $request .= ")";
+            }
+            else
+                $request .= " 1=1";
+
+            $request .=" AND";
+
+            if( isset($filters['prices']) && $filters['prices'] != "" ) {
+                $prices = $filters['prices'];
+                $request .= " price BETWEEN ";
+                $request .= "'".$prices[0]."' AND ";
+                $request .= "'".$prices[1]."'";
             }
             else
                 $request .= " 1=1";

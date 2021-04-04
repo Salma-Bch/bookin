@@ -17,7 +17,8 @@
     if ( isset($_POST['agesRange']) )
         $filters['agesRange'] = $_POST['agesRange'];
 
-
+    if ( isset($_POST['prices']) )
+        $filters['prices'] = $_POST['prices'];
 
     $daoFactory = DAOFactory::getInstance();
     $bookDao = $daoFactory->getBookDao();
