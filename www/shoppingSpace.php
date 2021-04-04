@@ -56,7 +56,7 @@ use utility\Format;
                     <p><b>Tranche d'âge : <?php echo $book->getAgeRange(); ?></b></p>
                     <p><b>Prix : <?php echo $book->getPrice(); ?>€</b></p>
                 </div>
-                <?php
+                <?php /*
                     //Regarde si ya deja un livre acheter pour CE client
                     $purchaseDao = $daoFactory->getPurchaseDao();
                     $purchase = $purchaseDao->find($client->getClientId(), $book->getBookId());
@@ -65,23 +65,45 @@ use utility\Format;
                     if(isset($purchase)){
                         $purchase->setQuantity($purchase->getQuantity()+1);
                         $purchase->setAmount($purchase->getAmount() + $book->getPrice());
-                        $purchaseDao->update($purchase);
+                        $updated = $purchaseDao->update($purchase);
                     }
-
-                    //Si jamais acheté, créée un achat avec le montant = prix du livre et quantité = 1 (CREATE)
-                    $purchase = new Purchase($client->getClientId(),$book->getBookId(), $book->getPrice(),1);
-
+                    else{
+                        //Si jamais acheté, créée un achat avec le montant = prix du livre et quantité = 1 (CREATE)
+                        $purchase = new Purchase($client->getClientId(),$book->getBookId(), $book->getPrice(),1);
+                        $purchased = $purchaseDao->create($purchase);
+                    }*/
                 ?>
                 <div class="col-md-6">
                     <input type="submit" class="btn modifEtDeco" id="modifButton" name="submit" value="Retour" onclick="searchSpace.php" />
                 </div>
                 <div class="col-md-6">
-                    <input type="submit" class="btn modifEtDeco" name="submit" value="Acheter" />
+                    <form class='form-signin' id="purchaseByClientInfo" onsubmit="return false">
+                    <input type="submit" class="btn modifEtDeco" name="submit" value="Acheter" onclick="sendBuysData()"/>
                 </div>
             </div>
         </div>
         <?php
             include("include/footer.php");
         ?>
+
+        <script>
+            function sendBuysData() {
+                var formData = $("#purchaseByClientInfo").serialize();
+                $.ajax({
+                    type: 'post',
+                    url: './include/purchaseBookByClient.php',
+                    data: formData,
+                    success: function (response) {
+                        if(response === "purchase successful")
+                            window.location.assign("shoppingSpace.php");
+                        else {
+                            document.getElementById("idOrMdpFalseDiv").style.display = "block";
+                        }
+                    }
+                });
+
+                return false;
+            }
+        </script>
     </body>
 </html>

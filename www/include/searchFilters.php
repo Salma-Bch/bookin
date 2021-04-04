@@ -18,7 +18,7 @@
             <label class="form-check-label" for="bd">Bande dessinée</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input category" type="checkbox" value="bien_etre" id="bien_etre" onclick="filtreBooks(categories, agesRange, this)"/>
+            <input class="form-check-input category" type="checkbox" value="Bien-être" id="bien_etre" onclick="filtreBooks(categories, agesRange, this)"/>
             <label class="form-check-label" for="bien_etre">Bien-être</label>
         </div>
         <div class="form-check">
@@ -58,11 +58,11 @@
             <label class="form-check-label" for="science">Science</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input category" type="checkbox" value="science_fiction" id="science_fiction" onclick="filtreBooks(categories, agesRange, this)"/>
+            <input class="form-check-input category" type="checkbox" value="Science-fiction" id="science_fiction" onclick="filtreBooks(categories, agesRange, this)"/>
             <label class="form-check-label" for="science_fiction">Science-fiction</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input category" type="checkbox" value="vie_pratique" id="vie_pratique" onclick="filtreBooks(categories, agesRange, this)"/>
+            <input class="form-check-input category" type="checkbox" value="Vie pratique" id="vie_pratique" onclick="filtreBooks(categories, agesRange, this)"/>
             <label class="form-check-label" for="vie_pratique">Vie pratique</label>
         </div>
     </div>

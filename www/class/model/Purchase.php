@@ -28,13 +28,23 @@ class Purchase {
         $this->quantity = $quantity;
     }
 
-    public function toArray(){
-        return array(
-            Format::getFormatId(8,$this->clientId),
-            Format::getFormatId(8,$this->bookId),
-            $this->amount,
-            $this->quantity,
-        );
+    public function toArray(bool $keyFirst){
+        if($keyFirst) {
+            return array(
+                Format::getFormatId(8, $this->clientId),
+                Format::getFormatId(8, $this->bookId),
+                $this->amount,
+                $this->quantity,
+            );
+        }
+        else{
+            return array(
+                $this->amount,
+                $this->quantity,
+                Format::getFormatId(8, $this->clientId),
+                Format::getFormatId(8, $this->bookId)
+            );
+        }
     }
 
     /**
