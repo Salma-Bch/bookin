@@ -2,86 +2,86 @@
     <div class="col-md-12">
         <h2>Catégories :</h2>
         <div class="form-check">
-            <input class="form-check-input category" type="checkbox" value="actualite" id="actualite" onclick="filtreVehicule(categories, agesRange, this)"/>
+            <input class="form-check-input category" type="checkbox" value="actualite" id="actualite" onclick="filtreBooks(categories, agesRange, this)"/>
             <label class="form-check-label" for="actualite">Actualité</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input category" type="checkbox" value="amour" id="amour" onclick="filtreVehicule(categories, agesRange, this)"/>
+            <input class="form-check-input category" type="checkbox" value="amour" id="amour" onclick="filtreBooks(categories, agesRange, this)"/>
             <label class="form-check-label" for="amour">Amour</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input category" type="checkbox" value="art" id="art" onclick="filtreVehicule(categories, agesRange, this)"/>
+            <input class="form-check-input category" type="checkbox" value="art" id="art" onclick="filtreBooks(categories, agesRange, this)"/>
             <label class="form-check-label" for="art">Art</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input category" type="checkbox" value="bd" id="bd" onclick="filtreVehicule(categories, agesRange, this)"/>
+            <input class="form-check-input category" type="checkbox" value="Bande dessinée" id="bd" onclick="filtreBooks(categories, agesRange, this)"/>
             <label class="form-check-label" for="bd">Bande dessinée</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input category" type="checkbox" value="bien_etre" id="bien_etre" onclick="filtreVehicule(categories, agesRange, this)"/>
+            <input class="form-check-input category" type="checkbox" value="bien_etre" id="bien_etre" onclick="filtreBooks(categories, agesRange, this)"/>
             <label class="form-check-label" for="bien_etre">Bien-être</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input category" type="checkbox" value="cuisine" id="cuisine" onclick="filtreVehicule(categories, agesRange, this)"/>
+            <input class="form-check-input category" type="checkbox" value="cuisine" id="cuisine" onclick="filtreBooks(categories, agesRange, this)"/>
             <label class="form-check-label" for="cuisine">Cuisine</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input category" type="checkbox" value="culture" id="culture" onclick="filtreVehicule(categories, agesRange, this)"/>
+            <input class="form-check-input category" type="checkbox" value="culture" id="culture" onclick="filtreBooks(categories, agesRange, this)"/>
             <label class="form-check-label" for="culture">Culture</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input category" type="checkbox" value="education" id="education" onclick="filtreVehicule(categories, agesRange, this)"/>
+            <input class="form-check-input category" type="checkbox" value="education" id="education" onclick="filtreBooks(categories, agesRange, this)"/>
             <label class="form-check-label" for="education">Éducation</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input category" type="checkbox" value="histoire" id="histoire" onclick="filtreVehicule(categories, agesRange, this)"/>
+            <input class="form-check-input category" type="checkbox" value="histoire" id="histoire" onclick="filtreBooks(categories, agesRange, this)"/>
             <label class="form-check-label" for="histoire">Histoire</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input category" type="checkbox" value="loisir" id="loisir" onclick="filtreVehicule(categories, agesRange, this)"/>
+            <input class="form-check-input category" type="checkbox" value="loisir" id="loisir" onclick="filtreBooks(categories, agesRange, this)"/>
             <label class="form-check-label" for="loisir">Loisir</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input category" type="checkbox" value="policier" id="policier" onclick="filtreVehicule(categories, agesRange, this)"/>
+            <input class="form-check-input category" type="checkbox" value="policier" id="policier" onclick="filtreBooks(categories, agesRange, this)"/>
             <label class="form-check-label" for="policier">Policier</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input category" type="checkbox" value="psychologie" id="psychologie" onclick="filtreVehicule(categories, agesRange, this)"/>
+            <input class="form-check-input category" type="checkbox" value="psychologie" id="psychologie" onclick="filtreBooks(categories, agesRange, this)"/>
             <label class="form-check-label" for="psychologie">Psychologie</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input category" type="checkbox" value="sante" id="sante" onclick="filtreVehicule(categories, agesRange, this)"/>
+            <input class="form-check-input category" type="checkbox" value="sante" id="sante" onclick="filtreBooks(categories, agesRange, this)"/>
             <label class="form-check-label" for="sante">Santé</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input category" type="checkbox" value="science" id="science" onclick="filtreVehicule(categories, agesRange, this)"/>
+            <input class="form-check-input category" type="checkbox" value="science" id="science" onclick="filtreBooks(categories, agesRange, this)"/>
             <label class="form-check-label" for="science">Science</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input category" type="checkbox" value="science_fiction" id="science_fiction" onclick="filtreVehicule(categories, agesRange, this)"/>
+            <input class="form-check-input category" type="checkbox" value="science_fiction" id="science_fiction" onclick="filtreBooks(categories, agesRange, this)"/>
             <label class="form-check-label" for="science_fiction">Science-fiction</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input category" type="checkbox" value="vie_pratique" id="vie_pratique" onclick="filtreVehicule(categories, agesRange, this)"/>
+            <input class="form-check-input category" type="checkbox" value="vie_pratique" id="vie_pratique" onclick="filtreBooks(categories, agesRange, this)"/>
             <label class="form-check-label" for="vie_pratique">Vie pratique</label>
         </div>
     </div>
     <div class="col-md-12">
         <h2>Tranche d'âge :</h2>
         <div class="form-check">
-            <input class="form-check-input ageRange" type="checkbox" value="vie_pratique" id="dix"/>
+            <input class="form-check-input ageRange" type="checkbox" value="Enfants" id="dix" onclick="filtreBooks(categories, agesRange, this)"/>
             <label class="form-check-label" for="dix">Enfants : 0 à 14 ans</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input ageRange" type="checkbox" value="vie_pratique" id="dix_huit"/>
+            <input class="form-check-input ageRange" type="checkbox" value="Adolescents" id="dix_huit" onclick="filtreBooks(categories, agesRange, this)"/>
             <label class="form-check-label" for="dix_huit">Adolescents : 15 à 24 ans</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input ageRange" type="checkbox" value="vie_pratique" id="vingt_cinq"/>
+            <input class="form-check-input ageRange" type="checkbox" value="Adultes" id="vingt_cinq" onclick="filtreBooks(categories, agesRange, this)"/>
             <label class="form-check-label" for="vingt_cinq">Adultes : 25 à 64 ans</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input ageRange" type="checkbox" value="vie_pratique" id="soixante_cinq"/>
+            <input class="form-check-input ageRange" type="checkbox" value="Ainés" id="soixante_cinq" onclick="filtreBooks(categories, agesRange, this)"/>
             <label class="form-check-label" for="soixante_cinq">Ainés : 65 ans et plus</label>
         </div>
     </div>
@@ -96,24 +96,37 @@
     var categories = [];
     var agesRange = [];
 
-    function filtreVehicule(categories, agesRange, input){
+    function filtreBooks(categories, agesRange, input){
         if (input.checked){
-            categories.push(input.value);
+            //alert(input.className);
+            if(input.className.includes("category"))
+                categories.push(input.value);
+            if(input.className.includes("ageRange"))
+                agesRange.push(input.value);
         }
         else{
-            var index = categories.indexOf(input.value);
-            if(index > -1)
-                categories.splice(index, 1);
+            var index;
+            if(input.className.includes("category")) {
+                index = categories.indexOf(input.value);
+                if (index > -1) {
+                    categories.splice(index, 1);
+                }
+            }
+            if(input.className.includes("ageRange")){
+                index = agesRange.indexOf(input.value);
+                if (index > -1) {
+                    agesRange.splice(index, 1);
+                }
+            }
         }
 
         $.ajax({
             type: 'post',
-            url: './ressources/include/bookFiltering.php',
+            url: './include/bookFiltering.php',
             data: {categories : categories, agesRange : agesRange},
             success: function (response) {
                 if (response !== "filtre:no") {
-
-                    vehicules = JSON.parse(response);
+                    books = JSON.parse(response);
                     displayBooks(JSON.parse(response));
                 }
             },
@@ -155,7 +168,7 @@
         //textContent.setAttribute('style',"font-size: max(1vw, 16px);border-top: 1px solid #afafaf; margin-right: 25%; margin-left: 25%;");
 
         var bookImage = document.createElement('img');
-        bookImage.setAttribute('src', book[7]);
+        bookImage.setAttribute('src', book[6]);
         bookImage.setAttribute('style','width: 140px;height: 190px;');
         bookImage.setAttribute('alt','Livre');
 

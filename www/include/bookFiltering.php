@@ -2,12 +2,13 @@
     use dao\DAOFactory;
     use model\Book;
 
-    include_once('../../class/dao/DAOFactory.php');
-    include_once('../../class/dao/object/BookDao.php');
-    include_once('../../class/dao/object/BookDaoImpl.php');
-    include_once('../../class/model/Book.php');
-    include_once('../../class/dao/DAOUtility.php');
-    include_once('../../class/dao/exception/DAOException.php');
+    include_once('../class/dao/DAOFactory.php');
+    include_once('../class/dao/object/BookDao.php');
+    include_once('../class/dao/object/BookDaoImpl.php');
+    include_once('../class/model/Book.php');
+    include_once('../class/utility/Format.php');
+    include_once('../class/dao/DAOUtility.php');
+    include_once('../class/dao/exception/DAOException.php');
 
     $filters = array();
     if ( isset($_POST['categories']) )
