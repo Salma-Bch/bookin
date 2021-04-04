@@ -12,9 +12,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
+        <link rel="stylesheet" href="ressources/css/styleRange.css"/>
         <?php
             include_once("include/head.php");
-            include("./class/utility/Math.php")
+            include ("./include/includeFiles.php");
+            //include("./class/utility/Math.php")
         ?>
 		<title>Espace de recherche</title>
 	</head>
