@@ -116,6 +116,7 @@ footer a:hover {
     border-radius: 50%;
 	border: solid;
 	border-color: darkgrey;
+	margin-top: 15px;
 }
 
 .profile-name-card {
@@ -260,12 +261,6 @@ footer a:hover {
 	padding-bottom: 3%;
 	padding-top: 3%;
 	border-bottom: 0.1em solid;
-	text-decoration: none;
-}
-
-.livres hover{
-	text-decoration: none;
-
 }
 
 .affichage_prix_inferieur {
@@ -360,4 +355,14 @@ footer a:hover {
 .modal-xl {
 	width: 90%;
 	max-width:1200px;
+}
+
+.adminLogin{
+	text-align: center;
+	margin: 0;
+	margin-bottom: 10px;
+}
+
+.compte{
+	margin-top: 100px;
 }
