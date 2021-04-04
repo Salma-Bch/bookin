@@ -10,7 +10,7 @@ use model\Administrator;
 class AdministratorDaoImpl implements AdministratorDao {
     private const SQL_SELECT_BY_ADMIN_ID = "SELECT admin_id, last_name, first_name, mail, psd FROM administrator WHERE admin_id = ?";
     private const SQL_SELECT_BY_MAIL = "SELECT admin_id, last_name, first_name, mail, psd FROM administrator WHERE mail = ?";
-    private const SQL_SELECT_BY_MAIL_AND_PASSWORD = "SELECT admin_id, last_name, first_name, mail FROM administrator WHERE mail = ? AND psd=?";
+    private const SQL_SELECT_BY_MAIL_AND_PASSWORD = "SELECT admin_id, last_name, first_name, mail, psd FROM administrator WHERE mail = ? AND psd=?";
     private const SQL_INSERT = "INSERT INTO administrator (admin_id, last_name, first_name, mail, psd) VALUES (?, ? ,? ,? ,?)";
     private const SQL_UPDATE = "UPDATE administrator SET last_name=?, first_name=?, mail=?, psd=? WHERE admin_id=?";
 
@@ -18,7 +18,7 @@ class AdministratorDaoImpl implements AdministratorDao {
 
     public function __construct(DAOFactory $daoFactory) { $this->daoFactory = $daoFactory; }
 
-    public function find(String $mail, String $password=null): Administrator
+    public function find(String $mail, String $password=null): ?Administrator
     {
         $administrator = null;
         $request = self::SQL_SELECT_BY_MAIL;
@@ -31,9 +31,8 @@ class AdministratorDaoImpl implements AdministratorDao {
             $connection = $this->daoFactory->getConnection();
             $preparedStatement = DAOUtility::initPreparedStatement($connection, $request);
             $status = $preparedStatement->execute($parameters);
-
-            if($status){
-                $administratorReturned = $preparedStatement->fetchObject();
+            $administratorReturned = $preparedStatement->fetchObject();
+            if($status && $administratorReturned){
                 $administrator = $this->map($administratorReturned);
             }
         } catch (\Exception $e){
@@ -79,7 +78,7 @@ class AdministratorDaoImpl implements AdministratorDao {
         return true;
     }
 
-    private function map($cr): Client{
-        return new Client($cr->admin_id,$cr->last_name,$cr->first_name,$cr->mail,$cr->psds);
+    private function map($cr): Administrator{
+        return new Administrator($cr->admin_id,$cr->last_name,$cr->first_name,$cr->mail,$cr->psd);
     }
 }

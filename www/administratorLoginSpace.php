@@ -28,6 +28,8 @@ include_once("include/header.php");
 ?>
 <div class='container-connexion'>
     <div class='card card-container'>
+        <h2 class="adminLogin">Espace de connexion</h2>
+        <h3 class="adminLogin">Administrateur</h3>
         <img id='profile-img' class='profile-img-card' src='ressources/images/avatar.png' alt="Avatar de connexion"/>
         <div class="alert alert-danger" role="alert" style="display: none" id="idOrMdpFalseDiv">
             <span class="sr-only">Error:</span>

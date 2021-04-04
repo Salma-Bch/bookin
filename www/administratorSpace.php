@@ -38,6 +38,25 @@
         <div class="container">
             <h2 id="titleName">Bonjour <?php echo $administrator->getFirstName()." ".$administrator->getLastName() ?></h2>
             <p>Bienvenue dans ton espace personnel. Tu trouvera ici toute les informations te concernant. </p>
+            <div class="container clientSpaceTable">
+                <?php
+                    include("./include/adminInformationsTable.php");
+                ?>
+                <?php
+                include("./include/graphicsTable.php");
+                ?>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <input type="submit" class="btn modifEtDeco" id="modifButton" name="submit" value="Modifier mes informations" />
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <input type="submit" class="btn modifEtDeco" id="modifButton" name="submit" value="Ajouter un administrateur" />
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <form action="include/logout.php" method="POST">
+                    <input type="submit" class="btn modifEtDeco" value="Déconnexion" />
+                </form>
+            </div>
         </div>
         <?php
             include("include/footer.php");
