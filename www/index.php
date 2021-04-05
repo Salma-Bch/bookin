@@ -1,8 +1,7 @@
 <?php
+include_once("include/includeFiles.php");
 session_start();
 use controller\Suggestion;
-
-include_once("include/includeFiles.php");
 
 ?>
 <!DOCTYPE html>

@@ -29,18 +29,17 @@ class RandomAlgorithm {
      * @param       int $nbrOfBook
      * @Brief       Retourne un tableau de livres de manière aléatoire.
      * @Details     Cette méthode récupère l'ensemble des livres contenus dans la base de données puis renvoie des livres sélectionnés aléatoirement.
-     *              Le nombre retourné est passé en paramètre.
+     *              Le nombre de livre retourné est passé en paramètre.
      * @return      array
      */
     public function suggest(int $nbrOfBook):array{
         $booksToReturn = array();
-        $books = $this->books;
+        $booksEntry = $this->books;
 
-        $randomKeys = array_rand($books, $nbrOfBook);
+        $randomKeys = array_rand($booksEntry, $nbrOfBook);
         foreach($randomKeys as $randomKey){
-            array_push($booksToReturn, $books[$randomKey]);
+            array_push($booksToReturn, $booksEntry[$randomKey]);
         }
         return $booksToReturn;
     }
-
 }

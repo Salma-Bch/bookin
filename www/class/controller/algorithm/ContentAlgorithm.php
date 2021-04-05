@@ -40,7 +40,19 @@ class ContentAlgorithm {
      * @Details     Retourne le tableau de livres obtenu par l'appel de la méthode tagBased().
      */
     public function suggest():array{
-        return $this->tagBased($this->contentModel);
+        $booksTagBased = $this->tagBased($this->contentModel);
+        $booksCategoryBased = $this->categoryBased($this->books,$this->contentModel);
+        $booksAgeRangeBased = $this->ageRangeBased($this->books,$this->contentModel);
+        $booksSizeBased = $this->bookSizeBased($this->books,$this->contentModel);
+        $booksPriceBased = $this->priceBased($this->books,5,$this->contentModel);
+        if($booksPriceBased == null)
+            $booksPriceBased = $this->books;
+        $books = array_intersect($booksTagBased,$booksCategoryBased);
+        $books = array_intersect($books,$booksAgeRangeBased,$booksSizeBased,$booksPriceBased);
+        $books = array_intersect($books,$booksSizeBased,$booksPriceBased);
+        $books = array_intersect($books,$booksPriceBased);
+        return $books;
+
     }
 
      /**
@@ -76,7 +88,6 @@ class ContentAlgorithm {
                 array_push($booksToReturn, $bookDao->find(Format::getFormatId(8, $bookId)));
             }
         }
-        $booksToReturn = $this->categoryBased($this->books, $contentModel);
         return $booksToReturn;
     }
 
@@ -105,7 +116,6 @@ class ContentAlgorithm {
                 next($categoryModel);
             }
         }
-        $booksReturned = $this->ageRangeBased($booksReturned, $contentModel);
         return $booksReturned;
     }
 
@@ -134,7 +144,6 @@ class ContentAlgorithm {
                 next($ageRangeModel);
             }
         }
-        $booksReturned =  $this->bookSizeBased($booksReturned, $contentModel);
         return $booksReturned;
     }
 
@@ -163,13 +172,12 @@ class ContentAlgorithm {
                 next($bookSizeModel);
             }
         }
-        $booksReturned =  $this->priceBased($booksReturned, 5, $contentModel);
         return $booksReturned;
     }
 
     /**
      * @param       array $books
-     * @param       int $selected
+     * @param       int $selected le nombre de prix les plus proche de la moyenne
      * @param       ContentModel $contentModel
      * @Brief       Retourne un tableau de livres en fonction du prix des livres du client.
      * @Details     Cette méthode récupère le modèle de prix des livres grâçe à la méthode getPriceModel().
@@ -178,19 +186,22 @@ class ContentAlgorithm {
      *              Enfin, le tableau de livre filtré est retourné.
      * @return array
      */
-    public function priceBased(array $books, int $selected, ContentModel $contentModel):array{
+    public function priceBased(array $books, int $selected, ContentModel $contentModel):?array{
         $prices=array();
         $booksReturned = array();
         $priceModel = $contentModel->getPriceModel();
-        foreach ($books as $book){
-            array_push($prices, $book->getPrice());
+        if($priceModel != -1) {
+            foreach ($books as $book) {
+                array_push($prices, $book->getPrice());
+            }
+            $nearestPrices = Math::nearestFigure($priceModel, $prices, $selected);
+            foreach ($books as $book) {
+                if (in_array($book->getPrice(), $nearestPrices))
+                    array_push($booksReturned, $book);
+            }
+            return $booksReturned;
         }
-        $nearestPrices = Math::nearestFigure($priceModel, $prices, $selected);
-        foreach ($books as $book){
-            if(in_array($book->getPrice(), $nearestPrices))
-                array_push($booksReturned, $book);
-        }
-        return $booksReturned;
+        return null;
     }
 
 }

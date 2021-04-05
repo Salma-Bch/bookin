@@ -1,8 +1,11 @@
 <?php
 
 use controller\Suggestion;
+use model\Client;
 
-    $suggestion = new Suggestion();
+    $client = $_SESSION['bookinClient'];
+    var_dump($client);
+    $suggestion = new Suggestion($client);
     $books = $suggestion->suggest();
 
     echo '<h2>Sélectionnés pour vous !</h2>';

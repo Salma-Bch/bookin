@@ -28,34 +28,38 @@ class PopularAlgorithm {
      * @param       int|null $nbrOfBooks
      * @return      array
      * @Brief       Retourne un tableau des livres les plus populaire.
-     * @Details     Cette méthode récupère les livres les plus achetés à l'aide de la méthode getMostPurchasedBooks().
+     * @Details     Cette méthode récupère les livres les plus achetés à l'aide de la méthode getMostPurchasedBooks() et les livres
+     *              les mieux notés grâce à l'aide de la méthode getBestRated().
      *              Les id de chaque livre sont ensuite récupérés afin de trouver le livre correspondant grâce à la méthode find().
      *              Ces livres sont ensuite placer dans un tableau qui sera retourné.
      */
-    public function suggest(int $nbrOfBooks=null):array {
-        $daoFactory = DAOFactory::getInstance();
-        $purchasesDao = $daoFactory->getPurchaseDao();
-        $evaluatesDao = $daoFactory->getEvaluatesDao();
-        $bookDao = $daoFactory->getBookDao();
-        $nbrOfBestRatedBooks = intdiv($nbrOfBooks, 2);
+    public static function suggest(int $nbrOfBooks=null):?array {
         if(isset($nbrOfBooks)) {
-            $mostPurchasedBooksId = $purchasesDao->getMostPurchasedBooks($nbrOfBooks - $nbrOfBestRatedBooks);
-            $bestRatedBooksId = $evaluatesDao->getBestRated($nbrOfBestRatedBooks, $mostPurchasedBooksId);
-        }
-        else {
-            $mostPurchasedBooksId = $purchasesDao->getMostPurchasedBooks();
-            $bestRatedBooksId = $evaluatesDao->getBestRated(3);
-        }
+            $daoFactory = DAOFactory::getInstance();
+            $purchasesDao = $daoFactory->getPurchaseDao();
+            $evaluatesDao = $daoFactory->getEvaluatesDao();
 
-        $books = array();
-        foreach ($mostPurchasedBooksId as $purchasedBook){
-            $book = $bookDao->find(Format::getFormatId(8,$purchasedBook));
-            array_push($books, $book);
+            $bookDao = $daoFactory->getBookDao();
+
+            /*  On separe le nombre de livre a retourné en 2 partie : une moitié de livres
+                les plus acheté et l'autre moitié des livres les mieux notés. */
+            $nbrOfBestRatedBooks = intdiv($nbrOfBooks, 2);
+            $nbrOfMostPurchasedBooks = $nbrOfBooks - $nbrOfBestRatedBooks;
+
+
+            //  On récupère les id des livres les mieux noté et les plus acheté.
+            $mostPurchasedBooksId = $purchasesDao->getMostPurchasedBooks($nbrOfMostPurchasedBooks);
+            $bestRatedBooksId = $evaluatesDao->getBestRated($nbrOfBestRatedBooks, $mostPurchasedBooksId);
+            $booksIdEntry = array_merge($mostPurchasedBooksId,$bestRatedBooksId);
+
+            $books = array();
+            foreach ($booksIdEntry as $bookId) {
+                $book = $bookDao->find(Format::getFormatId(8, $bookId));
+                array_push($books, $book);
+            }
+
+            return $books;
         }
-        foreach ($bestRatedBooksId as $ratedBook){
-            $book = $bookDao->find(Format::getFormatId(8,$ratedBook));
-            array_push($books, $book);
-        }
-        return $books;
+        return null;
     }
 }

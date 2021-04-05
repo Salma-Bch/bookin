@@ -26,6 +26,7 @@ class Suggestion {
 
     /**
      * Suggestion constructor.
+     * @param Client $client
      */
     public function __construct(Client $client) {
         $daoFactory = DAOFactory::getInstance();
@@ -45,9 +46,9 @@ class Suggestion {
         $popularAlgorithm = new PopularAlgorithm();
         $randomAlgorithm = new RandomAlgorithm($this->books);
 
-        $booksToDisplay = $popularAlgorithm->suggest(2);
-        $booksToDisplay = array_merge($booksToDisplay, $randomAlgorithm->suggest(2));
-        $booksToDisplay = array_merge($booksToDisplay, $contentAlgorithm->suggest());
+        //$booksToDisplay = $popularAlgorithm->suggest(2);
+        //$booksToDisplay = array_merge($booksToDisplay, $randomAlgorithm->suggest(2));
+        $booksToDisplay = $contentAlgorithm->suggest();
 
         return $booksToDisplay;
     }
