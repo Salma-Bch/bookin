@@ -83,7 +83,7 @@
                 <h2>Modifiez vos informations</h2>
                 <div class="form-group">
                     <form id="infosModifForm">
-
+                        <input type="hidden" name="tags" value="tags" />
                         <label class="col-md-12" for="client_id">Id :</label>
                         <input type="text" class="form-control col-md-12" id="client_id" required="" name="client_id" readonly="" value="<?php echo $client->getClientId();?>" />
 
@@ -104,8 +104,8 @@
                             list($year,$month,$day) = explode("-", $client->getBirthDate()->format('Y-m-d'));
                         ?>
                         <div class="form-group col-md-4">
-                            <label for="jour">Jour</label>
-                            <select class="form-select form-select-lg mb-3 change" name="birthDay" aria-label="Default select example">
+                            <label for="birthDay">Jour</label>
+                            <select class="form-select form-select-lg mb-3 change" name="birthDay" id="birthDay" aria-label="Default select example">
                                 <?php
                                     echo '<option id="jour" selected="" disabled="" value="" hidden="">'.$day.'</option>' ;
                                     for ($i = 1; $i <= 31; $i++){
@@ -115,10 +115,10 @@
                             </select>
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="jour">Mois</label>
-                            <select class="form-select form-select-lg mb-3 change" name="birthMonth" aria-label="Default select example">
+                            <label for="birthMonth">Mois</label>
+                            <select class="form-select form-select-lg mb-3 change" name="birthMonth" id="birthMonth" aria-label="Default select example">
                                 <?php
-                                    $mois = array("1" => "Janvier", "2" => "Fevrier", "3" => "Mars", "4" => "Avril", "5" => "Mai", "6" => "Juin","7" => "Juillet", "8" => "Août", "9" => "Septembre", "10" => "Octobre", "11" => "Novembre", "12" => "Décembre") ;
+                                    $mois = array("01" => "Janvier", "02" => "Fevrier", "03" => "Mars", "04" => "Avril", "05" => "Mai", "06" => "Juin","07" => "Juillet", "08" => "Août", "09" => "Septembre", "10" => "Octobre", "11" => "Novembre", "12" => "Décembre") ;
                                     echo '<option selected="" disabled="" value="" hidden="">'.$mois[$month].'</option>' ;
                                 ?>
                                 <option value="01">Janvier</option>
@@ -136,8 +136,8 @@
                             </select>
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="jour">Année</label>
-                            <select class="form-select form-select-lg mb-3 change" name="birthYear" aria-label="Default select example">
+                            <label for="birthYear">Année</label>
+                            <select class="form-select form-select-lg mb-3 change" name="birthYear" id="birthYear" aria-label="Default select example">
                                 <?php
                                 echo '<option selected="" disabled="" value="" hidden="">'.$year.'</option>' ;
                                 $date = date('Y');
@@ -148,8 +148,8 @@
                             </select>
                         </div>
 
-                        <label class="col-md-6" for="adresse">Profession : </label>
-                        <label class="col-md-6" for="mail">Sexe :</label>
+                        <label class="col-md-6" for="profession">Profession : </label>
+                        <label class="col-md-6" for="sex">Sexe :</label>
 
                         <div class="form-group col-md-6">
                             <select class="form-select form-select-lg mb-3 change" id="profession" name="profession" aria-label="Default select example">
@@ -183,7 +183,7 @@
                         </div>
 
                         <div class="col-md-6">
-                            <button type="button" class="btn modifEtDeco" id="saveModifications" value="submit" name="submit" onclick="hideModifInfosForm()" data-toggle="modal" data-target="#dialogModal">
+                            <button type="button" class="btn modifEtDeco" id="discardModification" value="submit" name="submit" onclick="hideModifInfosForm()" data-toggle="modal" data-target="#dialogModal">
                                 Annuler les modifications
                             </button>
                         </div>
@@ -224,6 +224,7 @@
             include("include/tagModal.php");
         ?>
         <script><!--
+            var client = <?php echo json_encode($client->toAssocArray(),JSON_INVALID_UTF8_SUBSTITUTE); ?>;
             function changeInfoClient(id, previousInformation, newInformation){
                 var balise = document.getElementById(id);
                 balise.textContent = balise.textContent.replace(previousInformation, newInformation);
@@ -291,11 +292,11 @@
             }
 
             function sendData() {
-                if (validInput()) {
+                if (validInput2()) {
                     var formData = $("#infosModifForm").serialize();
                     $.ajax({
                         type: 'post',
-                        url: 'updateClientData.php',
+                        url: './include/updateClientData.php',
                         data: formData,
                         success: function (response) {
                             if (response.includes("maj:no")) {
@@ -310,15 +311,16 @@
                             }
                         },
                         error: function () {
-                            displayEchecModif();
-                            updateInfosClientForm(client);
+                            //displayEchecModif();
+                            //updateInfosClientForm(client);
                         }
                     });
                     return false;
                 }
                 else {
-                    displayEchecModif();
-                    updateInfosClientForm(client);
+                    alert("pb");
+                    //displayEchecModif();
+                    //updateInfosClientForm(client);
                 }
             }
 
@@ -327,27 +329,23 @@
                 return re.test(email);
             }
 
-            function validInput(){
+            function validInput2(){
                 var noError = true;
                 var form = document.getElementById("infosModifForm");
-                var email = document.getElementById("mail").value;
-                var number =document.getElementById("no_permis").value;
-                var mdp = document.getElementById("mdp").value;
+                var mail = document.getElementById("mail").value;
+                var psd = document.getElementById("psd");
 
-                for (i = 0; i < form.getElementsByTagName("input").length; i++) {
+                for (var i = 0; i < form.getElementsByTagName("input").length; i++) {
                     if(form.elements[i].value.length === 0){
                         noError = false;
                         break;
                     }
                 }
 
-                if(number.length < 12 || number.length>15){
+                if (!valide(mail)) {
                     noError = false;
                 }
-                if (!valide(email)) {
-                    noError = false;
-                }
-                if(mdp ==""){
+                if(validPassword2(psd)){
                     noError = false;
                 }
                 return noError;

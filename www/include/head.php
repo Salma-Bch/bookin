@@ -21,4 +21,4 @@
 <link rel="stylesheet" href="ressources/css/bootstrap.min.css"/>
 <link rel="stylesheet" href="ressources/css/bootstrap-theme.css"/>
 <link rel="stylesheet" href="ressources/css/style.css"/>
-<script src="./js/script.js" ></script>
+<script src="./ressources/js/script.js" ></script>

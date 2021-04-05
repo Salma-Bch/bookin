@@ -148,6 +148,19 @@ function validPassword(input){
     }
 }
 
+function validPassword2(input){
+    var psd = input.value;
+    if (psd.match( /[0-9]/g) && psd.match( /[A-Z]/g) && psd.match(/[a-z]/g) &&
+        psd.match( /[^a-zA-Z\d]/g) && psd.length >= 8){
+        displayValidInput(input);
+        return true;
+    }
+    else{
+        displayInvalidInput(input);
+        return false;
+    }
+}
+
 function matchPasswords(psd1, psd2){
     if(psd1.value !== psd2.value && validPassword(psd1)){
         displayInvalidInput(psd2);

@@ -57,6 +57,18 @@ class Client {
         implode(",",$this->tags));
     }
 
+    public function toAssocArray(){
+        return array(Format::getFormatId(8,$this->clientId),
+            $this->lastName,
+            $this->firstName,
+            $this->mail,
+            $this->psd,
+            $this->birthDate->format('Y-m-d'),
+            $this->profession,
+            $this->sex,
+            implode(",",$this->tags));
+    }
+
     public function getAgeRange():String{
         $age = $this->getAge();
         if($age <15)
