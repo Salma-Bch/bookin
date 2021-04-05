@@ -10,12 +10,17 @@ include_once('./class/dao/object/BookDao.php');
 include_once('./class/dao/object/BookDaoImpl.php');
 include_once('./class/dao/exception/DAOException.php');
 
+    if(isset($_GET['source']))
+        $source = $_GET['source'];
+    else
+        $source = "other";
+
     $daoFactory = DAOFactory::getInstance();
     $bookDao = $daoFactory->getBookDao();
     $books = $bookDao->getAll();
     echo '<div class="col-md-9" id="bookSearched" style="background-color: #d6d6d6">';
     foreach ($books as $book) {
-        echo '<div class="col-md-4 livres" onclick="location.href=\'./shoppingSpace.php?'.$book->getBookId().'\';">' .
+        echo '<div class="col-md-4 livres" onclick="location.href=\'./shoppingSpace.php?'.$book->getBookId().'&source='.$source.'\';">' .
             '<p class="displayTitleAndCategory">'.$book->getTitle().'</p>' .
             '<p class="displayAuthorAndPrice">'.$book->getAuthor().'</p>' .
             '<img class="displayImage" src="'.$book->getImagePath().'">' .
