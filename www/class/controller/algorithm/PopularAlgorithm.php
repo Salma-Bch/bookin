@@ -38,7 +38,6 @@ class PopularAlgorithm {
             $daoFactory = DAOFactory::getInstance();
             $purchasesDao = $daoFactory->getPurchaseDao();
             $evaluatesDao = $daoFactory->getEvaluatesDao();
-
             $bookDao = $daoFactory->getBookDao();
 
             /*  On separe le nombre de livre a retourné en 2 partie : une moitié de livres
@@ -46,19 +45,12 @@ class PopularAlgorithm {
             $nbrOfBestRatedBooks = intdiv($nbrOfBooks, 2);
             $nbrOfMostPurchasedBooks = $nbrOfBooks - $nbrOfBestRatedBooks;
 
-
             //  On récupère les id des livres les mieux noté et les plus acheté.
             $mostPurchasedBooksId = $purchasesDao->getMostPurchasedBooks($nbrOfMostPurchasedBooks);
             $bestRatedBooksId = $evaluatesDao->getBestRated($nbrOfBestRatedBooks, $mostPurchasedBooksId);
             $booksIdEntry = array_merge($mostPurchasedBooksId,$bestRatedBooksId);
 
-            $books = array();
-            foreach ($booksIdEntry as $bookId) {
-                $book = $bookDao->find(Format::getFormatId(8, $bookId));
-                array_push($books, $book);
-            }
-
-            return $books;
+            return $bookDao->findIn($booksIdEntry);
         }
         return null;
     }

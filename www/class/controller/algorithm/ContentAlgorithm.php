@@ -41,17 +41,17 @@ class ContentAlgorithm {
      */
     public function suggest():array{
         $booksTagBased = $this->tagBased($this->contentModel);
-        $booksCategoryBased = $this->categoryBased($this->books,$this->contentModel);
-        $booksAgeRangeBased = $this->ageRangeBased($this->books,$this->contentModel);
-        $booksSizeBased = $this->bookSizeBased($this->books,$this->contentModel);
-        $booksPriceBased = $this->priceBased($this->books,5,$this->contentModel);
+        $booksCategoryBased = $this->categoryBased($this->contentModel,$this->contentModel);
+        $booksAgeRangeBased = $this->ageRangeBased($booksCategoryBased,$this->contentModel);
+        $booksSizeBased = $this->bookSizeBased($booksAgeRangeBased,$this->contentModel);
+        $booksPriceBased = $this->priceBased($booksSizeBased,5,$this->contentModel);
         if($booksPriceBased == null)
             $booksPriceBased = $this->books;
         $books = array_intersect($booksTagBased,$booksCategoryBased);
         $books = array_intersect($books,$booksAgeRangeBased,$booksSizeBased,$booksPriceBased);
         $books = array_intersect($books,$booksSizeBased,$booksPriceBased);
         $books = array_intersect($books,$booksPriceBased);
-        return $books;
+        return $booksSizeBased;
 
     }
 
@@ -84,9 +84,10 @@ class ContentAlgorithm {
         $booksId = substr($booksId,1);
         $booksId = explode(",", $booksId);
         if($booksId[0] != "") {
-            foreach ($booksId as $bookId) {
+            $booksToReturn = $bookDao->findIn($booksId);
+            /*foreach ($booksId as $bookId) {
                 array_push($booksToReturn, $bookDao->find(Format::getFormatId(8, $bookId)));
-            }
+            }*/
         }
         return $booksToReturn;
     }

@@ -17,7 +17,7 @@ use model\Client;
 use utility\Math;
 
 class ContentModel {
-    private ClientHandler $suggestionHandler;
+    private ClientHandler $clientHandler;
     private Client $client;
 
     /**
@@ -26,7 +26,7 @@ class ContentModel {
      */
     public function __construct(Client $client) {
         $this->client = $client;
-        $this->suggestionHandler = new ClientHandler($client);
+        $this->clientHandler = new ClientHandler($client);
     }
 
     /**
@@ -38,8 +38,8 @@ class ContentModel {
      */
     public function getCategoryModel():array{
         $somme = 0;
-        $buysBookCategories = $this->suggestionHandler->getBuysBooksCategories(); // Buys books
-        $likedBookCategories = $this->suggestionHandler->getLikedBooksCategories(); // Liked books
+        $buysBookCategories = $this->clientHandler->getBuysBooksCategories(); // Buys books
+        $likedBookCategories = $this->clientHandler->getLikedBooksCategories(); // Liked books
         $categoryEntry = array_merge($buysBookCategories, $likedBookCategories);
 
         $categoriesName = array();
@@ -76,8 +76,8 @@ class ContentModel {
      * @return      array
      */
     public function getAgeRangeModel(){
-        $buysBooks = $this->suggestionHandler->getBuysBooks(); // Buys books
-        $likedBooks = $this->suggestionHandler->getLikedBooks(); // Liked books
+        $buysBooks = $this->clientHandler->getBuysBooks(); // Buys books
+        $likedBooks = $this->clientHandler->getLikedBooks(); // Liked books
         $ageRangesEntry = array_merge($buysBooks, $likedBooks);
         $somme = 0;
         $ageRanges = array("Enfants"=>0,"Adolescents"=>0,"Adultes"=>0,"Ainés"=>0);
@@ -106,8 +106,8 @@ class ContentModel {
      * @return      float
      */
     public function getPriceModel():float{
-        $buysBooksPrices = $this->suggestionHandler->getBuysBooksPrices(); // Buys books
-        $likedBooksPrices = $this->suggestionHandler->getLikedBooksPrices(); // Liked books
+        $buysBooksPrices = $this->clientHandler->getBuysBooksPrices(); // Buys books
+        $likedBooksPrices = $this->clientHandler->getLikedBooksPrices(); // Liked books
         $booksPricesEntry = array_merge($buysBooksPrices, $likedBooksPrices);
         $booksPrices = array();
 
@@ -135,8 +135,8 @@ class ContentModel {
      */
     public function getBookSizeModel():array{
         $somme = 0;
-        $buysBooksSizes = $this->suggestionHandler->getBuysBooksSizes(); // Buys books
-        $likedBooksSizes = $this->suggestionHandler->getLikedBooksSizes(); // Liked books
+        $buysBooksSizes = $this->clientHandler->getBuysBooksSizes(); // Buys books
+        $likedBooksSizes = $this->clientHandler->getLikedBooksSizes(); // Liked books
         $booksSizesEntry = array_merge($buysBooksSizes, $likedBooksSizes);
         $booksSizes = array("court"=>0,"moyen"=>0,"long"=>0);
 
@@ -163,8 +163,8 @@ class ContentModel {
      * @return      array
      */
     public function getTagsModel():array{
-        $buysBooksTags = $this->suggestionHandler->getBuysBooksTags(); // Buys books
-        $likedBooksTags = $this->suggestionHandler->getLikedBooksTags(); // Liked books
+        $buysBooksTags = $this->clientHandler->getBuysBooksTags(); // Buys books
+        $likedBooksTags = $this->clientHandler->getLikedBooksTags(); // Liked books
         $tags = array_merge($buysBooksTags, $likedBooksTags);
         $somme = 0;
         $tagsToReturn = array();

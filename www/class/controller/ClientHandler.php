@@ -23,6 +23,8 @@ class ClientHandler {
      * @var Client
      */
     private Client $client;
+    private array $likedBooks;
+    private array $buysBooks;
 
      /**
      * ClientHandler constructor.
@@ -30,6 +32,8 @@ class ClientHandler {
      */
     public function __construct(Client $client) {
         $this->client = $client;
+        $this->likedBooks = $this->getLikedBooksDB();
+        $this->buysBooks = $this->getBuysBooksDB();
     }
 
     ///////////////// METHOD FOR LIKED CATEGORIES /////////////////
@@ -62,20 +66,37 @@ class ClientHandler {
      *              Ces livres sont ensuite placé dans un tableau qui sera retourné.
      * @return      array
      */
-    public function getLikedBooks():array{
+    public function getLikedBooksDB():array{
         $daoFactory = DAOFactory::getInstance();
         $evaluatesDao = $daoFactory->getEvaluatesDao();
         $evaluates = $evaluatesDao->find(null, Format::getFormatId(8,$this->client->getClientId()));
-        $booksReturned = array();
+        $booksId = array();
         $bookDao = $daoFactory->getBookDao();
         foreach ($evaluates as $evaluation){
             if($evaluation->getSatisfied()) {
-                $book = $bookDao->find(Format::getFormatId(8, $evaluation->getBookId()));
-                array_push($booksReturned, $book);
+                array_push($booksId,$evaluation->getBookId());
             }
         }
-        return $booksReturned;
+        return $bookDao->findIn($booksId);;
     }
+
+    /**
+     * @return array
+     */
+    public function getLikedBooks(): array
+    {
+        return $this->likedBooks;
+    }
+
+    /**
+     * @return array
+     */
+    public function getBuysBooks(): array
+    {
+        return $this->buysBooks;
+    }
+
+
 
     /**
      * @Brief       Retourne les catégories des livres aimés par le client.
@@ -86,7 +107,7 @@ class ClientHandler {
      */
     public function getLikedBooksCategories():array{
         $categories = array();
-        $booksLiked = $this->getLikedBooks();
+        $booksLiked = $this->likedBooks;
         foreach ($booksLiked as $book){
             array_push($categories, $book->getCategoryName());
         }
@@ -102,7 +123,7 @@ class ClientHandler {
      */
     public function getLikedBooksPrices():array{
         $prices = array();
-        $likedBooks = $this->getLikedBooks();
+        $likedBooks = $this->likedBooks;
         foreach ($likedBooks as $likedBook) {
             array_push($prices, $likedBook->getPrice());
         }
@@ -118,7 +139,7 @@ class ClientHandler {
      */
     public function getLikedBooksSizes():array{
         $booksSizes = array();
-        $booksLiked = $this->getLikedBooks();
+        $booksLiked = $this->likedBooks;
         foreach ($booksLiked as $book){
             array_push($booksSizes, $book->getBookSize());
         }
@@ -134,7 +155,7 @@ class ClientHandler {
      */
     public function getLikedBooksTags():array{
         $tags = array();
-        $booksLiked = $this->getLikedBooks();
+        $booksLiked = $this->likedBooks;
         foreach ($booksLiked as $book){
             $tags = array_merge($tags, $book->getTags());
         }
@@ -150,17 +171,16 @@ class ClientHandler {
      *              Ce tableau est ensuite retourné.
      * @return      array
      */
-    public function getBuysBooks():array{
+    public function getBuysBooksDB():array{
         $daoFactory = DAOFactory::getInstance();
         $purchaseDao = $daoFactory->getPurchaseDao();
         $purchases = $purchaseDao->getClientPurchases(Format::getFormatId(8,$this->client->getClientId()));
-        $booksReturned = array();
+        $booksId = array();
         $bookDao = $daoFactory->getBookDao();
         foreach ($purchases as $purchase){
-            $book = $bookDao->find(Format::getFormatId(8,$purchase->getBookId()));
-            array_push($booksReturned,$book);
+            array_push($booksId,$purchase->getBookId());
         }
-        return $booksReturned;
+        return $bookDao->findIn($booksId);
     }
 
     /**
@@ -172,7 +192,7 @@ class ClientHandler {
      */
     public function getBuysBooksCategories():array{
         $categories = array();
-        $buysBooks = $this->getBuysBooks();
+        $buysBooks = $this->buysBooks;
         foreach ($buysBooks as $book){
             array_push($categories, $book->getCategoryName());
         }
@@ -188,7 +208,7 @@ class ClientHandler {
      */
     public function getBuysBooksPrices():array{
         $prices = array();
-        $buysBooks = $this->getBuysBooks();
+        $buysBooks = $this->buysBooks;
         foreach ($buysBooks as $book) {
             array_push($prices, $book->getPrice());
         }
@@ -204,7 +224,7 @@ class ClientHandler {
      */
     public function getBuysBooksSizes():array {
         $booksSizes = array();
-        $buysBooks = $this->getBuysBooks();
+        $buysBooks = $this->buysBooks;
         foreach ($buysBooks as $book) {
             array_push($booksSizes, $book->getBookSize());
         }
@@ -220,7 +240,7 @@ class ClientHandler {
      */
     public function getBuysBooksTags():array{
         $tags = array();
-        $buysBooks = $this->getBuysBooks();
+        $buysBooks = $this->buysBooks;
         foreach ($buysBooks as $book) {
             $tags = array_merge($tags, $book->getTags());
         }

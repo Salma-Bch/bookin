@@ -13,6 +13,7 @@ class BookDaoImpl implements BookDao
 {
     private const SQL_SELECT_BY_BOOK_ID = "SELECT book_id, title, author, age_range, number_pages, price, image_path, tags, category_name FROM book WHERE book_id = ?";
     private const SQL_SELECT_ALL_BOOKS = "SELECT book_id, title, author, age_range, number_pages, price, image_path, tags, category_name FROM book";
+    private const SQL_SELECT_IN = "SELECT book_id, title, author, age_range, number_pages, price, image_path, tags, category_name FROM book WHERE arrayIn";
     private const SQL_SELECT_MAX_PRICE = "SELECT price FROM book ORDER BY price DESC LIMIT 1";
     private const SQL_SELECT_ALL_BOOKS_BY_FILTERS = "SELECT book_id, title, author, age_range, number_pages, price, image_path, tags, category_name FROM book WHERE";
     private const SQL_INSERT = "INSERT INTO book (book_id, title, author, age_range, number_pages, price, image_path, tags, category_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -40,6 +41,34 @@ class BookDaoImpl implements BookDao
             DAOUtility::close($preparedStatement, $connection);
         }
         return $book;
+    }
+
+    public function findIn(array $booksId): ?array
+    {
+        $request = self::SQL_SELECT_IN;
+        if(isset($except)){
+            $in = str_repeat("?,",count($booksId)-1)."?";
+            $request = str_replace("arrayIn",$in,$request);
+        }
+
+        $books = array();
+
+        try{
+            $connection = $this->daoFactory->getConnection();
+            $preparedStatement = DAOUtility::initPreparedStatement($connection, self::SQL_SELECT_BY_BOOK_ID);
+            $status = $preparedStatement->execute($booksId);
+            $bookReturned = $preparedStatement->fetchObject();
+            if($status && $bookReturned){
+                foreach ($bookReturned as $book) {
+                    array_push($books, $this->map($book,false));
+                }
+            }
+        } catch (\Exception $e){
+            throw new DAOException($e);
+        } finally {
+            DAOUtility::close($preparedStatement, $connection);
+        }
+        return $books;
     }
 
     public function getMaxPrice(){
