@@ -56,31 +56,31 @@
         ?>
         <div class="container bodyContainer">
             <h2 id="titleName">Bonjour <?php echo $client->getFirstName()." ".$client->getLastName() ?>.</h2>
-            <p>Bienvenue dans ton espace personnel. Tu trouvera ici toutes les informations te concernant. </p>
+            <p>Bienvenue dans ton espace personnel. Tu trouveras ici toutes les informations te concernant. </p>
             <div class="container clientSpaceTable">
                 <div class="col-md-12">
-                    <h3>Informations personnelles : </h3>
+                    <h3>Informations personnelles </h3>
                 </div>
                 <?php
                     include("./include/clientInformationsTable.php");
                 ?>
                 <div class="col-md-6">
-                    <h3>Catégories aimées :</h3>
+                    <h3>Catégories aimées</h3>
                 </div>
                 <div class="col-md-6">
-                    <h3>Tags aimés :</h3>
+                    <h3>Tags aimés</h3>
                 </div>
                 <?php
                     include("./include/likedCategoriesAndTagsTable.php");
                 ?>
                 <div class="col-md-12">
-                    <h3>Livres achetés :</h3>
+                    <h3>Livres achetés</h3>
                 </div>
                 <?php
                     include("./include/buysBooksTable.php");
                 ?>
                 <div class="col-md-12">
-                    <h3>Livres aimés :</h3>
+                    <h3>Livres aimés</h3>
                 </div>
                 <?php
                     include ("./include/likedBooksTable.php");

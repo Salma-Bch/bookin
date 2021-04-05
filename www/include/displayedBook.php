@@ -33,7 +33,7 @@ use controller\Suggestion;
                     break;
                 echo '<div class="displayIndexBook">';
                 echo '<p class="displayTitleAndCategory">'.$books[$i]->getTitle().'</p>';
-                echo '<p class="displayAuthorAndPrice">'.$books[$i]->getAuthor().'€</p>';
+                echo '<p class="displayAuthorAndPrice">'.$books[$i]->getAuthor().'</p>';
                 echo '<a href="./shoppingSpace.php?bookId='.$books[$i]->getBookId().'&source=index"><img class="displayImage" src="'.$books[$i]->getImagePath().'"  alt="image du livre '.$books[$i]->getBookId().'"/></a>';
                 echo '<p class="displayAuthorAndPrice">'.$books[$i]->getPrice().'€</p>';
                 echo '<p class="displayTitleAndCategory">'.$books[$i]->getCategoryName().'</p>';

@@ -45,7 +45,7 @@ include_once("include/includeFiles.php");
                 <div class="col-md-12">
                     <h2>Connectez-vous !</h2>
                     <button class="btn modifEtDeco" onclick="location.href='./clientLoginSpace.php'">Connectez vous</button>
-                </div>;
+                </div>
             </div>
 
         </div>
