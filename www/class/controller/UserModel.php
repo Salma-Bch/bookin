@@ -30,7 +30,7 @@ class UserModel
 
     /**
      * @Brief       Retourne le modèle de catégorie choisit par un client.
-     * @Details     Cette méthode récupère la catégorie des livres choisit lorsque le client crée son compte et les rassemble dans un tableau.
+     * @Details     Cette méthode récupère la catégorie choisit lorsque le client crée son compte et les rassemble dans un tableau.
      *              Elle effectue un pourcentage avec le contenu du tableau et le retourne.
      * @return      array
      */
@@ -38,9 +38,17 @@ class UserModel
         $somme = 0;
         $likedCategories = $this->clientHandler->getLikedCategories(); // Liked categories
 
-        $categories = array("Actualité"=>0,"Amour"=>0,"Art"=>0,"Bande dessinée"=>0,"Bien-être"=>0,"Cuisine"=>0,
-            "Culture"=>0,"Éducation"=>0,"Histoire"=>0,"Loisir"=>0,"Policier"=>0,"Psychologie"=>0,
-            "Santé"=>0,"Science"=>0,"Science-fiction"=>0,"Vie pratique"=>0);
+        $categoriesName = array();
+        $csvFile = fopen("./ressources/bd/db_category.csv","r");
+        while ( ($lineCsv = fgetcsv($csvFile,1024, ";")) !== FALSE ) {
+            array_push($categoriesName, utf8_encode($lineCsv[0]));
+        }
+
+        $categories = array();
+
+        foreach ($categoriesName as $categoryName){
+            $categories[$categoryName] = 0;
+        }
 
         foreach ($likedCategories as $likedCategory){
             $categories[$likedCategory] += 2 ;
@@ -50,22 +58,9 @@ class UserModel
         if($somme == 0) $somme = 1;
 
         // Fait un pourcentage avec le contenu du tableau.
-        $categories['Actualité'] /=$somme;
-        $categories['Amour'] /=$somme;
-        $categories['Art'] /=$somme;
-        $categories['Bande dessinée'] /=$somme;
-        $categories['Bien-être'] /=$somme;
-        $categories['Cuisine'] /=$somme;
-        $categories['Culture'] /=$somme;
-        $categories['Éducation'] /=$somme;
-        $categories['Histoire'] /=$somme;
-        $categories['Loisir'] /=$somme;
-        $categories['Policier'] /=$somme;
-        $categories['Psychologie'] /=$somme;
-        $categories['Santé'] /=$somme;
-        $categories['Science'] /=$somme;
-        $categories['Science-fiction'] /=$somme;
-        $categories['Vie pratique'] /=$somme;
+        foreach ($categoriesName as $categoryName){
+            $categories[$categoryName] /=$somme;
+        }
 
         return $categories;
     }
@@ -97,20 +92,8 @@ class UserModel
      *              puis les retourne dans un tableau.
      * @return      array
      */
-    public function getUserAgeRangeModel(){
-        $somme = 0;
-        $ageRanges = array("Enfants"=>0,"Adolescents"=>0,"Adultes"=>0,"Ainés"=>0);
-
-        $ageRanges[$this->client->getAgeRange()] += 2; // Compte pour deux
-        $somme+=2;
-
-        // Fait un pourcentage avec le contenu du tableau.
-        $ageRanges['Enfants'] /=$somme;
-        $ageRanges['Adolescents'] /=$somme;
-        $ageRanges['Adultes'] /=$somme;
-        $ageRanges['Ainés'] /=$somme;
-
-        return $ageRanges;
+    public function getUserAgeRangeModel():String{
+        return $this->client->getAgeRange();
     }
 
 }

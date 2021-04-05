@@ -40,6 +40,7 @@ class ContentModel {
         $somme = 0;
         $buysBookCategories = $this->suggestionHandler->getBuysBooksCategories(); // Buys books
         $likedBookCategories = $this->suggestionHandler->getLikedBooksCategories(); // Liked books
+        $categoryEntry = array_merge($buysBookCategories, $likedBookCategories);
 
         $categoriesName = array();
         $csvFile = fopen("./ressources/bd/db_category.csv","r");
@@ -50,16 +51,11 @@ class ContentModel {
         $categories = array();
 
         foreach ($categoriesName as $categoryName){
-            $categories[$categoryName] =0;
+            $categories[$categoryName] = 0;
         }
 
-        foreach ($buysBookCategories as $buysBookCategory){
-            $categories[$buysBookCategory]++ ;
-            $somme++;
-        }
-
-        foreach ($likedBookCategories as $likedBookCategory){
-            $categories[$likedBookCategory]++ ;
+        foreach ($categoryEntry as $category){
+            $categories[$category]++ ;
             $somme++;
         }
 
@@ -82,19 +78,17 @@ class ContentModel {
     public function getAgeRangeModel(){
         $buysBooks = $this->suggestionHandler->getBuysBooks(); // Buys books
         $likedBooks = $this->suggestionHandler->getLikedBooks(); // Liked books
+        $ageRangesEntry = array_merge($buysBooks, $likedBooks);
         $somme = 0;
         $ageRanges = array("Enfants"=>0,"Adolescents"=>0,"Adultes"=>0,"Ainés"=>0);
 
-        foreach ($buysBooks as $buysBook){
-            $ageRanges[$buysBook->getAgeRange()]++;
+        foreach ($ageRangesEntry as $ageRange){
+            $ageRanges[$ageRange->getAgeRange()]++;
             $somme++;
         }
 
-        foreach ($likedBooks as $likedBook){
-            $ageRanges[$likedBook->getAgeRange()]++;
-            $somme++;
-        }
         if($somme==0) $somme=1;
+
         // Fait un pourcentage avec le contenu du tableau.
         $ageRanges['Enfants'] /=$somme;
         $ageRanges['Adolescents'] /=$somme;
@@ -107,25 +101,23 @@ class ContentModel {
     /**
      * @Brief       Retourne le modèle de prix d'un client.
      * @Details     Cette méthode récupère le prix des différents livres achetés et aimés par le client, puis les rassemble dans un tableau.
-     *              Elle effectue ensuite la moyenne de ses prix puis la retourne.
+     *              Elle effectue ensuite la moyenne de ses prix puis la retourne, si l'ecart entre les prix est supérieur à 30 ou que
+     *              le client a acheté moins de 5 livres, on retourne -1.
      * @return      float
      */
     public function getPriceModel():float{
         $buysBooksPrices = $this->suggestionHandler->getBuysBooksPrices(); // Buys books
         $likedBooksPrices = $this->suggestionHandler->getLikedBooksPrices(); // Liked books
-        $books = array();
+        $booksPricesEntry = array_merge($buysBooksPrices, $likedBooksPrices);
+        $booksPrices = array();
 
-        foreach ($buysBooksPrices as $buysBooksPrice){
-            array_push($books, $buysBooksPrice);
+        foreach ($booksPricesEntry as $bookPrice){
+            array_push($booksPrices, $bookPrice);
         }
 
-        foreach ($likedBooksPrices as $likedBooksPrice){
-            array_push($books, $likedBooksPrice);
-        }
-
-        //Si le client a acheté au moin 1 livre
-        if(count($books)>=1 && Math::getStandardDeviation($books)<30) {
-            return Math::getAverage($books);
+        //Si le client a acheté au moin 5 livre et que l'ecart entre les prix ne depasse pas 30
+        if(count($booksPrices) >= 5 && Math::getStandardDeviation($booksPrices) < 30) {
+            return Math::getAverage($booksPrices);
         }
         else
             return -1;
@@ -145,17 +137,14 @@ class ContentModel {
         $somme = 0;
         $buysBooksSizes = $this->suggestionHandler->getBuysBooksSizes(); // Buys books
         $likedBooksSizes = $this->suggestionHandler->getLikedBooksSizes(); // Liked books
+        $booksSizesEntry = array_merge($buysBooksSizes, $likedBooksSizes);
         $booksSizes = array("court"=>0,"moyen"=>0,"long"=>0);
 
-        foreach($buysBooksSizes as $buysBooksSize) {
+        foreach($booksSizesEntry as $buysBooksSize) {
             $booksSizes[$buysBooksSize]++;
             $somme++;
         }
 
-        foreach($likedBooksSizes as $likedBooksSize) {
-            $booksSizes[$likedBooksSize]++;
-            $somme++;
-        }
         if($somme==0) $somme=1;
 
         // Fait un pourcentage avec le contenu du tableau.

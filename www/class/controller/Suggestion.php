@@ -27,12 +27,11 @@ class Suggestion {
     /**
      * Suggestion constructor.
      */
-    public function __construct() {
+    public function __construct(Client $client) {
         $daoFactory = DAOFactory::getInstance();
         $bookDao = $daoFactory->getBookDao();
         $this->books = $bookDao->getAll();
-        $clientDao = $daoFactory->getClientDao();
-        $this->client = $clientDao->find("m.lekmiti@hotmail.com", "1234");
+        $this->client = $client;
     }
 
     /**

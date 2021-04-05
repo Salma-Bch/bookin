@@ -59,7 +59,7 @@ class ClientHandler {
      * @Details     La méthode find() de evaluatesDao permet de récupérer les évaluation du client à partir de la base de données.
      *              La méthode getSatisfied() permet ensuite de récupérer l'avis du client sur le livre.
      *              Si son avis est positif, celle-ci utilise la méthode find() de booksDao afin de trouver les livres correspondant.
-     *              Ces livres sont placé dans un tableau qui sera retourné.
+     *              Ces livres sont ensuite placé dans un tableau qui sera retourné.
      * @return      array
      */
     public function getLikedBooks():array{
