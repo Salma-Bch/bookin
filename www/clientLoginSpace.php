@@ -48,6 +48,7 @@
         ?>
         <script>
             var bookId = "<?php if(isset($_GET['bookId'])) echo "?bookId=".$_GET['bookId']; else echo ""; ?>" ;
+            var source = "<?php if(isset($_GET['source'])) echo "&source=".$_GET['source']; else echo "other"; ?>" ;
 
             function sendClientData() {
                 var formData = $("#connectionClientInfosForm").serialize();
@@ -57,7 +58,7 @@
                     data: formData,
                     success: function (response) {
                         if(response === "authentication successful")
-                            window.location.assign("clientSpace.php"+bookId);
+                            window.location.assign("clientSpace.php"+bookId+source);
                         else {
                             document.getElementById("idOrMdpFalseDiv").style.display = "block";
                         }

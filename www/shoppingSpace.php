@@ -100,11 +100,13 @@ use utility\Format;
 
         <script>
             function goBack(){
-                var previousUrl = <?php if(isset($_GET['source'])) echo $_GET['source']; else echo "other"?>;
-                if(previousUrl === "clientSpace")
-                    window.location.assign("index.php");
+                var previousUrl = "<?php echo $source; ?>";
+
+                if(previousUrl === "searchSpace")
+                    window.location.assign("searchSpace.php");
                 else
-                    history.go(-1);
+                    window.location.assign("index.php");
+
             }
             function sendBuysData() {
                 var formData = $("#purchaseByClientInfo").serialize();

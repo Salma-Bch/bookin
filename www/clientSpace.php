@@ -20,8 +20,13 @@
         header('Location: ./clientLoginSpace.php');
         exit(0);
     }
+    if(isset($_GET['source']))
+        $source = $_GET['source'];
+    else
+        $source = "other";
+
     if(isset($_GET['bookId']))
-        header('Location: ./shoppingSpace.php?bookId='.$_GET['bookId'].'&connect=ok');
+        header('Location: ./shoppingSpace.php?bookId='.$_GET['bookId'].'&source='.$source);
     $client = $_SESSION['bookinClient'];
 
     $daoFactory = DAOFactory::getInstance();

@@ -21,6 +21,7 @@ $i=0;
 $nbrRow = 2;
 $nbrBooksPerRow = 3;
 
+
 while($i < count($books)) {
     $class = " active";
     if($page > 1)
@@ -34,7 +35,7 @@ while($i < count($books)) {
                 break;
             echo '<div style="display:inline-block;border:solid;padding-top:10px">';
             echo '<p style="font-weight: bold;font-size:20px">'.$books[$i]->getCategoryName().'</p>';
-            echo '<a href="./shoppingSpace.php?bookId='.$books[$i]->getBookId().'"><img src="'.$books[$i]->getImagePath().
+            echo '<a href="./shoppingSpace.php?bookId='.$books[$i]->getBookId().'&source=index"><img src="'.$books[$i]->getImagePath().
                 '"  alt="image du livre '.$books[$i]->getBookId().'"/></a>';
             echo '<p>'.$books[$i]->getTitle().'</p>';
             echo '<p>'.$books[$i]->getPrice().'€</p>';
