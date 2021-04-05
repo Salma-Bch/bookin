@@ -37,7 +37,7 @@
         ?>
         <div class="container">
             <h2 id="titleName">Bonjour <?php echo $administrator->getFirstName()." ".$administrator->getLastName() ?></h2>
-            <p>Bienvenue dans ton espace personnel. Tu trouvera ici toute les informations te concernant. </p>
+            <p>Bienvenue dans ton espace personnel. Tu trouveras ici toutes les informations te concernant. </p>
             <div class="container clientSpaceTable">
                 <?php
                     include("./include/adminInformationsTable.php");

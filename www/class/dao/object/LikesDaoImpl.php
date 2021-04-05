@@ -13,6 +13,7 @@ use utility\Format;
 class LikesDaoImpl implements LikesDao {
     private const SQL_SELECT_LIKES_BY_CLIENT_ID = "SELECT client_id, category_name FROM likes WHERE client_id=?";
     private const SQL_SELECT_LIKES_BY_CATEGORY_NAME = "SELECT client_id, category_name FROM likes WHERE category_name=?";
+    private const SQL_SELECT_MOST_CATEGORY_LIKED = "SELECT category_name, COUNT(*) as count FROM likes GROUP BY category_name ORDER BY COUNT(*) DESC";
     private const SQL_SELECT_ALL = "SELECT client_id, category_name FROM likes";
     private const SQL_INSERT = "INSERT INTO likes (client_id, category_name) VALUES (?, ?)";
     private const SQL_UPDATE ="UPDATE likes SET client_id=?, category_name=? WHERE client_id=?";
@@ -72,6 +73,26 @@ class LikesDaoImpl implements LikesDao {
                 $likesReturned = $preparedStatement->fetchAll();
                 foreach ($likesReturned as $likes) {
                     array_push($likesArray, $this->map($likes,true));
+                }
+            }
+        } catch (\Exception $e){
+            throw new DAOException($e);
+        } finally {
+            DAOUtility::close($preparedStatement, $connection);
+        }
+        return $likesArray;
+    }
+
+    function getMostLikedCategory(int $number):array{
+        $likesArray = array();
+        try{
+            $connection = $this->daoFactory->getConnection();
+            $preparedStatement = DAOUtility::initPreparedStatement($connection, self::SQL_SELECT_MOST_CATEGORY_LIKED." LIMIT ".$number);
+            $status = $preparedStatement->execute(array($number));
+            $likesReturned = $preparedStatement->fetchAll();
+            if($status && $likesReturned){
+                foreach ($likesReturned as $likes) {
+                    $likesArray[$likes["category_name"]] = $likes["count"];
                 }
             }
         } catch (\Exception $e){
