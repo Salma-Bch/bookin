@@ -181,9 +181,11 @@
     });
 
     function filtreBooks(categories, agesRange, input){
+        if(prices.length > 0){
+            prices = [];
+        }
         prices.push(document.getElementById("prixInf").value);
         prices.push(document.getElementById("prixSup").value);
-        //alert(prices['prixSup']);
         if (input.checked){
             //alert(input.className);
             if(input.className.includes("category"))

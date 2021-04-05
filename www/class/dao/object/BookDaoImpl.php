@@ -96,8 +96,8 @@ class BookDaoImpl implements BookDao
             if( isset($filters['prices']) && $filters['prices'] != "" ) {
                 $prices = $filters['prices'];
                 $request .= " price BETWEEN ";
-                $request .= "'".$prices[0]."' AND ";
-                $request .= "'".$prices[1]."'";
+                $request .= $prices[0]." AND ";
+                $request .= $prices[1];
             }
             else
                 $request .= " 1=1";
