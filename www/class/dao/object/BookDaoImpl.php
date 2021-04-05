@@ -22,7 +22,7 @@ class BookDaoImpl implements BookDao
 
     public function __construct(DAOFactory $daoFactory) { $this->daoFactory = $daoFactory; }
 
-    public function find(String $bookId): Book
+    public function find(String $bookId): ?Book
     {
         $book = null;
         $parameters = array($bookId);
@@ -30,8 +30,8 @@ class BookDaoImpl implements BookDao
             $connection = $this->daoFactory->getConnection();
             $preparedStatement = DAOUtility::initPreparedStatement($connection, self::SQL_SELECT_BY_BOOK_ID);
             $status = $preparedStatement->execute($parameters);
-            if($status){
-                $bookReturned = $preparedStatement->fetchObject();
+            $bookReturned = $preparedStatement->fetchObject();
+            if($status && $bookReturned){
                 $book = $this->map($bookReturned);
             }
         } catch (\Exception $e){

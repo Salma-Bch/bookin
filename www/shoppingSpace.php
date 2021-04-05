@@ -15,16 +15,26 @@ use utility\Format;
     include_once("./include/includeFiles.php");
 
     session_start();
-
-    if(!isset($_SESSION['bookinClient'])){
-        header('Location: ./clientLoginSpace.php');
-        exit(0);
-    }
+    if(!isset($_GET['bookId']))
+        header('Location: ./index.php');
     $client = $_SESSION['bookinClient'];
     $bookId = $_GET['bookId'];
     $daoFactory = DAOFactory::getInstance();
     $bookDao = $daoFactory->getBookDao();
     $book = $bookDao->find(Format::getFormatId(8,$bookId));
+    if(!isset($book))
+        header('Location: ./index.php');
+
+    if(isset($_GET['source']))
+        $source = $_GET['source'];
+    else
+        $source = "other";
+
+    if(!isset($_SESSION['bookinClient'])){
+        header('Location: ./clientLoginSpace.php?bookId='.$book->getBookId().'&source='.$source);
+        exit(0);
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -74,11 +84,13 @@ use utility\Format;
                     }*/
                 ?>
                 <div class="col-md-6">
-                    <input type="submit" class="btn modifEtDeco" id="modifButton" name="submit" value="Retour" onclick="searchSpace.php" />
+                    <input type="submit" class="btn modifEtDeco" id="modifButton" name="submit" value="Retour" onclick="goBack()" />
                 </div>
                 <div class="col-md-6">
                     <form class='form-signin' id="purchaseByClientInfo" onsubmit="return false">
-                    <input type="submit" class="btn modifEtDeco" name="submit" value="Acheter" onclick="sendBuysData()"/>
+                        <input type="hidden" name="bookId" value="<?php echo $book->getBookId() ?>" />
+                        <input type="submit" class="btn modifEtDeco" name="submit" value="Acheter" onclick="sendBuysData()"/>
+                    </form>
                 </div>
             </div>
         </div>
@@ -87,6 +99,13 @@ use utility\Format;
         ?>
 
         <script>
+            function goBack(){
+                var previousUrl = <?php if(isset($_GET['source'])) echo $_GET['source']; else echo "other"?>;
+                if(previousUrl === "clientSpace")
+                    window.location.assign("index.php");
+                else
+                    history.go(-1);
+            }
             function sendBuysData() {
                 var formData = $("#purchaseByClientInfo").serialize();
                 $.ajax({
@@ -94,10 +113,10 @@ use utility\Format;
                     url: './include/purchaseBookByClient.php',
                     data: formData,
                     success: function (response) {
-                        if(response === "purchase successful")
-                            window.location.assign("shoppingSpace.php");
+                        if(response === "purchase successful"){}
+                            //window.location.assign("shoppingSpace.php");
                         else {
-                            document.getElementById("idOrMdpFalseDiv").style.display = "block";
+                            //document.getElementById("idOrMdpFalseDiv").style.display = "block";
                         }
                     }
                 });

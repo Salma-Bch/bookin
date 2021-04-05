@@ -20,6 +20,8 @@
         header('Location: ./clientLoginSpace.php');
         exit(0);
     }
+    if(isset($_GET['bookId']))
+        header('Location: ./shoppingSpace.php?bookId='.$_GET['bookId'].'&connect=ok');
     $client = $_SESSION['bookinClient'];
 
     $daoFactory = DAOFactory::getInstance();

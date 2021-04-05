@@ -47,6 +47,8 @@
         include("include/footer.php");
         ?>
         <script>
+            var bookId = "<?php if(isset($_GET['bookId'])) echo "?bookId=".$_GET['bookId']; else echo ""; ?>" ;
+
             function sendClientData() {
                 var formData = $("#connectionClientInfosForm").serialize();
                 $.ajax({
@@ -55,7 +57,7 @@
                     data: formData,
                     success: function (response) {
                         if(response === "authentication successful")
-                            window.location.assign("clientSpace.php");
+                            window.location.assign("clientSpace.php"+bookId);
                         else {
                             document.getElementById("idOrMdpFalseDiv").style.display = "block";
                         }
