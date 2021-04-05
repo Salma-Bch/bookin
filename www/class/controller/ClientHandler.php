@@ -74,7 +74,7 @@ class ClientHandler {
         $bookDao = $daoFactory->getBookDao();
         foreach ($evaluates as $evaluation){
             if($evaluation->getSatisfied()) {
-                array_push($booksId,$evaluation->getBookId());
+                array_push($booksId,Format::getFormatId(8,$evaluation->getBookId()));
             }
         }
         return $bookDao->findIn($booksId);;
@@ -178,7 +178,7 @@ class ClientHandler {
         $booksId = array();
         $bookDao = $daoFactory->getBookDao();
         foreach ($purchases as $purchase){
-            array_push($booksId,$purchase->getBookId());
+            array_push($booksId,Format::getFormatId(8,$purchase->getBookId()));
         }
         return $bookDao->findIn($booksId);
     }
@@ -244,7 +244,7 @@ class ClientHandler {
         foreach ($buysBooks as $book) {
             $tags = array_merge($tags, $book->getTags());
         }
-        return $tags;
+        return array_unique($tags);
     }
 
 }

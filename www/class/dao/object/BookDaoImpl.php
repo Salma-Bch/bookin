@@ -56,9 +56,9 @@ class BookDaoImpl implements BookDao
             $preparedStatement = DAOUtility::initPreparedStatement($connection, $request);
             $status = $preparedStatement->execute($booksId);
             $bookReturned = $preparedStatement->fetchAll();
-            var_dump($preparedStatement->queryString);
-            var_dump($bookReturned);
-            var_dump($booksId);
+          //  var_dump($preparedStatement->queryString);
+           // var_dump($bookReturned);
+          //  var_dump($booksId);
             if($status && $bookReturned){
                 foreach ($bookReturned as $book) {
                     array_push($books, $this->map($book,true));

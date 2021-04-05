@@ -43,7 +43,7 @@ class ContentModel {
         $categoryEntry = array_merge($buysBookCategories, $likedBookCategories);
 
         $categoriesName = array();
-        $csvFile = fopen("./ressources/bd/db_category.csv","r");
+        $csvFile = fopen("../../ressources/bd/db_category.csv","r");
         while ( ($lineCsv = fgetcsv($csvFile,1024, ";")) !== FALSE ) {
             array_push($categoriesName, utf8_encode($lineCsv[0]));
         }
