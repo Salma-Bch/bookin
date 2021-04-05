@@ -41,17 +41,22 @@ class ContentAlgorithm {
      */
     public function suggest():array{
         $booksTagBased = $this->tagBased($this->contentModel);
-        $booksCategoryBased = $this->categoryBased($this->contentModel,$this->contentModel);
+        //var_dump($booksTagBased);
+        $booksCategoryBased = $this->categoryBased($this->books,$this->contentModel);
+        var_dump($booksCategoryBased);
         $booksAgeRangeBased = $this->ageRangeBased($booksCategoryBased,$this->contentModel);
+        //var_dump($booksAgeRangeBased);
         $booksSizeBased = $this->bookSizeBased($booksAgeRangeBased,$this->contentModel);
+        //var_dump($booksSizeBased);
         $booksPriceBased = $this->priceBased($booksSizeBased,5,$this->contentModel);
+        //var_dump($booksPriceBased);
         if($booksPriceBased == null)
             $booksPriceBased = $this->books;
         $books = array_intersect($booksTagBased,$booksCategoryBased);
-        $books = array_intersect($books,$booksAgeRangeBased,$booksSizeBased,$booksPriceBased);
-        $books = array_intersect($books,$booksSizeBased,$booksPriceBased);
+        $books = array_intersect($books,$booksAgeRangeBased);
+        $books = array_intersect($books,$booksSizeBased);
         $books = array_intersect($books,$booksPriceBased);
-        return $booksSizeBased;
+        return $books;
 
     }
 
@@ -84,10 +89,11 @@ class ContentAlgorithm {
         $booksId = substr($booksId,1);
         $booksId = explode(",", $booksId);
         if($booksId[0] != "") {
-            $booksToReturn = $bookDao->findIn($booksId);
-            /*foreach ($booksId as $bookId) {
-                array_push($booksToReturn, $bookDao->find(Format::getFormatId(8, $bookId)));
-            }*/
+            foreach ($booksId as $bookId) {
+                array_push($booksToReturn, Format::getFormatId(8, $bookId));
+            }
+            var_dump($booksToReturn);
+            $booksToReturn = $bookDao->findIn($booksToReturn);
         }
         return $booksToReturn;
     }
