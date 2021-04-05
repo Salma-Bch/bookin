@@ -1,6 +1,6 @@
 <div class="col-md-3 barre_de_filtre">
     <div class="col-md-12">
-        <h2>Catégories :</h2>
+        <h2 class="searchTitle">Catégories :</h2>
         <div class="form-check">
             <input class="form-check-input category" type="checkbox" value="actualite" id="actualite" onclick="filtreBooks(categories, agesRange, this)"/>
             <label class="form-check-label" for="actualite">Actualité</label>
@@ -67,7 +67,7 @@
         </div>
     </div>
     <div class="col-md-12">
-        <h2>Tranche d'âge :</h2>
+        <h2 class="searchTitle">Tranche d'âge :</h2>
         <div class="form-check">
             <input class="form-check-input ageRange" type="checkbox" value="Enfants" id="dix" onclick="filtreBooks(categories, agesRange, this)"/>
             <label class="form-check-label" for="dix">Enfants : 0 à 14 ans</label>
@@ -91,7 +91,7 @@
         $maxPrice = $bookDao->getMaxPrice();
     ?>
     <div class="col-md-12">
-        <h2>Prix :</h2>
+        <h2 class="searchTitle">Prix :</h2>
         <p class="affichage_prix_inferieur" style="width: 40%"><output class="affichage_prix_inferieur" id="prixInf">0</output>€</p>
         <p class="affichage_prix_inferieur" style="width: 40%; text-align: right"><output class="affichage_prix_inferieur" id="prixSup"><?php echo $maxPrice; ?></output>€</p>
         <div class="middle">
@@ -107,7 +107,7 @@
                 </div>
             </div>
         </div>
-        <button onclick="filtreBooks(categories, agesRange,this)" >Valider</button>
+        <button class="btn valider" onclick="filtreBooks(categories, agesRange,this)" >Valider</button>
     </div>
 </div>
 
@@ -226,7 +226,6 @@
         return false;
     }
 
-
     function displayBooks(books){
         var div = document.getElementById("bookSearched")
         if( div != null){
@@ -241,29 +240,38 @@
 
     function addBookToDiv(book, id){
         var displaySpaceDiv = document.getElementById("bookSearched");
+
         var bookDiv = document.createElement('div');
         bookDiv.setAttribute('class', "col-md-4 livres" );
-       // vehiculeDiv.setAttribute('id', id);
-      //  vehiculeDiv.setAttribute('onclick', "showVehiculeDetails(this)");
+        bookDiv.setAttribute('onclick','location.href="./shoppingSpace.php"')
 
         var title = document.createElement('p');
         title.innerText = book[1];
-        //title.setAttribute('class',"text-center");
-       // title.setAttribute('style',"font-size: max(1vw, 16px); vmin:1");
+        title.setAttribute('class','displayTitleAndCategory');
 
-        var textContent = document.createElement('p');
-        textContent.innerText = book[5];
-        //textContent.setAttribute('class',"text-center");
-        //textContent.setAttribute('style',"font-size: max(1vw, 16px);border-top: 1px solid #afafaf; margin-right: 25%; margin-left: 25%;");
+        var author = document.createElement('p');
+        author.innerText = book[2];
+        author.setAttribute('class','displayAuthorAndPrice');
 
-        var bookImage = document.createElement('img');
-        bookImage.setAttribute('src', book[6]);
-        bookImage.setAttribute('style','width: 140px;height: 190px;');
-        bookImage.setAttribute('alt','Livre');
+        var image = document.createElement('img');
+        image.setAttribute('src', book[6]);
+        image.setAttribute('alt','Livre');
+        image.setAttribute('class','displayImage');
+
+        var price = document.createElement('p');
+        price.innerText = book[5];
+        price.setAttribute('class','displayAuthorAndPrice');
+        price.appendChild(document.createTextNode("€"));
+
+        var category = document.createElement('p');
+        category.innerText = book[8];
+        category.setAttribute('class','displayTitleAndCategory');
 
         bookDiv.appendChild(title);
-        bookDiv.appendChild(bookImage);
-        bookDiv.appendChild(textContent);
+        bookDiv.appendChild(author);
+        bookDiv.appendChild(image);
+        bookDiv.appendChild(price);
+        bookDiv.appendChild(category);
         displaySpaceDiv.appendChild(bookDiv);
     }
 

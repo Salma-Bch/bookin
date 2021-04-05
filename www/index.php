@@ -41,13 +41,11 @@ include_once("include/includeFiles.php");
                         include_once ("./include/displayedBook.php");
                     else
                         include_once ("./include/displayBooksTendance.php");
-                        echo '
-                        <div class="col-md-12">
-                            <h2>Connectez-vous !</h2>
-                            <p><a href="./clientLoginSpace.php">Connectez-vous</a> pour une suggestion de livre adaptez à vos envies.</p>
-                        </div>';
-
                 ?>
+                <div class="col-md-12">
+                    <h2>Connectez-vous !</h2>
+                    <button class="btn modifEtDeco" onclick="location.href='./clientLoginSpace.php'">Connectez vous</button>
+                </div>;
             </div>
 
         </div>

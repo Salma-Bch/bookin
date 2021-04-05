@@ -173,6 +173,17 @@ footer a:hover {
 	margin-top: 25px ;
 }
 
+.btn.valider {
+	height: 40px ;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #333333;
+	color: white;
+	margin-top: 25px ;
+	margin-bottom: 30px;
+}
+
 .table.table-dark {
 	margin-top: 40px;
 }
@@ -250,6 +261,17 @@ footer a:hover {
 	border-right: 0.1em solid
 }
 
+.barre_de_filtre label {
+	font-size:130%;
+}
+
+.searchTitle{
+	border-bottom: solid;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+	margin-top: 30px;
+}
+
 .partie_de_recherche {
 	border-left: 0.2em solid;
 	background-color: #afafaf;
@@ -261,6 +283,10 @@ footer a:hover {
 	padding-bottom: 3%;
 	padding-top: 3%;
 	border-bottom: 0.1em solid;
+}
+
+.livres:hover{
+	background-color: #ffb234;
 }
 
 .affichage_prix_inferieur {
@@ -365,4 +391,23 @@ footer a:hover {
 
 .compte{
 	margin-top: 100px;
+}
+
+.displayTitleAndCategory {
+	font-weight: bold;
+	font-size: 135%;
+	margin-bottom: 0;
+}
+
+.displayAuthorAndPrice{
+	font-style: italic;
+	font-size: 115%;
+	margin-bottom: 0;
+}
+
+.displayImage{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 140px;
+	height: 190px;
 }

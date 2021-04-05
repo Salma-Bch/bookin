@@ -15,10 +15,12 @@ include_once('./class/dao/exception/DAOException.php');
     $books = $bookDao->getAll();
     echo '<div class="col-md-9" id="bookSearched" style="background-color: #d6d6d6">';
     foreach ($books as $book) {
-        echo '<a href="././shoppingSpace.php"><div class="col-md-4 livres">' .
-            '<p><b>'.$book->getTitle().'</b></p>' .
-            '<img src="'.$book->getImagePath().'"  style="width: 140px;height: 190px;">' .
-            '<p>'.$book->getPrice().'€</p>' .
-            '</div></a>';
+        echo '<div class="col-md-4 livres" onclick="location.href=\'./shoppingSpace.php?'.$book->getBookId().'\';">' .
+            '<p class="displayTitleAndCategory">'.$book->getTitle().'</p>' .
+            '<p class="displayAuthorAndPrice">'.$book->getAuthor().'</p>' .
+            '<img class="displayImage" src="'.$book->getImagePath().'">' .
+            '<p class="displayAuthorAndPrice">Prix : '.$book->getPrice().'€</p>' .
+            '<p class="displayTitleAndCategory">'.$book->getCategoryName().'</p>' .
+            '</div>';
     }
     echo '</div>';
