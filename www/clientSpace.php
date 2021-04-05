@@ -97,7 +97,6 @@
                     <h2>Modifiez vos informations</h2>
                     <div class="form-group">
                         <form id="infosModifForm">
-                            <input type="hidden" name="tags" value="tags" />
                             <label class="col-md-12" for="client_id">Id :</label>
                             <input type="text" class="form-control col-md-12" id="client_id" required="" name="client_id" readonly="" value="<?php echo Format::getFormatId(8,$client->getClientId());?>" />
 
@@ -116,14 +115,17 @@
                             <label class="col-md-12" for="birth_date">Date de naissance : </label>
                             <?php
                                 list($year,$month,$day) = explode("-", $client->getBirthDate()->format('Y-m-d'));
+                                $month = intval($month);
                             ?>
                             <div class="form-group col-md-4">
                                 <label for="birthDay">Jour</label>
                                 <select class="form-select form-select-lg mb-3 change" name="birthDay" id="birthDay" aria-label="Default select example">
                                     <?php
-                                        echo '<option id="jour" selected="" disabled="" value="" hidden="">'.$day.'</option>' ;
                                         for ($i = 1; $i <= 31; $i++){
-                                            echo '<option value="'.$i.'">'.$i.'</option>';
+                                            if($i == $day)
+                                                echo '<option value="'.$i.'" selected="selected">'.$i.'</option>';
+                                            else
+                                                echo '<option value="'.$i.'">'.$i.'</option>';
                                         }
                                     ?>
                                 </select>
@@ -132,31 +134,28 @@
                                 <label for="birthMonth">Mois</label>
                                 <select class="form-select form-select-lg mb-3 change" name="birthMonth" id="birthMonth" aria-label="Default select example">
                                     <?php
-                                        $mois = array("01" => "Janvier", "02" => "Fevrier", "03" => "Mars", "04" => "Avril", "05" => "Mai", "06" => "Juin","07" => "Juillet", "08" => "Août", "09" => "Septembre", "10" => "Octobre", "11" => "Novembre", "12" => "Décembre") ;
-                                        echo '<option selected="" disabled="" value="" hidden="">'.$mois[$month].'</option>' ;
+                                        $mois = array("1" => "Janvier", "2" => "Fevrier", "3" => "Mars", "4" => "Avril",
+                                            "5" => "Mai", "6" => "Juin","7" => "Juillet", "8" => "Août", "9" => "Septembre",
+                                            "10" => "Octobre", "11" => "Novembre", "12" => "Décembre") ;
+                                        for ($i = 1; $i <= 12; $i++){
+                                            if($i == $month)
+                                                echo '<option value="'.$i.'" selected="selected">'.$mois[$i].'</option>';
+                                            else
+                                                echo '<option value="'.$i.'">'.$mois[$i].'</option>';
+                                        }
                                     ?>
-                                    <option value="01">Janvier</option>
-                                    <option value="02">Février</option>
-                                    <option value="03">Mars</option>
-                                    <option value="04">Avril</option>
-                                    <option value="05">Mai</option>
-                                    <option value="06">Juin</option>
-                                    <option value="07">Juillet</option>
-                                    <option value="08">Août</option>
-                                    <option value="09">Septembre</option>
-                                    <option value="10">Octobre</option>
-                                    <option value="11">Novembre</option>
-                                    <option value="12">Décembre</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="birthYear">Année</label>
                                 <select class="form-select form-select-lg mb-3 change" name="birthYear" id="birthYear" aria-label="Default select example">
                                     <?php
-                                    echo '<option selected="" disabled="" value="" hidden="">'.$year.'</option>' ;
                                     $date = date('Y');
                                     for($date-1; $date >= 1900; $date--){
-                                        echo '<option value="'.$date.'">'.$date.'</option>';
+                                        if($date == $year)
+                                            echo '<option value="'.$date.'" selected="selected">'.$date.'</option>';
+                                        else
+                                            echo '<option value="'.$date.'">'.$date.'</option>';
                                     }
                                     ?>
                                 </select>
@@ -167,32 +166,34 @@
 
                             <div class="form-group col-md-6">
                                 <select class="form-select form-select-lg mb-3 change" id="profession" name="profession" aria-label="Default select example">
-                                    <option selected="" disabled="" value="" hidden=""><?php echo $client->getProfession()?></option>
-                                    <option value="Archéologue">Archéologue</option>
-                                    <option value="Chirurgien">Chirurgien</option>
-                                    <option value="Cuisinier">Cuisinier</option>
-                                    <option value="Dessinateur">Dessinateur</option>
-                                    <option value="Etudiant">Etudiant</option>
-                                    <option value="Ingénieur ">Ingénieur</option>
-                                    <option value="Journaliste">Journaliste</option>
-                                    <option value="Médecin">Médecin</option>
-                                    <option value="Peintre">Peintre</option>
-                                    <option value="Policier">Policier</option>
-                                    <option value="Professeur">Professeur</option>
-                                    <option value="Psychologue ">Psychologue</option>
-                                    <option value="Rechercheur">Rechercheur</option>
-                                    <option value="Rédacteur">Rédacteur</option>
-                                    <option value="Scientifique ">Scientifique</option>
-                                    <option value="Sculpteur">Sculpteur</option>
-                                    <option value="Sculpteur">Autres</option>
+                                    <?php
+                                        $professions = array("Archéologue","Chirurgien","Cuisinier","Dessinateur",
+                                            "Etudiant","Ingénieur","Journaliste","Médecin","Peintre","Policier",
+                                            "Professeur","Psychologue","Rechercheur","Rédacteur","Scientifique",
+                                            "Sculpteur","Autres");
+
+                                        for($i=0; $i< 17; $i++){
+                                            if($professions[$i] == $client->getProfession())
+                                                echo '<option selected="selected" value="'.$client->getProfession().'" >'.$client->getProfession().'</option>';
+                                            else
+                                                echo '<option value="'.$professions[$i].'" >'.$professions[$i].'</option>';
+                                        }
+                                    ?>
                                 </select>
                             </div>
 
                             <div class="form-group col-md-6">
                                 <select class="form-select form-select-lg mb-3 change col-md-12" id="sex" name="sex" aria-label="Default select example">
-                                    <option selected="" disabled="" value="" hidden=""><?php echo $client->getSex()?></option>
-                                    <option value="M">M</option>
-                                    <option value="F">F</option>
+                                    <?php
+                                        $sexs = array("M","F") ;
+
+                                    for($i=0; $i< 2; $i++){
+                                        if($sexs[$i] == $client->getSex())
+                                            echo '<option selected="selected" value="'.$client->getSex().'" >'.$client->getSex().'</option>';
+                                        else
+                                            echo '<option value="'.$sexs[$i].'" >'.$sexs[$i].'</option>';
+                                    }
+                                    ?>
                                 </select>
                             </div>
 
@@ -246,15 +247,15 @@
             }
 
             function updateInfosClient(oldClient, newClient){
+                var oldBirthDate = oldClient['birthDate'];
                 changeInfoClient("client_id",oldClient["client_id"],newClient["client_id"]);
                 changeInfoClient("last_name",oldClient["last_name"],newClient["last_name"]);
                 changeInfoClient("first_name",oldClient["first_name"],newClient["first_name"]);
                 changeInfoClient("mail",oldClient["mail"],newClient["mail"]);
                 changeInfoClient("psd",oldClient["psd"],newClient["psd"]);
-                changeInfoClient("birthDate",oldClient["birthDate"],newClient["birthDate"]);
+                //changeInfoClient("birthDay",oldClient["birthDate"],newClient["birthDate"]);
                 changeInfoClient("profession",oldClient["profession"],newClient["profession"]);
                 changeInfoClient("sex",oldClient["sex"],newClient["sex"]);
-                changeInfoClient("tags",oldClient["tags"],newClient["tags"]);
                 updateInfosClientForm(newClient);
             }
 
@@ -264,10 +265,12 @@
                 document.getElementById("first_name").value = newClient["first_name"];
                 document.getElementById("mail").value = newClient["mail"];
                 document.getElementById("psd").value = newClient["psd"];
-                document.getElementById("birthDate").value = newClient["birthDate"];
+                document.getElementById("birthDay").value = newClient["birthDay"];
+                document.getElementById("birthMonth").value = newClient["birthMonth"];
+                document.getElementById("birthYear").value = newClient["birthYear"];
                 document.getElementById("profession").value = newClient["profession"];
                 document.getElementById("sex").value = newClient["sex"];
-                document.getElementById("tags").value = newClient["tags"];
+              //  document.getElementById("tags").value = newClient["tags"];
             }
 
             function showModifInfosForm() {

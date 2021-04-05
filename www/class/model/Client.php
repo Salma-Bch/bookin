@@ -45,28 +45,42 @@ class Client {
         $this->tags = $tags;
     }
 
-    public function toArray(){
-        return array(Format::getFormatId(8,$this->clientId),
-        $this->lastName,
-        $this->firstName,
-        $this->mail,
-        $this->psd,
-        $this->birthDate->format('Y-m-d'),
-        $this->profession,
-        $this->sex,
-        implode(",",$this->tags));
+    public function toArray($clientIdFirst=true){
+        if($clientIdFirst) {
+            return array(Format::getFormatId(8, $this->clientId),
+                $this->lastName,
+                $this->firstName,
+                $this->mail,
+                $this->psd,
+                $this->birthDate->format('Y-m-d'),
+                $this->profession,
+                $this->sex,
+                implode(",", $this->tags));
+        }
+        else {
+            return array(
+                $this->lastName,
+                $this->firstName,
+                $this->mail,
+                $this->psd,
+                $this->birthDate->format('Y-m-d'),
+                $this->profession,
+                $this->sex,
+                implode(",", $this->tags),
+                Format::getFormatId(8, $this->clientId));
+        }
     }
 
     public function toAssocArray(){
-        return array(Format::getFormatId(8,$this->clientId),
-            $this->lastName,
-            $this->firstName,
-            $this->mail,
-            $this->psd,
-            $this->birthDate->format('Y-m-d'),
-            $this->profession,
-            $this->sex,
-            implode(",",$this->tags));
+        return array("client_id"=>Format::getFormatId(8,$this->clientId),
+            "last_name"=>$this->lastName,
+            "first_name"=>$this->firstName,
+            "mail"=>$this->mail,
+            "psd"=>$this->psd,
+            "birthDate"=>$this->birthDate->format('Y-m-d'),
+            "profession"=>$this->profession,
+            "sex"=>$this->sex,
+            "tags"=>implode(",",$this->tags));
     }
 
     public function getAgeRange():String{

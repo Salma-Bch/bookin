@@ -88,7 +88,7 @@ class ClientDaoImpl implements ClientDao {
         try{
             $connection = $this->daoFactory->getConnection();
             $preparedStatement = DAOUtility::initPreparedStatement($connection, self::SQL_UPDATE);
-            $status = $preparedStatement->execute((array)$client);
+            $status = $preparedStatement->execute($client->toArray(false));
             if ($status == 0)
                 throw new DAOException("Client update failed, no line changed");
         } catch (\Exception $e){

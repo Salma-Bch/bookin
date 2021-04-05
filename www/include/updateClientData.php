@@ -19,14 +19,10 @@ try {
 
     $clientDao = DAOFactory::getInstance()->getClientDao();
     $birthDate = new DateTime($_POST['birthDay'] . "-" . $_POST['birthMonth'] . "-" .$_POST['birthYear']);
-        $tags = array();
-        if(isset($_POST['tags'])){
-            foreach ($_POST['tags'] as $tag){
-                array_push($tags, $tag);
-            }
-        }
+    $clientSession = $_SESSION['bookinClient'];
+
     $client = new Client($_POST['client_id'], $_POST['last_name'], $_POST['first_name'], $_POST['mail'],
-        $_POST['psd'], $birthDate, $_POST['profession'], $_POST['sex'], $tags);
+        $_POST['psd'], $birthDate, $_POST['profession'], $_POST['sex'], $clientSession->getTags());
     if (!isset($client)) {
         echo "maj:no";
         exit(-1);
@@ -36,6 +32,7 @@ try {
         $clientDao->update($client);
         $_SESSION['bookinClient'] = $client;
         echo json_encode($client->toAssocArray(),JSON_INVALID_UTF8_SUBSTITUTE);
+        $_SESSION['bookinClient'] = $client;
         exit(0);
     }
 }
