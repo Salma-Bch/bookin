@@ -3,7 +3,6 @@
 ?>
 <table class="table">
     <tbody>
-    <tr><th><b>Livres achetés :</b></th></tr>
     <tr><td>
             <?php
             $i=0;

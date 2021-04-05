@@ -21,25 +21,25 @@
             include("include/header.php");
         ?>
         <div class="head_location"></div>
-        <div class="container">
-            <h1>Plan du site</h1>
-            <div class="row plan">
+        <div class="container bodyContainer termsOfUses" id="termsOfUse">
+            <h2>Plan du site</h2>
+            <div class="row conditions">
                 <div class="col-sm-12">
                     <div class="col-sm-4">
-                        <a href="../../../../../wamp64/www/boooooooook/index.php"><p>Accueil</p></a>
-                        <a href="searchSpace.php"><p>Nos livres</p></a>
+                        <a href="index.php"><p class="condition">Accueil</p></a>
+                        <a href="searchSpace.php"><p class="condition">Nos livres</p></a>
                     </div>
                     <div class="col-sm-4">
-                        <a href="../../../../../wamp64/www/boooooooook/clientLoginSpace.php"><p>Espace client</p></a>
-                        <a href="../../../../../wamp64/www/boooooooook/administratorLoginSpace.php"><p>Espace administrateur</p></a>
+                        <a href="clientLoginSpace.php"><p class="condition">Espace client</p></a>
+                        <a href="administratorLoginSpace.php"><p class="condition">Espace administrateur</p></a>
                     </div>
                     <div class="col-sm-4">
-                        <a href="informationSpace.php"><p>À propos</p></a>
-                        <a href="termsOfUse.php"><p>Condition d'utilisation</p></a>
+                        <a href="informationSpace.php"><p class="condition">À propos</p></a>
+                        <a href="termsOfUse.php"><p class="condition">Condition d'utilisation</p></a>
                     </div>
                 </div>
             </div>
-		</div>
+        </div>
 		<?php
 			include("include/footer.php");
 		?>

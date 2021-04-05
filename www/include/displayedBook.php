@@ -5,24 +5,15 @@ use controller\Suggestion;
     $suggestion = new Suggestion();
     $books = $suggestion->suggest();
 
-   /* echo '<div class="col-md-9" id="bookSearched" style="background-color: #d6d6d6">';
-    foreach ($books as $book) {
-        echo '<div class="col-md-4 livres">' .
-            '<p>Titre : '.$book->getTitle().'</p>' .
-            '<img src="'.$book->getImagePath().'"  style="width: 140px;height: 190px;">' .
-            '<p>'.$book->getPrice().'€</p>' .
-            '</div>';
-    }
-    echo '</div>';*/
-echo '<h2>Sélectionnés pour vous !</h2>';
-echo '<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">';
-echo '<div class="carousel-indicators">';
-echo '<button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>';
-echo '<button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="1" aria-label="Slide 2"></button>';
-echo '<button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="2" aria-label="Slide 3"></button>';
-echo '<button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="3" aria-label="Slide 4"></button>';
-echo '</div>';
-echo '<div class="carousel-inner partie_suggestions">';
+    echo '<h2>Sélectionnés pour vous !</h2>';
+    echo '<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">';
+    echo '<div class="carousel-indicators">';
+    echo '<button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>';
+    echo '<button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="1" aria-label="Slide 2"></button>';
+    echo '<button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="2" aria-label="Slide 3"></button>';
+    echo '<button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="3" aria-label="Slide 4"></button>';
+    echo '</div>';
+    echo '<div class="carousel-inner partie_suggestions">';
 
     $page = 1;
     $i=0;
@@ -40,12 +31,13 @@ echo '<div class="carousel-inner partie_suggestions">';
             for ($j = 0; $j < $nbrBooksPerRow; $j++) {
                 if(!isset($books[$i]))
                     break;
-                echo '<div style="display:inline-block;border:solid;padding-top:10px">';
-                echo '<p style="font-weight: bold;font-size:20px">'.$books[$i]->getCategoryName().'</p>';
-                echo '<a href="./shoppingSpace.php?bookId='.$books[$i]->getBookId().'&source=index"><img src="'.$books[$i]->getImagePath().
-                    '"  alt="image du livre '.$books[$i]->getBookId().'"/></a>';
-                echo '<p>'.$books[$i]->getTitle().'</p>';
-                echo '<p>'.$books[$i]->getPrice().'€</p>';
+                echo '<div class="displayIndexBook">';
+                echo '<p class="displayTitleAndCategory">'.$books[$i]->getTitle().'</p>';
+                echo '<p class="displayAuthorAndPrice">'.$books[$i]->getAuthor().'€</p>';
+                echo '<a href="./shoppingSpace.php?bookId='.$books[$i]->getBookId().'&source=index"><img class="displayImage" src="'.$books[$i]->getImagePath().'"  alt="image du livre '.$books[$i]->getBookId().'"/></a>';
+                echo '<p class="displayAuthorAndPrice">'.$books[$i]->getPrice().'€</p>';
+                echo '<p class="displayTitleAndCategory">'.$books[$i]->getCategoryName().'</p>';
+
                 echo '</div>';
                 $i++;
             }

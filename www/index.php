@@ -34,7 +34,7 @@ include_once("include/includeFiles.php");
 			</div>
         </div>
 
-        <div class="container">
+        <div class="container bodyContainer">
             <div class="col-md-12">
                 <?php
                     if(isset($_SESSION['bookinClient']))
