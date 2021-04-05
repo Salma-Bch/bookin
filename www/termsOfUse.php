@@ -21,9 +21,9 @@
 	        include("include/header.php");
 	    ?>
         <div class="head_location"></div>
-		<div class="container" id="termsOfUse">
-            <h1>Conditions générales d'utilisation</h1>
-			<div class="row condition">
+		<div class="container bodyContainer" id="termsOfUse">
+            <h2>Conditions générales d'utilisation</h2>
+			<div class="row termes">
 				<div class="col-sm-12">
                     <p>Les présentes conditions générales d'utilisation s'appliquent à l'application web Book'In.</p>
                     <p><b>EN UTILISANT LE SITE, VOUS ACCEPTEZ LES PRÉSENTES CONDITIONS D'UTILISATION.</b></p>

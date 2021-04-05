@@ -34,7 +34,7 @@ include_once("include/includeFiles.php");
 			</div>
         </div>
 
-        <div class="container">
+        <div class="container bodyContainer">
             <div class="col-md-12">
                 <?php
                     if(isset($_SESSION['bookinClient']))
@@ -45,7 +45,7 @@ include_once("include/includeFiles.php");
                 <div class="col-md-12">
                     <h2>Connectez-vous !</h2>
                     <button class="btn modifEtDeco" onclick="location.href='./clientLoginSpace.php'">Connectez vous</button>
-                </div>;
+                </div>
             </div>
 
         </div>

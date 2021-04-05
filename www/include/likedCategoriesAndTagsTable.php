@@ -1,10 +1,6 @@
 <table class="table">
     <tbody>
         <tr>
-            <th><b>Catégories aimés :</b></th>
-            <th><b>Tags aimés :</b></th>
-        </tr>
-        <tr>
             <td class="col-md-6" style="border-right:solid">
                 <?php
                 $i=0;

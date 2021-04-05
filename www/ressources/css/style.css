@@ -15,7 +15,7 @@ body{
 	background: url( ../images/fond.jpg);
 	background-size: cover;
 	min-height:200px;
-	padding-top:280px;
+	padding-top:200px;
 	text-align: center;
 	color: white ;
 }
@@ -46,10 +46,6 @@ body{
 	margin : 5px ;
 }
 
-.foot {
-	margin-top: 50px;
-}
-
 footer {
 	background: gray ;
 	padding: 30px 0 0 0;
@@ -76,13 +72,13 @@ footer a:hover {
 .container-connexion {
 	background: url( ../images/fond.jpg);
 	background-size: cover;
-	padding-top:50px;
-	padding-bottom: 110px;
+	padding-top:20px;
+	padding-bottom: 40px;
 }
 
 .card-container.card {
     max-width: 400px;
-	padding: 40px 40px;
+	padding: 35px;
 }
 
 .card-container-mdp.card {
@@ -207,22 +203,12 @@ footer a:hover {
 .propos {
 	border: solid;
 	background-color: lightgray ;
-	font-style: italic;
 	padding-top : 20px ;
 	padding-bottom: 20px;
 	padding-left :40px;
 	padding-right: 40px;
-	margin-top: 20px;
-}
-
-.condition {
-	border: solid;
-	background-color: lightgray ;
-	padding-top : 20px ;
-	padding-bottom: 20px;
-	padding-left :40px;
-	padding-right: 40px;
-	margin-top: 20px;
+	text-align: center;
+	font-size: 120%;
 }
 
 .form-control.contact {
@@ -384,9 +370,9 @@ footer a:hover {
 }
 
 .adminLogin{
-	text-align: center;
-	margin: 0;
-	margin-bottom: 10px;
+	text-align:center;
+	margin:0;
+	margin-bottom:10px;
 }
 
 .compte{
@@ -410,4 +396,76 @@ footer a:hover {
 	margin-bottom: 10px;
 	width: 140px;
 	height: 190px;
+}
+
+.bodyContainer{
+	margin-bottom: 50px;
+}
+
+#titleName{
+	margin-top: 40px;
+}
+
+.citationPropos{
+	font-style: italic;
+	font-weight: bold;
+}
+
+.termsOfUses{
+	font-size: 150%;
+	text-decoration: none;
+	color: black;
+}
+
+.termsOfUses a{
+	text-decoration: none;
+	color: black;
+}
+
+.termsOfUses a :hover{
+	font-weight: bold;
+}
+
+.conditions {
+	border: solid;
+	background-color: lightgray ;
+	padding-top : 20px ;
+	padding-bottom: 20px;
+	padding-left :40px;
+	padding-right: 40px;
+	margin-top: 20px;
+	text-align: center;
+}
+
+.condition {
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.termes {
+	border: solid;
+	background-color: lightgray ;
+	padding-top : 20px ;
+	padding-bottom: 20px;
+	padding-left :40px;
+	padding-right: 40px;
+	margin-top: 20px;
+	font-size: 112%;
+}
+
+.displayIndexBook{
+	display:inline-block;
+	border:solid;
+	padding-top:10px;
+	background-color: #d4d4d4;
+	width: 300px;
+}
+
+.carousel-control-prev{
+	width: 107px;
+	color: black;
+}
+
+.carousel-control-next{
+	width: 107px;
 }

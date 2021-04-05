@@ -1,7 +1,7 @@
 <?php
     use utility\Format;
 ?>
-<table class="table">
+<table class="table" id="tableauInfo">
     <tbody>
     <tr>
         <td><b>Nom :</b> <?php echo $client->getLastName() ?></td>

@@ -48,7 +48,7 @@
         ?>
         <script>
             var bookId = "<?php if(isset($_GET['bookId'])) echo "?bookId=".$_GET['bookId']; else echo ""; ?>" ;
-            var source = "<?php if(isset($_GET['source'])) echo "&source=".$_GET['source']; else echo "other"; ?>" ;
+            var source = "<?php if(isset($_GET['source'])) echo "&source=".$_GET['source']; else echo ""; ?>" ;
 
             function sendClientData() {
                 var formData = $("#connectionClientInfosForm").serialize();

@@ -25,7 +25,7 @@
             include_once("include/header.php");
         ?>
 		<div class="head_location"></div>
-		<div class="container">
+		<div class="container bodyContainer">
 	        <h1>Espace de recherche</h1>
             <div class="col-md-12">
                 <div class="row">
