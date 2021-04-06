@@ -592,3 +592,7 @@ input[type=range]::-webkit-slider-thumb {
 	text-decoration: none;
 	font-size: 12px;
 }
+
+#secondPart {
+	height: 220px;
+}
