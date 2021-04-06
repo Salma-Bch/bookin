@@ -46,7 +46,7 @@
                 <input type="submit" class="btn modifEtDeco" id="ajoutAdmin" name="submit" onclick="location.href='./administratorAccountCreationSpace.php'" value="Ajouter un administrateur" />
             </div>
             <div class="col-sm-6 col-xs-12">
-                <form action="include/logout.php" method="POST">
+                <form action="include/adminLogout.php" method="POST">
                     <input type="submit" class="btn modifEtDeco" value="Déconnexion" />
                 </form>
             </div>

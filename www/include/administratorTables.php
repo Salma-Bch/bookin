@@ -1,6 +1,9 @@
 <?php
     use utility\Format;
 ?>
+<div class="col-md-12">
+    <h3>Informations personnelles </h3>
+</div>
 <table class="table">
     <tbody>
         <tr>
@@ -26,14 +29,15 @@ foreach ($likedBooks as $likedBook){
     $likedBooksGraph[$likedBook->getTitle()] = $likedBooksCount[Format::getFormatId(8,$likedBook->getBookId())];
 }
 ?>
-
+<div class="col-md-6">
+    <h3>Catégories les plus aimées </h3>
+</div>
+<div class="col-md-6">
+    <h3>Livres les plus aimées </h3>
+</div>
 <table class="table">
     <tbody>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-    <tr>
-        <th><b>Statistiques des livres les plus achetés :</b></th>
-        <th><b>Statistiques des livres les plus aimés :</b></th>
-    </tr>
     <tr>
         <td class="col-md-6" style="border-right:solid">
             <canvas id="categoryGraph" width="400" height="400"></canvas>

@@ -243,7 +243,7 @@
 
         var bookDiv = document.createElement('div');
         bookDiv.setAttribute('class', "col-md-4 livres" );
-        bookDiv.setAttribute('onclick','location.href="./shoppingSpace.php"')
+        bookDiv.setAttribute('onclick','location.href="./shoppingSpace.php?bookId='+id+'&source=searchSpace"')
 
         var title = document.createElement('p');
         title.innerText = book[1];

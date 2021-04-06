@@ -11,12 +11,6 @@
 
     echo '<h2>Sélectionnés pour vous !</h2>';
     echo '<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">';
-    echo '<div class="carousel-indicators">';
-    echo '<button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>';
-    echo '<button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="1" aria-label="Slide 2"></button>';
-    echo '<button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="2" aria-label="Slide 3"></button>';
-    echo '<button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="3" aria-label="Slide 4"></button>';
-    echo '</div>';
     echo '<div class="carousel-inner partie_suggestions">';
 
     $page = 1;
