@@ -90,7 +90,6 @@ class UserModel
                     break;
                 }
             }
-            var_dump($tags);
         return $tags;
     }
 

@@ -27,17 +27,20 @@ class UserAlgorithm {
     public function suggest(int $nbrOfBooks):array{
         if($nbrOfBooks > 0) {
             $booksTagBased = $this->userLikedTags($this->books, $this->userModel);
-            var_dump($booksTagBased);
-            $booksCategoryBased = $this->userLikedCategory($booksTagBased, $this->userModel);
-            //$booksProfessionBased = $this->userProfession($booksCategoryBased,$this->userModel);
-            //$booksAgeRangeBased = $this->userAgeRange($booksProfessionBased,$this->userModel);
-            //shuffle($booksAgeRangeBased);
-            var_dump($booksCategoryBased);
-            for ($i = 0; $i < count($booksCategoryBased) - $nbrOfBooks; $i++) {
-                array_pop($booksCategoryBased);
+            $booksCategoryBased = $this->userLikedCategory(array_diff($this->books,$booksTagBased), $this->userModel);
+            $booksAgeRangeBased = $this->userAgeRange(array_diff($this->books,$booksCategoryBased),$this->userModel);
+            $booksProfessionBased = $this->userProfession(array_diff($this->books,$booksAgeRangeBased),$this->userModel);
+
+            $booksToReturn = array_merge($booksTagBased,$booksCategoryBased);
+            $booksToReturn = array_merge($booksToReturn, $booksAgeRangeBased);
+            $booksToReturn = array_merge($booksToReturn, $booksProfessionBased);
+            shuffle($booksToReturn);
+            $sizeTab = count($booksToReturn);
+            for ($i = 0; $i < $sizeTab - $nbrOfBooks; $i++) {
+                array_pop($booksToReturn);
             }
 
-            return $booksCategoryBased;
+            return $booksToReturn;
         }
         return array();
     }
@@ -80,15 +83,13 @@ class UserAlgorithm {
     public function userProfession(array $books, UserModel $userModel){
         $booksSelected = array();
         $userProfessionModel = $userModel->getUserProfessionModel();
-
         foreach ($userProfessionModel as $userProfession){
-            if($userProfession != 0){
-                foreach ($books as $book){
-                    if($book->getTags() == key($userProfessionModel))
-                        array_push($booksSelected, $book);
+            foreach ($books as $book){
+                if(in_array($userProfession,$book->getTags())){
+                    array_push($booksSelected, $book);
                 }
+
             }
-            next($userProfessionModel);
         }
         return $booksSelected;
     }

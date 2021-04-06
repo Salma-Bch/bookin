@@ -60,8 +60,12 @@ class Suggestion {
         $userAlgorithme = new UserAlgorithm(array_diff($this->books,$booksToDisplay),$this->client);
         $userBooks = $userAlgorithme->suggest(18-count($booksToDisplay));
         $booksToDisplay = array_merge($booksToDisplay,$userBooks);
-
+        var_dump($userBooks);
         shuffle($booksToDisplay);
+        $sizeTab = count($booksToDisplay);
+        for ($i = 0; $i < $sizeTab - 18; $i++) {
+            array_pop($booksToDisplay);
+        }
         return $booksToDisplay;
     }
 
