@@ -265,3 +265,32 @@ function createCompte(idForm) {
         });
     }
 }
+
+function createAdministratorCompte(idForm) {
+    var div = document.getElementById("adm");
+    var inputs = div.getElementsByClassName("change");
+    var send = true;
+    for(var i=0; i<inputs.length; i++){
+        if(!validInput(inputs[i])){
+            send = false;
+        }
+    }
+    if (send) {
+        var formCompte = $("#"+idForm).serialize();
+        $.ajax({
+            type: 'post',
+            url: './include/compteAdministratorCreation.php',
+            data: formCompte,
+            success: function (response) {
+                if (response.includes("failed")) {
+                    displayEchecCreat();
+                } else {
+                    displaySuccessCreat();
+                }
+            },
+            error: function () {
+                displayEchecCreat();
+            }
+        });
+    }
+}

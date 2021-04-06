@@ -33,12 +33,13 @@ while($i < count($books)) {
         for ($j = 0; $j < $nbrBooksPerRow; $j++) {
             if(!isset($books[$i]))
                 break;
-            echo '<div style="display:inline-block;border:solid;padding-top:10px">';
-            echo '<p style="font-weight: bold;font-size:20px">'.$books[$i]->getCategoryName().'</p>';
-            echo '<a href="./shoppingSpace.php?bookId='.$books[$i]->getBookId().'&source=index"><img src="'.$books[$i]->getImagePath().
-                '"  alt="image du livre '.$books[$i]->getBookId().'"/></a>';
-            echo '<p>'.$books[$i]->getTitle().'</p>';
-            echo '<p>'.$books[$i]->getPrice().'€</p>';
+
+            echo '<div class="displayIndexBook">';
+            echo '<p class="displayTitleAndCategory">'.$books[$i]->getTitle().'</p>';
+            echo '<p class="displayAuthorAndPrice">'.$books[$i]->getAuthor().'</p>';
+            echo '<a href="./shoppingSpace.php?bookId='.$books[$i]->getBookId().'&source=index"><img class="displayImage" src="'.$books[$i]->getImagePath().'"  alt="image du livre '.$books[$i]->getBookId().'"/></a>';
+            echo '<p class="displayAuthorAndPrice">'.$books[$i]->getPrice().'€</p>';
+            echo '<p class="displayTitleAndCategory">'.$books[$i]->getCategoryName().'</p>';
             echo '</div>';
             $i++;
         }

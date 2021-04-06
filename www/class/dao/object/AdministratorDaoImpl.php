@@ -9,6 +9,7 @@ use model\Administrator;
 
 class AdministratorDaoImpl implements AdministratorDao {
     private const SQL_SELECT_BY_ADMIN_ID = "SELECT admin_id, last_name, first_name, mail, psd FROM administrator WHERE admin_id = ?";
+    private const SQL_SELECT_MAX_ID = "SELECT MAX(admin_id) as max_id FROM administrator";
     private const SQL_SELECT_BY_MAIL = "SELECT admin_id, last_name, first_name, mail, psd FROM administrator WHERE mail = ?";
     private const SQL_SELECT_BY_MAIL_AND_PASSWORD = "SELECT admin_id, last_name, first_name, mail, psd FROM administrator WHERE mail = ? AND psd=?";
     private const SQL_INSERT = "INSERT INTO administrator (admin_id, last_name, first_name, mail, psd) VALUES (?, ? ,? ,? ,?)";
@@ -41,6 +42,25 @@ class AdministratorDaoImpl implements AdministratorDao {
             DAOUtility::close($preparedStatement, $connection);
         }
         return $administrator;
+    }
+
+    public function getMaxId(): int
+    {
+        try{
+            $connection = $this->daoFactory->getConnection();
+            $preparedStatement = DAOUtility::initPreparedStatement($connection, self::SQL_SELECT_MAX_ID);
+            $status = $preparedStatement->execute();
+
+            if($status)
+                $maxId = (int)$preparedStatement->fetchObject()->max_id;
+            else
+                throw new DAOException("getting maximum id failed ");
+        } catch (\Exception $e){
+            throw new DAOException($e);
+        } finally {
+            DAOUtility::close($preparedStatement, $connection);
+        }
+        return $maxId;
     }
 
     function create(Administrator $administrator): bool

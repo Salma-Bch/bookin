@@ -35,7 +35,7 @@
         <?php
             include_once("include/header.php");
         ?>
-        <div class="container">
+        <div class="container bodyContainer">
             <h2 id="titleName">Bonjour <?php echo $administrator->getFirstName()." ".$administrator->getLastName() ?></h2>
             <p>Bienvenue dans ton espace personnel. Tu trouveras ici toutes les informations te concernant. </p>
             <div class="container clientSpaceTable">
@@ -50,7 +50,7 @@
                 <input type="submit" class="btn modifEtDeco" id="modifButton" name="submit" value="Modifier mes informations" />
             </div>
             <div class="col-sm-4 col-xs-12">
-                <input type="submit" class="btn modifEtDeco" id="modifButton" name="submit" value="Ajouter un administrateur" />
+                <input type="submit" class="btn modifEtDeco" id="modifButton" name="submit" onclick="location.href='./administratorAccountCreationSpace.php'" value="Ajouter un administrateur" />
             </div>
             <div class="col-sm-4 col-xs-12">
                 <form action="include/logout.php" method="POST">

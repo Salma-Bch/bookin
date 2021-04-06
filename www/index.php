@@ -36,15 +36,18 @@ use controller\Suggestion;
         <div class="container bodyContainer">
             <div class="col-md-12">
                 <?php
-                    if(isset($_SESSION['bookinClient']))
-                        include_once ("./include/displayedBook.php");
-                    else
-                        include_once ("./include/displayBooksTendance.php");
+                    if(isset($_SESSION['bookinClient'])) {
+                        include_once("./include/displayedBook.php");
+                    }
+                    else {
+                        include_once("./include/displayBooksTendance.php");
+                        echo '<div class="col-md-12">';
+                        echo '<h2>Connectez-vous !</h2>';
+                        echo '<button class="btn modifEtDeco" onclick="location.href=\'./clientLoginSpace.php\'">Connectez vous</button>';
+                        echo '</div>';
+                    }
                 ?>
-                <div class="col-md-12">
-                    <h2>Connectez-vous !</h2>
-                    <button class="btn modifEtDeco" onclick="location.href='./clientLoginSpace.php'">Connectez vous</button>
-                </div>
+
             </div>
 
         </div>

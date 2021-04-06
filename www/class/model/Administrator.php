@@ -4,6 +4,8 @@
 namespace model;
 
 
+use utility\Format;
+
 class Administrator {
     private int $adminId;
     private String $lastName;
@@ -28,6 +30,23 @@ class Administrator {
         $this->psd = $psd;
     }
 
+    public function toArray($administratorIdFirst=true){
+        if($administratorIdFirst) {
+            return array(Format::getFormatId(8, $this->administratorId),
+                $this->lastName,
+                $this->firstName,
+                $this->mail,
+                $this->psd);
+        }
+        else {
+            return array(
+                $this->lastName,
+                $this->firstName,
+                $this->mail,
+                $this->psd,
+                Format::getFormatId(8, $this->administratorId));
+        }
+    }
 
     /**
      * @return int
