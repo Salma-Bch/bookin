@@ -170,7 +170,7 @@ class ContentModel {
         $tagsToReturn = array();
 
         $tagsName = array();
-        $csvFile = fopen("./ressources/bd/db_tag.csv","r");
+        $csvFile = fopen("../../ressources/bd/db_tag.csv","r");
         while ( ($lineCsv = fgetcsv($csvFile,1024, ";")) !== FALSE ) {
             array_push($tagsName, utf8_encode($lineCsv[0]));
         }

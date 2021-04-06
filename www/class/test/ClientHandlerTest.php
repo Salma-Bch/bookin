@@ -204,4 +204,4 @@ function testGetBuysBooksTags($client){
         echo "Test échoué, ne fonctionne pas comme attendu";
     }
 }
-//testGetBuysBooksTags($client);
+testGetBuysBooksTags($client);

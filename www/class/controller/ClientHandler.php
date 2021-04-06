@@ -244,7 +244,7 @@ class ClientHandler {
         foreach ($buysBooks as $book) {
             $tags = array_merge($tags, $book->getTags());
         }
-        return array_unique($tags);
+        return $tags;
     }
 
 }
