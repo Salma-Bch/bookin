@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['setadminid_474',['setAdminId',['../classmodel_1_1_administrator.html#a1720012769e3dc269a747500086d7864',1,'model::Administrator']]],
+  ['setage_475',['setAge',['../classmodel_1_1_client.html#a94792e3270ba8ad36f6cb6e1172d8c46',1,'model::Client']]],
+  ['setagerange_476',['setAgeRange',['../classmodel_1_1_book.html#af9b5bc81e4c1784441507ee625419da9',1,'model::Book']]],
+  ['setamount_477',['setAmount',['../classmodel_1_1_purchase.html#af806d3f0fc8b626f1235dc85e422a3d2',1,'model::Purchase']]],
+  ['setauthor_478',['setAuthor',['../classmodel_1_1_book.html#ad2257fc8af2305ce502cd25a9baa74c4',1,'model::Book']]],
+  ['setbirthdate_479',['setBirthDate',['../classmodel_1_1_client.html#ac62b8fcc5d62c06ff613cd13ed54dd18',1,'model::Client']]],
+  ['setbookid_480',['setBookId',['../classmodel_1_1_book.html#a6974602c9372670eb040fdee92709e03',1,'model\Book\setBookId()'],['../classmodel_1_1_evaluates.html#a6974602c9372670eb040fdee92709e03',1,'model\Evaluates\setBookId()'],['../classmodel_1_1_purchase.html#ab7d8cfe0e7d6a2f646330156c52c9300',1,'model\Purchase\setBookId()']]],
+  ['setbooksid_481',['setBooksId',['../classmodel_1_1_tag.html#aaae2930eeb63ea48a647d0aa6e4aa14b',1,'model::Tag']]],
+  ['setcategoryname_482',['setCategoryName',['../classmodel_1_1_book.html#a3023397c8ad4bca9281aa2dd71d11142',1,'model\Book\setCategoryName()'],['../classmodel_1_1_category.html#a3023397c8ad4bca9281aa2dd71d11142',1,'model\Category\setCategoryName()'],['../classmodel_1_1_likes.html#a3023397c8ad4bca9281aa2dd71d11142',1,'model\Likes\setCategoryName()']]],
+  ['setclientid_483',['setClientId',['../classmodel_1_1_client.html#ac5d331eb326a31f121685c178387c4f4',1,'model\Client\setClientId()'],['../classmodel_1_1_evaluates.html#a7bdee81a5b2f7e725bffa77366189482',1,'model\Evaluates\setClientId()'],['../classmodel_1_1_likes.html#ac5d331eb326a31f121685c178387c4f4',1,'model\Likes\setClientId()'],['../classmodel_1_1_purchase.html#a920bc1936147e6f209d14fed69d921e6',1,'model\Purchase\setClientId()']]],
+  ['setfirstname_484',['setFirstName',['../classmodel_1_1_administrator.html#a4a951776a912492eb02ce00bb0b1e2ce',1,'model\Administrator\setFirstName()'],['../classmodel_1_1_client.html#a4a951776a912492eb02ce00bb0b1e2ce',1,'model\Client\setFirstName()']]],
+  ['setimagepath_485',['setImagePath',['../classmodel_1_1_book.html#a503a51731bd029ca708dca629bb19d56',1,'model::Book']]],
+  ['setlastname_486',['setLastName',['../classmodel_1_1_administrator.html#a69a8e387abf5660e10ce12c2b85539ea',1,'model\Administrator\setLastName()'],['../classmodel_1_1_client.html#a69a8e387abf5660e10ce12c2b85539ea',1,'model\Client\setLastName()']]],
+  ['setmail_487',['setMail',['../classmodel_1_1_administrator.html#ad5ba083b208ed11aa16938a8ba87a78c',1,'model\Administrator\setMail()'],['../classmodel_1_1_client.html#ad5ba083b208ed11aa16938a8ba87a78c',1,'model\Client\setMail()']]],
+  ['setnumberpages_488',['setNumberPages',['../classmodel_1_1_book.html#a6c66da1d27a4217f1e00a26bbaa292db',1,'model::Book']]],
+  ['setprice_489',['setPrice',['../classmodel_1_1_book.html#a48d3688b6264543ff1017e3fe06ae7ca',1,'model::Book']]],
+  ['setprofession_490',['setProfession',['../classmodel_1_1_client.html#ad10d0d9c0a171fe5afb1a9248c68bddb',1,'model::Client']]],
+  ['setpsd_491',['setPsd',['../classmodel_1_1_administrator.html#a3ed7ed8b34134a9f44f2b1c301a67958',1,'model\Administrator\setPsd()'],['../classmodel_1_1_client.html#a3ed7ed8b34134a9f44f2b1c301a67958',1,'model\Client\setPsd()']]],
+  ['setquantity_492',['setQuantity',['../classmodel_1_1_purchase.html#a6aaf2dab8685fde29dbdf49b782017df',1,'model::Purchase']]],
+  ['setsatisfied_493',['setSatisfied',['../classmodel_1_1_evaluates.html#a4312c29b94129cdb781283d475e02d77',1,'model::Evaluates']]],
+  ['setsex_494',['setSex',['../classmodel_1_1_client.html#a292130df34491ebf6842ca66b8072d83',1,'model::Client']]],
+  ['settagname_495',['setTagName',['../classmodel_1_1_tag.html#a65c62e11909f39076fd888e11e0ac50d',1,'model::Tag']]],
+  ['settags_496',['setTags',['../classmodel_1_1_book.html#a12f87fe7d15b2b763751d8da9397e393',1,'model\Book\setTags()'],['../classmodel_1_1_client.html#a12f87fe7d15b2b763751d8da9397e393',1,'model\Client\setTags()']]],
+  ['settitle_497',['setTitle',['../classmodel_1_1_book.html#a754ef3032cc3ffb25ad2d1a13720fc29',1,'model::Book']]],
+  ['suggest_498',['suggest',['../classcontroller_1_1_content_algorithm.html#af49bf971d2ab30d0df31e592c72a3f3f',1,'controller\ContentAlgorithm\suggest()'],['../classcontroller_1_1_popular_algorithm.html#a38ff55523a4b86ac65c238e89bb6d237',1,'controller\PopularAlgorithm\suggest()'],['../classcontroller_1_1_random_algorithm.html#a25421882bc5e8da1e59ef77ae05f12b9',1,'controller\RandomAlgorithm\suggest()'],['../classcontroller_1_1_user_algorithm.html#a3e55ec75745dab159ac9fb3620527fbc',1,'controller\UserAlgorithm\suggest()'],['../classcontroller_1_1_suggestion.html#af49bf971d2ab30d0df31e592c72a3f3f',1,'controller\Suggestion\suggest()']]]
+];

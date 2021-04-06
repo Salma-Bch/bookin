@@ -1,0 +1,14 @@
+var searchData=
+[
+  ['update_259',['update',['../interfacedao_1_1object_1_1_administrator_dao.html#afc1dd0681625c9da13d89fd7ae27186b',1,'dao\object\AdministratorDao\update()'],['../classdao_1_1object_1_1_administrator_dao_impl.html#afc1dd0681625c9da13d89fd7ae27186b',1,'dao\object\AdministratorDaoImpl\update()'],['../interfacedao_1_1object_1_1_book_dao.html#a8b1be70d3e04c948eb956972492f2d44',1,'dao\object\BookDao\update()'],['../classdao_1_1object_1_1_book_dao_impl.html#a8b1be70d3e04c948eb956972492f2d44',1,'dao\object\BookDaoImpl\update()'],['../interfacedao_1_1object_1_1_client_dao.html#a14802670490c4e0876cba9e43b17bb0c',1,'dao\object\ClientDao\update()'],['../classdao_1_1object_1_1_client_dao_impl.html#a14802670490c4e0876cba9e43b17bb0c',1,'dao\object\ClientDaoImpl\update()'],['../interfacedao_1_1object_1_1_evaluates_dao.html#a20909f2214eec528228d6571ee9d87a9',1,'dao\object\EvaluatesDao\update()'],['../classdao_1_1object_1_1_evaluates_dao_impl.html#a20909f2214eec528228d6571ee9d87a9',1,'dao\object\EvaluatesDaoImpl\update()'],['../interfacedao_1_1object_1_1_likes_dao.html#a81ea0765f648a867b05b549e58374c72',1,'dao\object\LikesDao\update()'],['../classdao_1_1object_1_1_likes_dao_impl.html#ad00d9a1ba42b4b14748e308725da47b6',1,'dao\object\LikesDaoImpl\update()'],['../interfacedao_1_1object_1_1_purchase_dao.html#a6f27ab3ffdf21d9c64db8f59bc2ad06a',1,'dao\object\PurchaseDao\update()'],['../classdao_1_1object_1_1_purchase_dao_impl.html#a6f27ab3ffdf21d9c64db8f59bc2ad06a',1,'dao\object\PurchaseDaoImpl\update()'],['../interfacedao_1_1object_1_1_tag_dao.html#a6b02a710b75c67e86d9f13fbae4159a0',1,'dao\object\TagDao\update()'],['../classdao_1_1object_1_1_tag_dao_impl.html#a6b02a710b75c67e86d9f13fbae4159a0',1,'dao\object\TagDaoImpl\update()']]],
+  ['updateclientdata_2ephp_260',['updateClientData.php',['../update_client_data_8php.html',1,'']]],
+  ['useragerange_261',['userAgeRange',['../classcontroller_1_1_user_algorithm.html#ad1029f532030d71436dbdec85ec1d9e0',1,'controller::UserAlgorithm']]],
+  ['useralgorithm_262',['UserAlgorithm',['../classcontroller_1_1_user_algorithm.html',1,'controller']]],
+  ['useralgorithm_2ephp_263',['UserAlgorithm.php',['../_user_algorithm_8php.html',1,'']]],
+  ['userlikedcategory_264',['userLikedCategory',['../classcontroller_1_1_user_algorithm.html#a94d2a74440251e9757e47d09e51d5958',1,'controller::UserAlgorithm']]],
+  ['userlikedtags_265',['userLikedTags',['../classcontroller_1_1_user_algorithm.html#a5f88e3b59cdf30e224892ba727c1672f',1,'controller::UserAlgorithm']]],
+  ['usermodel_266',['UserModel',['../classcontroller_1_1_user_model.html',1,'controller']]],
+  ['usermodel_2ephp_267',['UserModel.php',['../_user_model_8php.html',1,'']]],
+  ['userprofession_268',['userProfession',['../classcontroller_1_1_user_algorithm.html#a311c90ad757c7ae79df2382b0f373e11',1,'controller::UserAlgorithm']]],
+  ['utility_269',['utility',['../namespaceutility.html',1,'']]]
+];

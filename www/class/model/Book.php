@@ -19,7 +19,6 @@ class Book {
 
     private const COURT = 100;
     private const MOYEN = 200;
-    private const LONG = 300;
 
     /**
      * Book constructor.
