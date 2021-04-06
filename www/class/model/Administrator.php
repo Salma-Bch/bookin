@@ -32,7 +32,7 @@ class Administrator {
 
     public function toArray($administratorIdFirst=true){
         if($administratorIdFirst) {
-            return array(Format::getFormatId(8, $this->administratorId),
+            return array(Format::getFormatId(8, $this->adminId),
                 $this->lastName,
                 $this->firstName,
                 $this->mail,
@@ -44,7 +44,7 @@ class Administrator {
                 $this->firstName,
                 $this->mail,
                 $this->psd,
-                Format::getFormatId(8, $this->administratorId));
+                Format::getFormatId(8, $this->adminId));
         }
     }
 
