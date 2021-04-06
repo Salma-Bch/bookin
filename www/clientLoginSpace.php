@@ -1,12 +1,13 @@
 <?php
-    /**
-     * \file      espaceConnexion.php
-     * \author    Salma BENCHELKHA - Mouncif LEKMITI - Enzo CERINI
-     * \version   1.0
-     * \date      8 janvier 2020
-     * \brief     Affiche l'espace de connexion de l'utilisateur.
-     * \details   Formulaire de connexion avec une adresse mail et un mot de passe à renseignés.
-*/
+/**
+ * @File        clientLoginSpace.php
+ * @package     www
+ * @Author      Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
+ * @Version     1.0
+ * @Date        05/04/2021
+ * @Brief       Espace de connexion du client.
+ * @Details     Permet l'affichage d'un formulaire de connexion avec une adresse mail et un mot de passe à renseignés.
+ */
     session_start();
     if(isset($_SESSION['bookinClient'])){
         header('Location: ./clientSpace.php');

@@ -1,12 +1,14 @@
 <?php
-    /**
-     * \file      clientSpace.php
-     * \author    Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
-     * \version   1.0
-     * \date      8 janvier 2020
-     * \brief     Affiche l'espace personnel de l'utilisateur.
-     * \details   Mes informations personnelles
-     */
+/**
+ * @File        clientSpace.php
+ * @package     www
+ * @Author      Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
+ * @Version     1.0
+ * @Date        05/04/2021
+ * @Brief       Espace personnel du client.
+ * @Details     Permet l'affichage des informations personnelles du client, son historique d'achat et ses évaluations.
+ *              Le client a également la possibilité de modifier ses informations et de se déconnecter.
+ */
 
     use dao\DAOFactory;
     use utility\Format;

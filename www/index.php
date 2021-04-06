@@ -7,14 +7,17 @@ use controller\Suggestion;
 <!DOCTYPE html>
 <html lang="fr">
     <?php
-        /**
-         * \file      index.php
-         * \author    Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
-         * \version   1.0
-         * \date      1 janvier 2021
-         * \brief     Page d'accueil de l'application web Book'In.
-         * \details   Présentation des livres à la une + un espace de connexion ou un espace de création de compte.
-         */
+    /**
+     * @File        index.php
+     * @package     www
+     * @Author      Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
+     * @Version     1.0
+     * @Date        05/04/2021
+     * @Brief       Page d'accueil de l'application web Book'In.
+     * @Details     Permet l'affichage de la page d'accueil de l'application web Book'In.
+     *              Le client non-connecté a accès aux tendances actuelles.
+     *              Le client connecté a accès aux suggestions personnelles effectées avec les algorithmes.
+     */
     ?>
 	<head>
         <?php

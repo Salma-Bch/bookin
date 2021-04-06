@@ -1,12 +1,14 @@
 <?php
-    /**
-     * \file      espaceLocation.php
-     * \author    Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
-     * \version   1.0
-     * \date      1 janvier 2021
-     * \brief     Affiche l'espace de recherche de livre.
-     * \details   Grille présentant les différents livres proposés par le site.
-     */
+/**
+ * @File        searchSpace.php
+ * @package     www
+ * @Author      Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
+ * @Version     1.0
+ * @Date        05/04/2021
+ * @Brief       Espace de recherche de livre de l'application web Book'In.
+ * @Details     Permet l'affichage de tout les livres.
+ *              Le client a la possibilité de filtrer ses recherches à l'aide de filtres : Catégorie - Tranche d'âge - Prix.
+ */
 ?>
 
 <!DOCTYPE html>

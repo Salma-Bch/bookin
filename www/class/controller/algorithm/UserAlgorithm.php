@@ -1,6 +1,15 @@
 <?php
 
-
+/**
+ * Class        UserAlgorithm
+ * @File        UserAlgorithm.php
+ * @package     controller
+ * @Author      Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
+ * @Version     1.0
+ * @Date        17/03/2021
+ * @Brief       Algorithme de suggestion à partir du contenu acheté et aimé par le client.
+ * @Details     Suggère des livres en fonction du contenu acheté et aimé par le client.
+ */
 namespace controller;
 
 

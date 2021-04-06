@@ -5,7 +5,7 @@
  * @File        ContentModel.php
  * @package     controller
  * @Author      Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
- * @Version     3.0
+ * @Version     1.0
  * @Date        17/03/2021
  * @Brief       Création d'un modèle de contenu du client.
  * @Details     Cette classe créee des modèles pour la catégorie, la tranche d'âge, le prix, le nombre de pages, et les tags des livres aimés et achetés.

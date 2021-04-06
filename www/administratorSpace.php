@@ -1,15 +1,14 @@
 <?php
-    /**
-     * \file      clientSpace.php
-     * \author    Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
-     * \version   1.0
-     * \date      8 janvier 2020
-     * \brief     Affiche l'espace personnel de l'utilisateur.
-     * \details   Mes informations personnelles
-     */
-
-    use dao\DAOFactory;
-    use utility\Format;
+/**
+ * @File        administratorSpace.php
+ * @package     www
+ * @Author      Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
+ * @Version     1.0
+ * @Date        05/04/2021
+ * @Brief       Espace personnel de l'administrateur.
+ * @Details     Permet l'affichage des informations personnelles de l'administrateur et des statistiques de l'application web Book'In.
+ *              L'administrateur a également la possibilité d'ajouter des administrateurs en leur créant un compte et de se déconnecter.
+ */
 
     include_once('./class/model/Administrator.php');
     include_once("./include/includeFiles.php");

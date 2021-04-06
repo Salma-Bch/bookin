@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
     <?php
-        /**
-        * \file      termsOfUse.php
-        * \author    Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
-        * \version   1.0
-        * \date      1 janvier 2021
-        * \brief     Affiche la page 'Conditions d'utilisation' de l'application web Book'In.
-        * \details   Page présentant les conditions d'utilisation de l'application web Book'In.
-        */
+    /**
+     * @File        termsOfUse.php
+     * @package     www
+     * @Author      Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
+     * @Version     1.0
+     * @Date        05/04/2021
+     * @Brief       Conditions générales d'utilisation de l'application web Book'In.
+     * @Details     Permet l'affichage es conditions d'utilisation de l'application web Book'In.
+     */
+
     ?>
     <head>
         <?php

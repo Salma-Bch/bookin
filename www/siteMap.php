@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
     <?php
-        /**
-         * \file      siteMap.php
-         * \author    Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
-         * \version   1.0
-         * \date      1 janvier 2021
-         * \brief     Plan de l'application web Book'In.
-         * \details   Lien menant vers chaques pages de l'application web.
-         */
+    /**
+     * @File        siteMap.php
+     * @package     www
+     * @Author      Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
+     * @Version     1.0
+     * @Date        05/04/2021
+     * @Brief       Plan de l'application web Book'In.
+     * @Details     Permet l'affichage des liens menant vers chaques pages de l'application web.
+     */
+
     ?>
     <head>
         <?php

@@ -2,12 +2,13 @@
 <html lang="fr">
 <?php
 /**
- * \file      creationCompte.php
- * \author    Salma BENCHELKHA - Mouncif LEKMITI - Enzo CERINI
- * \version   1.0
- * \date      8 janvier 2020
- * \brief     Affiche la page de création de compte.
- * \details   Formulaire à remplir par l'utilisateur afin d'obtenir un espace personnel.
+ * @File        administratorAccountCreationMessage.php
+ * @package     www
+ * @Author      Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
+ * @Version     1.0
+ * @Date        05/04/2021
+ * @Brief       Affichage d'un message concernant la création d'un compte administrateur.
+ * @Details     Permet l'affichage d'un message indiquant à l'utilisateur de se connecter afin de créer un nouveau compte administrateur.
  */
 
 session_start();

@@ -1,12 +1,13 @@
 <?php
-    /**
-     * \file      shoppingSpace.php
-     * \author    Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
-     * \version   1.0
-     * \date      8 janvier 2020
-     * \brief     Affiche l'espace d'achat de l'application web Book'In.
-     * \details   L'utilisateur peut effectuer des achats de livre.
-     */
+/**
+ * @File        searchSpace.php
+ * @package     www
+ * @Author      Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
+ * @Version     1.0
+ * @Date        05/04/2021
+ * @Brief       Espace d'achat de livre de l'application web Book'In.
+ * @Details     Permet au client d'effectuer des achats en cliquant sur le bouton "Acheter".
+ */
 
 use dao\DAOFactory;
 use model\Purchase;

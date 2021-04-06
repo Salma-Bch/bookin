@@ -5,10 +5,10 @@
  * @File        RandomAlgorithm.php
  * @package     controller
  * @Author      Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
- * @Version     3.0
+ * @Version     1.0
  * @Date        17/03/2021
- * @Brief       Algorithme de suggestion aléatoire de livres
- * @Details     Suggère des livres aléatoirement à l'utilisiteur
+ * @Brief       Algorithme de suggestion aléatoire de livres.
+ * @Details     Suggère des livres aléatoirement au client.
  */
 namespace controller;
 

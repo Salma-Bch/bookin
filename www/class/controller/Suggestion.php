@@ -5,7 +5,7 @@
  * @File        Suggestion.php
  * @package     controller
  * @Author      Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
- * @Version     3.0
+ * @Version     1.0
  * @Date        17/03/2021
  * @Brief       Algorithme de suggestion de livres
  * @Details     Rassemble les 4 sous-algorithmes de suggestion dans un algorithme principal

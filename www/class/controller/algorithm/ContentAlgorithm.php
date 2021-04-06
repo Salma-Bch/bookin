@@ -5,7 +5,7 @@
  * @File        ContentAlgorithm.php
  * @package     controller
  * @Author      Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
- * @Version     3.0
+ * @Version     1.0
  * @Date        17/03/2021
  * @Brief       Algorithme de suggestion de livres.
  * @Details     Suggestion en fonction du contenu des livres achetés et aimés par l'utilisateur.

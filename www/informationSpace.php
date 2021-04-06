@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
-      <?php
-    /**
-     * \file      aPropos.php
-     * \author    Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
-     * \version   1.0
-     * \date      1 janvier 2021
-     * \brief     Affiche la page 'A propos' du site web Book'In.
-     * \details   Page présentant les fondateurs de l'application web Book'In.
-    */
+<?php
+      /**
+       * @File        informationSpace.php
+       * @package     www
+       * @Author      Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
+       * @Version     1.0
+       * @Date        05/04/2021
+       * @Brief       Espace d'information de l'application web Book'In.
+       * @Details     Permet l'affichage des informations des créateurs de l'applications web Book'In.
+       */
     ?>
 	<head>
         <?php
