@@ -44,16 +44,7 @@ class ContentAlgorithm {
         $booksCategoryBased = $this->categoryBased($booksTagBased,$this->contentModel);
         $booksAgeRangeBased = $this->ageRangeBased($booksCategoryBased,$this->contentModel);
         $booksSizeBased = $this->bookSizeBased($booksAgeRangeBased,$this->contentModel);
-        $booksPriceBased = $this->priceBased($booksSizeBased,5,$this->contentModel);
-        //if($booksPriceBased == null)
-        //    $booksPriceBased = $this->books;
-        //$books = array_intersect($booksTagBased,$booksCategoryBased);
-        //$books = array_intersect($books,$booksAgeRangeBased);
-        //$books = array_intersect($books,$booksSizeBased);
-        //$books = array_intersect($books,$booksPriceBased);
-        var_dump(count($booksPriceBased));
-        return $booksPriceBased;
-
+        return $this->priceBased($booksSizeBased,5,$this->contentModel);
     }
 
      /**
@@ -200,7 +191,7 @@ class ContentAlgorithm {
             }
             return $booksReturned;
         }
-        return null;
+        return $books;
     }
 
 }

@@ -39,7 +39,7 @@ class UserModel
         $likedCategories = $this->clientHandler->getLikedCategories(); // Liked categories
 
         $categoriesName = array();
-        $csvFile = fopen("./ressources/bd/db_category.csv","r");
+        $csvFile = fopen("../ressources/bd/db_category.csv","r");
         while ( ($lineCsv = fgetcsv($csvFile,1024, ";")) !== FALSE ) {
             array_push($categoriesName, utf8_encode($lineCsv[0]));
         }
@@ -78,11 +78,20 @@ class UserModel
     /**
      * @Brief       Retourne le modèle de la profession choisit par un client.
      * @Details     Cette méthode récupère la profession choisit par le client lorsqu'il crée son compte et la retourne.
-     * @return      String
+     * @return array
      */
-    public function getUserProfessionModel():String{
+    public function getUserProfessionModel():array{
         $profession = $this->client->getProfession();
-        return $profession;
+        $tags = array();
+            $csvFile = fopen("../ressources/bd/db_profession.csv","r");
+            while ( ($lineCsv = fgetcsv($csvFile,1024, ";")) !== FALSE ) {
+                if($lineCsv[0] == $profession) {
+                    $tags = explode(',',utf8_encode($lineCsv[1]));
+                    break;
+                }
+            }
+            var_dump($tags);
+        return $tags;
     }
 
     /**

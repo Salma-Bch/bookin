@@ -41,15 +41,27 @@ class Suggestion {
      * @return      array
      */
     public function suggest():array{
-        // $userAlgorithm = new UserAlgorithm($this->books, $this->client);
         $contentAlgorithm = new ContentAlgorithm($this->books, $this->client);
         $popularAlgorithm = new PopularAlgorithm();
-        $randomAlgorithm = new RandomAlgorithm($this->books);
 
-        //$booksToDisplay = $popularAlgorithm->suggest(2);
-        //$booksToDisplay = array_merge($booksToDisplay, $randomAlgorithm->suggest(2));
         $booksToDisplay = $contentAlgorithm->suggest();
+        $popularBooks = $popularAlgorithm->suggest(2);
 
+
+        //Ajout des livres populaire s'il ne sont pas déja suggeré.
+        foreach ($popularBooks as $popularBook){
+            if(!in_array($popularBook,$booksToDisplay))
+                array_push($booksToDisplay,$popularBook);
+        }
+        $randomAlgorithm = new RandomAlgorithm(array_diff($this->books,$booksToDisplay));
+        $randomBooks = $randomAlgorithm->suggest(2);
+        $booksToDisplay = array_merge($booksToDisplay,$randomBooks);
+
+        $userAlgorithme = new UserAlgorithm(array_diff($this->books,$booksToDisplay),$this->client);
+        $userBooks = $userAlgorithme->suggest(18-count($booksToDisplay));
+        $booksToDisplay = array_merge($booksToDisplay,$userBooks);
+
+        shuffle($booksToDisplay);
         return $booksToDisplay;
     }
 

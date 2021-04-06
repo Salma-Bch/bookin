@@ -15,7 +15,7 @@ class EvaluatesDaoImpl implements EvaluatesDao
     private const SQL_SELECT_BY_CLIENT_ID = "SELECT client_id, book_id, satisfied FROM evaluates WHERE client_id = ?";
     private const SQL_SELECT_BY_BOOK_ID_AND_CLIENT_ID = "SELECT client_id, book_id, satisfied FROM evaluates WHERE book_id = ? AND client_id=?";
     private const SQL_SELECT_ALL = "SELECT client_id, book_id, satisfied FROM evaluates";
-    private const SQL_SELECT_ALL_LIMIT = "SELECT book_id, satisfied, COUNT(*) as count FROM evaluates WHERE satisfied=1 GROUP BY book_id, satisfied ORDER BY count DESC";
+    private const SQL_SELECT_ALL_LIMIT = "SELECT book_id, COUNT(book_id) as count FROM evaluates WHERE satisfied=1 GROUP BY book_id ORDER BY count DESC";
     private const SQL_SELECT_EXCEPT_LIMIT = "SELECT book_id, satisfied, COUNT(*) FROM evaluates WHERE satisfied=1 AND book_id NOT IN (arrayIn) GROUP BY book_id, satisfied ORDER BY COUNT(*) DESC";
     private const SQL_INSERT = "INSERT INTO evaluates (client_id, book_id, satisfied) VALUES (?, ?, ?)";
     private const SQL_UPDATE = "UPDATE evaluates SET client_id=?, book_id=?, satisfied=? WHERE client_id=?";
@@ -65,6 +65,7 @@ class EvaluatesDaoImpl implements EvaluatesDao
             $status = $preparedStatement->execute();
             if($status){
                 $evaluatesReturned = $preparedStatement->fetchAll();
+                //var_dump($evaluatesReturned);
                 foreach ($evaluatesReturned as $evaluates) {
                     $books[$evaluates['book_id']] = $evaluates['count'];
                 }

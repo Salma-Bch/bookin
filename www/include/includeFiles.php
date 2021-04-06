@@ -32,6 +32,7 @@ include_once('./class/dao/object/TagDaoImpl.php');
 include_once('./class/model/Tag.php');
 
 include_once('./class/controller/Suggestion.php');
+include_once('./class/controller/userModel.php');
 include_once('./class/controller/ContentModel.php');
 include_once('./class/controller/ClientHandler.php');
 

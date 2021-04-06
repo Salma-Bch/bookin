@@ -117,16 +117,22 @@ use utility\Format;
                     url: './include/purchaseBookByClient.php',
                     data: formData,
                     success: function (response) {
-                        if(response === "purchase successful"){}
-                            //window.location.assign("shoppingSpace.php");
+                        if(response === "purchase successful")
+                            displaySuccessPurchase();
                         else {
-                            //document.getElementById("idOrMdpFalseDiv").style.display = "block";
+                            displayEchecPurchase();
                         }
+                    },
+                    error: function () {
+                        displayEchecPurchase();
                     }
                 });
 
                 return false;
             }
         </script>
+    <?php
+        include ("./include/dialogModal.php");
+    ?>
     </body>
 </html>

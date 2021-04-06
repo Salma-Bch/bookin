@@ -25,8 +25,6 @@ $likedBooksGraph = array();
 foreach ($likedBooks as $likedBook){
     $likedBooksGraph[$likedBook->getTitle()] = $likedBooksCount[Format::getFormatId(8,$likedBook->getBookId())];
 }
-
-var_dump($likedBooksGraph);
 ?>
 
 <table class="table">
@@ -48,7 +46,7 @@ var_dump($likedBooksGraph);
 </table>
 <script>
     var likedCategories = <?php echo json_encode($likes,JSON_INVALID_UTF8_SUBSTITUTE); ?>;
-    var likedbooks = <?php echo json_encode($likedBooks,JSON_INVALID_UTF8_SUBSTITUTE); ?>;
+    var likedbooks = <?php echo json_encode($likedBooksGraph,JSON_INVALID_UTF8_SUBSTITUTE); ?>;
     var ctx = document.getElementById('categoryGraph').getContext('2d');
     var ctx2 = document.getElementById('likedBookGraph').getContext('2d');
 

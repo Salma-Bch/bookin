@@ -96,7 +96,8 @@ class ContentModel {
         $ageRanges['Ainés'] /=$somme;
 
         arsort($ageRanges);
-        var_dump($ageRanges);
+        array_pop($ageRanges);
+        array_pop($ageRanges);
         return $ageRanges;
     }
 
@@ -153,7 +154,8 @@ class ContentModel {
         $booksSizes['court'] /=$somme;
         $booksSizes['moyen'] /=$somme;
         $booksSizes['long'] /=$somme;
-
+        arsort($booksSizes);
+        array_pop($booksSizes);
         return $booksSizes;
     }
 
@@ -189,6 +191,11 @@ class ContentModel {
 
         foreach ($tagsName as $tagName){
             $tagsToReturn[$tagName] /= $somme;
+        }
+        arsort($tagsToReturn);
+        $tabSize = count($tagsToReturn);
+        for($i=0;$i<$tabSize-9;$i++){
+            array_pop($tagsToReturn);
         }
         return $tagsToReturn;
     }

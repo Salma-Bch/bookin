@@ -6,7 +6,6 @@
     session_start();
 
     $client = $_SESSION['bookinClient'];
-    var_dump($client);
     $suggestion = new Suggestion($client);
     $books = $suggestion->suggest();
 

@@ -21,6 +21,27 @@ function displaySuccessCreat(){
     myModal.show();
 }
 
+function displaySuccessPurchase(){
+    document.getElementById("modalTitle").textContent = "Effectuer un achat";
+    document.getElementById("textModal").textContent = "Votre achat a été effectué avec succès, il vous sera livré très bientôt.";
+    document.getElementById("modifFailedIcon").setAttribute("display", "none");
+    document.getElementById("modifCheckedIcon").setAttribute("fill", "green") ;
+    document.getElementById("modifCheckedIcon").setAttribute("display", "inline-block");
+    var myModal = new bootstrap.Modal(document.getElementById('dialogModal'));
+    myModal.show();
+}
+
+function displayEchecPurchase(){
+    document.getElementById("modalTitle").textContent = "Effectuer un achat";
+    document.getElementById("textModal").textContent = "Votre achat n'a malheuresement pas pu être effectué, " +
+        "merci de contacter le service client si le problème persiste.";
+    document.getElementById("modifFailedIcon").setAttribute("fill", "red");
+    document.getElementById("modifCheckedIcon").setAttribute("display", "none");
+    document.getElementById("modifFailedIcon").setAttribute("display", "inline-block");
+    var myModal = new bootstrap.Modal(document.getElementById('dialogModal'));
+    myModal.show();
+}
+
 function addCategory() {
     var myModal = new bootstrap.Modal(document.getElementById('dialogCategoryModal'));
     myModal.show();
