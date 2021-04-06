@@ -44,8 +44,11 @@ use controller\Suggestion;
                 <script>
                     $( document ).ready(function() {
                         var url = "./include/displayBooksTendance.php";
-                        if(<?php echo isset($_SESSION['bookinClient'])?'true':'false'; ?>)
+                        if(<?php echo isset($_SESSION['bookinClient'])?'true':'false'; ?>) {
                             url = './include/displayedBook.php';
+                            document.getElementById("connecter").style = "display:none";
+                        }
+
                         $.ajax({
                             type: 'post',
                             url: url,
@@ -54,6 +57,7 @@ use controller\Suggestion;
                                     $("#suggestion").html("<h2 id='loadMsg''>Impossible de charger la suggestion</p>");
                                 } else {
                                     $("#suggestion").html(response);
+                                    $("#connecter").style("display:block");
                                 }
                             },
                             error: function () {
@@ -63,19 +67,10 @@ use controller\Suggestion;
                     });
 
                 </script>
-                <?php
-                   /* if(!isset($_SESSION['bookinClient'])) {
-                    //    include_once("./include/displayedBook.php");
-                  //  }
-                    //else {
-                        include_once("./include/displayBooksTendance.php");
-                        echo '<div class="col-md-12">';
-                        echo '<h2>Connectez-vous !</h2>';
-                        echo '<button class="btn modifEtDeco" onclick="location.href=\'./clientLoginSpace.php\'">Connectez vous</button>';
-                        echo '</div>';
-                    }*/
-                ?>
-
+            </div>
+            <div class="col-md-12" id="connecter" style="display: block">
+                <h2>Connectez-vous !</h2>
+                <button class="btn modifEtDeco" onclick="location.href='./clientLoginSpace.php'">Connectez vous</button>
             </div>
 
         </div>
