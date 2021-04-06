@@ -46,7 +46,7 @@ class BookDaoImpl implements BookDao
     public function findIn(array $booksId): ?array
     {
         $request = self::SQL_SELECT_IN;
-        if(isset($booksId)){
+        if(isset($booksId) && count($booksId)>0){
             $in = str_repeat("?,",count($booksId)-1)."?";
             $request = str_replace("arrayIn",$in,$request);
         }
