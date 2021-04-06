@@ -52,7 +52,7 @@ class ContentAlgorithm {
      * @Brief       Retourne un tableau de livres en fonction des tags.
      * @Details     Cette méthode récupère le modèle de tag du client grâçe à la méthode getTagsModel().
      *              Un tableau de livre est ensuite crée en fonction du modèle de tag puis la méthode categoryBased() est appelé avec celui-ci.
-     *              Le tableau de livres est remplis à partir des livres présent dans la base de donnée.
+     *              Le tableau de livres est rempli à partir des livres présent dans la base de donnée.
      * @return      array
      */
     public function tagBased(ContentModel $contentModel){
