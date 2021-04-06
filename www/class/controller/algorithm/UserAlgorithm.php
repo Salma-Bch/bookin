@@ -7,8 +7,8 @@
  * @Author      Salma BENCHELKHA - Mouncif LEKMITI - Farah MANOUBI
  * @Version     1.0
  * @Date        17/03/2021
- * @Brief       Algorithme de suggestion à partir du contenu acheté et aimé par le client.
- * @Details     Suggère des livres en fonction du contenu acheté et aimé par le client.
+ * @Brief       Algorithme de suggestion à partir des choix entrés par l'utilisateur lors de la création de son compte.
+ * @Details     Suggère des livres en fonction des champs renseignés par l'utilisateur lors de la création de son compte.
  */
 namespace controller;
 
@@ -19,11 +19,24 @@ class UserAlgorithm {
     private UserModel $userModel;
     private array $books;
 
+    /**
+     * UserAlgorithm constructor.
+     * @param array $books
+     * @param Client $client
+     */
     public function __construct(array $books, Client $client) {
         $this->books = $books;
         $this->userModel = new UserModel($client);
     }
 
+    /**
+     * @param       int $nbrOfBooks
+     * @Brief       Retourne un tableau de livres.
+     * @Details     Retourne un tableau de livres obtenu par l'appel de toutes les méthodes:
+     *              userLikedTags(),userLikedCategory(),userAgeRange(),userProfession().
+     *              On mélange les différents éléments retournés par chacun des tableaux afin de récupérer une sélection de livre.
+     * @return      array
+     */
     public function suggest(int $nbrOfBooks):array{
         if($nbrOfBooks > 0) {
             $booksTagBased = $this->userLikedTags($this->books, $this->userModel);
@@ -45,7 +58,16 @@ class UserAlgorithm {
         return array();
     }
 
-    //OK
+    /**
+     * @param       array $books
+     * @param       UserModel $userModel
+     * @Brief       Retourne un tableau de livres en fonction des catégories sélectionnées par l'utilisateur lors de la création de son compte.
+     * @Details     Cette méthode récupère le model de catégories aimées par l'utilisateur grâçe à la méthode getUserCategoryModel().
+     *              Le tableau de livre passé en paramètre est ensuite filtré en ne gardant que les livres dont la
+     *              catégorie respecte le model de catégorie.
+     *              Un tableau de livre récupéré à partir de la méthode précédente est retourné.
+     * @return      array
+     */
     public function userLikedCategory(array $books, UserModel $userModel){
         $booksSelected = array();
         $userCategoryModel = $userModel->getUserCategoryModel();
@@ -62,7 +84,14 @@ class UserAlgorithm {
         return $booksSelected;
     }
 
-    //OK
+    /**
+     * @param       array $books
+     * @param       UserModel $userModel
+     * @Brief       Retourne un tableau de livres en fonction des tags aimés par l'utilisateur renseigné lors de la création de son compte.
+     * @Details     Cette méthode récupère le modèle de tag de l'utilisateur grâçe à la méthode getUserTagModel().
+     *              Un tableau de livre est ensuite crée en fonction du modèle de tag de l'utilisateur et est retourné.
+     * @return      array
+     */
     public function userLikedTags(array $books, UserModel $userModel){
         $booksSelected = array();
         $userTagModel = $userModel->getUserTagModel();
@@ -79,7 +108,16 @@ class UserAlgorithm {
         return $booksSelected;
     }
 
-    //A revoir
+    /**
+     * @param       array $books
+     * @param       UserModel $userModel
+     * @Brief       Retourne un tableau de livres en fonction de la profession d'utilisateur renseigné lors de la création de son compte.
+     * @Details     Cette méthode récupère le modèle de la profession de l'utilisateur grâçe à la méthode getUserProfessionModel().
+     *              La profession d'un utilisateur est rattachée à des tags qui lui correspond le plus.
+     *              Lorsque l'utilisateur choisit sa profession, les livres suggérés pour l'utilisateur contiennent ces mêmes tags.
+     *              Un tableau de livre est ensuite crée et retourné.
+     * @return      array
+     */
     public function userProfession(array $books, UserModel $userModel){
         $booksSelected = array();
         $userProfessionModel = $userModel->getUserProfessionModel();
@@ -94,7 +132,16 @@ class UserAlgorithm {
         return $booksSelected;
     }
 
-    //OK
+    /**
+     * @param       array $books
+     * @param       UserModel $userModel
+     * @Brief       Retourne un tableau de livres en fonction de la tranche d'âge de l'utilisateur renseigné lors de la création de son compte.
+     * @Details     Cette méthode récupère le modèle de tranche d'âge de l'utilisateur grâçe à la méthode getUserAgeRangeModel().
+     *              Le tableau de livre passé en paramètre est ensuite filtré en ne gardant que les livres dont la
+     *              tranche d'âge respecte le model de tranche d'âge.
+     *              Un tableau de livre récupéré à partir de la méthode précédente est retourné.
+     * @return array
+     */
     public function userAgeRange(array $books, UserModel $userModel){
         $booksSelected = array();
         $userAgeRangeModel = $userModel->getUserAgeRangeModel();
