@@ -39,10 +39,7 @@
             <p>Bienvenue dans ton espace personnel. Tu trouveras ici toutes les informations te concernant. </p>
             <div class="container clientSpaceTable">
                 <?php
-                    include("./include/adminInformationsTable.php");
-                ?>
-                <?php
-                include("./include/graphicsTable.php");
+                    include("./include/administratorTables.php");
                 ?>
             </div>
             <div class="col-sm-6 col-xs-12">

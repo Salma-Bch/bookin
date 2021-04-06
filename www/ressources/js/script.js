@@ -291,3 +291,94 @@ function createAdministratorCompte(idForm) {
         });
     }
 }
+
+function changeInfoClient(id, previousInformation, newInformation){
+    var balise = document.getElementById(id);
+    balise.textContent = balise.textContent.replace(previousInformation, newInformation);
+}
+
+function updateInfosClient(oldClient, newClient){
+    changeInfoClient("titleName",oldClient["first_name"]+" "+oldClient['last_name'],newClient["first_name"]+" "+newClient['last_name']);
+    changeInfoClient("tab_id",oldClient["client_id"],newClient["client_id"]);
+    changeInfoClient("tab_laste_name",oldClient["last_name"],newClient["last_name"]);
+    changeInfoClient("tab_first_name",oldClient["first_name"],newClient["first_name"]);
+    changeInfoClient("tab_mail",oldClient["mail"],newClient["mail"]);
+    changeInfoClient("psd",oldClient["psd"],newClient["psd"]);
+    changeInfoClient("tab_profession",oldClient["profession"],newClient["profession"]);
+    changeInfoClient("tab_sex",oldClient["sex"],newClient["sex"]);
+    updateInfosClientForm(newClient);
+}
+
+function updateInfosClientForm(newClient){
+    var newBirthDate = newClient['birthDate'].split('-');
+    document.getElementById("client_id").value = newClient["client_id"];
+    document.getElementById("last_name").value = newClient["last_name"];
+    document.getElementById("first_name").value = newClient["first_name"];
+    document.getElementById("mail").value = newClient["mail"];
+    document.getElementById("psd").value = newClient["psd"];
+    document.getElementById("birthDay").value = parseInt(newBirthDate[2]);
+    document.getElementById("birthMonth").value = parseInt(newBirthDate[1]);
+    document.getElementById("birthYear").value = newBirthDate[0];
+    document.getElementById("profession").value = newClient["profession"];
+    document.getElementById("sex").value = newClient["sex"];
+}
+
+function showModifInfosForm() {
+    document.getElementById("infosModifDiv").style.display = "block";
+    infoDesabled();
+}
+
+function hideModifInfosForm(){
+    document.getElementById("infosModifDiv").style.display = "none";
+    infoEnabled();
+}
+
+function infoEnabled(){
+    var element = document.getElementById('tableauInfo') ;
+    element.style.background ='white';
+    element.style.opacity='1';
+}
+
+function infoDesabled() {
+    var element = document.getElementById('tableauInfo') ;
+    element.style.background ='silver';
+    element.style.opacity='0.7';
+}
+
+function displaySuccessMdif(){
+    document.getElementById("modalTitle").textContent = "Modification de vos informations personnelles";
+    document.getElementById("textModal").textContent = "Vos informations personnelles ont été mises à jour.";
+    document.getElementById("modifFailedIcon").setAttribute("display", "none");
+    document.getElementById("modifCheckedIcon").setAttribute("fill", "green") ;
+    document.getElementById("modifCheckedIcon").setAttribute("display", "inline-block");
+    var myModal = new bootstrap.Modal(document.getElementById('dialogModal'));
+    myModal.show();
+}
+
+function displayEchecModif(){
+    document.getElementById("modalTitle").textContent = "Modification de vos informations personnelles";
+    document.getElementById("textModal").textContent = "Vos informations personnelles n'ont pas été mises à jour.";
+    document.getElementById("modifFailedIcon").setAttribute("fill", "red");
+    document.getElementById("modifCheckedIcon").setAttribute("display", "none");
+    document.getElementById("modifFailedIcon").setAttribute("display", "inline-block");
+    var myModal = new bootstrap.Modal(document.getElementById('dialogModal'));
+    myModal.show();
+}
+
+function valide3(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
+
+function validInput2(){
+    var noError = true;
+    var form = document.getElementById("infosModifForm");
+
+    for (var i = 0; i < form.getElementsByTagName("input").length; i++) {
+        if(form.elements[i].value.length === 0){
+            noError = false;
+            break;
+        }
+    }
+    return noError;
+}
