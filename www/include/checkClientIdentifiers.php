@@ -1,6 +1,5 @@
 <?php
 use dao\DAOFactory;
-use model\Client;
 
 include_once('../class/dao/DAOFactory.php');
 include_once('../class/dao/object/ClientDao.php');

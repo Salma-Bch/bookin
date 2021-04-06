@@ -1,9 +1,9 @@
 <?php
 
-use controller\Suggestion;
-use model\Client;
-include ("./relatifIncludeFiles.php");
-session_start();
+    use controller\Suggestion;
+
+    include ("./relatifIncludeFiles.php");
+    session_start();
 
     $client = $_SESSION['bookinClient'];
     var_dump($client);

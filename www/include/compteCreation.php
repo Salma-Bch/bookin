@@ -1,9 +1,9 @@
 <?php
     use dao\DAOFactory;
     use model\Client;
-use model\Likes;
+    use model\Likes;
 
-include_once('../class/dao/DAOFactory.php');
+    include_once('../class/dao/DAOFactory.php');
     include_once('../class/dao/object/ClientDao.php');
     include_once('../class/dao/object/ClientDaoImpl.php');
     include_once('../class/dao/object/LikesDao.php');
