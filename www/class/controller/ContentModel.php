@@ -43,7 +43,7 @@ class ContentModel {
         $categoryEntry = array_merge($buysBookCategories, $likedBookCategories);
 
         $categoriesName = array();
-        $csvFile = fopen("../../ressources/bd/db_category.csv","r");
+        $csvFile = fopen("../ressources/bd/db_category.csv","r");
         while ( ($lineCsv = fgetcsv($csvFile,1024, ";")) !== FALSE ) {
             array_push($categoriesName, utf8_encode($lineCsv[0]));
         }
@@ -95,6 +95,8 @@ class ContentModel {
         $ageRanges['Adultes'] /=$somme;
         $ageRanges['Ainés'] /=$somme;
 
+        arsort($ageRanges);
+        var_dump($ageRanges);
         return $ageRanges;
     }
 
@@ -170,7 +172,7 @@ class ContentModel {
         $tagsToReturn = array();
 
         $tagsName = array();
-        $csvFile = fopen("../../ressources/bd/db_tag.csv","r");
+        $csvFile = fopen("../ressources/bd/db_tag.csv","r");
         while ( ($lineCsv = fgetcsv($csvFile,1024, ";")) !== FALSE ) {
             array_push($tagsName, utf8_encode($lineCsv[0]));
         }

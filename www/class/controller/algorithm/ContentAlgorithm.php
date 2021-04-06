@@ -41,22 +41,18 @@ class ContentAlgorithm {
      */
     public function suggest():array{
         $booksTagBased = $this->tagBased($this->contentModel);
-        //var_dump($booksTagBased);
-        $booksCategoryBased = $this->categoryBased($this->books,$this->contentModel);
-        var_dump($booksCategoryBased);
+        $booksCategoryBased = $this->categoryBased($booksTagBased,$this->contentModel);
         $booksAgeRangeBased = $this->ageRangeBased($booksCategoryBased,$this->contentModel);
-        //var_dump($booksAgeRangeBased);
         $booksSizeBased = $this->bookSizeBased($booksAgeRangeBased,$this->contentModel);
-        //var_dump($booksSizeBased);
         $booksPriceBased = $this->priceBased($booksSizeBased,5,$this->contentModel);
-        //var_dump($booksPriceBased);
-        if($booksPriceBased == null)
-            $booksPriceBased = $this->books;
-        $books = array_intersect($booksTagBased,$booksCategoryBased);
-        $books = array_intersect($books,$booksAgeRangeBased);
-        $books = array_intersect($books,$booksSizeBased);
-        $books = array_intersect($books,$booksPriceBased);
-        return $books;
+        //if($booksPriceBased == null)
+        //    $booksPriceBased = $this->books;
+        //$books = array_intersect($booksTagBased,$booksCategoryBased);
+        //$books = array_intersect($books,$booksAgeRangeBased);
+        //$books = array_intersect($books,$booksSizeBased);
+        //$books = array_intersect($books,$booksPriceBased);
+        var_dump(count($booksPriceBased));
+        return $booksPriceBased;
 
     }
 
@@ -74,7 +70,6 @@ class ContentAlgorithm {
         $bookDao = $daoFactory->getBookDao();
         $booksToReturn = array();
         $tagsModel = $contentModel->getTagsModel();
-
         $booksId = "";
 
         foreach ($tagsModel as $tag){
@@ -92,7 +87,6 @@ class ContentAlgorithm {
             foreach ($booksId as $bookId) {
                 array_push($booksToReturn, Format::getFormatId(8, $bookId));
             }
-            var_dump($booksToReturn);
             $booksToReturn = $bookDao->findIn($booksToReturn);
         }
         return $booksToReturn;
@@ -113,15 +107,14 @@ class ContentAlgorithm {
         $booksReturned = array();
         // Si la categorie est a 0% je ne met aucun livre de cette dernière
         $categoryModel = $contentModel->getCategoryModel();
-
         foreach ($categoryModel as $category){
             if($category != 0){
                 foreach ($books as $book){
                     if($book->getCategoryName() == key($categoryModel))
                         array_push($booksReturned, $book);
                 }
-                next($categoryModel);
             }
+            next($categoryModel);
         }
         return $booksReturned;
     }
@@ -148,8 +141,8 @@ class ContentAlgorithm {
                     if($book->getAgeRange() == key($ageRangeModel))
                         array_push($booksReturned, $book);
                 }
-                next($ageRangeModel);
             }
+            next($ageRangeModel);
         }
         return $booksReturned;
     }
@@ -169,15 +162,14 @@ class ContentAlgorithm {
         $booksReturned = array();
         // Si la tranche d'age est a 0% je ne met aucun livre de cette dernière
         $bookSizeModel = $contentModel->getBookSizeModel();
-
         foreach ($bookSizeModel as $bookSize){
             if($bookSize != 0){
                 foreach ($books as $book){
                     if($book->getBookSize() == key($bookSizeModel))
                         array_push($booksReturned, $book);
                 }
-                next($bookSizeModel);
             }
+            next($bookSizeModel);
         }
         return $booksReturned;
     }
