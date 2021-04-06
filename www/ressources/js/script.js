@@ -8,9 +8,6 @@ function displayEchecCreat(){
     document.getElementById("modifCheckedIcon").setAttribute("display", "none");
     document.getElementById("modifFailedIcon").setAttribute("display", "inline-block");
     var myModal = new bootstrap.Modal(document.getElementById('dialogModal'));
-    /* myModal.addEventListener('shown.bs.modal', function (event) {
-         window.location.assign("./clientSpace.php");
-     })*/
     myModal.show();
 }
 

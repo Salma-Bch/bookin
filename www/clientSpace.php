@@ -211,33 +211,12 @@
                     </div>
                 </div>
             </div>
-            <div class="modal fade" id="dialogModal" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&#xd7;</span></button>
-                            <h4 class="modal-title" id="myModalLabel">Modification de vos informations personnelles</h4>
-                        </div>
-                        <div class="modal-body">
-                            <svg style="vertical-align: middle; margin-right: 10px" id="modifChecked" width="30" height="30" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
-                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
-                            </svg>
-                            <svg style="vertical-align: middle; margin-right: 10px" id="modifFailed" width="30" height="30" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
-                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
-                            </svg>
-                            <p id="infosMaj" style="display: inline-block;">Vos informations personnelles ont été mises à jour.</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         <?php
             include("include/footer.php");
             include("include/categoryModal.php");
             include("include/tagModal.php");
+            include("include/dialogModal.php");
         ?>
         <script><!--
             var client = <?php echo json_encode($client->toAssocArray(),JSON_INVALID_UTF8_SUBSTITUTE); ?>;
@@ -246,31 +225,31 @@
                 balise.textContent = balise.textContent.replace(previousInformation, newInformation);
             }
 
+
             function updateInfosClient(oldClient, newClient){
-                var oldBirthDate = oldClient['birthDate'];
-                changeInfoClient("client_id",oldClient["client_id"],newClient["client_id"]);
-                changeInfoClient("last_name",oldClient["last_name"],newClient["last_name"]);
-                changeInfoClient("first_name",oldClient["first_name"],newClient["first_name"]);
-                changeInfoClient("mail",oldClient["mail"],newClient["mail"]);
+                changeInfoClient("titleName",oldClient["first_name"]+" "+oldClient['last_name'],newClient["first_name"]+" "+newClient['last_name']);
+                changeInfoClient("tab_id",oldClient["client_id"],newClient["client_id"]);
+                changeInfoClient("tab_laste_name",oldClient["last_name"],newClient["last_name"]);
+                changeInfoClient("tab_first_name",oldClient["first_name"],newClient["first_name"]);
+                changeInfoClient("tab_mail",oldClient["mail"],newClient["mail"]);
                 changeInfoClient("psd",oldClient["psd"],newClient["psd"]);
-                //changeInfoClient("birthDay",oldClient["birthDate"],newClient["birthDate"]);
-                changeInfoClient("profession",oldClient["profession"],newClient["profession"]);
-                changeInfoClient("sex",oldClient["sex"],newClient["sex"]);
+                changeInfoClient("tab_profession",oldClient["profession"],newClient["profession"]);
+                changeInfoClient("tab_sex",oldClient["sex"],newClient["sex"]);
                 updateInfosClientForm(newClient);
             }
 
             function updateInfosClientForm(newClient){
+                var newBirthDate = newClient['birthDate'].split('-');
                 document.getElementById("client_id").value = newClient["client_id"];
                 document.getElementById("last_name").value = newClient["last_name"];
                 document.getElementById("first_name").value = newClient["first_name"];
                 document.getElementById("mail").value = newClient["mail"];
                 document.getElementById("psd").value = newClient["psd"];
-                document.getElementById("birthDay").value = newClient["birthDay"];
-                document.getElementById("birthMonth").value = newClient["birthMonth"];
-                document.getElementById("birthYear").value = newClient["birthYear"];
+                document.getElementById("birthDay").value = parseInt(newBirthDate[2]);
+                document.getElementById("birthMonth").value = parseInt(newBirthDate[1]);
+                document.getElementById("birthYear").value = newBirthDate[0];
                 document.getElementById("profession").value = newClient["profession"];
                 document.getElementById("sex").value = newClient["sex"];
-              //  document.getElementById("tags").value = newClient["tags"];
             }
 
             function showModifInfosForm() {
@@ -296,17 +275,23 @@
             }
 
             function displaySuccessMdif(){
-                document.getElementById("infosMaj").textContent = "Vos informations personnelles ont été mises à jour.";
-                document.getElementById("modifChecked").setAttribute("fill", "green") ;
-                document.getElementById("modifFailed").setAttribute("display", "none");
-                document.getElementById("modifChecked").setAttribute("display", "inline-block");
+                document.getElementById("modalTitle").textContent = "Modification de vos informations personnelles";
+                document.getElementById("textModal").textContent = "Vos informations personnelles ont été mises à jour.";
+                document.getElementById("modifFailedIcon").setAttribute("display", "none");
+                document.getElementById("modifCheckedIcon").setAttribute("fill", "green") ;
+                document.getElementById("modifCheckedIcon").setAttribute("display", "inline-block");
+                var myModal = new bootstrap.Modal(document.getElementById('dialogModal'));
+                myModal.show();
             }
 
             function displayEchecModif(){
-                document.getElementById("infosMaj").textContent = "Vos informations personnelles n'ont pas été mises à jour.";
-                document.getElementById("modifFailed").setAttribute("fill", "red");
-                document.getElementById("modifChecked").setAttribute("display", "none");
-                document.getElementById("modifFailed").setAttribute("display", "inline-block");
+                document.getElementById("modalTitle").textContent = "Modification de vos informations personnelles";
+                document.getElementById("textModal").textContent = "Vos informations personnelles n'ont pas été mises à jour.";
+                document.getElementById("modifFailedIcon").setAttribute("fill", "red");
+                document.getElementById("modifCheckedIcon").setAttribute("display", "none");
+                document.getElementById("modifFailedIcon").setAttribute("display", "inline-block");
+                var myModal = new bootstrap.Modal(document.getElementById('dialogModal'));
+                myModal.show();
             }
 
             function sendData() {
@@ -326,19 +311,19 @@
                                 var newClient = JSON.parse(response);
                                 updateInfosClient(oldClient, newClient);
                                 client = newClient;
+                                hideModifInfosForm();
                             }
                         },
                         error: function () {
-                            //displayEchecModif();
-                            //updateInfosClientForm(client);
+                            displayEchecModif();
+                            updateInfosClientForm(client);
                         }
                     });
                     return false;
                 }
                 else {
-                    alert("pb");
-                    //displayEchecModif();
-                    //updateInfosClientForm(client);
+                    displayEchecModif();
+                    updateInfosClientForm(client);
                 }
             }
 
