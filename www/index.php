@@ -34,18 +34,43 @@ use controller\Suggestion;
         </div>
 
         <div class="container bodyContainer">
-            <div class="col-md-12">
+            <div id="suggestion" class="col-md-12">
+                <div class="loader">
+                    <h2>suggestion en cours de chargement..</h2>
+                </div>
+                <script>
+                    $( document ).ready(function() {
+                        var url = "./include/displayBooksTendance.php";
+                        if(<?php echo isset($_SESSION['bookinClient'])?'true':'false'; ?>)
+                            url = './include/displayedBook.php';
+                        $.ajax({
+                            type: 'post',
+                            url: url,
+                            success: function (response) {
+                                if (response.includes("failed")) {
+                                    $("#suggestion").html("<h2 id='loadMsg''>Impossible de charger la suggestion</p>");
+                                } else {
+                                    $("#suggestion").html(response);
+                                }
+                            },
+                            error: function () {
+                                $("#suggestion").html("<h2 id='loadMsg' >Impossible de charger la suggestion</h2>");
+                            }
+                        });
+                    });
+
+                </script>
                 <?php
-                    if(isset($_SESSION['bookinClient'])) {
-                        include_once("./include/displayedBook.php");
-                    }
-                    else {
+                   /* if(!isset($_SESSION['bookinClient'])) {
+                    //    include_once("./include/displayedBook.php");
+                  //  }
+                    //else {
                         include_once("./include/displayBooksTendance.php");
                         echo '<div class="col-md-12">';
                         echo '<h2>Connectez-vous !</h2>';
                         echo '<button class="btn modifEtDeco" onclick="location.href=\'./clientLoginSpace.php\'">Connectez vous</button>';
                         echo '</div>';
-                    }
+                    }*/
                 ?>
 
             </div>

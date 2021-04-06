@@ -1,6 +1,8 @@
 <?php
 
 use controller\Suggestion;
+include ("./relatifIncludeFiles.php");
+session_start();
 
 $popularAlgo = new \controller\PopularAlgorithm();
 $books = $popularAlgo->suggest(10);
