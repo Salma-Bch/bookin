@@ -86,7 +86,7 @@ function testGetBookSizeModel($client){
         echo "Test échoué, ne fonctionne pas comme attendu";
     }
 }
-//testGetBookSizeModel($client);
+testGetBookSizeModel($client);
 
 function testGetTagsModel($client){
 
@@ -113,4 +113,4 @@ function testGetTagsModel($client){
         echo "Test échoué, ne fonctionne pas comme attendu";
     }
 }
-testGetTagsModel($client);
+//testGetTagsModel($client);

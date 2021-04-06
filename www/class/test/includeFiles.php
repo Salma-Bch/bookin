@@ -33,6 +33,7 @@ include_once('../model/Tag.php');
 
 include_once('../controller/Suggestion.php');
 include_once('../controller/ContentModel.php');
+include_once('../controller/userModel.php');
 include_once('../controller/ClientHandler.php');
 
 include_once('../controller/algorithm/PopularAlgorithm.php');

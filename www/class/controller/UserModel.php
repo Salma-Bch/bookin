@@ -90,7 +90,7 @@ class UserModel
      * @Details     Cette méthode récupère l'âge du client et l'affecte à une tranche d'âge.
      *              Elle effectue un pourcentage afin de retourner des livres se rapprochant le plus de la catégorie d'âge du client,
      *              puis les retourne dans un tableau.
-     * @return      array
+     * @return      String
      */
     public function getUserAgeRangeModel():String{
         return $this->client->getAgeRange();
