@@ -16,7 +16,7 @@
 					<div class="widget-body">
 						<a href="administratorLoginSpace.php"><p>Espace personnel</p></a>
                         <a href="administratorLoginSpace.php"><p>Espace de connexion</p></a>
-                        <a href="administratorAccountCreationSpace.php"><p>Espace de création de compte</p></a>
+                        <a href="administratorLoginSpace.php"><p>Espace de création de compte</p></a>
                     </div>
 				</div>
 				<div class="col-sm-4 widget">
