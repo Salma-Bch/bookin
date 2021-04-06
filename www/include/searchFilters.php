@@ -91,7 +91,7 @@
         $maxPrice = $bookDao->getMaxPrice();
     ?>
     <div class="col-md-12">
-        <h2 class="searchTitle">Prix :</h2>
+        <h2 class="searchTitle">Tranche de prix :</h2>
         <p class="affichage_prix_inferieur" style="width: 40%"><output class="affichage_prix_inferieur" id="prixInf">0</output>€</p>
         <p class="affichage_prix_inferieur" style="width: 40%; text-align: right"><output class="affichage_prix_inferieur" id="prixSup"><?php echo $maxPrice; ?></output>€</p>
         <div class="middle">

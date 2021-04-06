@@ -284,6 +284,50 @@ function createCompte(idForm) {
     }
 }
 
+function likeBook(bookId, clientId,satisfied){
+    $.ajax({
+        type: 'post',
+        url: './include/likeBook.php',
+        data: {bookId: bookId,clientId: clientId,satisfied: satisfied},
+        success: function (response) {
+            if (response.includes("failed")) {
+                //displayEchecCreat();
+                alert("pas reussi");
+            } else {
+                //displaySuccessCreat();
+                alert("reussi");
+                //if(satisfied === "true")
+                    addLikedBook(bookId,clientId);
+            }
+        },
+        error: function () {
+            //displayEchecCreat();
+            alert("pas reussi");
+        }
+    });
+}
+
+function addLikedBook(bookId,clientId){
+    var container = document.getElementById("bookLiked");
+
+    var div = document.createElement("div");
+    div.setAttribute("class","col-md-6 booksDiv1");
+    div.innerHTML=
+    '<div class="col-md-8">'+
+    '<p style="font-weight: bold;font-size:20px">$bookDisplayed->getCategoryName()'+
+    '<p>$bookDisplayed->getTitle()</p>'+
+    '<p>$bookDisplayed->getAuthor()</p>'+
+    '<p>Prix : $bookDisplayed->getPrice()€</p>'+
+    '</div>'+
+    '<div class="col-md-3">'+
+    '<img class="buysBooksDipslayedClientSpace" src="$bookDisplayed->getImagePath()"  alt="..."/>'+
+    '</div>'+
+    '<div class="col-md-1">'+
+    '<img class="likeAndDislike" src="ressources/images/croix.png"  alt="..."/>'+
+    '</div>';
+    container.append(div);
+}
+
 function createAdministratorCompte(idForm) {
     var div = document.getElementById("adm");
     var inputs = div.getElementsByClassName("change");
@@ -356,7 +400,7 @@ function hideModifInfosForm(){
 
 function infoEnabled(){
     var element = document.getElementById('tableauInfo') ;
-    element.style.background ='white';
+    element.style.background ='#333333';
     element.style.opacity='1';
 }
 

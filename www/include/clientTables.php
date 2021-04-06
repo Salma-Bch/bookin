@@ -64,8 +64,9 @@
                 <?php
                 $i=0;
                 echo '<div class="col-md-12">';
-                while($i < count($buys)) {
-                    $bookDisplayed = $booksDao->find(Format::getFormatId(8,$buys[$i]->getBookId()));
+                $books = $booksDao->findIn($booksId);
+                while($i < count($booksId)) {
+                    $bookDisplayed = $books[$i];
                     echo '<div class="col-md-6 booksDiv1">';
                     echo '<div class="col-md-8">';
                     echo '<p style="font-weight: bold;font-size:20px">'.$bookDisplayed->getCategoryName().'</p>';
@@ -77,7 +78,8 @@
                     echo '<img class="buysBooksDipslayedClientSpace" src="'.$bookDisplayed->getImagePath().'"  alt="..."/>';
                     echo '</div>';
                     echo '<div class="col-md-1">';
-                    echo '<a href="index.php"><img class="likeAndDislike" src="ressources/images/like.png"  alt="..."/></a>';
+                    echo '<img class="likeAndDislike" onclick="likeBook('.$bookDisplayed->getBookId().',client[\'client_id\'],true)" src="ressources/images/like.png"  alt="..."/>';
+
                     echo '<a href="index.php"><img class="likeAndDislike" src="ressources/images/dislike.png"  alt="..."/></a>';
                     echo '</div>';
                     $i++;
@@ -96,7 +98,7 @@
             <tr><td>
                 <?php
                     $i=0;
-                    echo '<div class="col-md-12">';
+                    echo '<div id="bookLiked" class="col-md-12">';
                     while($i < count($evaluates)) {
                         $bookDisplayed = $booksDao->find(Format::getFormatId(8,$evaluates[$i]->getBookId()));
                         echo '<div class="col-md-6 booksDiv1">';

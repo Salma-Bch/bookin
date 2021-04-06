@@ -34,6 +34,10 @@
     $daoFactory = DAOFactory::getInstance();
     $buysDao = $daoFactory->getPurchaseDao();
     $buys = $buysDao->getClientPurchases($client->getClientId());
+    $booksId = array();
+    foreach ($buys as $buy){
+        array_push($booksId,Format::getFormatId(8,$buy->getBookId()));
+    }
 
     $evaluatesDao = $daoFactory->getEvaluatesDao();
     $evaluates = $evaluatesDao->find(null, Format::getFormatId(8,$client->getClientId()));
@@ -43,7 +47,6 @@
 
     $booksDao = $daoFactory->getBookDao();
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -56,6 +59,10 @@
         <?php
             include_once("include/header.php");
         ?>
+        <script><!--
+            var client = <?php echo json_encode($client->toAssocArray(),JSON_INVALID_UTF8_SUBSTITUTE); ?>;
+        //-->
+        </script>
         <div class="container bodyContainer">
             <h2 id="titleName">Bonjour <?php echo $client->getFirstName()." ".$client->getLastName() ?>.</h2>
             <p>Bienvenue dans ton espace personnel. Tu trouveras ici toutes les informations te concernant. </p>
