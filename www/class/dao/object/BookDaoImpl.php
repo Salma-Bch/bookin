@@ -173,7 +173,6 @@ class BookDaoImpl implements BookDao
             $connection = $this->daoFactory->getConnection();
             $preparedStatement = DAOUtility::initPreparedStatement($connection, self::SQL_UPDATE);
             $status = $preparedStatement->execute($book->toArray(true));
-            var_dump($preparedStatement->errorInfo());
             if ($status == 0)
                 throw new DAOException("Book update failed, no line changed");
         } catch (\Exception $e){

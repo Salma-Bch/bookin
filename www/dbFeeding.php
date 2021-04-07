@@ -64,10 +64,23 @@ include_once('./class/utility/Format.php');
     }*/
 
     //Pour l'insertion des evaluates
-    $csvFile = fopen("./ressources/bd/db_evaluates.csv","r");
+   /* $csvFile = fopen("./ressources/bd/db_evaluates.csv","r");
     while ( ($lineCsv = fgetcsv($csvFile,1024, ";")) !== FALSE ) {
         $evaluates = new \model\Evaluates(Format::getFormatId(8,$lineCsv[0]),Format::getFormatId(8,$lineCsv[1]),$lineCsv[2]);
         $evaluatesDao->create($evaluates);
+        $addedLine++;
+    } */
+
+    //Pour la mise à jour des livres
+    $csvFile = fopen("./ressources/bd/db_book.csv","r");
+    $lineCsv = fgetcsv($csvFile,1024, ";");
+    while ( ($lineCsv = fgetcsv($csvFile,1024, ";")) !== FALSE ) {
+
+        $book = new Book($lineCsv[0], utf8_encode($lineCsv[1]), utf8_encode($lineCsv[2]),
+        utf8_encode($lineCsv[3]), (int)$lineCsv[4], (float)$lineCsv[5],
+        "http://bookin.alwaysdata.net/ressources/bd/bookImages/".utf8_encode($lineCsv[9])."/".utf8_encode($lineCsv[6]),
+        explode(",",utf8_encode($lineCsv[7])),utf8_encode($lineCsv[8]));
+        $bookDao->update($book);
         $addedLine++;
     }
 
